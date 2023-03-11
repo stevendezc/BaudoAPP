@@ -8,6 +8,7 @@
 
 import SwiftUI
 import FirebaseAuth
+import GoogleSignIn
 
 
 struct Login: View {
@@ -35,6 +36,12 @@ struct Login: View {
                     
                     Image("AccederFacebook")
                     Image("AccederGoogle")
+//                    Button(action: signInWithGoogle{
+//                        Text("Email")
+//                    }
+                  
+                        
+                    
                     Image("AccederApple")
                    
                     TextField("Email", text: $email)

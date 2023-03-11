@@ -7,10 +7,12 @@
 import SwiftUI
 import Firebase
 import FirebaseFirestore
+import GoogleSignIn
 
 @main
 struct BaudoApApp: App {
     @StateObject var contentImage = ContentImage()
+    @UIApplicationDelegateAdaptor(AppdDelegate.self) var appDelegate
     
     init(){
         FirebaseApp.configure()
@@ -25,4 +27,13 @@ struct BaudoApApp: App {
                 .environmentObject(contentImage)
         }
     }
+}
+
+class AppdDelegate: NSObject,UIApplicationDelegate{
+    func application(_ app: UIApplication,
+                     open url: URL,
+                     options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
+      return GIDSignIn.sharedInstance.handle(url)
+    }
+
 }

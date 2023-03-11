@@ -27,6 +27,8 @@
 		5C52C73629BCE29D002231F2 /* Tienda.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C52C73529BCE29D002231F2 /* Tienda.swift */; };
 		5C52C73829BCE2BA002231F2 /* Comunidad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C52C73729BCE2BA002231F2 /* Comunidad.swift */; };
 		5C52C74029BCEFA6002231F2 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 5C52C73F29BCEFA6002231F2 /* SDWebImageSwiftUI */; };
+		5C90A5B229BD078D0031FF14 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 5C90A5B129BD078D0031FF14 /* GoogleSignIn */; };
+		5C90A5B429BD078D0031FF14 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5C90A5B329BD078D0031FF14 /* GoogleSignInSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +49,7 @@
 		5C52C73329BCE280002231F2 /* Eventos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Eventos.swift; sourceTree = "<group>"; };
 		5C52C73529BCE29D002231F2 /* Tienda.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tienda.swift; sourceTree = "<group>"; };
 		5C52C73729BCE2BA002231F2 /* Comunidad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comunidad.swift; sourceTree = "<group>"; };
+		5C90A5B529BD07BD0031FF14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,8 +57,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C90A5B229BD078D0031FF14 /* GoogleSignIn in Frameworks */,
 				5C52C74029BCEFA6002231F2 /* SDWebImageSwiftUI in Frameworks */,
 				5C52C71B29BCDEDF002231F2 /* FirebaseAuth in Frameworks */,
+				5C90A5B429BD078D0031FF14 /* GoogleSignInSwift in Frameworks */,
 				5C52C71D29BCDEDF002231F2 /* FirebaseFirestore in Frameworks */,
 				5C52C71F29BCDEE0002231F2 /* FirebaseStorage in Frameworks */,
 			);
@@ -83,6 +88,7 @@
 		5C52C70829BCD8CD002231F2 /* BaudoAP */ = {
 			isa = PBXGroup;
 			children = (
+				5C90A5B529BD07BD0031FF14 /* Info.plist */,
 				5C52C70929BCD8CD002231F2 /* BaudoAPApp.swift */,
 				5C52C72029BCE1A5002231F2 /* ViewModels */,
 				5C52C70B29BCD8CD002231F2 /* ContentView.swift */,
@@ -156,6 +162,8 @@
 				5C52C71C29BCDEDF002231F2 /* FirebaseFirestore */,
 				5C52C71E29BCDEDF002231F2 /* FirebaseStorage */,
 				5C52C73F29BCEFA6002231F2 /* SDWebImageSwiftUI */,
+				5C90A5B129BD078D0031FF14 /* GoogleSignIn */,
+				5C90A5B329BD078D0031FF14 /* GoogleSignInSwift */,
 			);
 			productName = BaudoAP;
 			productReference = 5C52C70629BCD8CD002231F2 /* BaudoAP.app */;
@@ -188,6 +196,7 @@
 			packageReferences = (
 				5C52C71929BCDEDF002231F2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				5C52C73E29BCEFA5002231F2 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
+				5C90A5B029BD078D0031FF14 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 			);
 			productRefGroup = 5C52C70729BCD8CD002231F2 /* Products */;
 			projectDirPath = "";
@@ -360,6 +369,7 @@
 				DEVELOPMENT_TEAM = Y68B267CDH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BaudoAP/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -390,6 +400,7 @@
 				DEVELOPMENT_TEAM = Y68B267CDH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BaudoAP/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -449,6 +460,14 @@
 				version = 2.0.0;
 			};
 		};
+		5C90A5B029BD078D0031FF14 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/GoogleSignIn-iOS.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -471,6 +490,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 5C52C73E29BCEFA5002231F2 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
 			productName = SDWebImageSwiftUI;
+		};
+		5C90A5B129BD078D0031FF14 /* GoogleSignIn */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5C90A5B029BD078D0031FF14 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignIn;
+		};
+		5C90A5B329BD078D0031FF14 /* GoogleSignInSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5C90A5B029BD078D0031FF14 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignInSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
