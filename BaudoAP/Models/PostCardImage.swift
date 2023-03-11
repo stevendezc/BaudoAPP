@@ -7,7 +7,7 @@
 
 import SwiftUI
 import SDWebImageSwiftUI
-import Firebase 
+import Firebase
 
 struct PostCard: View {
     
