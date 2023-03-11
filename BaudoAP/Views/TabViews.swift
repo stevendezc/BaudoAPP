@@ -29,20 +29,21 @@ struct TabViews: View {
                         Button("LogOut") {
                             logout()
                         }
-                        
+                        Text(colorScheme == .dark ? "Dark" : "light")
                                                 
                     }
                     .padding()
                      .frame(maxWidth: .infinity, alignment: .leading)
-                     .foregroundColor(Color(white: 1.0))
+                     .foregroundColor(Color("Text"))
 
                 }
                 
-                Image("LogoBaudoO").foregroundColor(.white)
+                Image("LogoBaudoO")
                 
-                Text(colorScheme == .dark ? "Dark" : "light").foregroundColor(.white)
                 
-            }.background(Color.black)
+                
+            }
+//            .background(Color.black)
              .overlay(Rectangle().frame(width: nil, height: 1, alignment: .bottom).foregroundColor(Color.yellow), alignment: .bottom)
              
 
