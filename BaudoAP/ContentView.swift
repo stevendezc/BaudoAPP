@@ -13,7 +13,9 @@ struct ContentView: View {
             Image(systemName: "globe")
                 .imageScale(.large)
                 .foregroundColor(.accentColor)
-            Text("Hello, world! this is baudo app first setting")
+            Text("Hello, world! this is baudo app first setting and commit")
+            Text("Hello, Again")
+            
         }
         .padding()
     }
