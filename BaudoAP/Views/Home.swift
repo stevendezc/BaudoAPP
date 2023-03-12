@@ -15,6 +15,8 @@ struct Home: View {
         
         NavigationView{
             ScrollView {
+                
+                if contentImage.posts.Tipo
                 ForEach(contentImage.posts) {post in
                     PostCardImage(model: post)
                 }
