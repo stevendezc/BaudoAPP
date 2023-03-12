@@ -7,7 +7,6 @@
 
 import SwiftUI
 import SDWebImageSwiftUI
-import Firebase
 
 struct PostCardImage: View {
     
@@ -16,10 +15,10 @@ struct PostCardImage: View {
     
     var body: some View {
         VStack{
-            AsyncImage(url: URL(string: model.Url))
+            WebImage(url: URL(string: model.Url))
                 .frame(maxWidth: .infinity, maxHeight: 300)
-                .resizable()
-                .aspectRatio(contentMode: .fit)
+//                .resizable()
+                .aspectRatio(contentMode: .fill)
                 .border(Color.red, width: 3)
                 
                 .cornerRadius(30)

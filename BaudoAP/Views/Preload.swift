@@ -8,8 +8,6 @@
 import SwiftUI
 
 
-import SwiftUI
-
 struct Preload: View {
     @State var isActive : Bool = false
     @State private var size = 0.7

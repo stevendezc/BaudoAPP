@@ -12,7 +12,7 @@ import GoogleSignIn
 
 
 struct Login: View {
-    @EnvironmentObject var usersettings: UserSettings
+//    @EnvironmentObject var usersettings: UserSettings
     
     @State private var email = ""
     @State private var password = ""
