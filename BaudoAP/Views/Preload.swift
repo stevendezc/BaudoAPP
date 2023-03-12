@@ -10,7 +10,7 @@ import SwiftUI
 
 import SwiftUI
 
-struct PreloadScreenView: View {
+struct Preload: View {
     @State var isActive : Bool = false
     @State private var size = 0.7
     @State private var opacity = 0.6
@@ -18,7 +18,7 @@ struct PreloadScreenView: View {
     // Customise your SplashScreen here
     var body: some View {
         if isActive {
-            Login()
+            Base()
         } else {
             VStack {
                 VStack {
@@ -43,7 +43,7 @@ struct PreloadScreenView: View {
                         .ignoresSafeArea()
                 )
             .onAppear {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
                     withAnimation {
                         self.isActive = true
                     }
@@ -53,8 +53,8 @@ struct PreloadScreenView: View {
     }
 }
 
-struct PreloadScreenView_Previews: PreviewProvider {
+struct Preload_Previews: PreviewProvider {
     static var previews: some View {
-        PreloadScreenView()
+        Preload()
     }
 }

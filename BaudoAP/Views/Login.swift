@@ -12,6 +12,8 @@ import GoogleSignIn
 
 
 struct Login: View {
+    @EnvironmentObject var usersettings: UserSettings
+    
     @State private var email = ""
     @State private var password = ""
     @State var userIsLogged = false
@@ -77,7 +79,7 @@ struct Login: View {
                     .ignoresSafeArea()
             )
             //TituloNavigation
-            .navigationTitle("Sign In")
+//            .navigationTitle("Sign In")
         }
         .onAppear {
             Auth.auth().addStateDidChangeListener { auth, user in
@@ -94,6 +96,7 @@ struct Login: View {
             print(error!.localizedDescription)
         }
         }
+        usersettings.isLoggedIn = true
     }
 //
     func register(){

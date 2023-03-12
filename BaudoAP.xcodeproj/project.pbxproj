@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5C25BC2A29BD6349003667A9 /* Base.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C25BC2929BD6349003667A9 /* Base.swift */; };
+		5C25BC2C29BD6590003667A9 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C25BC2B29BD6590003667A9 /* UserSettings.swift */; };
 		5C52C70A29BCD8CD002231F2 /* BaudoAPApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C52C70929BCD8CD002231F2 /* BaudoAPApp.swift */; };
-		5C52C70C29BCD8CD002231F2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C52C70B29BCD8CD002231F2 /* ContentView.swift */; };
 		5C52C70E29BCD8CE002231F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C52C70D29BCD8CE002231F2 /* Assets.xcassets */; };
 		5C52C71129BCD8CE002231F2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C52C71029BCD8CE002231F2 /* Preview Assets.xcassets */; };
 		5C52C71829BCDCED002231F2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5C52C71729BCDCED002231F2 /* GoogleService-Info.plist */; };
@@ -18,7 +19,6 @@
 		5C52C72229BCE1B6002231F2 /* ContentImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C52C72129BCE1B6002231F2 /* ContentImage.swift */; };
 		5C52C72529BCE1DF002231F2 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C52C72429BCE1DF002231F2 /* Post.swift */; };
 		5C52C72729BCE1F2002231F2 /* PostCardImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C52C72629BCE1F2002231F2 /* PostCardImage.swift */; };
-		5C52C72A29BCE21F002231F2 /* TabViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C52C72929BCE21F002231F2 /* TabViews.swift */; };
 		5C52C72C29BCE23C002231F2 /* Preload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C52C72B29BCE23C002231F2 /* Preload.swift */; };
 		5C52C72E29BCE24F002231F2 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C52C72D29BCE24F002231F2 /* Login.swift */; };
 		5C52C73029BCE263002231F2 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C52C72F29BCE263002231F2 /* Home.swift */; };
@@ -29,19 +29,20 @@
 		5C52C74029BCEFA6002231F2 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 5C52C73F29BCEFA6002231F2 /* SDWebImageSwiftUI */; };
 		5C90A5B229BD078D0031FF14 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 5C90A5B129BD078D0031FF14 /* GoogleSignIn */; };
 		5C90A5B429BD078D0031FF14 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5C90A5B329BD078D0031FF14 /* GoogleSignInSwift */; };
+		5C90A5B729BD4B600031FF14 /* TabViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C90A5B629BD4B600031FF14 /* TabViews.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5C25BC2929BD6349003667A9 /* Base.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Base.swift; sourceTree = "<group>"; };
+		5C25BC2B29BD6590003667A9 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
 		5C52C70629BCD8CD002231F2 /* BaudoAP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BaudoAP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C52C70929BCD8CD002231F2 /* BaudoAPApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaudoAPApp.swift; sourceTree = "<group>"; };
-		5C52C70B29BCD8CD002231F2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		5C52C70D29BCD8CE002231F2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5C52C71029BCD8CE002231F2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		5C52C71729BCDCED002231F2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5C52C72129BCE1B6002231F2 /* ContentImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentImage.swift; sourceTree = "<group>"; };
 		5C52C72429BCE1DF002231F2 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		5C52C72629BCE1F2002231F2 /* PostCardImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCardImage.swift; sourceTree = "<group>"; };
-		5C52C72929BCE21F002231F2 /* TabViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViews.swift; sourceTree = "<group>"; };
 		5C52C72B29BCE23C002231F2 /* Preload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preload.swift; sourceTree = "<group>"; };
 		5C52C72D29BCE24F002231F2 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		5C52C72F29BCE263002231F2 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
@@ -50,6 +51,7 @@
 		5C52C73529BCE29D002231F2 /* Tienda.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tienda.swift; sourceTree = "<group>"; };
 		5C52C73729BCE2BA002231F2 /* Comunidad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comunidad.swift; sourceTree = "<group>"; };
 		5C90A5B529BD07BD0031FF14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		5C90A5B629BD4B600031FF14 /* TabViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViews.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,7 +93,6 @@
 				5C90A5B529BD07BD0031FF14 /* Info.plist */,
 				5C52C70929BCD8CD002231F2 /* BaudoAPApp.swift */,
 				5C52C72029BCE1A5002231F2 /* ViewModels */,
-				5C52C70B29BCD8CD002231F2 /* ContentView.swift */,
 				5C52C72329BCE1D1002231F2 /* Models */,
 				5C52C70D29BCD8CE002231F2 /* Assets.xcassets */,
 				5C52C72829BCE213002231F2 /* Views */,
@@ -113,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				5C52C72129BCE1B6002231F2 /* ContentImage.swift */,
+				5C25BC2B29BD6590003667A9 /* UserSettings.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -129,9 +131,10 @@
 		5C52C72829BCE213002231F2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				5C52C72929BCE21F002231F2 /* TabViews.swift */,
+				5C25BC2929BD6349003667A9 /* Base.swift */,
 				5C52C72B29BCE23C002231F2 /* Preload.swift */,
 				5C52C72D29BCE24F002231F2 /* Login.swift */,
+				5C90A5B629BD4B600031FF14 /* TabViews.swift */,
 				5C52C72F29BCE263002231F2 /* Home.swift */,
 				5C52C73129BCE270002231F2 /* Navegantes.swift */,
 				5C52C73529BCE29D002231F2 /* Tienda.swift */,
@@ -227,15 +230,16 @@
 			files = (
 				5C52C73629BCE29D002231F2 /* Tienda.swift in Sources */,
 				5C52C72229BCE1B6002231F2 /* ContentImage.swift in Sources */,
+				5C90A5B729BD4B600031FF14 /* TabViews.swift in Sources */,
 				5C52C73229BCE270002231F2 /* Navegantes.swift in Sources */,
-				5C52C70C29BCD8CD002231F2 /* ContentView.swift in Sources */,
-				5C52C72A29BCE21F002231F2 /* TabViews.swift in Sources */,
 				5C52C70A29BCD8CD002231F2 /* BaudoAPApp.swift in Sources */,
+				5C25BC2A29BD6349003667A9 /* Base.swift in Sources */,
 				5C52C73029BCE263002231F2 /* Home.swift in Sources */,
 				5C52C73829BCE2BA002231F2 /* Comunidad.swift in Sources */,
 				5C52C73429BCE280002231F2 /* Eventos.swift in Sources */,
 				5C52C72529BCE1DF002231F2 /* Post.swift in Sources */,
 				5C52C72729BCE1F2002231F2 /* PostCardImage.swift in Sources */,
+				5C25BC2C29BD6590003667A9 /* UserSettings.swift in Sources */,
 				5C52C72C29BCE23C002231F2 /* Preload.swift in Sources */,
 				5C52C72E29BCE24F002231F2 /* Login.swift in Sources */,
 			);

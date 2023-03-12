@@ -11,8 +11,10 @@ import Foundation
 import SwiftUI
 import FirebaseFirestore
 import Firebase
+import FirebaseAuth
 
 class ContentImage: ObservableObject {
+
     @Published var posts: [Post] = []
     
     init() {
@@ -42,7 +44,7 @@ class ContentImage: ObservableObject {
                     let Descripcion = data["Descripcion"] as? String ?? ""
                     let Categoria = data["Categoria"] as? String ?? ""
                     
-                    let post = Post(id: id,Name: Name,Url: Url, Tipo: Tipo, Info: Info, Descripcion: Descripcion,Categoria: Categoria)
+                    let post = Post(id: id,Name: Name,Url: Url, Tipo: Tipo, Descripcion: Descripcion,Categoria: Categoria)
                     self.posts.append(post)
                     
                 }
@@ -50,5 +52,9 @@ class ContentImage: ObservableObject {
             
         }
     }
+    
+    
+    
+    
 }
 

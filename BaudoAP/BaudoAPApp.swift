@@ -12,7 +12,7 @@ import GoogleSignIn
 @main
 struct BaudoApApp: App {
     @StateObject var contentImage = ContentImage()
-    @UIApplicationDelegateAdaptor(AppdDelegate.self) var appDelegate
+//    @UIApplicationDelegateAdaptor(AppdDelegate.self) var appDelegate
     
     init(){
         FirebaseApp.configure()
@@ -21,19 +21,22 @@ struct BaudoApApp: App {
     var body: some Scene {
         WindowGroup {
             //Llama al preload screen view
-            PreloadScreenView()
+            //PreloadScreenView()
             //Call Straight Home
             //TabViews()
+           Preload()
+                .environmentObject(UserSettings())
                 .environmentObject(contentImage)
+                
         }
     }
 }
-
-class AppdDelegate: NSObject,UIApplicationDelegate{
-    func application(_ app: UIApplication,
-                     open url: URL,
-                     options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
-      return GIDSignIn.sharedInstance.handle(url)
-    }
-
-}
+//
+//class AppdDelegate: NSObject,UIApplicationDelegate{
+//    func application(_ app: UIApplication,
+//                     open url: URL,
+//                     options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
+//      return GIDSignIn.sharedInstance.handle(url)
+//    }
+//
+//}

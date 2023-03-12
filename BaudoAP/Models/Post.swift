@@ -13,7 +13,6 @@ struct Post: Identifiable {
     var Name: String
     var Url: String
     var Tipo:String
-    var Info: String
     var Descripcion: String
     var Categoria: String
 }

@@ -16,7 +16,7 @@ struct Home: View {
         NavigationView{
             ScrollView {
                 ForEach(contentImage.posts) {post in
-                    PostCard(model: post)
+                    PostCardImage(model: post)
                 }
                 
                 

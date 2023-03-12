@@ -5,16 +5,14 @@
 //  Created by Codez on 11/03/23.
 //
 
-
 import SwiftUI
 import FirebaseAuth
 
 
 struct TabViews: View {
-    // Defines colorSceme 9i9
-    @Environment(\.colorScheme) var colorScheme
     
-    @State var userIsLogged = true
+    @Environment(\.colorScheme) var colorScheme
+    @EnvironmentObject var usersettings: UserSettings
     
     
     var body: some View {
@@ -29,12 +27,13 @@ struct TabViews: View {
                         Button("LogOut") {
                             logout()
                         }
-                        Text(colorScheme == .dark ? "Dark" : "light")
+                        Text(colorScheme == .dark ? "Dark" : "light").foregroundColor(.white)
+                        
                                                 
                     }
                     .padding()
                      .frame(maxWidth: .infinity, alignment: .leading)
-                     .foregroundColor(Color("Text"))
+                     
 
                 }
                 
@@ -81,7 +80,7 @@ struct TabViews: View {
         .onAppear {
             Auth.auth().addStateDidChangeListener { auth, user in
                 if user != nil{
-                    userIsLogged.toggle()
+                    usersettings.isLoggedIn = true
                 }
 
             }
@@ -90,9 +89,11 @@ struct TabViews: View {
     func logout(){
         try! Auth.auth().signOut()
         print("Logged out button pressed")
-        userIsLogged = false
+        usersettings.isLoggedIn = false
+        
         
     }
+    
 }// FIN struct TabViews
 
 struct TabViews_Previews: PreviewProvider {
@@ -100,7 +101,3 @@ struct TabViews_Previews: PreviewProvider {
         TabViews()
     }
 }
-
-
-
-
