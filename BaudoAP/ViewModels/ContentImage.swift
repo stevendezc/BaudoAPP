@@ -14,7 +14,6 @@ import Firebase
 import FirebaseAuth
 
 class ContentImage: ObservableObject {
-
     @Published var posts: [Post] = []
     
     init() {
@@ -40,7 +39,6 @@ class ContentImage: ObservableObject {
                     let Name = data["Name"] as? String ?? ""
                     let Url = data["Url"] as? String ?? ""
                     let Tipo = data["Tipo"] as? String ?? ""
-                    let Info = data["Info"] as? String ?? ""
                     let Descripcion = data["Descripcion"] as? String ?? ""
                     let Categoria = data["Categoria"] as? String ?? ""
                     

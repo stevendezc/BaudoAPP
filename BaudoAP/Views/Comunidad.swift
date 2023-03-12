@@ -11,13 +11,13 @@ struct Comunidad: View {
     var body: some View {
         NavigationView{
             ZStack{
-                Color.black.edgesIgnoringSafeArea(.all)
+                
                 VStack{
-                    Text("Welcome to").foregroundColor(.white)
-                    Text("COMUNIDAD").foregroundColor(.white)
+                    Text("Welcome to")
+                    Text("COMUNIDAD")
                 }
                 //TituloNavigation
-                .navigationTitle("Comunidad").foregroundColor(.white)
+                .navigationTitle("Comunidad")
             }
         }
     }

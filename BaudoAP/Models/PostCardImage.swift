@@ -15,7 +15,7 @@ struct PostCardImage: View {
     
     var body: some View {
         VStack (alignment: .leading){
-            WebImage(url:URL(string: model.Url))
+           WebImage(url:URL(string: model.Url))
                 .resizable()
                 .aspectRatio(contentMode: .fill)
                 //.border(Color.red, width: 3)
@@ -23,9 +23,9 @@ struct PostCardImage: View {
                 .cornerRadius(30.0)
             Text(model.Name).font(.title).bold().padding(.leading, 10).foregroundColor(Color("Text"))
             Text(model.Descripcion).padding(.top,-10).padding(.leading, 10).font(.system(size:12))
+            Text(model.Categoria).padding(.top,-10).padding(.leading, 10).font(.system(size:13))
         }
         .padding(20)
-        .foregroundColor(.yellow)
     }
 }
 

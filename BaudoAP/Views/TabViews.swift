@@ -18,36 +18,26 @@ struct TabViews: View {
     var body: some View {
         
         VStack(spacing: 0){
+
             HStack{
-                
-                HStack{
                     Image("Cara1")
                         
                     Menu("Hola\nIsabella") {
                         Button("LogOut") {
                             logout()
                         }
-                        Text(colorScheme == .dark ? "Dark" : "light").foregroundColor(.white)
+                        Text(colorScheme == .dark ? "Dark" : "Light").foregroundColor(.white)
                         
                                                 
-                    }
-                    .padding()
-                     .frame(maxWidth: .infinity, alignment: .leading)
-                     
-
-                }
+                    }.frame(width: 100)
+                    .padding(10)
+                    Spacer()
+                    Image("LogoBaudoO").frame(maxWidth: .infinity, alignment: .trailing)
                 
-                Image("LogoBaudoO")
+            }.padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
+                 .frame(maxWidth: .infinity, alignment: .leading)
+                 .overlay(Rectangle().frame(width: nil, height: 1, alignment: .bottom).foregroundColor(Color.yellow), alignment: .bottom)
                 
-                
-                
-            }
-//            .background(Color.black)
-             .overlay(Rectangle().frame(width: nil, height: 1, alignment: .bottom).foregroundColor(Color.yellow), alignment: .bottom)
-             
-
-            
-            
             
             TabView{
                 Home()

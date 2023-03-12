@@ -9,7 +9,7 @@ import SwiftUI
 
 struct Base: View {
     @EnvironmentObject var usersettings: UserSettings
-    
+     
     var body: some View {
         if usersettings.isLoggedIn {
             TabViews()

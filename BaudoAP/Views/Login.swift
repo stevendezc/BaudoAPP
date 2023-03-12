@@ -19,7 +19,7 @@ struct Login: View {
     @State var userIsLogged = false
     
     var body: some View {
-        if userIsLogged {
+        if usersettings.isLoggedIn {
             TabViews()
         } else {
             content
@@ -131,3 +131,4 @@ extension View {
         }
     }
 }
+

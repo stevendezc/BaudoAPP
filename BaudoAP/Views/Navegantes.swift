@@ -11,13 +11,12 @@ struct Navegantes: View {
     var body: some View {
         NavigationView{
             ZStack{
-                Color.black.edgesIgnoringSafeArea(.all)
                 VStack{
-                    Text("Welcome to").foregroundColor(.white)
-                    Text("NAVEGANTES").foregroundColor(.white)
+                    Text("Welcome to")
+                    Text("NAVEGANTES")
                 }
                 //TituloNavigation
-                .navigationTitle("Navegantes").foregroundColor(.white)
+                .navigationTitle("Navegantes")
             }
         }
     }

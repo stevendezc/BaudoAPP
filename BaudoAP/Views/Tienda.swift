@@ -12,10 +12,10 @@ struct Tienda: View {
     var body: some View {
         NavigationView{
             ZStack{
-                Color.black.edgesIgnoringSafeArea(.all)
+                
                 VStack{
                     ScrollView{
-                        Image("TiendaImage")
+                        Image("Tienda")
                             .padding(15)
                     }
                     

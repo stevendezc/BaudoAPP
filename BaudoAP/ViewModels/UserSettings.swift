@@ -9,4 +9,4 @@ import Foundation
 
 class UserSettings: ObservableObject {
     @Published var isLoggedIn = false
-}
+} 
