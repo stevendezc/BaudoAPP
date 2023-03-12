@@ -71,6 +71,7 @@ struct TabViews: View {
             Auth.auth().addStateDidChangeListener { auth, user in
                 if user != nil{
                     usersettings.isLoggedIn = true
+                    print(user?.email ?? "Na")
                 }
 
             }

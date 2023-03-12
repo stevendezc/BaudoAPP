@@ -26,10 +26,10 @@
 		5C52C73429BCE280002231F2 /* Eventos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C52C73329BCE280002231F2 /* Eventos.swift */; };
 		5C52C73629BCE29D002231F2 /* Tienda.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C52C73529BCE29D002231F2 /* Tienda.swift */; };
 		5C52C73829BCE2BA002231F2 /* Comunidad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C52C73729BCE2BA002231F2 /* Comunidad.swift */; };
-		5C52C74029BCEFA6002231F2 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 5C52C73F29BCEFA6002231F2 /* SDWebImageSwiftUI */; };
 		5C90A5B229BD078D0031FF14 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 5C90A5B129BD078D0031FF14 /* GoogleSignIn */; };
 		5C90A5B429BD078D0031FF14 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5C90A5B329BD078D0031FF14 /* GoogleSignInSwift */; };
 		5C90A5B729BD4B600031FF14 /* TabViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C90A5B629BD4B600031FF14 /* TabViews.swift */; };
+		5CE0FEB529BE0C2900711866 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 5CE0FEB429BE0C2900711866 /* SDWebImageSwiftUI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,8 +59,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CE0FEB529BE0C2900711866 /* SDWebImageSwiftUI in Frameworks */,
 				5C90A5B229BD078D0031FF14 /* GoogleSignIn in Frameworks */,
-				5C52C74029BCEFA6002231F2 /* SDWebImageSwiftUI in Frameworks */,
 				5C52C71B29BCDEDF002231F2 /* FirebaseAuth in Frameworks */,
 				5C90A5B429BD078D0031FF14 /* GoogleSignInSwift in Frameworks */,
 				5C52C71D29BCDEDF002231F2 /* FirebaseFirestore in Frameworks */,
@@ -164,9 +164,9 @@
 				5C52C71A29BCDEDF002231F2 /* FirebaseAuth */,
 				5C52C71C29BCDEDF002231F2 /* FirebaseFirestore */,
 				5C52C71E29BCDEDF002231F2 /* FirebaseStorage */,
-				5C52C73F29BCEFA6002231F2 /* SDWebImageSwiftUI */,
 				5C90A5B129BD078D0031FF14 /* GoogleSignIn */,
 				5C90A5B329BD078D0031FF14 /* GoogleSignInSwift */,
+				5CE0FEB429BE0C2900711866 /* SDWebImageSwiftUI */,
 			);
 			productName = BaudoAP;
 			productReference = 5C52C70629BCD8CD002231F2 /* BaudoAP.app */;
@@ -198,8 +198,8 @@
 			mainGroup = 5C52C6FD29BCD8CD002231F2;
 			packageReferences = (
 				5C52C71929BCDEDF002231F2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
-				5C52C73E29BCEFA5002231F2 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 				5C90A5B029BD078D0031FF14 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
+				5CE0FEB329BE0C2900711866 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 			);
 			productRefGroup = 5C52C70729BCD8CD002231F2 /* Products */;
 			projectDirPath = "";
@@ -379,7 +379,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -410,7 +410,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -456,20 +456,20 @@
 				kind = branch;
 			};
 		};
-		5C52C73E29BCEFA5002231F2 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI.git";
-			requirement = {
-				kind = exactVersion;
-				version = 2.0.0;
-			};
-		};
 		5C90A5B029BD078D0031FF14 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/google/GoogleSignIn-iOS.git";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 7.0.0;
+			};
+		};
+		5CE0FEB329BE0C2900711866 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI.git";
+			requirement = {
+				branch = master;
+				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -490,11 +490,6 @@
 			package = 5C52C71929BCDEDF002231F2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseStorage;
 		};
-		5C52C73F29BCEFA6002231F2 /* SDWebImageSwiftUI */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 5C52C73E29BCEFA5002231F2 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
-			productName = SDWebImageSwiftUI;
-		};
 		5C90A5B129BD078D0031FF14 /* GoogleSignIn */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 5C90A5B029BD078D0031FF14 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
@@ -504,6 +499,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 5C90A5B029BD078D0031FF14 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
 			productName = GoogleSignInSwift;
+		};
+		5CE0FEB429BE0C2900711866 /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5CE0FEB329BE0C2900711866 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
