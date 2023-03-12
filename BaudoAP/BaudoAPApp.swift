@@ -7,13 +7,13 @@
 import SwiftUI
 import Firebase
 import FirebaseFirestore
-import GoogleSignIn
+//import GoogleSignIn
 
 @main
 struct BaudoApApp: App {
     @StateObject var contentImage = ContentImage()
     
-    @StateObject var usersettings = UserSettings()
+//    @StateObject var usersettings = UserSettings()
     
     init(){
         FirebaseApp.configure()
@@ -21,13 +21,9 @@ struct BaudoApApp: App {
     
     var body: some Scene {
         WindowGroup {
-            //Llama al preload screen view
-            //PreloadScreenView()
-            //Call Straight Home
-            //TabViews()
+         // Calls this view first
            Preload()
                 .environmentObject(contentImage)
-                .environmentObject(UserSettings())
         }
     }
 }

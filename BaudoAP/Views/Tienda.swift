@@ -11,19 +11,15 @@ import SwiftUI
 struct Tienda: View {
     var body: some View {
         NavigationView{
-            ZStack{
-                
-                VStack{
                     ScrollView{
                         Image("Tienda")
-                            .padding(15)
-                    }
-                    
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            
+                    }.padding(20)
                 }
                 //TituloNavigation
                 //.navigationTitle("Tienda")
-            }
-        }
     }
 }
 

@@ -12,7 +12,11 @@ import FirebaseAuth
 struct TabViews: View {
     
     @Environment(\.colorScheme) var colorScheme
-    @EnvironmentObject var usersettings: UserSettings
+    
+    @Binding var userIsLogged : Bool
+    
+    @ObservedObject var contentImage = ContentImage()
+//    @EnvironmentObject var usersettings: UserSettings
     
     
     var body: some View {
@@ -21,12 +25,13 @@ struct TabViews: View {
 
             HStack{
                     Image("Cara1")
-                        
-                    Menu("Hola\nIsabella") {
+                    
+                Menu("Hola\n") {
                         Button("LogOut") {
                             logout()
                         }
                         Text(colorScheme == .dark ? "Dark" : "Light").foregroundColor(.white)
+                    Text("From the user")
                         
                                                 
                     }.frame(width: 100)
@@ -70,8 +75,9 @@ struct TabViews: View {
         .onAppear {
             Auth.auth().addStateDidChangeListener { auth, user in
                 if user != nil{
-                    usersettings.isLoggedIn = true
+                    userIsLogged = true
                     print(user?.email ?? "Na")
+                    print(user?.uid ?? "id not Found")
                 }
 
             }
@@ -80,7 +86,10 @@ struct TabViews: View {
     func logout(){
         try! Auth.auth().signOut()
         print("Logged out button pressed")
-        usersettings.isLoggedIn = false
+        userIsLogged = false
+//        NavigationLink{
+//            Base()
+//        }
         
         
     }
@@ -89,6 +98,6 @@ struct TabViews: View {
 
 struct TabViews_Previews: PreviewProvider {
     static var previews: some View {
-        TabViews()
+        TabViews(userIsLogged: .constant(false))
     }
 }

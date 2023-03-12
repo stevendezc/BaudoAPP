@@ -8,14 +8,16 @@
 import SwiftUI
 
 struct Base: View {
-    @EnvironmentObject var usersettings: UserSettings
-     
+//    @EnvironmentObject var usersettings: UserSettings
+//    Define user is logged or not
+    @State var userIsLogged = false
+    
     var body: some View {
-        if usersettings.isLoggedIn {
-            TabViews()
+        if userIsLogged {
+            TabViews(userIsLogged: $userIsLogged)
             
         }else{
-            Login()
+            Login(userIsLogged: $userIsLogged)
         }
     }
 }

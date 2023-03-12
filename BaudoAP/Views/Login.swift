@@ -12,15 +12,14 @@ import GoogleSignIn
 
 
 struct Login: View {
-//    @EnvironmentObject var usersettings: UserSettings
     
     @State private var email = ""
     @State private var password = ""
-    @State var userIsLogged = false
+    @Binding var userIsLogged : Bool
     
     var body: some View {
-        if usersettings.isLoggedIn {
-            TabViews()
+        if userIsLogged {
+            TabViews(userIsLogged: self.$userIsLogged)
         } else {
             content
         }
@@ -84,7 +83,7 @@ struct Login: View {
         .onAppear {
             Auth.auth().addStateDidChangeListener { auth, user in
                 if user != nil{
-                    userIsLogged.toggle()
+                    userIsLogged = true
                 }
 
             }
@@ -94,9 +93,10 @@ struct Login: View {
     func login(){
         Auth.auth().signIn(withEmail: email, password: password){ result, error in if error != nil {
             print(error!.localizedDescription)
+            }
         }
-        }
-        usersettings.isLoggedIn = true
+        userIsLogged = true
+        print("UserLogged In with email", email)
     }
 //
     func register(){
@@ -113,7 +113,7 @@ struct Login: View {
 
 struct Login_Previews: PreviewProvider {
     static var previews: some View {
-        Login()
+        Login(userIsLogged: .constant(false))
     }
 }
 

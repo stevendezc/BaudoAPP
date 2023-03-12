@@ -16,11 +16,13 @@ import FirebaseAuth
 class ContentImage: ObservableObject {
     @Published var posts: [Post] = []
     
+    
     init() {
         fetchposts()
     }
     
     func fetchposts() {
+        
         // NECESARIO ??
         posts.removeAll()
         let db = Firestore.firestore()
@@ -33,26 +35,32 @@ class ContentImage: ObservableObject {
             
             if let snapshot = snapshot {
                 for document in snapshot.documents {
+                    
+                    
                     let data = document.data()
                     
                     let id = data["id"] as? String ?? ""
-                    let Name = data["Name"] as? String ?? ""
+                    let Autor = data["Autor"] as? String ?? ""
+                    let Lugar = data["Lugar"] as? String ?? ""
                     let Url = data["Url"] as? String ?? ""
                     let Tipo = data["Tipo"] as? String ?? ""
                     let Descripcion = data["Descripcion"] as? String ?? ""
                     let Categoria = data["Categoria"] as? String ?? ""
                     
-                    let post = Post(id: id,Name: Name,Url: Url, Tipo: Tipo, Descripcion: Descripcion,Categoria: Categoria)
+                    let post = Post(id: id,Autor: Autor,Lugar: Lugar, Url: Url, Tipo: Tipo, Descripcion: Descripcion,Categoria: Categoria)
                     self.posts.append(post)
                     
                 }
             }
             
+            
         }
+        
+        var num = 0
+        //TO KNOW HOW MUCH FETCH THERE IS
+        num += 1
+        print("Posts fetched",num)
     }
-    
-    
-    
-    
+   
 }
 
