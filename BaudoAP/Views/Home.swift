@@ -11,6 +11,9 @@ import SDWebImageSwiftUI
 struct Home: View {
     
     @ObservedObject var contentImage = ContentImage()
+    
+    
+    
     @State var selectedTab = 0
     var body: some View {
        
@@ -44,19 +47,20 @@ struct Home: View {
 }
 
 
-    struct Images: View {
-        @ObservedObject var contentImage = ContentImage()
-        var body: some View {
+struct Images: View {
+    @ObservedObject var contentImage = ContentImage()
+    var body: some View {
+        LazyVStack{
             ForEach(/*@START_MENU_TOKEN@*/0 ..< 5/*@END_MENU_TOKEN@*/) { item in
                 ForEach(contentImage.posts) { post in
-                        NavigationLink(destination: PostCardImageDetailView(model: post) , label: {
+                    NavigationLink(destination: PostCardImageDetailView(model: post) , label: {
                         PostCardImage(model: post) } )
                     
                 }
             }
         }
     }
-
+}
 
 
 

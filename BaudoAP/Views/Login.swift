@@ -41,8 +41,6 @@ struct Login: View {
 //                        Text("Email")
 //                    }
                   
-                        
-                    
                     Image("AccederApple")
                    
                     TextField("Email", text: $email)
@@ -57,7 +55,6 @@ struct Login: View {
                         .cornerRadius(20)
                     Button("Acceder") {
                         login()
-                        
                     }
                         .padding(.top)
                     Button("Registrarme"){
@@ -93,9 +90,11 @@ struct Login: View {
     func login(){
         Auth.auth().signIn(withEmail: email, password: password){ result, error in if error != nil {
             print(error!.localizedDescription)
+        }else{
+            userIsLogged = true
             }
         }
-        userIsLogged = true
+        
         print("UserLogged In with email", email)
         
     }

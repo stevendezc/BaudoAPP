@@ -25,19 +25,22 @@ struct PostCardImageDetailView: View {
             WebImage(url: URL(string: model.Url)).resizable()
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .aspectRatio(contentMode: .fit)
-                .cornerRadius(30)
+                .cornerRadius(0)
             
-            Button("Ver Imagen Grande"){ isPresented = true }
+            Button("Ver Imagen Grande"){ isPresented = true }.padding(.top,-30).foregroundColor(Color.red)
                 
             
             Text(model.Lugar).font(.title3).bold().padding(.leading, 10)
             Text(model.Descripcion).padding(.top,-10).padding(.leading, 10).font(.callout).lineLimit(2)
             Text(model.Autor).padding(.top,-10).padding(.leading, 10).font(.caption).padding(.top)
-            }
+            Spacer()
+            }.ignoresSafeArea()
+        
         .fullScreenCover(isPresented: $isPresented, onDismiss: {isPresented = false}, content: { PostCardImageDetailViewImage(model: model, isPresented: $isPresented).ignoresSafeArea()})
         .foregroundColor(Color("Text"))
     
-        .padding(.horizontal,10)
+        .padding(.horizontal,0)
+        
     }
 }
 

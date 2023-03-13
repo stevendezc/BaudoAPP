@@ -24,9 +24,13 @@ class ContentImage: ObservableObject {
     func fetchposts() {
         
         // NECESARIO ??
-        posts.removeAll()
+//        posts.removeAll()
         let db = Firestore.firestore()
-        let ref = db.collection("Posts")
+        let ref = db.collection("Posts").whereField("Tipo", isEqualTo: "Imagen")
+        let ImagenesContent = db.collection("Posts").whereField("Tipo", isEqualTo: "Imagen")
+        
+        print("Estos son los post de Imagenes", ImagenesContent)
+        
         ref.getDocuments { snapshot, error in
             guard error == nil else{
                 print(error!.localizedDescription)

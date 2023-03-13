@@ -33,7 +33,7 @@ struct TabViews: View {
                             logout()
                         }
                         Text(colorScheme == .dark ? "Dark" : "Light").foregroundColor(.white)
-                    Text("From the user,\(user2)")
+                        Text("From the user,\(user2)")
                         
                                                 
                     }.frame(width: 100)
@@ -41,7 +41,8 @@ struct TabViews: View {
                     Spacer()
                     Image("LogoBaudoO").frame(maxWidth: .infinity, alignment: .trailing)
                 
-            }.padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
+            }
+                 .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
                  .frame(maxWidth: .infinity, alignment: .leading)
                  .overlay(Rectangle().frame(width: nil, height: 1, alignment: .bottom).foregroundColor(Color.yellow), alignment: .bottom)
                 
