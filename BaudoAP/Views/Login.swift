@@ -97,6 +97,7 @@ struct Login: View {
         }
         userIsLogged = true
         print("UserLogged In with email", email)
+        
     }
 //
     func register(){

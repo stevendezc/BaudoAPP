@@ -22,12 +22,14 @@ struct Home: View {
                                     Text("Video").tag(1)
                                     Text("Podcast").tag(2)
                                 }.padding()
-                                .pickerStyle(SegmentedPickerStyle())
+                                 .pickerStyle(SegmentedPickerStyle())
+                                 
 
                                 switch(selectedTab) {
                                     case 0: Images()
-                                    case 1: Navegantes()
-                                    case 2: Tienda()
+                                    case 1: Images()
+                                    case 2: Images()
+                                     
                                 
                                 default:
                                     Images()

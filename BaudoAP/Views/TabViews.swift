@@ -16,23 +16,24 @@ struct TabViews: View {
     
     @Binding var userIsLogged : Bool
     
+    
     @ObservedObject var contentImage = ContentImage()
 //    @EnvironmentObject var usersettings: UserSettings
     
     
     var body: some View {
-        var user2 = ""
+        var user2 = "Pepito"
         VStack(spacing: 0){
 
             HStack{
                     Image("Cara1")
                     
-                Menu("Hola\n") {
+                Menu("Hola\n\(user2)") {
                         Button("LogOut") {
                             logout()
                         }
                         Text(colorScheme == .dark ? "Dark" : "Light").foregroundColor(.white)
-                    Text("From the user")
+                    Text("From the user,\(user2)")
                         
                                                 
                     }.frame(width: 100)
