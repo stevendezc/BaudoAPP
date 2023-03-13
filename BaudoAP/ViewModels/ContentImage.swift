@@ -56,10 +56,10 @@ class ContentImage: ObservableObject {
             
         }
         
-        var num = 0
+//        var num = 0
         //TO KNOW HOW MUCH FETCH THERE IS
-        num += 1
-        print("Posts fetched",num)
+//        num += 1
+//        print("Posts fetched",num)
     }
    
 }

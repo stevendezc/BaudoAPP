@@ -13,6 +13,7 @@ struct TabViews: View {
     
     @Environment(\.colorScheme) var colorScheme
     
+    
     @Binding var userIsLogged : Bool
     
     @ObservedObject var contentImage = ContentImage()
@@ -20,7 +21,7 @@ struct TabViews: View {
     
     
     var body: some View {
-        
+        var user2 = ""
         VStack(spacing: 0){
 
             HStack{
@@ -76,8 +77,12 @@ struct TabViews: View {
             Auth.auth().addStateDidChangeListener { auth, user in
                 if user != nil{
                     userIsLogged = true
+                    user2 = user?.uid ?? ""
                     print(user?.email ?? "Na")
                     print(user?.uid ?? "id not Found")
+                    print("Este es el id del usuario ", user?.uid ?? "")
+                }else{
+                    print("Este es el id del usuario que cerro session", user?.uid ?? "")
                 }
 
             }
@@ -87,9 +92,6 @@ struct TabViews: View {
         try! Auth.auth().signOut()
         print("Logged out button pressed")
         userIsLogged = false
-//        NavigationLink{
-//            Base()
-//        }
         
         
     }

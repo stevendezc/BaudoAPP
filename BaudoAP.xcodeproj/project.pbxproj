@@ -30,6 +30,8 @@
 		5C90A5B429BD078D0031FF14 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5C90A5B329BD078D0031FF14 /* GoogleSignInSwift */; };
 		5C90A5B729BD4B600031FF14 /* TabViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C90A5B629BD4B600031FF14 /* TabViews.swift */; };
 		5CE0FEB529BE0C2900711866 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 5CE0FEB429BE0C2900711866 /* SDWebImageSwiftUI */; };
+		5CE0FEB729BEA4C100711866 /* PostCardImageDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE0FEB629BEA4C100711866 /* PostCardImageDetailView.swift */; };
+		5CE0FEB929BEC0BD00711866 /* PostCardImageDetailViewImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE0FEB829BEC0BD00711866 /* PostCardImageDetailViewImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +54,8 @@
 		5C52C73729BCE2BA002231F2 /* Comunidad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comunidad.swift; sourceTree = "<group>"; };
 		5C90A5B529BD07BD0031FF14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		5C90A5B629BD4B600031FF14 /* TabViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViews.swift; sourceTree = "<group>"; };
+		5CE0FEB629BEA4C100711866 /* PostCardImageDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCardImageDetailView.swift; sourceTree = "<group>"; };
+		5CE0FEB829BEC0BD00711866 /* PostCardImageDetailViewImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCardImageDetailViewImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +128,8 @@
 			children = (
 				5C52C72429BCE1DF002231F2 /* Post.swift */,
 				5C52C72629BCE1F2002231F2 /* PostCardImage.swift */,
+				5CE0FEB629BEA4C100711866 /* PostCardImageDetailView.swift */,
+				5CE0FEB829BEC0BD00711866 /* PostCardImageDetailViewImage.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -228,8 +234,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CE0FEB729BEA4C100711866 /* PostCardImageDetailView.swift in Sources */,
 				5C52C73629BCE29D002231F2 /* Tienda.swift in Sources */,
 				5C52C72229BCE1B6002231F2 /* ContentImage.swift in Sources */,
+				5CE0FEB929BEC0BD00711866 /* PostCardImageDetailViewImage.swift in Sources */,
 				5C90A5B729BD4B600031FF14 /* TabViews.swift in Sources */,
 				5C52C73229BCE270002231F2 /* Navegantes.swift in Sources */,
 				5C52C70A29BCD8CD002231F2 /* BaudoAPApp.swift in Sources */,

@@ -17,12 +17,10 @@ struct Home: View {
         
         NavigationView{
                ScrollView {
-//                    Images()
-                    Spacer()
                     Picker("", selection: $selectedTab) {
-                                    Text("First").tag(0)
-                                    Text("Second").tag(1)
-                                    Text("Third").tag(2)
+                                    Text("Imagen").tag(0)
+                                    Text("Video").tag(1)
+                                    Text("Podcast").tag(2)
                                 }.padding()
                                 .pickerStyle(SegmentedPickerStyle())
 
@@ -47,12 +45,16 @@ struct Home: View {
     struct Images: View {
         @ObservedObject var contentImage = ContentImage()
         var body: some View {
-                    ForEach(contentImage.posts) {post in
-                        PostCardImage(model: post)
-                        
+            ForEach(/*@START_MENU_TOKEN@*/0 ..< 5/*@END_MENU_TOKEN@*/) { item in
+                ForEach(contentImage.posts) { post in
+                        NavigationLink(destination: PostCardImageDetailView(model: post) , label: {
+                        PostCardImage(model: post) } )
+                    
+                }
             }
         }
     }
+
 
 
 

@@ -15,19 +15,27 @@ struct PostCardImage: View {
     
     var body: some View {
         
-        VStack(alignment: .leading){
-                WebImage(url: URL(string: model.Url))
-                    .resizable()
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-                    .aspectRatio(contentMode: .fit)
-                
-    //                .border(Color.red, width: 3)
-                    .cornerRadius(30)
-                Text(model.Lugar).font(.title3).bold().padding(.leading, 10).foregroundColor(Color("Text"))
-            Text(model.Descripcion).padding(.top,-10).padding(.leading, 10).font(.callout).lineLimit(2)
+        VStack(alignment: .leading, spacing: 15){
+            WebImage(url: URL(string: model.Url))
+                .resizable()
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .aspectRatio(contentMode: .fit)
+            
+//                .border(Color.red, width: 3)
+                .cornerRadius(30)
+            Text(model.Lugar)
+                .font(.title3)
+                .bold()
+                .padding(.leading, 10)
+            Text(model.Descripcion)
+                .padding(.top,-10)
+                .padding(.leading, 10)
+                .font(.callout)
+                .lineLimit(2)
             Text(model.Autor).padding(.top,-10).padding(.leading, 10).font(.caption).padding(.top)
-            }
-    
+        }
+        .multilineTextAlignment(.leading)
+        .foregroundColor(Color("Text"))
         .padding(.leading,40).padding(.trailing,40).padding(.bottom,30)
     }
 }
