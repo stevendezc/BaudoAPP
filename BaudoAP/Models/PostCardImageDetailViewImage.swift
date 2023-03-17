@@ -16,7 +16,8 @@ struct PostCardImageDetailViewImage: View {
     
     var body: some View {
 
-                ZStack{
+        ZStack(alignment: .topLeading){
+                    
                     ScrollView(.horizontal){
                     WebImage(url: URL(string: model.Url))
                         .resizable()
@@ -27,11 +28,21 @@ struct PostCardImageDetailViewImage: View {
                     //                .border(Color.red, width: 3)
                         
                     }
-                    Button("Close"){
+                   
+                    Button("X"){
                         isPresented = false
-                    }.foregroundColor(.white)
-                        .background(Color.red)
+                    }
+                    .padding(10)
+                        .foregroundColor(.white)
+                        .background(Color.yellow)
+                        .cornerRadius(20)
+                        .font(.system(size: 20))
+                        .padding(40)
+                        
+                   
+                        
             }
+        
         }
 }
 

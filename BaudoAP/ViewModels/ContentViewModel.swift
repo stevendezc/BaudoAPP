@@ -13,7 +13,7 @@ import FirebaseFirestore
 import Firebase
 import FirebaseAuth
 
-class ContentImage: ObservableObject {
+class ContentViewModel: ObservableObject {
     @Published var posts: [Post] = []
     
     
@@ -27,9 +27,9 @@ class ContentImage: ObservableObject {
 //        posts.removeAll()
         let db = Firestore.firestore()
         let ref = db.collection("Posts").whereField("Tipo", isEqualTo: "Imagen")
-        let ImagenesContent = db.collection("Posts").whereField("Tipo", isEqualTo: "Imagen")
+        //let ImagenesContent = db.collection("Posts").whereField("Tipo", isEqualTo: "Imagen")
         
-        print("Estos son los post de Imagenes", ImagenesContent)
+        print("Estos son los post de Imagenes", ref)
         
         ref.getDocuments { snapshot, error in
             guard error == nil else{
@@ -39,8 +39,7 @@ class ContentImage: ObservableObject {
             
             if let snapshot = snapshot {
                 for document in snapshot.documents {
-                    
-                    
+
                     let data = document.data()
                     
                     let id = data["id"] as? String ?? ""
@@ -56,8 +55,6 @@ class ContentImage: ObservableObject {
                     
                 }
             }
-            
-            
         }
         
 //        var num = 0

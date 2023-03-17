@@ -16,7 +16,7 @@
 		5C52C71B29BCDEDF002231F2 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 5C52C71A29BCDEDF002231F2 /* FirebaseAuth */; };
 		5C52C71D29BCDEDF002231F2 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 5C52C71C29BCDEDF002231F2 /* FirebaseFirestore */; };
 		5C52C71F29BCDEE0002231F2 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 5C52C71E29BCDEDF002231F2 /* FirebaseStorage */; };
-		5C52C72229BCE1B6002231F2 /* ContentImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C52C72129BCE1B6002231F2 /* ContentImage.swift */; };
+		5C52C72229BCE1B6002231F2 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C52C72129BCE1B6002231F2 /* ContentViewModel.swift */; };
 		5C52C72529BCE1DF002231F2 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C52C72429BCE1DF002231F2 /* Post.swift */; };
 		5C52C72729BCE1F2002231F2 /* PostCardImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C52C72629BCE1F2002231F2 /* PostCardImage.swift */; };
 		5C52C72C29BCE23C002231F2 /* Preload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C52C72B29BCE23C002231F2 /* Preload.swift */; };
@@ -42,7 +42,7 @@
 		5C52C70D29BCD8CE002231F2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5C52C71029BCD8CE002231F2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		5C52C71729BCDCED002231F2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		5C52C72129BCE1B6002231F2 /* ContentImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentImage.swift; sourceTree = "<group>"; };
+		5C52C72129BCE1B6002231F2 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 		5C52C72429BCE1DF002231F2 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		5C52C72629BCE1F2002231F2 /* PostCardImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCardImage.swift; sourceTree = "<group>"; };
 		5C52C72B29BCE23C002231F2 /* Preload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preload.swift; sourceTree = "<group>"; };
@@ -117,7 +117,7 @@
 		5C52C72029BCE1A5002231F2 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				5C52C72129BCE1B6002231F2 /* ContentImage.swift */,
+				5C52C72129BCE1B6002231F2 /* ContentViewModel.swift */,
 				5C25BC2B29BD6590003667A9 /* UserSettings.swift */,
 			);
 			path = ViewModels;
@@ -236,7 +236,7 @@
 			files = (
 				5CE0FEB729BEA4C100711866 /* PostCardImageDetailView.swift in Sources */,
 				5C52C73629BCE29D002231F2 /* Tienda.swift in Sources */,
-				5C52C72229BCE1B6002231F2 /* ContentImage.swift in Sources */,
+				5C52C72229BCE1B6002231F2 /* ContentViewModel.swift in Sources */,
 				5CE0FEB929BEC0BD00711866 /* PostCardImageDetailViewImage.swift in Sources */,
 				5C90A5B729BD4B600031FF14 /* TabViews.swift in Sources */,
 				5C52C73229BCE270002231F2 /* Navegantes.swift in Sources */,

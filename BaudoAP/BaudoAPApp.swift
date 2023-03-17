@@ -11,7 +11,7 @@ import FirebaseFirestore
 
 @main
 struct BaudoApApp: App {
-    @StateObject var contentImage = ContentImage()
+    @StateObject var contentImage = ContentViewModel()
     
 //    @StateObject var usersettings = UserSettings()
     

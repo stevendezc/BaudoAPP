@@ -11,7 +11,7 @@ import AVKit
 
 struct Home: View {
     
-    @ObservedObject var contentImage = ContentImage()
+    @ObservedObject var contentImage = ContentViewModel()
     
     
     
@@ -25,7 +25,8 @@ struct Home: View {
                                     Text("Imagen").tag(0)
                                     Text("Video").tag(1)
                                     Text("Podcast").tag(2)
-                                }.padding()
+                    }
+                    .padding()
                                  .pickerStyle(SegmentedPickerStyle())
                                  
 
@@ -55,16 +56,17 @@ struct videosContent: View{
                 .frame(width: 400, height: 700, alignment: .center), label: { Text("OpenVideo");  }
     
             )
-        .ignoresSafeArea()
+        
         .onAppear() {
             player.play()
         }
+        
     }
         
 }
 
 struct Images: View {
-    @ObservedObject var contentImage = ContentImage()
+    @ObservedObject var contentImage = ContentViewModel()
     var body: some View {
         LazyVStack{
             ForEach(/*@START_MENU_TOKEN@*/0 ..< 5/*@END_MENU_TOKEN@*/) { item in

@@ -17,7 +17,7 @@ struct TabViews: View {
     @Binding var userIsLogged : Bool
     
     
-    @ObservedObject var contentImage = ContentImage()
+    @ObservedObject var contentImage = ContentViewModel()
 //    @EnvironmentObject var usersettings: UserSettings
     
     

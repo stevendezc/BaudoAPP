@@ -9,7 +9,7 @@ import SwiftUI
 import SDWebImageSwiftUI
 
 struct PostCardImageDetailView: View {
-    @ObservedObject var contentImage = ContentImage()
+    @ObservedObject var contentImage = ContentViewModel()
     var model: Post
     
     @State var isPresented: Bool = false
