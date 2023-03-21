@@ -22,7 +22,7 @@ struct TabViews: View {
     
     
     var body: some View {
-        var user2 = "Pepito"
+        var user2 = "PepitoPerez"
         VStack(spacing: 0){
 
             HStack{
@@ -35,8 +35,9 @@ struct TabViews: View {
                         Text(colorScheme == .dark ? "Dark" : "Light").foregroundColor(.white)
                         Text("From the user,\(user2)")
                         
-                                                
-                    }.frame(width: 100)
+                }
+                .frame(width: 120)
+//                .border(Color.red, width: 3)
                     .padding(10)
                     Spacer()
                     Image("LogoBaudoO").frame(maxWidth: .infinity, alignment: .trailing)

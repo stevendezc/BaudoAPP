@@ -13,28 +13,31 @@ import FirebaseFirestore
 import Firebase
 import FirebaseAuth
 
-class ContentViewModel: ObservableObject {
-    @Published var posts: [Post] = []
+class ContentViewModelVideo: ObservableObject {
+    @Published var postsVideos: [Post] = []
     
     
     init() {
-        fetchposts()
+        fetchpostsVideos()
         
     }
     
 //    Function for Fetch posts from firebase
-    func fetchposts() {
+    func fetchpostsVideos() {
         
         // NECESARIO ??
-       posts.removeAll()
+       postsVideos.removeAll()
         let db = Firestore.firestore()
-        let refImage = db.collection("Posts").whereField("Tipo", isEqualTo: "Imagen")
+        
+        let refVideo = db.collection("Posts").whereField("Tipo", isEqualTo: "Video")
         
         //let ImagenesContent = db.collection("Posts").whereField("Tipo", isEqualTo: "Imagen")
         
 //        print("Estos son los post de Imagenes", refImage)
         
-        refImage.getDocuments { snapshot, error in
+
+        
+        refVideo.getDocuments { snapshot, error in
             guard error == nil else{
                 print(error!.localizedDescription)
                 return
@@ -54,13 +57,12 @@ class ContentViewModel: ObservableObject {
                     let Descripcion = data["Descripcion"] as? String ?? ""
                     let Categoria = data["Categoria"] as? String ?? ""
                     
-                    let post = Post(id: id,Thumb: Thumb, Autor: Autor,Lugar: Lugar, Url: Url, Tipo: Tipo, Descripcion: Descripcion,Categoria: Categoria)
-                    self.posts.append(post)
+                    let post = Post(id: id,Thumb: Thumb,Autor: Autor,Lugar: Lugar, Url: Url, Tipo: Tipo, Descripcion: Descripcion,Categoria: Categoria)
+                    self.postsVideos.append(post)
                     
                 }
             }
         }
-        
         
 
     }

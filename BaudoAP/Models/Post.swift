@@ -10,6 +10,7 @@ import SwiftUI
 
 struct Post: Identifiable {
     var id: String
+    var Thumb: String
     var Autor: String
     var Lugar: String
     var Url: String

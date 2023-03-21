@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		5C25BC2A29BD6349003667A9 /* Base.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C25BC2929BD6349003667A9 /* Base.swift */; };
 		5C25BC2C29BD6590003667A9 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C25BC2B29BD6590003667A9 /* UserSettings.swift */; };
+		5C42F23329C95864009099B7 /* PostCardVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C42F23229C95864009099B7 /* PostCardVideo.swift */; };
+		5C42F23529C95F6E009099B7 /* ContentViewModelVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C42F23429C95F6E009099B7 /* ContentViewModelVideo.swift */; };
 		5C52C70A29BCD8CD002231F2 /* BaudoAPApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C52C70929BCD8CD002231F2 /* BaudoAPApp.swift */; };
 		5C52C70E29BCD8CE002231F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C52C70D29BCD8CE002231F2 /* Assets.xcassets */; };
 		5C52C71129BCD8CE002231F2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C52C71029BCD8CE002231F2 /* Preview Assets.xcassets */; };
@@ -37,6 +39,8 @@
 /* Begin PBXFileReference section */
 		5C25BC2929BD6349003667A9 /* Base.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Base.swift; sourceTree = "<group>"; };
 		5C25BC2B29BD6590003667A9 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
+		5C42F23229C95864009099B7 /* PostCardVideo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCardVideo.swift; sourceTree = "<group>"; };
+		5C42F23429C95F6E009099B7 /* ContentViewModelVideo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModelVideo.swift; sourceTree = "<group>"; };
 		5C52C70629BCD8CD002231F2 /* BaudoAP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BaudoAP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C52C70929BCD8CD002231F2 /* BaudoAPApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaudoAPApp.swift; sourceTree = "<group>"; };
 		5C52C70D29BCD8CE002231F2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -118,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				5C52C72129BCE1B6002231F2 /* ContentViewModel.swift */,
+				5C42F23429C95F6E009099B7 /* ContentViewModelVideo.swift */,
 				5C25BC2B29BD6590003667A9 /* UserSettings.swift */,
 			);
 			path = ViewModels;
@@ -130,6 +135,7 @@
 				5C52C72629BCE1F2002231F2 /* PostCardImage.swift */,
 				5CE0FEB629BEA4C100711866 /* PostCardImageDetailView.swift */,
 				5CE0FEB829BEC0BD00711866 /* PostCardImageDetailViewImage.swift */,
+				5C42F23229C95864009099B7 /* PostCardVideo.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -237,6 +243,8 @@
 				5CE0FEB729BEA4C100711866 /* PostCardImageDetailView.swift in Sources */,
 				5C52C73629BCE29D002231F2 /* Tienda.swift in Sources */,
 				5C52C72229BCE1B6002231F2 /* ContentViewModel.swift in Sources */,
+				5C42F23329C95864009099B7 /* PostCardVideo.swift in Sources */,
+				5C42F23529C95F6E009099B7 /* ContentViewModelVideo.swift in Sources */,
 				5CE0FEB929BEC0BD00711866 /* PostCardImageDetailViewImage.swift in Sources */,
 				5C90A5B729BD4B600031FF14 /* TabViews.swift in Sources */,
 				5C52C73229BCE270002231F2 /* Navegantes.swift in Sources */,
