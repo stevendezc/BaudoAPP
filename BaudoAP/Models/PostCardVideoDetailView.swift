@@ -1,0 +1,35 @@
+//
+//  PostCardVideoDetailView.swift
+//  BaudoAP
+//
+//  Created by Codez on 22/03/23.
+//
+
+import SwiftUI
+import SDWebImageSwiftUI
+import AVKit
+
+struct PostCardVideoDetailView: View {
+    
+    var model: Post
+    
+    
+    var body: some View {
+                VideoPlayer(player: AVPlayer(url:  URL(string: model.Url)!))
+                    .edgesIgnoringSafeArea(.all)
+//                    .border(Color.red, width: 3)
+                    .aspectRatio(contentMode: .fill)
+                    
+                
+//                Text(model.Autor)
+//                Text(model.Descripcion)
+//                Text(model.Lugar)
+    }
+        
+}
+
+struct PostCardVideoDetailView_Previews: PreviewProvider {
+    static var previews: some View {
+        PostCardVideoDetailView(model: Post(id: "10",Thumb: "https://firebasestorage.googleapis.com/v0/b/baudoapp-c89ed.appspot.com/o/Imagenes%2FThumb1.png?alt=media&token=2bf3ad6b-51b2-4727-9d80-29755377c5c1", Autor: "BaudoAP", Lugar: "Triguba,Choco", Url: "https://firebasestorage.googleapis.com/v0/b/baudoapp-c89ed.appspot.com/o/Videos%2FCopia%20de%20CHAGRA%201.mp4?alt=media&token=fc041a3d-8c5b-4fcc-86ad-954b4df28ee1", Tipo: "Imagen", Descripcion: "Esta es una breve descripcion de contenido de imagen para pruebas en el postCardImage y para solo visualizar coo se veria el texto en las cartas del home", Categoria: "Medio Ambiente"))
+    }
+}

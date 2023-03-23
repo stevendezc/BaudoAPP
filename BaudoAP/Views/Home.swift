@@ -12,7 +12,7 @@ import AVKit
 struct Home: View {
     
     @ObservedObject var contentImage = ContentViewModel()
-    
+    @ObservedObject var contentVideo = ContentViewModelVideo()
     
     
     @State var selectedTab = 0
@@ -43,6 +43,7 @@ struct Home: View {
                 }
                .refreshable {
                    contentImage.fetchposts()
+                   contentVideo.fetchpostsVideos()
                    }
         }
     }
@@ -77,7 +78,7 @@ struct Videos: View {
             LazyVGrid(columns: Columns, spacing: 10){
                 ForEach(contentVideo.postsVideos) { post in
                     NavigationLink(destination:
-                        PostCardImageDetailView(model: post) , label: {
+                        PostCardVideoDetailView(model: post) , label: {
                         PostCardVideo(model: post) } )
                 }
             }

@@ -27,7 +27,12 @@ struct PostCardImageDetailView: View {
                 .aspectRatio(contentMode: .fit)
                 .cornerRadius(0)
             
-            Button("Ver Imagen Grande"){ isPresented = true }.padding(.top,-30).foregroundColor(Color.red)
+            
+            Button {
+                isPresented = true
+            } label: {
+                Image(systemName: "rectangle.portrait.and.arrow.right")
+            }
                 
             
             Text(model.Lugar).font(.title3).bold().padding(.leading, 10)
