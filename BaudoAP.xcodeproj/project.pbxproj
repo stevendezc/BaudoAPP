@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5C077CD329CDEFBA006B3ADC /* ContentViewModelPodcast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C077CD229CDEFBA006B3ADC /* ContentViewModelPodcast.swift */; };
+		5C077CD529CDF03D006B3ADC /* PostCardPodcast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C077CD429CDF03D006B3ADC /* PostCardPodcast.swift */; };
+		5C077CD729CE0EC7006B3ADC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C077CD629CE0EC7006B3ADC /* User.swift */; };
+		5C077CDB29CF5DFD006B3ADC /* PostCardPodcastDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C077CDA29CF5DFD006B3ADC /* PostCardPodcastDetail.swift */; };
 		5C25BC2A29BD6349003667A9 /* Base.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C25BC2929BD6349003667A9 /* Base.swift */; };
 		5C25BC2C29BD6590003667A9 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C25BC2B29BD6590003667A9 /* UserSettings.swift */; };
 		5C42F23329C95864009099B7 /* PostCardVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C42F23229C95864009099B7 /* PostCardVideo.swift */; };
@@ -28,8 +32,6 @@
 		5C52C73429BCE280002231F2 /* Eventos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C52C73329BCE280002231F2 /* Eventos.swift */; };
 		5C52C73629BCE29D002231F2 /* Tienda.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C52C73529BCE29D002231F2 /* Tienda.swift */; };
 		5C52C73829BCE2BA002231F2 /* Comunidad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C52C73729BCE2BA002231F2 /* Comunidad.swift */; };
-		5C90A5B229BD078D0031FF14 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 5C90A5B129BD078D0031FF14 /* GoogleSignIn */; };
-		5C90A5B429BD078D0031FF14 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5C90A5B329BD078D0031FF14 /* GoogleSignInSwift */; };
 		5C90A5B729BD4B600031FF14 /* TabViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C90A5B629BD4B600031FF14 /* TabViews.swift */; };
 		5CB902D529CB81C0004D581B /* PostCardVideoDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB902D429CB81C0004D581B /* PostCardVideoDetailView.swift */; };
 		5CE0FEB529BE0C2900711866 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 5CE0FEB429BE0C2900711866 /* SDWebImageSwiftUI */; };
@@ -38,6 +40,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5C077CD229CDEFBA006B3ADC /* ContentViewModelPodcast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModelPodcast.swift; sourceTree = "<group>"; };
+		5C077CD429CDF03D006B3ADC /* PostCardPodcast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCardPodcast.swift; sourceTree = "<group>"; };
+		5C077CD629CE0EC7006B3ADC /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		5C077CDA29CF5DFD006B3ADC /* PostCardPodcastDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCardPodcastDetail.swift; sourceTree = "<group>"; };
 		5C25BC2929BD6349003667A9 /* Base.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Base.swift; sourceTree = "<group>"; };
 		5C25BC2B29BD6590003667A9 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
 		5C42F23229C95864009099B7 /* PostCardVideo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCardVideo.swift; sourceTree = "<group>"; };
@@ -70,9 +76,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5CE0FEB529BE0C2900711866 /* SDWebImageSwiftUI in Frameworks */,
-				5C90A5B229BD078D0031FF14 /* GoogleSignIn in Frameworks */,
 				5C52C71B29BCDEDF002231F2 /* FirebaseAuth in Frameworks */,
-				5C90A5B429BD078D0031FF14 /* GoogleSignInSwift in Frameworks */,
 				5C52C71D29BCDEDF002231F2 /* FirebaseFirestore in Frameworks */,
 				5C52C71F29BCDEE0002231F2 /* FirebaseStorage in Frameworks */,
 			);
@@ -125,6 +129,7 @@
 			children = (
 				5C52C72129BCE1B6002231F2 /* ContentViewModel.swift */,
 				5C42F23429C95F6E009099B7 /* ContentViewModelVideo.swift */,
+				5C077CD229CDEFBA006B3ADC /* ContentViewModelPodcast.swift */,
 				5C25BC2B29BD6590003667A9 /* UserSettings.swift */,
 			);
 			path = ViewModels;
@@ -139,6 +144,8 @@
 				5CE0FEB829BEC0BD00711866 /* PostCardImageDetailViewImage.swift */,
 				5C42F23229C95864009099B7 /* PostCardVideo.swift */,
 				5CB902D429CB81C0004D581B /* PostCardVideoDetailView.swift */,
+				5C077CD429CDF03D006B3ADC /* PostCardPodcast.swift */,
+				5C077CDA29CF5DFD006B3ADC /* PostCardPodcastDetail.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -148,6 +155,7 @@
 			children = (
 				5C52C72B29BCE23C002231F2 /* Preload.swift */,
 				5C25BC2929BD6349003667A9 /* Base.swift */,
+				5C077CD629CE0EC7006B3ADC /* User.swift */,
 				5C52C72D29BCE24F002231F2 /* Login.swift */,
 				5C90A5B629BD4B600031FF14 /* TabViews.swift */,
 				5C52C72F29BCE263002231F2 /* Home.swift */,
@@ -179,8 +187,6 @@
 				5C52C71A29BCDEDF002231F2 /* FirebaseAuth */,
 				5C52C71C29BCDEDF002231F2 /* FirebaseFirestore */,
 				5C52C71E29BCDEDF002231F2 /* FirebaseStorage */,
-				5C90A5B129BD078D0031FF14 /* GoogleSignIn */,
-				5C90A5B329BD078D0031FF14 /* GoogleSignInSwift */,
 				5CE0FEB429BE0C2900711866 /* SDWebImageSwiftUI */,
 			);
 			productName = BaudoAP;
@@ -213,7 +219,6 @@
 			mainGroup = 5C52C6FD29BCD8CD002231F2;
 			packageReferences = (
 				5C52C71929BCDEDF002231F2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
-				5C90A5B029BD078D0031FF14 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 				5CE0FEB329BE0C2900711866 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 			);
 			productRefGroup = 5C52C70729BCD8CD002231F2 /* Products */;
@@ -247,11 +252,15 @@
 				5C52C73629BCE29D002231F2 /* Tienda.swift in Sources */,
 				5C52C72229BCE1B6002231F2 /* ContentViewModel.swift in Sources */,
 				5CB902D529CB81C0004D581B /* PostCardVideoDetailView.swift in Sources */,
+				5C077CDB29CF5DFD006B3ADC /* PostCardPodcastDetail.swift in Sources */,
 				5C42F23329C95864009099B7 /* PostCardVideo.swift in Sources */,
+				5C077CD329CDEFBA006B3ADC /* ContentViewModelPodcast.swift in Sources */,
 				5C42F23529C95F6E009099B7 /* ContentViewModelVideo.swift in Sources */,
 				5CE0FEB929BEC0BD00711866 /* PostCardImageDetailViewImage.swift in Sources */,
 				5C90A5B729BD4B600031FF14 /* TabViews.swift in Sources */,
 				5C52C73229BCE270002231F2 /* Navegantes.swift in Sources */,
+				5C077CD729CE0EC7006B3ADC /* User.swift in Sources */,
+				5C077CD529CDF03D006B3ADC /* PostCardPodcast.swift in Sources */,
 				5C52C70A29BCD8CD002231F2 /* BaudoAPApp.swift in Sources */,
 				5C25BC2A29BD6349003667A9 /* Base.swift in Sources */,
 				5C52C73029BCE263002231F2 /* Home.swift in Sources */,
@@ -474,14 +483,6 @@
 				kind = branch;
 			};
 		};
-		5C90A5B029BD078D0031FF14 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/google/GoogleSignIn-iOS.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 7.0.0;
-			};
-		};
 		5CE0FEB329BE0C2900711866 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI.git";
@@ -507,16 +508,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 5C52C71929BCDEDF002231F2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseStorage;
-		};
-		5C90A5B129BD078D0031FF14 /* GoogleSignIn */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 5C90A5B029BD078D0031FF14 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
-			productName = GoogleSignIn;
-		};
-		5C90A5B329BD078D0031FF14 /* GoogleSignInSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 5C90A5B029BD078D0031FF14 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
-			productName = GoogleSignInSwift;
 		};
 		5CE0FEB429BE0C2900711866 /* SDWebImageSwiftUI */ = {
 			isa = XCSwiftPackageProductDependency;

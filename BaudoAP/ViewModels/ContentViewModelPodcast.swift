@@ -1,8 +1,8 @@
 //
-//  ContentImage.swift
+//  ContentViewModelPodcast.swift
 //  BaudoAP
 //
-//  Created by Codez on 11/03/23.
+//  Created by Codez on 24/03/23.
 //
 
 import Foundation
@@ -13,23 +13,22 @@ import FirebaseFirestore
 import Firebase
 import FirebaseAuth
 
-class ContentViewModelVideo: ObservableObject {
-    @Published var postsVideos: [Post] = []
+class ContentViewModelPodcast: ObservableObject {
+    @Published var postsPodcast: [Post] = []
     
     
     init() {
-        fetchpostsVideos()
-        
+        fetchpostsPodcast()
     }
     
 //    Function for Fetch posts from firebase
-    func fetchpostsVideos() {
+    func fetchpostsPodcast() {
         
         // NECESARIO ??
-       postsVideos.removeAll()
+       postsPodcast.removeAll()
         let db = Firestore.firestore()
         
-        let refVideo = db.collection("Posts").whereField("Typo", isEqualTo: "Video")
+        let refPodcast = db.collection("Posts").whereField("Typo", isEqualTo: "Podcast")
         
         //let ImagenesContent = db.collection("Posts").whereField("Tipo", isEqualTo: "Imagen")
         
@@ -37,7 +36,7 @@ class ContentViewModelVideo: ObservableObject {
         
 
         
-        refVideo.getDocuments { snapshot, error in
+        refPodcast.getDocuments { snapshot, error in
             guard error == nil else{
                 print(error!.localizedDescription)
                 return
@@ -60,7 +59,7 @@ class ContentViewModelVideo: ObservableObject {
                     let CreationDate = data["CreationDate"] as? String ?? ""
                     
                     let post = Post(id: id,Thumbnail: Thumbnail,Author: Author,Location: Location, MainMediaUrl: MainMediaUrl, Typo: Typo, Description: Description,Category: Category,Title: Title,CreationDate: CreationDate)
-                    self.postsVideos.append(post)
+                    self.postsPodcast.append(post)
                     
                 }
             }

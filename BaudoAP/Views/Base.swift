@@ -11,13 +11,14 @@ struct Base: View {
 //    @EnvironmentObject var usersettings: UserSettings
 //    Define user is logged or not
     @State var userIsLogged = false
+    @State var UserName = ""
     
     var body: some View {
         if userIsLogged {
-            TabViews(userIsLogged: $userIsLogged)
+            TabViews(userIsLogged: $userIsLogged, UserName: $UserName)
             
         }else{
-            Login(userIsLogged: $userIsLogged)
+            Login(userIsLogged: $userIsLogged, UserName: $UserName)
         }
     }
 }

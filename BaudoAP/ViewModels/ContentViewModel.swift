@@ -28,7 +28,7 @@ class ContentViewModel: ObservableObject {
         // NECESARIO ??
        posts.removeAll()
         let db = Firestore.firestore()
-        let refImage = db.collection("Posts").whereField("Tipo", isEqualTo: "Imagen")
+        let refImage = db.collection("Posts").whereField("Typo", isEqualTo: "Image")
         
         //let ImagenesContent = db.collection("Posts").whereField("Tipo", isEqualTo: "Imagen")
         
@@ -45,16 +45,17 @@ class ContentViewModel: ObservableObject {
 
                     let data = document.data()
                     
-                    let id = data["id"] as? String ?? ""
-                    let Thumb = data["Thumb"] as? String ?? ""
-                    let Autor = data["Autor"] as? String ?? ""
-                    let Lugar = data["Lugar"] as? String ?? ""
-                    let Url = data["Url"] as? String ?? ""
-                    let Tipo = data["Tipo"] as? String ?? ""
-                    let Descripcion = data["Descripcion"] as? String ?? ""
-                    let Categoria = data["Categoria"] as? String ?? ""
+                    let id: String = UUID().uuidString
+                    let Thumbnail = data["Thumbnail"] as? String ?? ""
+                    let Author = data["Author"] as? String ?? ""
+                    let Location = data["Location"] as? String ?? ""
+                    let MainMediaUrl = data["MainMediaUrl"] as? String ?? ""
+                    let Typo = data["Typo"] as? String ?? ""
+                    let Description = data["Description"] as? String ?? ""
+                    let Category = data["Category"] as? String ?? ""
+                    let CreationDate = data["CreationDate"] as? String ?? ""
                     
-                    let post = Post(id: id,Thumb: Thumb, Autor: Autor,Lugar: Lugar, Url: Url, Tipo: Tipo, Descripcion: Descripcion,Categoria: Categoria)
+                    let post = Post(id: id,Thumbnail: Thumbnail, Author: Author,Location: Location, MainMediaUrl: MainMediaUrl, Typo: Typo, Description: Description,Category: Category,Title: "Title",CreationDate: CreationDate)
                     self.posts.append(post)
                     
                 }
@@ -64,6 +65,8 @@ class ContentViewModel: ObservableObject {
         
 
     }
+    
+
    
 }
 

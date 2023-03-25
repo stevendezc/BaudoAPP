@@ -13,6 +13,7 @@ struct Home: View {
     
     @ObservedObject var contentImage = ContentViewModel()
     @ObservedObject var contentVideo = ContentViewModelVideo()
+    @ObservedObject var contentPodcast = ContentViewModelPodcast()
     
     
     @State var selectedTab = 0
@@ -33,7 +34,7 @@ struct Home: View {
                                 switch(selectedTab) {
                                     case 0: Images()
                                     case 1: Videos()
-                                    case 2: Images()
+                                    case 2: Podcasts()
                                      
                                 
                                 default:
@@ -77,12 +78,27 @@ struct Videos: View {
         ForEach(/*@START_MENU_TOKEN@*/0 ..< 5/*@END_MENU_TOKEN@*/) { item in
             LazyVGrid(columns: Columns, spacing: 10){
                 ForEach(contentVideo.postsVideos) { post in
-                    NavigationLink(destination:
-                        PostCardVideoDetailView(model: post) , label: {
+                    NavigationLink(destination: PostCardVideoDetailView(model: post, isPresentedVideo: .constant(false)), label: {
                         PostCardVideo(model: post) } )
                 }
             }
         }.padding(.horizontal,20)
+    }
+}
+
+struct Podcasts: View {
+    @ObservedObject var contentPodcast = ContentViewModelPodcast()
+
+    var body: some View {
+        ForEach(/*@START_MENU_TOKEN@*/0 ..< 5/*@END_MENU_TOKEN@*/) { item in
+
+                ForEach(contentPodcast.postsPodcast) { post in
+                    NavigationLink(destination:
+                                    PostCardPodcastDetail(model: post) , label: {
+                        PostCardPodcast(model: post) } )
+                }
+
+        }
     }
 }
 

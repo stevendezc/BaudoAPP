@@ -10,11 +10,13 @@ import SwiftUI
 
 struct Post: Identifiable {
     var id: String
-    var Thumb: String
-    var Autor: String
-    var Lugar: String
-    var Url: String
-    var Tipo:String
-    var Descripcion: String
-    var Categoria: String
+    var Thumbnail: String
+    var Author: String
+    var Location: String
+    var MainMediaUrl: String
+    var Typo:String
+    var Description: String
+    var Category: String
+    var Title: String
+    var CreationDate: String
 }

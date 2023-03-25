@@ -8,7 +8,7 @@
 
 import SwiftUI
 import FirebaseAuth
-import GoogleSignIn
+//import GoogleSignIn
 
 
 struct Login: View {
@@ -16,10 +16,11 @@ struct Login: View {
     @State private var email = ""
     @State private var password = ""
     @Binding var userIsLogged : Bool
+    @Binding var UserName: String
     
     var body: some View {
         if userIsLogged {
-            TabViews(userIsLogged: self.$userIsLogged)
+            TabViews(userIsLogged: self.$userIsLogged, UserName: $UserName)
         } else {
             content
         }
@@ -30,6 +31,7 @@ struct Login: View {
             VStack {
                 Image("LogoBaudoSmall")
                 
+                Text("Esta es la variable UserName \(UserName)")
                 //LOGIN AREA
                 
                 
@@ -90,19 +92,24 @@ struct Login: View {
     func login(){
         Auth.auth().signIn(withEmail: email, password: password){ result, error in if error != nil {
             print(error!.localizedDescription)
+           
         }else{
             userIsLogged = true
-            }
+            UserName = email
+//            result?.user.uid ?? "NONE"
+
         }
-        
-        print("UserLogged In with email", email)
-        
+            
+        }
     }
-//
+
     func register(){
         Auth.auth().createUser(withEmail: email, password: password) { result, error in if error != nil {
                 print(error!.localizedDescription)
+            UserName = email
+            print("USERNAME",UserName)
             }
+            
         }
     }
     
@@ -113,7 +120,7 @@ struct Login: View {
 
 struct Login_Previews: PreviewProvider {
     static var previews: some View {
-        Login(userIsLogged: .constant(false))
+        Login(userIsLogged: .constant(false), UserName: .constant("Steven"))
     }
 }
 
