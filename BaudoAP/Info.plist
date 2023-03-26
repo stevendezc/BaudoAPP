@@ -13,6 +13,16 @@
 	</array>
 	<key>NSAppTransportSecurity</key>
 	<dict/>
+	<key>UIAppFonts</key>
+	<array>
+		<string>SofiaSans.ttf</string>
+		<string>SofiaSans-Black.ttf</string>
+		<string>SofiaSans-Bold.ttf</string>
+		<string>SofiaSans-Light.ttf</string>
+		<string>SofiaSans-Medium.ttf</string>
+		<string>SofiaSans-Regular.ttf</string>
+		<string>SofiaSans-Thin.ttf</string>
+	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsTabbedSceneCollection</key>

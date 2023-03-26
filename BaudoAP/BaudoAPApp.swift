@@ -24,6 +24,7 @@ struct BaudoApApp: App {
          // Calls this view first
            Preload()
                 .environmentObject(contentImage)
+            
         }
     }
 }

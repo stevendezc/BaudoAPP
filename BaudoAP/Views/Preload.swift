@@ -23,8 +23,11 @@ struct Preload: View {
                     
                     Image("LogoBaudo")
                         .font(.system(size: 100))
-                        .foregroundColor(.red)
-                    
+                        
+                    Text(Date.now.formatted(.dateTime.weekday().day().month().year())).font(.custom(
+                        "SofiaSans",
+                        size: 28,
+                        relativeTo: .title))
                 }
                 
                 .scaleEffect(size)

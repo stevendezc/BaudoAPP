@@ -11,6 +11,7 @@ import SwiftUI
 struct Post: Identifiable {
     var id: String
     var Thumbnail: String
+    var Thumbnail2: String
     var Author: String
     var Location: String
     var MainMediaUrl: String

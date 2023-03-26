@@ -34,7 +34,6 @@
 		5C52C73829BCE2BA002231F2 /* Comunidad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C52C73729BCE2BA002231F2 /* Comunidad.swift */; };
 		5C90A5B729BD4B600031FF14 /* TabViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C90A5B629BD4B600031FF14 /* TabViews.swift */; };
 		5CB902D529CB81C0004D581B /* PostCardVideoDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB902D429CB81C0004D581B /* PostCardVideoDetailView.swift */; };
-		5CBDBA4429CFBDED00B88BD3 /* SoundHelix-Song-1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5CBDBA4329CFBDED00B88BD3 /* SoundHelix-Song-1.mp3 */; };
 		5CE0FEB529BE0C2900711866 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 5CE0FEB429BE0C2900711866 /* SDWebImageSwiftUI */; };
 		5CE0FEB729BEA4C100711866 /* PostCardImageDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE0FEB629BEA4C100711866 /* PostCardImageDetailView.swift */; };
 		5CE0FEB929BEC0BD00711866 /* PostCardImageDetailViewImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE0FEB829BEC0BD00711866 /* PostCardImageDetailViewImage.swift */; };
@@ -67,7 +66,13 @@
 		5C90A5B529BD07BD0031FF14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		5C90A5B629BD4B600031FF14 /* TabViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViews.swift; sourceTree = "<group>"; };
 		5CB902D429CB81C0004D581B /* PostCardVideoDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCardVideoDetailView.swift; sourceTree = "<group>"; };
-		5CBDBA4329CFBDED00B88BD3 /* SoundHelix-Song-1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "SoundHelix-Song-1.mp3"; sourceTree = "<group>"; };
+		5CDC3F5F29D0B3CD006D55BB /* SofiaSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SofiaSans-Bold.ttf"; sourceTree = "<group>"; };
+		5CDC3F6029D0B3CD006D55BB /* SofiaSans-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SofiaSans-Black.ttf"; sourceTree = "<group>"; };
+		5CDC3F6129D0B3CD006D55BB /* SofiaSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SofiaSans-Light.ttf"; sourceTree = "<group>"; };
+		5CDC3F6229D0B3CD006D55BB /* SofiaSans-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SofiaSans-Thin.ttf"; sourceTree = "<group>"; };
+		5CDC3F6329D0B3CD006D55BB /* SofiaSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SofiaSans-Regular.ttf"; sourceTree = "<group>"; };
+		5CDC3F6429D0B3CD006D55BB /* SofiaSans-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SofiaSans-ExtraBold.ttf"; sourceTree = "<group>"; };
+		5CDC3F6529D0B3CD006D55BB /* SofiaSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SofiaSans-Medium.ttf"; sourceTree = "<group>"; };
 		5CE0FEB629BEA4C100711866 /* PostCardImageDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCardImageDetailView.swift; sourceTree = "<group>"; };
 		5CE0FEB829BEC0BD00711866 /* PostCardImageDetailViewImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCardImageDetailViewImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -111,6 +116,7 @@
 				5C52C72029BCE1A5002231F2 /* ViewModels */,
 				5C52C72329BCE1D1002231F2 /* Models */,
 				5C52C70D29BCD8CE002231F2 /* Assets.xcassets */,
+				5CDC3F5C29D0A32B006D55BB /* Fonts */,
 				5C52C72829BCE213002231F2 /* Views */,
 				5C52C71729BCDCED002231F2 /* GoogleService-Info.plist */,
 				5C52C70F29BCD8CE002231F2 /* Preview Content */,
@@ -158,7 +164,6 @@
 				5C52C72B29BCE23C002231F2 /* Preload.swift */,
 				5C25BC2929BD6349003667A9 /* Base.swift */,
 				5C077CD629CE0EC7006B3ADC /* User.swift */,
-				5CBDBA4329CFBDED00B88BD3 /* SoundHelix-Song-1.mp3 */,
 				5C52C72D29BCE24F002231F2 /* Login.swift */,
 				5C90A5B629BD4B600031FF14 /* TabViews.swift */,
 				5C52C72F29BCE263002231F2 /* Home.swift */,
@@ -168,6 +173,20 @@
 				5C52C73329BCE280002231F2 /* Eventos.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		5CDC3F5C29D0A32B006D55BB /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				5CDC3F6029D0B3CD006D55BB /* SofiaSans-Black.ttf */,
+				5CDC3F5F29D0B3CD006D55BB /* SofiaSans-Bold.ttf */,
+				5CDC3F6429D0B3CD006D55BB /* SofiaSans-ExtraBold.ttf */,
+				5CDC3F6129D0B3CD006D55BB /* SofiaSans-Light.ttf */,
+				5CDC3F6529D0B3CD006D55BB /* SofiaSans-Medium.ttf */,
+				5CDC3F6329D0B3CD006D55BB /* SofiaSans-Regular.ttf */,
+				5CDC3F6229D0B3CD006D55BB /* SofiaSans-Thin.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -240,7 +259,6 @@
 			files = (
 				5C52C71129BCD8CE002231F2 /* Preview Assets.xcassets in Resources */,
 				5C52C70E29BCD8CE002231F2 /* Assets.xcassets in Resources */,
-				5CBDBA4429CFBDED00B88BD3 /* SoundHelix-Song-1.mp3 in Resources */,
 				5C52C71829BCDCED002231F2 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

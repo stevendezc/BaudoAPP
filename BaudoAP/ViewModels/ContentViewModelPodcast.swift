@@ -49,6 +49,7 @@ class ContentViewModelPodcast: ObservableObject {
                     
                     let id: String = UUID().uuidString
                     let Thumbnail = data["Thumbnail"] as? String ?? ""
+                    let Thumbnail2 = data["Thumbnail2"] as? String ?? ""
                     let Author = data["Author"] as? String ?? ""
                     let Location = data["Location"] as? String ?? ""
                     let MainMediaUrl = data["MainMediaUrl"] as? String ?? ""
@@ -58,7 +59,7 @@ class ContentViewModelPodcast: ObservableObject {
                     let Title = data["Title"] as? String ?? ""
                     let CreationDate = data["CreationDate"] as? String ?? ""
                     
-                    let post = Post(id: id,Thumbnail: Thumbnail,Author: Author,Location: Location, MainMediaUrl: MainMediaUrl, Typo: Typo, Description: Description,Category: Category,Title: Title,CreationDate: CreationDate)
+                    let post = Post(id: id,Thumbnail: Thumbnail,Thumbnail2: Thumbnail2,Author: Author,Location: Location, MainMediaUrl: MainMediaUrl, Typo: Typo, Description: Description,Category: Category,Title: Title,CreationDate: CreationDate)
                     self.postsPodcast.append(post)
                     
                 }

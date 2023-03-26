@@ -17,6 +17,7 @@ struct TabViews: View {
     
     @Binding var UserName: String
     
+    @AppStorage("isDarkMode") private var isDarkMode = true
     
     @ObservedObject var contentImage = ContentViewModel()
 //    @EnvironmentObject var usersettings: UserSettings
@@ -29,11 +30,11 @@ struct TabViews: View {
 
                 HStack{
                     NavigationLink(destination: User(userIsLogged: $userIsLogged, UserName: $UserName)) {
-                        Image(systemName: "person.fill")
+                        Image(systemName: "person.circle").font(.system(size: 40)).foregroundColor(Color("Buttons"))
                     }
                         
     //                  .border(Color.red, width: 3)
-                        .padding(10)
+                        
                         
                     
                     Text("Hola,\n\(UserName)").font(.caption2)
@@ -41,9 +42,9 @@ struct TabViews: View {
                     Image("LogoBaudoO").frame(maxWidth: .infinity, alignment: .trailing)
                     
                 }
-                     .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
+                     .padding(EdgeInsets(top: 5, leading: 20, bottom: 5, trailing: 20))
                      .frame(maxWidth: .infinity, alignment: .leading)
-                     .overlay(Rectangle().frame(width: nil, height: 1, alignment: .bottom).foregroundColor(Color.yellow), alignment: .bottom)
+                     .overlay(Rectangle().frame(width: nil, height: 1, alignment: .bottom).foregroundColor(Color("Buttons")), alignment: .bottom)
                     
                 
                 TabView{
@@ -72,9 +73,10 @@ struct TabViews: View {
                             Image(systemName: "sailboat")
                             Text("Navegantes")
                         }
-                }
+                }.preferredColorScheme(isDarkMode ? .dark : .light)
             }
         }
+        
         .onAppear {
             Auth.auth().addStateDidChangeListener { auth, user in
                 if user != nil{
@@ -93,6 +95,7 @@ struct TabViews: View {
 
 
     }
+        
     
     
 }// FIN struct TabViews

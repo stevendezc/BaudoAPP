@@ -10,6 +10,7 @@ import Firebase
 
 struct User: View {
     
+    @AppStorage("isDarkMode") private var isDarkMode = false
     @Environment(\.colorScheme) var colorScheme
     @Binding var userIsLogged : Bool
     
@@ -22,6 +23,12 @@ struct User: View {
             }
             Text(colorScheme == .dark ? "Dark" : "Light").foregroundColor(Color("Text"))
             Text("UserName: \(UserName)")
+            Picker("Mode", selection: $isDarkMode) {
+                Text("Dark")
+                    .tag(true)
+                Text("Light")
+                    .tag(false)
+            }.pickerStyle(SegmentedPickerStyle())
         }
         
     }

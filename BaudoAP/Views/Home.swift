@@ -28,7 +28,7 @@ struct Home: View {
                                     Text("Podcast").tag(2)
                     }
                     .padding()
-                                 .pickerStyle(SegmentedPickerStyle())
+                    .pickerStyle(SegmentedPickerStyle())
                                  
 
                                 switch(selectedTab) {
@@ -108,6 +108,5 @@ struct Podcasts: View {
 struct Home_Previews: PreviewProvider {
     static var previews: some View {
         Home()
-            
     }
 }
