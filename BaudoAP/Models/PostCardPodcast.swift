@@ -11,9 +11,10 @@ import SDWebImageSwiftUI
 struct PostCardPodcast: View {
     
     var model: Post
-     
+    @State var isPresentedPodcast: Bool = false
+    
     var body: some View {
-        
+       
             HStack{
                 WebImage(url: URL(string: model.Thumbnail))
                     .resizable()
@@ -24,19 +25,17 @@ struct PostCardPodcast: View {
                 VStack(alignment: .leading,spacing: 5) {
                     Text(model.Title).font(.title3)
                     Text(model.CreationDate).font(.callout)
+                    
                     Text(model.Description).font(.caption)
                 }.foregroundColor(Color("Text"))
-                
-                
-                    
-            }
+                      
+            }.fullScreenCover (isPresented: $isPresentedPodcast,
+                               onDismiss: { isPresentedPodcast = false },
+                               content: { PostCardPodcastDetail(model: model, isPresentedPodcast: $isPresentedPodcast).ignoresSafeArea()})
             .padding(15)
             .background(Color("BackgroundCards"))
             .cornerRadius(20)
-        
-        
-        
-        
+  
     }
 }
 

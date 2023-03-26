@@ -15,8 +15,9 @@ struct Tienda: View {
                         Image("Tienda")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
+                            .padding(20)
                             
-                    }.padding(20)
+                    }
                 }
                 //TituloNavigation
                 //.navigationTitle("Tienda")

@@ -26,6 +26,7 @@ struct PostCardVideoDetailView: View {
                 }
                 
                 Button("X"){
+                    
                     isPresentedVideo = false
                     player.pause()
                 }

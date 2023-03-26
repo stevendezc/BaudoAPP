@@ -12,14 +12,14 @@ import SwiftUI
 struct Eventos: View {
     var body: some View {
         NavigationView{
-            ZStack{
+            ScrollView{
+                Image("FondoCalendar")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .padding(50)
                 
-                VStack{
-                    Text("Welcome to")
-                    Text("Eventos")
-                }
                 //TituloNavigation
-                .navigationTitle("Eventos")
+//                .navigationTitle("Eventos")
             }
         }
     }

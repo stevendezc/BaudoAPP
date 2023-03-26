@@ -31,7 +31,7 @@ struct Login: View {
             VStack {
                 Image("LogoBaudoSmall")
                 
-                Text("Esta es la variable UserName \(UserName)")
+
                 //LOGIN AREA
                 
                 

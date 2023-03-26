@@ -94,7 +94,7 @@ struct Podcasts: View {
 
                 ForEach(contentPodcast.postsPodcast) { post in
                     NavigationLink(destination:
-                                    PostCardPodcastDetail(model: post) , label: {
+                                    PostCardPodcastDetail(model: post, isPresentedPodcast: .constant(false)), label: {
                         PostCardPodcast(model: post) } )
                 }
 

@@ -34,6 +34,7 @@
 		5C52C73829BCE2BA002231F2 /* Comunidad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C52C73729BCE2BA002231F2 /* Comunidad.swift */; };
 		5C90A5B729BD4B600031FF14 /* TabViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C90A5B629BD4B600031FF14 /* TabViews.swift */; };
 		5CB902D529CB81C0004D581B /* PostCardVideoDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB902D429CB81C0004D581B /* PostCardVideoDetailView.swift */; };
+		5CBDBA4429CFBDED00B88BD3 /* SoundHelix-Song-1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5CBDBA4329CFBDED00B88BD3 /* SoundHelix-Song-1.mp3 */; };
 		5CE0FEB529BE0C2900711866 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 5CE0FEB429BE0C2900711866 /* SDWebImageSwiftUI */; };
 		5CE0FEB729BEA4C100711866 /* PostCardImageDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE0FEB629BEA4C100711866 /* PostCardImageDetailView.swift */; };
 		5CE0FEB929BEC0BD00711866 /* PostCardImageDetailViewImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE0FEB829BEC0BD00711866 /* PostCardImageDetailViewImage.swift */; };
@@ -66,6 +67,7 @@
 		5C90A5B529BD07BD0031FF14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		5C90A5B629BD4B600031FF14 /* TabViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViews.swift; sourceTree = "<group>"; };
 		5CB902D429CB81C0004D581B /* PostCardVideoDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCardVideoDetailView.swift; sourceTree = "<group>"; };
+		5CBDBA4329CFBDED00B88BD3 /* SoundHelix-Song-1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "SoundHelix-Song-1.mp3"; sourceTree = "<group>"; };
 		5CE0FEB629BEA4C100711866 /* PostCardImageDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCardImageDetailView.swift; sourceTree = "<group>"; };
 		5CE0FEB829BEC0BD00711866 /* PostCardImageDetailViewImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCardImageDetailViewImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -156,6 +158,7 @@
 				5C52C72B29BCE23C002231F2 /* Preload.swift */,
 				5C25BC2929BD6349003667A9 /* Base.swift */,
 				5C077CD629CE0EC7006B3ADC /* User.swift */,
+				5CBDBA4329CFBDED00B88BD3 /* SoundHelix-Song-1.mp3 */,
 				5C52C72D29BCE24F002231F2 /* Login.swift */,
 				5C90A5B629BD4B600031FF14 /* TabViews.swift */,
 				5C52C72F29BCE263002231F2 /* Home.swift */,
@@ -237,6 +240,7 @@
 			files = (
 				5C52C71129BCD8CE002231F2 /* Preview Assets.xcassets in Resources */,
 				5C52C70E29BCD8CE002231F2 /* Assets.xcassets in Resources */,
+				5CBDBA4429CFBDED00B88BD3 /* SoundHelix-Song-1.mp3 in Resources */,
 				5C52C71829BCDCED002231F2 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -327,7 +331,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -381,7 +385,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -405,9 +409,8 @@
 				INFOPLIST_FILE = BaudoAP/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -415,9 +418,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.baudoap.BaudoAP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -435,9 +441,8 @@
 				INFOPLIST_FILE = BaudoAP/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -445,9 +450,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.baudoap.BaudoAP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

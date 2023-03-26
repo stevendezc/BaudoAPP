@@ -60,6 +60,7 @@ class ContentViewModel: ObservableObject {
                     
                 }
             }
+            print(snapshot)
         }
         
         
