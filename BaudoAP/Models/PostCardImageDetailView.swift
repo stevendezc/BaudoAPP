@@ -14,6 +14,7 @@ struct PostCardImageDetailView: View {
     
     @State var isPresented: Bool = false
     
+    @Binding var isPresentedImage1: Bool
     
     var body: some View {
         

@@ -57,7 +57,7 @@ struct Images: View {
         LazyVStack{
             ForEach(/*@START_MENU_TOKEN@*/0 ..< 5/*@END_MENU_TOKEN@*/) { item in
                 ForEach(contentImage.posts) { post in
-                    NavigationLink(destination: PostCardImageDetailView(model: post) , label: {
+                    NavigationLink(destination: PostCardImageDetailView(model: post, isPresentedImage1: .constant(false)) , label: {
                         PostCardImage(model: post) } )
                     
                 }
