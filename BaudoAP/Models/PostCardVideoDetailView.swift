@@ -31,13 +31,12 @@ struct PostCardVideoDetailView: View {
                     player.pause()
                 }
                 .padding(.horizontal,10)
-                .padding(.vertical,3)
+                .padding(.vertical,4)
                 .foregroundColor(.white)
                 .background(Color.yellow)
                 .cornerRadius(30)
-                .font(.system(size: 30))
-                .padding(.leading,30)
-                .padding(.top,30)
+                .font(.system(size: 25))
+                .padding(40)
                     
                 //  .border(Color.red, width: 3)
                 //  .aspectRatio(contentMode: .fill)

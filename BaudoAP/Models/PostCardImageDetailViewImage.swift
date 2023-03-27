@@ -33,12 +33,12 @@ struct PostCardImageDetailViewImage: View {
                         isPresented = false
                     }
                     .padding(.horizontal,10)
-                    .padding(.vertical,3)
-                        .foregroundColor(.white)
-                        .background(Color.yellow)
-                        .cornerRadius(30)
-                        .font(.system(size: 30))
-                        .padding(40) 
+                    .padding(.vertical,4)
+                    .foregroundColor(.white)
+                    .background(Color.yellow)
+                    .cornerRadius(30)
+                    .font(.system(size: 25))
+                    .padding(40)
                         
             }
         

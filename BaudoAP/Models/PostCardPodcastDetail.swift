@@ -38,7 +38,17 @@ struct PostCardPodcastDetail: View {
             
             ScrollView{
                 Spacer(minLength: 50)
-                VStack{
+                VStack(alignment: .leading){
+                    Button("X"){
+                        isPresentedPodcast = false
+                    }
+                    .padding(.horizontal,10)
+                    .padding(.vertical,4)
+                    .foregroundColor(.white)
+                    .background(Color.yellow)
+                    .cornerRadius(30)
+                    .font(.system(size: 25))
+                    
                     HStack{
                         
                         WebImage(url: URL(string: model.Thumbnail))
@@ -65,7 +75,7 @@ struct PostCardPodcastDetail: View {
                                     
                                 }
                                 .padding(.leading,40)
-                                 .foregroundColor(Color("Buttons"))
+                                .foregroundColor(Color("Buttons"))
                                  
                             }
                             
