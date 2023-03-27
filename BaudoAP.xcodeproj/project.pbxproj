@@ -33,6 +33,15 @@
 		5C52C73629BCE29D002231F2 /* Tienda.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C52C73529BCE29D002231F2 /* Tienda.swift */; };
 		5C52C73829BCE2BA002231F2 /* Comunidad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C52C73729BCE2BA002231F2 /* Comunidad.swift */; };
 		5C90A5B729BD4B600031FF14 /* TabViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C90A5B629BD4B600031FF14 /* TabViews.swift */; };
+		5CA8AA9129D14B1500F59CAA /* SofiaSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5CA8AA8B29D14B1500F59CAA /* SofiaSans-Medium.ttf */; };
+		5CA8AA9229D14B1500F59CAA /* SofiaSans-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5CA8AA8C29D14B1500F59CAA /* SofiaSans-Black.ttf */; };
+		5CA8AA9329D14B1500F59CAA /* SofiaSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5CA8AA8D29D14B1500F59CAA /* SofiaSans-ExtraBold.ttf */; };
+		5CA8AA9429D14B1500F59CAA /* SofiaSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5CA8AA8E29D14B1500F59CAA /* SofiaSans-Light.ttf */; };
+		5CA8AA9529D14B1500F59CAA /* SofiaSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5CA8AA8F29D14B1500F59CAA /* SofiaSans-Regular.ttf */; };
+		5CA8AA9629D14B1500F59CAA /* SofiaSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5CA8AA9029D14B1500F59CAA /* SofiaSans-Bold.ttf */; };
+		5CA8AA9829D1570800F59CAA /* ContentViewModelComunidad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA8AA9729D1570800F59CAA /* ContentViewModelComunidad.swift */; };
+		5CA8AA9A29D1580400F59CAA /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA8AA9929D1580400F59CAA /* Users.swift */; };
+		5CA8AA9C29D15C0A00F59CAA /* PostCardComunidad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA8AA9B29D15C0A00F59CAA /* PostCardComunidad.swift */; };
 		5CB902D529CB81C0004D581B /* PostCardVideoDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB902D429CB81C0004D581B /* PostCardVideoDetailView.swift */; };
 		5CE0FEB529BE0C2900711866 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 5CE0FEB429BE0C2900711866 /* SDWebImageSwiftUI */; };
 		5CE0FEB729BEA4C100711866 /* PostCardImageDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE0FEB629BEA4C100711866 /* PostCardImageDetailView.swift */; };
@@ -65,14 +74,16 @@
 		5C52C73729BCE2BA002231F2 /* Comunidad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comunidad.swift; sourceTree = "<group>"; };
 		5C90A5B529BD07BD0031FF14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		5C90A5B629BD4B600031FF14 /* TabViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViews.swift; sourceTree = "<group>"; };
+		5CA8AA8B29D14B1500F59CAA /* SofiaSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SofiaSans-Medium.ttf"; sourceTree = "<group>"; };
+		5CA8AA8C29D14B1500F59CAA /* SofiaSans-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SofiaSans-Black.ttf"; sourceTree = "<group>"; };
+		5CA8AA8D29D14B1500F59CAA /* SofiaSans-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SofiaSans-ExtraBold.ttf"; sourceTree = "<group>"; };
+		5CA8AA8E29D14B1500F59CAA /* SofiaSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SofiaSans-Light.ttf"; sourceTree = "<group>"; };
+		5CA8AA8F29D14B1500F59CAA /* SofiaSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SofiaSans-Regular.ttf"; sourceTree = "<group>"; };
+		5CA8AA9029D14B1500F59CAA /* SofiaSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SofiaSans-Bold.ttf"; sourceTree = "<group>"; };
+		5CA8AA9729D1570800F59CAA /* ContentViewModelComunidad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModelComunidad.swift; sourceTree = "<group>"; };
+		5CA8AA9929D1580400F59CAA /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
+		5CA8AA9B29D15C0A00F59CAA /* PostCardComunidad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCardComunidad.swift; sourceTree = "<group>"; };
 		5CB902D429CB81C0004D581B /* PostCardVideoDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCardVideoDetailView.swift; sourceTree = "<group>"; };
-		5CDC3F5F29D0B3CD006D55BB /* SofiaSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SofiaSans-Bold.ttf"; sourceTree = "<group>"; };
-		5CDC3F6029D0B3CD006D55BB /* SofiaSans-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SofiaSans-Black.ttf"; sourceTree = "<group>"; };
-		5CDC3F6129D0B3CD006D55BB /* SofiaSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SofiaSans-Light.ttf"; sourceTree = "<group>"; };
-		5CDC3F6229D0B3CD006D55BB /* SofiaSans-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SofiaSans-Thin.ttf"; sourceTree = "<group>"; };
-		5CDC3F6329D0B3CD006D55BB /* SofiaSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SofiaSans-Regular.ttf"; sourceTree = "<group>"; };
-		5CDC3F6429D0B3CD006D55BB /* SofiaSans-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SofiaSans-ExtraBold.ttf"; sourceTree = "<group>"; };
-		5CDC3F6529D0B3CD006D55BB /* SofiaSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SofiaSans-Medium.ttf"; sourceTree = "<group>"; };
 		5CE0FEB629BEA4C100711866 /* PostCardImageDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCardImageDetailView.swift; sourceTree = "<group>"; };
 		5CE0FEB829BEC0BD00711866 /* PostCardImageDetailViewImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCardImageDetailViewImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -138,6 +149,7 @@
 				5C52C72129BCE1B6002231F2 /* ContentViewModel.swift */,
 				5C42F23429C95F6E009099B7 /* ContentViewModelVideo.swift */,
 				5C077CD229CDEFBA006B3ADC /* ContentViewModelPodcast.swift */,
+				5CA8AA9729D1570800F59CAA /* ContentViewModelComunidad.swift */,
 				5C25BC2B29BD6590003667A9 /* UserSettings.swift */,
 			);
 			path = ViewModels;
@@ -147,6 +159,8 @@
 			isa = PBXGroup;
 			children = (
 				5C52C72429BCE1DF002231F2 /* Post.swift */,
+				5CA8AA9929D1580400F59CAA /* Users.swift */,
+				5CA8AA9B29D15C0A00F59CAA /* PostCardComunidad.swift */,
 				5C52C72629BCE1F2002231F2 /* PostCardImage.swift */,
 				5CE0FEB629BEA4C100711866 /* PostCardImageDetailView.swift */,
 				5CE0FEB829BEC0BD00711866 /* PostCardImageDetailViewImage.swift */,
@@ -178,13 +192,12 @@
 		5CDC3F5C29D0A32B006D55BB /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				5CDC3F6029D0B3CD006D55BB /* SofiaSans-Black.ttf */,
-				5CDC3F5F29D0B3CD006D55BB /* SofiaSans-Bold.ttf */,
-				5CDC3F6429D0B3CD006D55BB /* SofiaSans-ExtraBold.ttf */,
-				5CDC3F6129D0B3CD006D55BB /* SofiaSans-Light.ttf */,
-				5CDC3F6529D0B3CD006D55BB /* SofiaSans-Medium.ttf */,
-				5CDC3F6329D0B3CD006D55BB /* SofiaSans-Regular.ttf */,
-				5CDC3F6229D0B3CD006D55BB /* SofiaSans-Thin.ttf */,
+				5CA8AA8C29D14B1500F59CAA /* SofiaSans-Black.ttf */,
+				5CA8AA9029D14B1500F59CAA /* SofiaSans-Bold.ttf */,
+				5CA8AA8D29D14B1500F59CAA /* SofiaSans-ExtraBold.ttf */,
+				5CA8AA8E29D14B1500F59CAA /* SofiaSans-Light.ttf */,
+				5CA8AA8B29D14B1500F59CAA /* SofiaSans-Medium.ttf */,
+				5CA8AA8F29D14B1500F59CAA /* SofiaSans-Regular.ttf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -258,8 +271,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C52C71129BCD8CE002231F2 /* Preview Assets.xcassets in Resources */,
+				5CA8AA9129D14B1500F59CAA /* SofiaSans-Medium.ttf in Resources */,
+				5CA8AA9429D14B1500F59CAA /* SofiaSans-Light.ttf in Resources */,
+				5CA8AA9329D14B1500F59CAA /* SofiaSans-ExtraBold.ttf in Resources */,
+				5CA8AA9229D14B1500F59CAA /* SofiaSans-Black.ttf in Resources */,
 				5C52C70E29BCD8CE002231F2 /* Assets.xcassets in Resources */,
+				5CA8AA9629D14B1500F59CAA /* SofiaSans-Bold.ttf in Resources */,
 				5C52C71829BCDCED002231F2 /* GoogleService-Info.plist in Resources */,
+				5CA8AA9529D14B1500F59CAA /* SofiaSans-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,9 +307,12 @@
 				5C52C73029BCE263002231F2 /* Home.swift in Sources */,
 				5C52C73829BCE2BA002231F2 /* Comunidad.swift in Sources */,
 				5C52C73429BCE280002231F2 /* Eventos.swift in Sources */,
+				5CA8AA9C29D15C0A00F59CAA /* PostCardComunidad.swift in Sources */,
+				5CA8AA9A29D1580400F59CAA /* Users.swift in Sources */,
 				5C52C72529BCE1DF002231F2 /* Post.swift in Sources */,
 				5C52C72729BCE1F2002231F2 /* PostCardImage.swift in Sources */,
 				5C25BC2C29BD6590003667A9 /* UserSettings.swift in Sources */,
+				5CA8AA9829D1570800F59CAA /* ContentViewModelComunidad.swift in Sources */,
 				5C52C72C29BCE23C002231F2 /* Preload.swift in Sources */,
 				5C52C72E29BCE24F002231F2 /* Login.swift in Sources */,
 			);

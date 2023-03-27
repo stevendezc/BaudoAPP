@@ -45,6 +45,7 @@ struct Home: View {
                .refreshable {
                    contentImage.fetchposts()
                    contentVideo.fetchpostsVideos()
+                   contentPodcast.fetchpostsPodcast()
                    }
         }
     }

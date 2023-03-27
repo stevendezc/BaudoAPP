@@ -8,16 +8,41 @@
 import SwiftUI
 
 struct Comunidad: View {
+    @ObservedObject var users = ContentViewModelComunidad()
+    
     var body: some View {
         NavigationView{
-            ZStack{
-                
+            ScrollView{
                 VStack{
-                    Text("Welcome to")
-                    Text("COMUNIDAD")
+                    Spacer(minLength: 30)
+                    HStack(alignment: .center, spacing: 20){
+                        Button {
+//
+                        } label: {
+                            Text("Proyectos productivos")
+                        }.buttonStyle(.borderedProminent)
+                        Button {
+//
+                        } label: {
+                            Text("Cultura e inclusion")
+                        }.buttonStyle(.borderedProminent)
+                        Button {
+//                            <#code#>
+                        } label: {
+                            Text("Turismo comunitario")
+                        }.buttonStyle(.borderedProminent)
+                    }
+                    
+                    ForEach(0 ..< 10) { item in
+                        
+                        ForEach(users.usersComunidad) {Users in
+                            PostCardComunidad(model: Users)
+                           
+                        }
+                    }
                 }
-                //TituloNavigation
-                .navigationTitle("Comunidad")
+            }.refreshable {
+                users.fetchusersComunidad()
             }
         }
     }
@@ -29,4 +54,6 @@ struct Comunidad_Previews: PreviewProvider {
         Comunidad()
     }
 }
+
+
 

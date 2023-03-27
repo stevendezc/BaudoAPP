@@ -23,11 +23,11 @@ struct Preload: View {
                     
                     Image("LogoBaudo")
                         .font(.system(size: 100))
-                        
+                        Text("HOY").foregroundColor(.black)
                     Text(Date.now.formatted(.dateTime.weekday().day().month().year())).font(.custom(
                         "SofiaSans",
-                        size: 28,
-                        relativeTo: .title))
+                        size: 15,
+                        relativeTo: .title)).foregroundColor(.black)
                 }
                 
                 .scaleEffect(size)
@@ -44,7 +44,7 @@ struct Preload: View {
                         .ignoresSafeArea()
                 )
             .onAppear {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
                     withAnimation {
                         self.isActive = true
                     }

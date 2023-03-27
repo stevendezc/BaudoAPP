@@ -11,7 +11,7 @@ import FirebaseFirestore
 
 @main
 struct BaudoApApp: App {
-    @StateObject var contentImage = ContentViewModel()
+    
     
 //    @StateObject var usersettings = UserSettings()
     
@@ -23,7 +23,8 @@ struct BaudoApApp: App {
         WindowGroup {
          // Calls this view first
            Preload()
-                .environmentObject(contentImage)
+                
+        
             
         }
     }
