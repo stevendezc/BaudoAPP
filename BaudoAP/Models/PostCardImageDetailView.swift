@@ -51,7 +51,7 @@ struct PostCardImageDetailView: View {
             Button {
                 isPresented = true
             } label: {
-                Image("Expand").resizable().frame(width: 30,height: 30)
+                Image("Expand").resizable().frame(width: 25,height: 25)
                     
             }
             .foregroundColor(Color("Buttons"))

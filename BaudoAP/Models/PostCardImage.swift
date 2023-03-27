@@ -27,6 +27,13 @@ struct PostCardImage: View {
                 
     //                .border(Color.red, width: 3)
                     .cornerRadius(19)
+                
+                HStack(alignment: .center){
+                    Spacer()
+                    Image("Reactions").padding(.top,-40)
+                    Spacer()
+                }
+                
                 Text(model.Location)
                     .font(.custom(
                             "SofiaSans",
