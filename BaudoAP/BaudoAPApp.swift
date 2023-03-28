@@ -11,12 +11,14 @@ import FirebaseFirestore
 
 @main
 struct BaudoApApp: App {
-    
+
     
 //    @StateObject var usersettings = UserSettings()
     
     init(){
         FirebaseApp.configure()
+        
+
     }
     
     var body: some Scene {

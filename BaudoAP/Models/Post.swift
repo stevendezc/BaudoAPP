@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct Post: Identifiable {
-    var id: String
+    var id: String = UUID().uuidString
     var Thumbnail: String
     var Thumbnail2: String
     var Author: String

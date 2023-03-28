@@ -11,59 +11,67 @@ import AVKit
 
 struct Home: View {
     
-    @ObservedObject var contentImage = ContentViewModel()
+    @ObservedObject var contentImage = ContentViewModelImage()
     @ObservedObject var contentVideo = ContentViewModelVideo()
     @ObservedObject var contentPodcast = ContentViewModelPodcast()
-    
+    @AppStorage("isDarkMode") private var isDarkMode = true
     
     @State var selectedTab = 0
     var body: some View {
-       
         
+
         NavigationView{
-               ScrollView {
-                    Picker("", selection: $selectedTab) {
-                                    Text("Imagen").tag(0)
-                                    Text("Video").tag(1)
-                                    Text("Podcast").tag(2)
-                    }
-                    .padding()
-                    .pickerStyle(SegmentedPickerStyle())
-                                 
-
-                                switch(selectedTab) {
-                                    case 0: Images()
-                                    case 1: Videos()
-                                    case 2: Podcasts()
-                                     
-                                
-                                default:
-                                    Images()
-                                }
-
+            ScrollView {
+                Picker("", selection: $selectedTab) {
+                    Text("Imagen").tag(0)
+                    Text("Video").tag(1)
+                    Text("Podcast").tag(2)
                 }
-               .refreshable {
-                   contentImage.fetchposts()
-                   contentVideo.fetchpostsVideos()
-                   contentPodcast.fetchpostsPodcast()
-                   }
+                .pickerStyle(SegmentedPickerStyle())
+                .background(Color("PickerBackground"))
+                .cornerRadius(10)
+                .padding()
+                
+                switch(selectedTab) {
+                case 0: Images()
+                case 1: Videos()
+                case 2: Podcasts()
+                    
+                    
+                default:
+                    Images()
+                }
+                
+            }.onAppear(){
+                UISegmentedControl.appearance().selectedSegmentTintColor = UIColor(Color.accentColor)
+                //            UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.black], for: .selected)
+                //            //UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.white], for: .normal)
+            }
+            .refreshable {
+                contentImage.fetchpostsImages()
+                print("REFRESHED Images Fetched")
+            }
+
         }
     }
 }
 
 
 struct Images: View {
-    @ObservedObject var contentImage = ContentViewModel()
+    @ObservedObject var contentImage = ContentViewModelImage()
     var body: some View {
-        LazyVStack{
-            ForEach(/*@START_MENU_TOKEN@*/0 ..< 5/*@END_MENU_TOKEN@*/) { item in
-                ForEach(contentImage.posts) { post in
+        
+//            LazyVStack{
+                //ForEach(/*@START_MENU_TOKEN@*/0 ..< 5/*@END_MENU_TOKEN@*/) { item in
+                ForEach(contentImage.postsImages) { post in
                     NavigationLink(destination: PostCardImageDetailView(model: post, isPresentedImage1: .constant(false)) , label: {
                         PostCardImage(model: post) } )
                     
                 }
-            }
-        }
+                //}
+//            }
+            
+        
     }
 }
 
@@ -76,30 +84,30 @@ struct Videos: View {
     ]
     
     var body: some View {
-        ForEach(/*@START_MENU_TOKEN@*/0 ..< 5/*@END_MENU_TOKEN@*/) { item in
-            LazyVGrid(columns: Columns, spacing: 10){
-                ForEach(contentVideo.postsVideos) { post in
-                    NavigationLink(destination: PostCardVideoDetailView(model: post, isPresentedVideo: .constant(false)), label: {
-                        PostCardVideo(model: post) } )
-                }
+        //ForEach(/*@START_MENU_TOKEN@*/0 ..< 5/*@END_MENU_TOKEN@*/) { item in
+        LazyVGrid(columns: Columns, spacing: 10){
+            ForEach(contentVideo.postsVideos) { post in
+                NavigationLink(destination: PostCardVideoDetailView(model: post, isPresentedVideo: .constant(false)), label: {
+                    PostCardVideo(model: post) } )
             }
-        }.padding(.horizontal,20)
+        }
+        //}.padding(.horizontal,20)
     }
 }
 
 struct Podcasts: View {
     @ObservedObject var contentPodcast = ContentViewModelPodcast()
-
+    
     var body: some View {
-        ForEach(/*@START_MENU_TOKEN@*/0 ..< 5/*@END_MENU_TOKEN@*/) { item in
-
-                ForEach(contentPodcast.postsPodcast) { post in
-                    NavigationLink(destination:
-                                    PostCardPodcastDetail(model: post, isPresentedPodcast: .constant(false)), label: {
-                        PostCardPodcast(model: post) } )
-                }
-
+        //ForEach(/*@START_MENU_TOKEN@*/0 ..< 5/*@END_MENU_TOKEN@*/) { item in
+        
+        ForEach(contentPodcast.postsPodcast) { post in
+            NavigationLink(destination:
+                            PostCardPodcastDetail(model: post, isPresentedPodcast: .constant(false)), label: {
+                PostCardPodcast(model: post) } )
         }
+        
+        //}
     }
 }
 
@@ -108,6 +116,14 @@ struct Podcasts: View {
 
 struct Home_Previews: PreviewProvider {
     static var previews: some View {
+        
         Home()
+            .previewDisplayName("Light")
+        Home()
+            .preferredColorScheme(.dark)
+        
+            .previewDisplayName("Dark")
     }
+    
+    
 }

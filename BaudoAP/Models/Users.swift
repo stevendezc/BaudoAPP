@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 struct Users: Identifiable {
-    var id: String
+    var id: String = UUID().uuidString
     var Thumbnail: String
     var Description: String
     var CategoryCom: String

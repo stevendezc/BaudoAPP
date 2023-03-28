@@ -17,25 +17,25 @@ class ContentViewModelPodcast: ObservableObject {
     @Published var postsPodcast: [Post] = []
     
     
-    init() {
-        fetchpostsPodcast()
-    }
+//    init() {
+//        fetchpostsPodcast()
+//    }
     
 //    Function for Fetch posts from firebase
     func fetchpostsPodcast() {
         
         // NECESARIO ??
        postsPodcast.removeAll()
-        let db = Firestore.firestore()
+        let dbPod = Firestore.firestore()
         
-        let refPodcast = db.collection("Posts").whereField("Typo", isEqualTo: "Podcast")
+        let refPodcast = dbPod.collection("Posts").whereField("Typo", isEqualTo: "Podcast")
         
         //let ImagenesContent = db.collection("Posts").whereField("Tipo", isEqualTo: "Imagen")
         
 //        print("Estos son los post de Imagenes", refImage)
         
 
-        
+        print("Firestore query started PODCAST")
         refPodcast.getDocuments { snapshot, error in
             guard error == nil else{
                 print(error!.localizedDescription)
@@ -59,8 +59,8 @@ class ContentViewModelPodcast: ObservableObject {
                     let Title = data["Title"] as? String ?? ""
                     let CreationDate = data["CreationDate"] as? String ?? ""
                     
-                    let post = Post(id: id,Thumbnail: Thumbnail,Thumbnail2: Thumbnail2,Author: Author,Location: Location, MainMediaUrl: MainMediaUrl, Typo: Typo, Description: Description,Category: Category,Title: Title,CreationDate: CreationDate)
-                    self.postsPodcast.append(post)
+                    let postpodcast = Post(id: id,Thumbnail: Thumbnail,Thumbnail2: Thumbnail2,Author: Author,Location: Location, MainMediaUrl: MainMediaUrl, Typo: Typo, Description: Description,Category: Category,Title: Title,CreationDate: CreationDate)
+                    self.postsPodcast.append(postpodcast)
                     
                 }
             }

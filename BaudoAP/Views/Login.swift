@@ -17,6 +17,7 @@ struct Login: View {
     @State private var password = ""
     @Binding var userIsLogged : Bool
     @Binding var UserName: String
+
     
     var body: some View {
         if userIsLogged {
@@ -83,6 +84,7 @@ struct Login: View {
             Auth.auth().addStateDidChangeListener { auth, user in
                 if user != nil{
                     userIsLogged = true
+                  
                 }
 
             }
@@ -97,6 +99,8 @@ struct Login: View {
             userIsLogged = true
             UserName = email
 //            result?.user.uid ?? "NONE"
+//            contentImage.fetchpostsImages()
+//            print("Images Fetched from login")
 
         }
             

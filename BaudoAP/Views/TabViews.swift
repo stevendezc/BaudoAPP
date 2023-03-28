@@ -19,7 +19,11 @@ struct TabViews: View {
     
     @AppStorage("isDarkMode") private var isDarkMode = true
     
-    @ObservedObject var contentImage = ContentViewModel()
+    @ObservedObject var contentImage = ContentViewModelImage()
+    @ObservedObject var contentVideo = ContentViewModelVideo()
+    @ObservedObject var contentPodcast = ContentViewModelPodcast()
+    
+  
 //    @EnvironmentObject var usersettings: UserSettings
     
     
@@ -30,7 +34,17 @@ struct TabViews: View {
 
                 HStack{
                     NavigationLink(destination: User(userIsLogged: $userIsLogged, UserName: $UserName)) {
-                        Image(systemName: "person.circle").font(.system(size: 40)).foregroundColor(Color("Buttons"))
+                        Image("Mambo")
+                            .resizable()
+//                            .border(Color.accentColor, width: 4)
+                            .frame(width: 50,height: 50,alignment: .center)
+                            .aspectRatio(contentMode: .fit)
+                            .clipShape(Circle())
+                            .padding(2)
+                            .overlay(
+                                    RoundedRectangle(cornerRadius: 30)
+                                        .stroke(Color("Buttons"), lineWidth: 1)
+                                )
                     }
                         
     //                  .border(Color.red, width: 3)
@@ -78,6 +92,7 @@ struct TabViews: View {
         }
         
         .onAppear {
+//            contentImage.fetchpostsImages()
             Auth.auth().addStateDidChangeListener { auth, user in
                 if user != nil{
                     userIsLogged = true
@@ -102,6 +117,6 @@ struct TabViews: View {
 
 struct TabViews_Previews: PreviewProvider {
     static var previews: some View {
-        TabViews(userIsLogged: .constant(false), UserName: .constant("Steven Hernandez"))
+        TabViews(userIsLogged: .constant(false), UserName: .constant("Mambo Hernandez"))
     }
 }

@@ -24,9 +24,9 @@ class ContentViewModelComunidad: ObservableObject {
     
     @Published var usersComunidad: [Users] = []
     
-    init() {
-        fetchusersComunidad()
-    }
+//    init() {
+//        fetchusersComunidad()
+//    }
     
 //    Function for Fetch posts from firebase
     func fetchusersComunidad() {
@@ -42,7 +42,7 @@ class ContentViewModelComunidad: ObservableObject {
 //        print("Estos son los post de Imagenes", refImage)
         
 
-        
+        print("Firestore query started COMUNIDAD")
         refComunidad.getDocuments { snapshot, error in
             guard error == nil else{
                 print(error!.localizedDescription)
@@ -65,14 +65,13 @@ class ContentViewModelComunidad: ObservableObject {
                     let Whatsapp = data["Whatsapp"] as? String ?? ""
                     let Twitter = data["Twitter"] as? String ?? ""
                     
-                    let post = Users(id: id, Thumbnail: Thumbnail, Description: Description, CategoryCom: CategoryCom, Title: Title, CreationDate: CreationDate, Instagram: Instagram, Facebook: Facebook, Twitter: Twitter, Whatsapp: Whatsapp)
-                    self.usersComunidad.append(post)
+                    let postcomunidad = Users(id: id, Thumbnail: Thumbnail, Description: Description, CategoryCom: CategoryCom, Title: Title, CreationDate: CreationDate, Instagram: Instagram, Facebook: Facebook, Twitter: Twitter, Whatsapp: Whatsapp)
+                    self.usersComunidad.append(postcomunidad)
                     
                 }
             }
         }
         
-
     }
    
 }

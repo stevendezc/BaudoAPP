@@ -155,7 +155,7 @@ struct PostCardPodcastDetail: View {
 struct PostCardPodcastDetail_Previews: PreviewProvider {
     static var previews: some View {
          
-        PostCardPodcast(model: Post(id: "10",Thumbnail: "https://firebasestorage.googleapis.com/v0/b/baudoapp-c89ed.appspot.com/o/Podcasts%2FRecurso%2027%402x-8%201.png?alt=media&token=ef46631c-aaee-42fb-8b3d-5213653fe7ba",Thumbnail2:  "https://firebasestorage.googleapis.com/v0/b/baudoapp-c89ed.appspot.com/o/Podcasts%2FThumbnails%2FRecurso%2027%402x-8%20122.jpg?alt=media&token=0d2bf3a6-d708-4047-8e5d-4729d8272390", Author: "BaudoAP", Location: "Triguba,Choco", MainMediaUrl: "https://firebasestorage.googleapis.com/v0/b/baudoapp-c89ed.appspot.com/o/Podcasts%2FIr-y-venir-Los-rastros-del-cambi.mp3?alt=media&token=03f8aad6-6354-4e11-b9b7-9a33c4b8485a", Typo: "Imagen", Description: "Esta es una breve descripcion de contenido de Podcast para pruebas en el postCardPodcast y para solo visualizar como se veria el texto en las cartas del home", Category: "Medio Ambiente",Title: "Los rastros del cambio climatico",CreationDate: "23/Marzo/2023"))
+        PostCardPodcast(model: Post(id: "10",Thumbnail: "https://baudoap.com/wp-content/uploads/2023/01/GUERRILLERO-IMPASIBLE.jpg",Thumbnail2:  "https://baudoap.com/wp-content/uploads/2023/01/GUERRILLERO-IMPASIBLE.jpg", Author: "BaudoAP", Location: "Triguba,Choco", MainMediaUrl: "https://baudoap.com/wp-content/uploads/2022/12/Audio-3.mp3", Typo: "Imagen", Description: "Esta es una breve descripcion de contenido de Podcast para pruebas en el postCardPodcast y para solo visualizar como se veria el texto en las cartas del home", Category: "Medio Ambiente",Title: "Los rastros del cambio climatico",CreationDate: "23/Marzo/2023"))
         
     }
 }

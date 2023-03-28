@@ -13,6 +13,7 @@ struct Preload: View {
     @State private var size = 0.7
     @State private var opacity = 0.6
     
+    
     // Customise your SplashScreen here
     var body: some View {
         if isActive {
@@ -44,6 +45,9 @@ struct Preload: View {
                         .ignoresSafeArea()
                 )
             .onAppear {
+               
+               
+                
                 DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
                     withAnimation {
                         self.isActive = true
