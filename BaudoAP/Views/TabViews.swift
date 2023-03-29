@@ -117,6 +117,6 @@ struct TabViews: View {
 
 struct TabViews_Previews: PreviewProvider {
     static var previews: some View {
-        TabViews(userIsLogged: .constant(true), UserName: .constant("Mambo Hernandez"))
+        TabViews(userIsLogged: .constant(true), UserName: .constant("Kevin Hernandez Clavijo"))
     }
 }
