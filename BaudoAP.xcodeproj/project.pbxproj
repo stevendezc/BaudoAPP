@@ -18,7 +18,6 @@
 		5C52C70A29BCD8CD002231F2 /* BaudoAPApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C52C70929BCD8CD002231F2 /* BaudoAPApp.swift */; };
 		5C52C70E29BCD8CE002231F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C52C70D29BCD8CE002231F2 /* Assets.xcassets */; };
 		5C52C71129BCD8CE002231F2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C52C71029BCD8CE002231F2 /* Preview Assets.xcassets */; };
-		5C52C71829BCDCED002231F2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5C52C71729BCDCED002231F2 /* GoogleService-Info.plist */; };
 		5C52C71B29BCDEDF002231F2 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 5C52C71A29BCDEDF002231F2 /* FirebaseAuth */; };
 		5C52C71D29BCDEDF002231F2 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 5C52C71C29BCDEDF002231F2 /* FirebaseFirestore */; };
 		5C52C71F29BCDEE0002231F2 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 5C52C71E29BCDEDF002231F2 /* FirebaseStorage */; };
@@ -62,7 +61,6 @@
 		5C52C70929BCD8CD002231F2 /* BaudoAPApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaudoAPApp.swift; sourceTree = "<group>"; };
 		5C52C70D29BCD8CE002231F2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5C52C71029BCD8CE002231F2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		5C52C71729BCDCED002231F2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5C52C72429BCE1DF002231F2 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		5C52C72629BCE1F2002231F2 /* PostCardImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCardImage.swift; sourceTree = "<group>"; };
 		5C52C72B29BCE23C002231F2 /* Preload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preload.swift; sourceTree = "<group>"; };
@@ -131,7 +129,6 @@
 				5C52C70D29BCD8CE002231F2 /* Assets.xcassets */,
 				5CDC3F5C29D0A32B006D55BB /* Fonts */,
 				5C52C72829BCE213002231F2 /* Views */,
-				5C52C71729BCDCED002231F2 /* GoogleService-Info.plist */,
 				5C52C70F29BCD8CE002231F2 /* Preview Content */,
 			);
 			path = BaudoAP;
@@ -280,7 +277,6 @@
 				5CA8AA9229D14B1500F59CAA /* SofiaSans-Black.ttf in Resources */,
 				5C52C70E29BCD8CE002231F2 /* Assets.xcassets in Resources */,
 				5CA8AA9629D14B1500F59CAA /* SofiaSans-Bold.ttf in Resources */,
-				5C52C71829BCDCED002231F2 /* GoogleService-Info.plist in Resources */,
 				5CA8AA9529D14B1500F59CAA /* SofiaSans-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -447,7 +443,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"BaudoAP/Preview Content\"";
-				DEVELOPMENT_TEAM = Y68B267CDH;
+				DEVELOPMENT_TEAM = 935566KM7T;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BaudoAP/Info.plist;
@@ -479,7 +475,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"BaudoAP/Preview Content\"";
-				DEVELOPMENT_TEAM = Y68B267CDH;
+				DEVELOPMENT_TEAM = 935566KM7T;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BaudoAP/Info.plist;
