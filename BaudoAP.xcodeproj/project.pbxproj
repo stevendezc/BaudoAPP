@@ -11,6 +11,7 @@
 		5C077CD529CDF03D006B3ADC /* PostCardPodcast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C077CD429CDF03D006B3ADC /* PostCardPodcast.swift */; };
 		5C077CD729CE0EC7006B3ADC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C077CD629CE0EC7006B3ADC /* User.swift */; };
 		5C077CDB29CF5DFD006B3ADC /* PostCardPodcastDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C077CDA29CF5DFD006B3ADC /* PostCardPodcastDetail.swift */; };
+		5C19BF9729D4A1DB002C9D82 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5C19BF9629D4A1DB002C9D82 /* GoogleService-Info.plist */; };
 		5C25BC2A29BD6349003667A9 /* Base.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C25BC2929BD6349003667A9 /* Base.swift */; };
 		5C25BC2C29BD6590003667A9 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C25BC2B29BD6590003667A9 /* UserSettings.swift */; };
 		5C42F23329C95864009099B7 /* PostCardVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C42F23229C95864009099B7 /* PostCardVideo.swift */; };
@@ -53,6 +54,7 @@
 		5C077CD429CDF03D006B3ADC /* PostCardPodcast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCardPodcast.swift; sourceTree = "<group>"; };
 		5C077CD629CE0EC7006B3ADC /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		5C077CDA29CF5DFD006B3ADC /* PostCardPodcastDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCardPodcastDetail.swift; sourceTree = "<group>"; };
+		5C19BF9629D4A1DB002C9D82 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5C25BC2929BD6349003667A9 /* Base.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Base.swift; sourceTree = "<group>"; };
 		5C25BC2B29BD6590003667A9 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
 		5C42F23229C95864009099B7 /* PostCardVideo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCardVideo.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 		5C52C70F29BCD8CE002231F2 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
+				5C19BF9629D4A1DB002C9D82 /* GoogleService-Info.plist */,
 				5C52C71029BCD8CE002231F2 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
@@ -272,6 +275,7 @@
 			files = (
 				5C52C71129BCD8CE002231F2 /* Preview Assets.xcassets in Resources */,
 				5CA8AA9129D14B1500F59CAA /* SofiaSans-Medium.ttf in Resources */,
+				5C19BF9729D4A1DB002C9D82 /* GoogleService-Info.plist in Resources */,
 				5CA8AA9429D14B1500F59CAA /* SofiaSans-Light.ttf in Resources */,
 				5CA8AA9329D14B1500F59CAA /* SofiaSans-ExtraBold.ttf in Resources */,
 				5CA8AA9229D14B1500F59CAA /* SofiaSans-Black.ttf in Resources */,
