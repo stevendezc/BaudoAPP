@@ -41,9 +41,10 @@ struct Comunidad: View {
                         }
                     }
                 }
-            }.refreshable {
-                users.fetchusersComunidad()
             }
+//            .refreshable {
+//                users.fetchusersComunidad()
+//            }
         }
     }
 }

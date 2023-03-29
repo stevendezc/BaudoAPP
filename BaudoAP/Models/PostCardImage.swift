@@ -18,55 +18,58 @@ struct PostCardImage: View {
         Button {
             isPresentedImage1 = true
         } label: {
-            VStack(alignment: .leading, spacing: 10){
+            VStack(alignment: .leading){
                 WebImage(url: URL(string: model.MainMediaUrl))
                     .resizable()
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .aspectRatio(contentMode: .fit)
                     .cornerRadius(19)
                 
-    //                .border(Color.red, width: 3)
-                    
+                //                .border(Color.red, width: 3)
                 
-               //WebImage(url: URL(string: model.MainMediaUrl))
-                    
                 
-                HStack(alignment: .center){
-                    Spacer()
-                    Image("Reactions").padding(.top,-40)
-                    Spacer()
-                }
+                //WebImage(url: URL(string: model.MainMediaUrl))
                 
-                Text(model.Location)
-                    .font(.custom(
-                            "SofiaSans",
-                            size: 18,
-                            relativeTo: .title))
-                    
-                    .bold()
-                    .padding(.top,0)
-                    .padding(.leading, 10)
-                Text(model.Description)
-                    .padding(.top,-5)
-                    .padding(.leading, 10)
-                    .font(.custom(
-                            "SofiaSans",
-                            size: 11,
+                
+//                HStack(alignment: .center){
+//                    Spacer()
+//                    Image("Reactions")
+//                        .padding(.vertical,-40)
+//                    Spacer()
+//                }
+                VStack(alignment: .leading, spacing: 10){
+                    HStack{
+                        Spacer()
+                    }
+                    Text(model.Location)
+                        .font(.custom("SofiaSans-Bold",size: 18,relativeTo: .title))
+                    Text(model.Description)
+                        .font(.custom(
+                            "SofiaSans-Regular",
+                            size: 13,
                             relativeTo: .body))
-                    .lineLimit(3)
-                Text("Foto por: \(model.Author)").padding(.top,-5)
-                    .padding(.leading, 10).font(.caption)
-                    .padding(10)
-            }.fullScreenCover (isPresented: $isPresentedImage1,
-                               onDismiss: { isPresentedImage1 = false },
-                               content: { PostCardImageDetailView(model: model, isPresentedImage1: $isPresentedImage1).ignoresSafeArea()})
+                        .lineLimit(3)
+                    Text("Foto por: \(model.Author)")
+                        .font(.caption)
+                        .font(.custom(
+                            "SofiaSans-Medium",
+                            size: 12,
+                            relativeTo: .caption))
+                        .padding(.bottom,10)
+                }.padding(EdgeInsets(top: -10, leading: 20, bottom: 10, trailing: 20))
+                
+                
+            } .fullScreenCover (isPresented: $isPresentedImage1,
+                                onDismiss: { isPresentedImage1 = false },
+                                content: { PostCardImageDetailView(model: model, isPresentedImage1: $isPresentedImage1).ignoresSafeArea()})
             .background(Color("BackgroundCards"))
-             .cornerRadius(19)
+            .cornerRadius(19)
             .multilineTextAlignment(.leading)
             .foregroundColor(Color("Text"))
-            .padding(.leading,40).padding(.trailing,40).padding(.bottom,30)
+            .padding(.leading,20).padding(.trailing,20).padding(.bottom,20)
+            
         }
-
+        
     }
 }
 

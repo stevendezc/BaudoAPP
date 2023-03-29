@@ -44,6 +44,8 @@ struct Home: View {
                 
             }.onAppear(){
                 UISegmentedControl.appearance().selectedSegmentTintColor = UIColor(Color.accentColor)
+                let font = UIFont(name: "SofiaSans-Medium", size: 15.0)!          // Compute the right size
+                UISegmentedControl.appearance().setTitleTextAttributes([.font: font], for: .normal)
                 //            UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.black], for: .selected)
                 //            //UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.white], for: .normal)
             }

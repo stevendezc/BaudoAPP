@@ -30,15 +30,15 @@ struct PostCardImageDetailViewImage: View {
             }
             VStack{
                 HStack{
-                    Button("X"){
+                    Button("←"){
                         isPresented = false
                     }
-                    .padding(.horizontal,10)
-                    .padding(.vertical,4)
-                    .foregroundColor(.white)
-                    .background(Color.yellow)
+                    .padding(.horizontal,5)
+                    .padding(.vertical,1)
+                    .foregroundColor(Color("Yellow"))
+                    .background(Color.black)
                     .cornerRadius(30)
-                    .font(.system(size: 25))
+                    .font(.system(size: 30))
                     .padding(.leading,20)
                     
                     Spacer()

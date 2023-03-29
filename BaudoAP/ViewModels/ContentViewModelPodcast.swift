@@ -17,9 +17,9 @@ class ContentViewModelPodcast: ObservableObject {
     @Published var postsPodcast: [Post] = []
     
     
-//    init() {
-//        fetchpostsPodcast()
-//    }
+    init() {
+        fetchpostsPodcast()
+    }
     
 //    Function for Fetch posts from firebase
     func fetchpostsPodcast() {

@@ -162,9 +162,9 @@
 			children = (
 				5C52C72429BCE1DF002231F2 /* Post.swift */,
 				5CA8AA9929D1580400F59CAA /* Users.swift */,
+				5C6FAEFA29D37E89000B8FB6 /* EmptyView.swift */,
 				5CA8AA9B29D15C0A00F59CAA /* PostCardComunidad.swift */,
 				5C52C72629BCE1F2002231F2 /* PostCardImage.swift */,
-				5C6FAEFA29D37E89000B8FB6 /* EmptyView.swift */,
 				5CE0FEB629BEA4C100711866 /* PostCardImageDetailView.swift */,
 				5CE0FEB829BEC0BD00711866 /* PostCardImageDetailViewImage.swift */,
 				5C42F23229C95864009099B7 /* PostCardVideo.swift */,

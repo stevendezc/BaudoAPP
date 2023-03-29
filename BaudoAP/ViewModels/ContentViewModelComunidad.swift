@@ -24,9 +24,9 @@ class ContentViewModelComunidad: ObservableObject {
     
     @Published var usersComunidad: [Users] = []
     
-//    init() {
-//        fetchusersComunidad()
-//    }
+    init() {
+        fetchusersComunidad()
+    }
     
 //    Function for Fetch posts from firebase
     func fetchusersComunidad() {
