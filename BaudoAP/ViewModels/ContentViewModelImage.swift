@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 import SwiftUI
 import FirebaseFirestore
 import Firebase
@@ -34,19 +33,19 @@ class ContentViewModelImage: ObservableObject {
         
 //        print("Estos son los post de Imagenes", refImage)
         
-        print("Firestore query started IMAGES")
+//        print("Firestore query started IMAGES")
         refImage.getDocuments { snapshot, error in
-            print("Firestore query started IMAGES - GOT DOCUMENT")
+//            print("Firestore query started IMAGES - GOT DOCUMENT")
             guard error == nil else{
                 print(error!.localizedDescription)
                 return
             }
             
             if let snapshot = snapshot {
-                print("Firestore query started IMAGES - SNAPSHOT")
+//                print("Firestore query started IMAGES - SNAPSHOT")
                 for document in snapshot.documents {
                     var num = 0
-                    print("Firestore query started IMAGES - DOCUMENTS", num)
+//                    print("Firestore query started IMAGES - DOCUMENTS", num)
                     num += 1
                     let data = document.data()
                     
@@ -68,10 +67,12 @@ class ContentViewModelImage: ObservableObject {
                 }
             }
         }
-
     }
     
-
-   
+    func getComments() {
+//        Get uuid
+//        Push textfield y guardar en collection de comments - Author - Post UUID - Timestamp - Text
+//
+    }
+    
 }
-

@@ -53,7 +53,6 @@ struct Home: View {
                 contentImage.fetchpostsImages()
                 print("REFRESHED Images Fetched")
             }
-
         }
     }
 }

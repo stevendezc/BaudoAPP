@@ -11,7 +11,6 @@
 		5C077CD529CDF03D006B3ADC /* PostCardPodcast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C077CD429CDF03D006B3ADC /* PostCardPodcast.swift */; };
 		5C077CD729CE0EC7006B3ADC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C077CD629CE0EC7006B3ADC /* User.swift */; };
 		5C077CDB29CF5DFD006B3ADC /* PostCardPodcastDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C077CDA29CF5DFD006B3ADC /* PostCardPodcastDetail.swift */; };
-		5C19BF9729D4A1DB002C9D82 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5C19BF9629D4A1DB002C9D82 /* GoogleService-Info.plist */; };
 		5C25BC2A29BD6349003667A9 /* Base.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C25BC2929BD6349003667A9 /* Base.swift */; };
 		5C25BC2C29BD6590003667A9 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C25BC2B29BD6590003667A9 /* UserSettings.swift */; };
 		5C42F23329C95864009099B7 /* PostCardVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C42F23229C95864009099B7 /* PostCardVideo.swift */; };
@@ -31,6 +30,7 @@
 		5C52C73429BCE280002231F2 /* Eventos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C52C73329BCE280002231F2 /* Eventos.swift */; };
 		5C52C73629BCE29D002231F2 /* Tienda.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C52C73529BCE29D002231F2 /* Tienda.swift */; };
 		5C52C73829BCE2BA002231F2 /* Comunidad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C52C73729BCE2BA002231F2 /* Comunidad.swift */; };
+		5C6807EF29D5EA03005F7B46 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5C6807EE29D5EA03005F7B46 /* GoogleService-Info.plist */; };
 		5C6FAEF929D36C31000B8FB6 /* ContentViewModelImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6FAEF829D36C30000B8FB6 /* ContentViewModelImage.swift */; };
 		5C6FAEFB29D37E89000B8FB6 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6FAEFA29D37E89000B8FB6 /* EmptyView.swift */; };
 		5C90A5B729BD4B600031FF14 /* TabViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C90A5B629BD4B600031FF14 /* TabViews.swift */; };
@@ -54,7 +54,6 @@
 		5C077CD429CDF03D006B3ADC /* PostCardPodcast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCardPodcast.swift; sourceTree = "<group>"; };
 		5C077CD629CE0EC7006B3ADC /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		5C077CDA29CF5DFD006B3ADC /* PostCardPodcastDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCardPodcastDetail.swift; sourceTree = "<group>"; };
-		5C19BF9629D4A1DB002C9D82 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5C25BC2929BD6349003667A9 /* Base.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Base.swift; sourceTree = "<group>"; };
 		5C25BC2B29BD6590003667A9 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
 		5C42F23229C95864009099B7 /* PostCardVideo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCardVideo.swift; sourceTree = "<group>"; };
@@ -72,6 +71,7 @@
 		5C52C73329BCE280002231F2 /* Eventos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Eventos.swift; sourceTree = "<group>"; };
 		5C52C73529BCE29D002231F2 /* Tienda.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tienda.swift; sourceTree = "<group>"; };
 		5C52C73729BCE2BA002231F2 /* Comunidad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comunidad.swift; sourceTree = "<group>"; };
+		5C6807EE29D5EA03005F7B46 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../Models/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5C6FAEF829D36C30000B8FB6 /* ContentViewModelImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModelImage.swift; sourceTree = "<group>"; };
 		5C6FAEFA29D37E89000B8FB6 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
 		5C90A5B529BD07BD0031FF14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -139,7 +139,7 @@
 		5C52C70F29BCD8CE002231F2 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				5C19BF9629D4A1DB002C9D82 /* GoogleService-Info.plist */,
+				5C6807EE29D5EA03005F7B46 /* GoogleService-Info.plist */,
 				5C52C71029BCD8CE002231F2 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
@@ -275,12 +275,12 @@
 			files = (
 				5C52C71129BCD8CE002231F2 /* Preview Assets.xcassets in Resources */,
 				5CA8AA9129D14B1500F59CAA /* SofiaSans-Medium.ttf in Resources */,
-				5C19BF9729D4A1DB002C9D82 /* GoogleService-Info.plist in Resources */,
 				5CA8AA9429D14B1500F59CAA /* SofiaSans-Light.ttf in Resources */,
 				5CA8AA9329D14B1500F59CAA /* SofiaSans-ExtraBold.ttf in Resources */,
 				5CA8AA9229D14B1500F59CAA /* SofiaSans-Black.ttf in Resources */,
 				5C52C70E29BCD8CE002231F2 /* Assets.xcassets in Resources */,
 				5CA8AA9629D14B1500F59CAA /* SofiaSans-Bold.ttf in Resources */,
+				5C6807EF29D5EA03005F7B46 /* GoogleService-Info.plist in Resources */,
 				5CA8AA9529D14B1500F59CAA /* SofiaSans-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -444,6 +444,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"BaudoAP/Preview Content\"";
@@ -460,8 +461,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.baudoap.BaudoAP;
+				PRODUCT_BUNDLE_IDENTIFIER = com.baudoap.BaudoAPS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -476,6 +478,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"BaudoAP/Preview Content\"";
@@ -492,8 +495,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.baudoap.BaudoAP;
+				PRODUCT_BUNDLE_IDENTIFIER = com.baudoap.BaudoAPS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;

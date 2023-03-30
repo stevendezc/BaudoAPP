@@ -28,7 +28,7 @@ class ContentViewModelPodcast: ObservableObject {
        postsPodcast.removeAll()
         let dbPod = Firestore.firestore()
         
-        let refPodcast = dbPod.collection("Posts").whereField("Typo", isEqualTo: "Podcast")
+        let refPodcast = dbPod.collection("Posts").whereField("Typo", isEqualTo: "Podcast").order(by: "CreationDate" ,descending: true)
         
         //let ImagenesContent = db.collection("Posts").whereField("Tipo", isEqualTo: "Imagen")
         

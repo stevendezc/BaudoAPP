@@ -19,7 +19,7 @@ struct PostCardImage: View {
             isPresentedImage1 = true
         } label: {
             VStack(alignment: .leading){
-                WebImage(url: URL(string: model.MainMediaUrl))
+                WebImage(url: URL(string: model.Thumbnail))
                     .resizable()
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .aspectRatio(contentMode: .fit)
