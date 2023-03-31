@@ -17,73 +17,92 @@ struct PostCardImageDetailView: View {
     
     @Binding var isPresentedImage1: Bool
     
-    
     var body: some View {
-        ScrollView{
-            VStack(alignment: .leading){
-                //            NavigationLink(destination: PostCardImageDetailViewImage(model: model, $isPresented: false), label: {
-                //
-                //                 }
-                //            )
-                
+            ScrollView{
                 VStack(alignment: .leading){
+                    //            NavigationLink(destination: PostCardImageDetailViewImage(model: model, $isPresented: false), label: {
+                    //
+                    //                 }
+                    //            )
                     
-                    WebImage(url: URL(string: model.Thumbnail)).resizable()
-                        .frame(maxWidth: .infinity, maxHeight: .infinity)
-                        .aspectRatio(contentMode: .fit)
-                        .cornerRadius(19)
-                }.padding(.top,90)
-                
-                Button {
-                    isPresented = true
-                } label: {
-                    Image("Expand").resizable().frame(width: 25,height: 25)
-                    
-                }
-                .foregroundColor(Color("Buttons"))
-                .padding(.top,-50)
-                .padding(.leading,17)
-                
-                
-                HStack(alignment: .center){
-                    Spacer()
-                    Image("Reactions")
-                        .padding(.top,-10)
-                    Spacer()
-                }
-                
-                VStack(alignment: .leading,spacing: 5){
-                    //                HStack{
-                    //                    Spacer()
-                    //                }
-                    
-                    
-                    
-                    
-                    Text(model.Location).font(.custom("SofiaSans-Bold",size: 22,relativeTo: .title3))
-                    Text(model.Description).font(.custom("SofiaSans-Regular",size: 15,
-                                                         relativeTo: .body))
-                    Text(model.Author)
-                        .padding(.top,3)
-                        .font(.custom("SofiaSans-Bold",size: 13,relativeTo: .caption))
-                    
-                    Image("Lines")
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                    
-                    
-                    Spacer()
-                    Spacer()
-                    
-                    Text("Comentarios").font(.custom("SofiaSans-Bold",size: 24,relativeTo: .title))
                     VStack(alignment: .leading){
-                        HStack{
-                            Spacer()
-                        }
+                        
+                        WebImage(url: URL(string: model.Thumbnail)).resizable()
+                            .frame(maxWidth: .infinity, maxHeight: .infinity)
+                            .aspectRatio(contentMode: .fit)
+                            .cornerRadius(19)
+                    }.padding(.top,90)
+                    
+                    Button {
+                        isPresented = true
+                    } label: {
+                        Image("Expand").resizable().frame(width: 25,height: 25)
+                        
+                    }
+                    .foregroundColor(Color("Buttons"))
+                    .padding(.top,-50)
+                    .padding(.leading,17)
+                    
+                    
+                    HStack(alignment: .center){
+                        Spacer()
+                        Image("Reactions")
+                            .padding(.top,-10)
+                        Spacer()
+                    }
+                    
+                    VStack(alignment: .leading,spacing: 5){
+                        //                HStack{
+                        //                    Spacer()
+                        //                }
+                        
+                        
+                        
+                        
+                        Text(model.Location).font(.custom("SofiaSans-Bold",size: 22,relativeTo: .title3))
+                        Text(model.Description).font(.custom("SofiaSans-Regular",size: 15,
+                                                             relativeTo: .body))
+                        Text(model.Author)
+                            .padding(.top,3)
+                            .font(.custom("SofiaSans-Bold",size: 13,relativeTo: .caption))
+                        
+                        Image("Lines")
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                        
+                        
+                        Spacer()
+                        Spacer()
+                        
+                        Text("Comentarios").font(.custom("SofiaSans-Bold",size: 24,relativeTo: .title))
                         VStack(alignment: .leading){
-                            
-                            ForEach(contentImage.comments){ comment in
+                            HStack{
+                                Spacer()
+                            }
+                            VStack(alignment: .leading){
                                 
+                                ForEach(contentImage.comments){ comment in
+                                    
+                                    HStack{
+                                        Image("Mambo")
+                                            .resizable()
+                                        //                            .border(Color.accentColor, width: 4)
+                                            .frame(width: 40,height: 40,alignment: .center)
+                                            .aspectRatio(contentMode: .fit)
+                                            .clipShape(Circle())
+                                            .padding(2)
+                                            .overlay(
+                                                RoundedRectangle(cornerRadius: 30)
+                                                    .stroke(Color("Buttons"), lineWidth: 1)
+                                            )
+                                        Text(comment.commentText)
+                                }
+                                    
+                                
+                                }
+                                .padding(10)
+                                .background(Color("BackgroundCardsPodcast").opacity(0.5))
+                                .cornerRadius(20)
                                 HStack{
                                     Image("Mambo")
                                         .resizable()
@@ -96,86 +115,137 @@ struct PostCardImageDetailView: View {
                                             RoundedRectangle(cornerRadius: 30)
                                                 .stroke(Color("Buttons"), lineWidth: 1)
                                         )
-                                    Text(comment.commentText)
-                                }.padding(10)
-                                    .background(Color("BackgroundCardsPodcast").opacity(0.5))
-                                    .cornerRadius(20)
-  
+                                    Text("Hola Soy Mambo, un Pomeranian negro hermoso")
+                                }
+                                .padding(10)
+                                .background(Color("BackgroundCardsPodcast").opacity(0.5))
+                                .cornerRadius(20)
+                                HStack{
+                                    Image("Mambo")
+                                        .resizable()
+                                    //                            .border(Color.accentColor, width: 4)
+                                        .frame(width: 40,height: 40,alignment: .center)
+                                        .aspectRatio(contentMode: .fit)
+                                        .clipShape(Circle())
+                                        .padding(2)
+                                        .overlay(
+                                            RoundedRectangle(cornerRadius: 30)
+                                                .stroke(Color("Buttons"), lineWidth: 1)
+                                        )
+                                    Text("Hola Mundo, que fotos tan hermosas")
+                                }
+                                .padding(10)
+                                .background(Color("BackgroundCardsPodcast").opacity(0.5))
+                                .cornerRadius(20)
+                                HStack{
+                                    Image("Mambo")
+                                        .resizable()
+                                    //                            .border(Color.accentColor, width: 4)
+                                        .frame(width: 40,height: 40,alignment: .center)
+                                        .aspectRatio(contentMode: .fit)
+                                        .clipShape(Circle())
+                                        .padding(2)
+                                        .overlay(
+                                            RoundedRectangle(cornerRadius: 30)
+                                                .stroke(Color("Buttons"), lineWidth: 1)
+                                        )
+                                    Text("Hola Mundo,esto es para probar comentarios de users")
+                                }
+                                .padding(10)
+                                .background(Color("BackgroundCardsPodcast").opacity(0.5))
+                                .cornerRadius(20)
+                                HStack{
+                                    Image("Mambo")
+                                        .resizable()
+                                    //                            .border(Color.accentColor, width: 4)
+                                        .frame(width: 40,height: 40,alignment: .center)
+                                        .aspectRatio(contentMode: .fit)
+                                        .clipShape(Circle())
+                                        .padding(2)
+                                        .overlay(
+                                            RoundedRectangle(cornerRadius: 30)
+                                                .stroke(Color("Buttons"), lineWidth: 1)
+                                        )
+                                    Text("Hola como esta la people por estos lados?")
+                                }
+                                .padding(10)
+                                .background(Color("BackgroundCardsPodcast").opacity(0.5))
+                                .cornerRadius(20)
+                                
                             }
-                        }
-                        
-                    }.padding(20)
+                            
+                        }.padding(20)
                         .background(Color("BackgroundCards").opacity(0.5))
                         .foregroundColor(Color("Text"))
                         .cornerRadius(20)
-                    
-                    
-                    
+                        
+                        
+                       
+                    }
+                    //.border(Color.red, width: 3)
+                    .padding(.horizontal,20)
                 }
-                //.border(Color.red, width: 3)
-                .padding(.horizontal,20)
+                
+                .padding(5)
+                
+                //.ignoresSafeArea()
+                
+                .fullScreenCover(isPresented: $isPresented, onDismiss: {isPresented = false}, content: { PostCardImageDetailViewImage(model: model, isPresented: $isPresented).ignoresSafeArea()})
+                .foregroundColor(Color("Text"))
+                .padding(.horizontal,0)
+                
             }
-            
-            .padding(5)
-            
-            //.ignoresSafeArea()
-            
-            .fullScreenCover(isPresented: $isPresented, onDismiss: {isPresented = false}, content: { PostCardImageDetailViewImage(model: model, isPresented: $isPresented).ignoresSafeArea()})
-            .foregroundColor(Color("Text"))
-            .padding(.horizontal,0)
-            
-        }
-        .overlay(
-            Button(action: {
-                isPresentedImage1 = false
-            }, label: {
-                Text("←")
-                    .padding(.horizontal,5)
-                    .padding(.vertical,1)
-                    .foregroundColor(Color("Yellow"))
-                    .background(Color.black)
-                    .overlay(RoundedRectangle(cornerRadius: 30)
-                        .stroke(Color("Buttons"),
+            .overlay(
+                Button(action: {
+                    isPresentedImage1 = false
+                }, label: {
+                    Text("←")
+                        .padding(.horizontal,5)
+                        .padding(.vertical,1)
+                        .foregroundColor(Color("Yellow"))
+                        .background(Color.black)
+                        .overlay(RoundedRectangle(cornerRadius: 30)
+                                .stroke(Color("Buttons"),
                                 lineWidth: 1))
-                    .cornerRadius(30)
-                    .font(.system(size: 30))
-                    .padding(.leading,10)
-            }).padding(.top,40) ,alignment: .topLeading
-        )
-        
-        
-        HStack{
-            Image("Mambo")
-                .resizable()
-            //                            .border(Color.accentColor, width: 4)
-                .frame(width: 50,height: 50,alignment: .center)
-                .aspectRatio(contentMode: .fit)
-                .clipShape(Circle())
-                .padding(2)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 30)
-                        .stroke(Color("Buttons"), lineWidth: 1)
-                )
-            
-            TextField(
-                "Agregar comentario",
-                text: $contentImage.commentText
+                        .cornerRadius(30)
+                        .font(.system(size: 30))
+                        .padding(.leading,10)
+                }).padding(.top,40) ,alignment: .topLeading
             )
-            .foregroundColor(Color("Text"))
-            .padding()
-            .background(Color("BackgroundCards"))
-            .cornerRadius(19)
-            Button{
-                contentImage.pushComment(postId: model.id)
-                //                    print("Pusshed Comment YEYYYY",$comment)
-            } label: {
-                Text("Enviar")
+            
+           
+            HStack{
+                Image("Mambo")
+                    .resizable()
+//                            .border(Color.accentColor, width: 4)
+                    .frame(width: 50,height: 50,alignment: .center)
+                    .aspectRatio(contentMode: .fit)
+                    .clipShape(Circle())
+                    .padding(2)
+                    .overlay(
+                            RoundedRectangle(cornerRadius: 30)
+                                .stroke(Color("Buttons"), lineWidth: 1)
+                        )
+                
+                TextField(
+                  "Agregar comentario",
+                  text: $contentImage.commentText
+                )
+                .foregroundColor(Color("Text"))
+                .padding()
+                .background(Color("BackgroundCards"))
+                .cornerRadius(19)
+                Button{
+                    contentImage.pushComment(postId: model.id ?? "")
+                    print("Pusshed Comment YEYYYY",model.id ?? "")
+                } label: {
+                    Text("Enviar")
+                }
+                .buttonStyle(.borderedProminent)
             }
-            .buttonStyle(.borderedProminent)
-        }
-        .padding(5)
-        Spacer()
-        Spacer()
+            .padding(5)
+            Spacer()
+            Spacer()
     }
 }
 

@@ -24,6 +24,8 @@ class ContentViewModelImage: ObservableObject {
     
     @Published var currentCommentId = ""
     
+    @Published var userId = ""
+    
     init() {
         fetchpostsImages()
         //        print("Fetch from init in the content view IMAGES")
@@ -57,8 +59,9 @@ class ContentViewModelImage: ObservableObject {
                     //                    print("Firestore query started IMAGES - DOCUMENTS", num)
                     //                    num += 1
                     let data = document.data()
+                    let uid = document.documentID
                     
-                    let id: String = UUID().uuidString
+                    let id = uid
                     let Thumbnail = data["Thumbnail"] as? String ?? ""
                     let Thumbnail2 = data["Thumbnail2"] as? String ?? ""
                     let Author = data["Author"] as? String ?? ""
@@ -69,7 +72,7 @@ class ContentViewModelImage: ObservableObject {
                     let Category = data["Category"] as? String ?? ""
                     let CreationDate = data["CreationDate"] as? String ?? ""
                     
-                    let postimage = Post(id: id,Thumbnail: Thumbnail,Thumbnail2: Thumbnail2, Author: Author,Location: Location, MainMediaUrl: MainMediaUrl, Typo: Typo, Description: Description,Category: Category,Title: "Title",CreationDate: CreationDate)
+                    let postimage = Post(id: id, Thumbnail: Thumbnail,Thumbnail2: Thumbnail2, Author: Author,Location: Location, MainMediaUrl: MainMediaUrl, Typo: Typo, Description: Description,Category: Category,Title: "Title",CreationDate: CreationDate)
                     self.postsImages.append(postimage)
                     
                     //                    print(self.postsImages)
@@ -94,8 +97,13 @@ class ContentViewModelImage: ObservableObject {
         let db = Firestore.firestore().collection("Comments").document()
         
         currentCommentId = db.documentID
+        print("CurrentCOmmentID IS : \(currentCommentId)")
         
         let messageData = ["userId": userId, "commentText": self.commentText, "timestamp": Timestamp()] as [String : Any]
+        
+//        db.setData(messageData, completion: {_ in
+//            print("CommentSaved")
+//        } )
         
         db.setData(messageData){ error in
             if let error = error{
@@ -109,33 +117,36 @@ class ContentViewModelImage: ObservableObject {
         self.commentText = ""
         
         
-        func createRestaurant(restaurantName: String) {
-            let dbPosts = Firestore.firestore()
+        let dbPosts = Firestore.firestore()
 
-            let docRef = db.collection("Restaurants").document(restaurantName)
+        let docRef = dbPosts.collection("Posts").document(postId)
 
-            docRef.setData(["name": restaurantName]) { error in
-                if let error = error {
-                    print("Error writing document: \(error)")
-                } else {
-                    print("Document successfully written!")
-                }
-            }
-        }
-        
+//        docRef.setData(["Comments": FieldValue.arrayUnion([currentCommentId])], merge: true)
+        docRef.updateData(["Commentaries": FieldValue.arrayUnion([currentCommentId])])
+//
+//            docRef.setData(["name": restaurantName]) { error in
+//                if let error = error {
+//                    print("Error writing document: \(error)")
+//                } else {
+//                    print("Document successfully written!")
+//                }
+//            }
+//        }
         
 //        HERE INJECT CommentID to PostID
 //        let dbPosts = Firestore.firestore()
 //
 //        let dbRef = dbPosts.collection("Posts").document(postId)
 //
-//        dbRef.updateData(["Comments": FieldValue.arrayUnion(currentCommentId)]{ error in
+//        dbRef.setData{ error in
 //            if let error = error {
 //                print("Error writing document: \(error)")
 //            } else {
 //                print("Document successfully written!")
 //            }
 //        }
+        
+        
         
         
     }
@@ -145,7 +156,7 @@ class ContentViewModelImage: ObservableObject {
     
     
     func fetchNewComments(){
-        let db = Firestore.firestore()
+        var db = Firestore.firestore()
             .collection("Comments")
             .addSnapshotListener{ querySnapshot, error in
                 if let error = error {

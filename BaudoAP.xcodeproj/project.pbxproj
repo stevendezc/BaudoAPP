@@ -14,6 +14,7 @@
 		5C25BC2A29BD6349003667A9 /* Base.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C25BC2929BD6349003667A9 /* Base.swift */; };
 		5C25BC2C29BD6590003667A9 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C25BC2B29BD6590003667A9 /* UserSettings.swift */; };
 		5C345D5429D7288000C689DB /* CommentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C345D5329D7288000C689DB /* CommentModel.swift */; };
+		5C345D5929D79DEB00C689DB /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5C345D5829D79DEB00C689DB /* FirebaseFirestoreSwift */; };
 		5C42F23329C95864009099B7 /* PostCardVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C42F23229C95864009099B7 /* PostCardVideo.swift */; };
 		5C42F23529C95F6E009099B7 /* ContentViewModelVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C42F23429C95F6E009099B7 /* ContentViewModelVideo.swift */; };
 		5C52C70A29BCD8CD002231F2 /* BaudoAPApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C52C70929BCD8CD002231F2 /* BaudoAPApp.swift */; };
@@ -97,6 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C345D5929D79DEB00C689DB /* FirebaseFirestoreSwift in Frameworks */,
 				5CE0FEB529BE0C2900711866 /* SDWebImageSwiftUI in Frameworks */,
 				5C52C71B29BCDEDF002231F2 /* FirebaseAuth in Frameworks */,
 				5C52C71D29BCDEDF002231F2 /* FirebaseFirestore in Frameworks */,
@@ -122,11 +124,19 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		5C345D5729D79DEB00C689DB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		5C52C6FD29BCD8CD002231F2 = {
 			isa = PBXGroup;
 			children = (
 				5C52C70829BCD8CD002231F2 /* BaudoAP */,
 				5C52C70729BCD8CD002231F2 /* Products */,
+				5C345D5729D79DEB00C689DB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -237,6 +247,7 @@
 				5C52C71C29BCDEDF002231F2 /* FirebaseFirestore */,
 				5C52C71E29BCDEDF002231F2 /* FirebaseStorage */,
 				5CE0FEB429BE0C2900711866 /* SDWebImageSwiftUI */,
+				5C345D5829D79DEB00C689DB /* FirebaseFirestoreSwift */,
 			);
 			productName = BaudoAP;
 			productReference = 5C52C70629BCD8CD002231F2 /* BaudoAP.app */;
@@ -562,6 +573,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		5C345D5829D79DEB00C689DB /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5C52C71929BCDEDF002231F2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
+		};
 		5C52C71A29BCDEDF002231F2 /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 5C52C71929BCDEDF002231F2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
