@@ -13,6 +13,7 @@
 		5C077CDB29CF5DFD006B3ADC /* PostCardPodcastDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C077CDA29CF5DFD006B3ADC /* PostCardPodcastDetail.swift */; };
 		5C25BC2A29BD6349003667A9 /* Base.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C25BC2929BD6349003667A9 /* Base.swift */; };
 		5C25BC2C29BD6590003667A9 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C25BC2B29BD6590003667A9 /* UserSettings.swift */; };
+		5C345D5429D7288000C689DB /* CommentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C345D5329D7288000C689DB /* CommentModel.swift */; };
 		5C42F23329C95864009099B7 /* PostCardVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C42F23229C95864009099B7 /* PostCardVideo.swift */; };
 		5C42F23529C95F6E009099B7 /* ContentViewModelVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C42F23429C95F6E009099B7 /* ContentViewModelVideo.swift */; };
 		5C52C70A29BCD8CD002231F2 /* BaudoAPApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C52C70929BCD8CD002231F2 /* BaudoAPApp.swift */; };
@@ -56,6 +57,7 @@
 		5C077CDA29CF5DFD006B3ADC /* PostCardPodcastDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCardPodcastDetail.swift; sourceTree = "<group>"; };
 		5C25BC2929BD6349003667A9 /* Base.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Base.swift; sourceTree = "<group>"; };
 		5C25BC2B29BD6590003667A9 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
+		5C345D5329D7288000C689DB /* CommentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentModel.swift; sourceTree = "<group>"; };
 		5C42F23229C95864009099B7 /* PostCardVideo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCardVideo.swift; sourceTree = "<group>"; };
 		5C42F23429C95F6E009099B7 /* ContentViewModelVideo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModelVideo.swift; sourceTree = "<group>"; };
 		5C52C70629BCD8CD002231F2 /* BaudoAP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BaudoAP.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -105,6 +107,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5C345D5229D7271900C689DB /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				5CA8AA9B29D15C0A00F59CAA /* PostCardComunidad.swift */,
+				5C52C72629BCE1F2002231F2 /* PostCardImage.swift */,
+				5CE0FEB629BEA4C100711866 /* PostCardImageDetailView.swift */,
+				5CE0FEB829BEC0BD00711866 /* PostCardImageDetailViewImage.swift */,
+				5C42F23229C95864009099B7 /* PostCardVideo.swift */,
+				5CB902D429CB81C0004D581B /* PostCardVideoDetailView.swift */,
+				5C077CD429CDF03D006B3ADC /* PostCardPodcast.swift */,
+				5C077CDA29CF5DFD006B3ADC /* PostCardPodcastDetail.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		5C52C6FD29BCD8CD002231F2 = {
 			isa = PBXGroup;
 			children = (
@@ -124,12 +141,13 @@
 		5C52C70829BCD8CD002231F2 /* BaudoAP */ = {
 			isa = PBXGroup;
 			children = (
+				5C52C70D29BCD8CE002231F2 /* Assets.xcassets */,
+				5CDC3F5C29D0A32B006D55BB /* Fonts */,
 				5C90A5B529BD07BD0031FF14 /* Info.plist */,
 				5C52C70929BCD8CD002231F2 /* BaudoAPApp.swift */,
 				5C52C72029BCE1A5002231F2 /* ViewModels */,
 				5C52C72329BCE1D1002231F2 /* Models */,
-				5C52C70D29BCD8CE002231F2 /* Assets.xcassets */,
-				5CDC3F5C29D0A32B006D55BB /* Fonts */,
+				5C345D5229D7271900C689DB /* Components */,
 				5C52C72829BCE213002231F2 /* Views */,
 				5C52C70F29BCD8CE002231F2 /* Preview Content */,
 			);
@@ -163,14 +181,7 @@
 				5C52C72429BCE1DF002231F2 /* Post.swift */,
 				5CA8AA9929D1580400F59CAA /* Users.swift */,
 				5C6FAEFA29D37E89000B8FB6 /* EmptyView.swift */,
-				5CA8AA9B29D15C0A00F59CAA /* PostCardComunidad.swift */,
-				5C52C72629BCE1F2002231F2 /* PostCardImage.swift */,
-				5CE0FEB629BEA4C100711866 /* PostCardImageDetailView.swift */,
-				5CE0FEB829BEC0BD00711866 /* PostCardImageDetailViewImage.swift */,
-				5C42F23229C95864009099B7 /* PostCardVideo.swift */,
-				5CB902D429CB81C0004D581B /* PostCardVideoDetailView.swift */,
-				5C077CD429CDF03D006B3ADC /* PostCardPodcast.swift */,
-				5C077CDA29CF5DFD006B3ADC /* PostCardPodcastDetail.swift */,
+				5C345D5329D7288000C689DB /* CommentModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -317,6 +328,7 @@
 				5C25BC2C29BD6590003667A9 /* UserSettings.swift in Sources */,
 				5CA8AA9829D1570800F59CAA /* ContentViewModelComunidad.swift in Sources */,
 				5C6FAEF929D36C31000B8FB6 /* ContentViewModelImage.swift in Sources */,
+				5C345D5429D7288000C689DB /* CommentModel.swift in Sources */,
 				5C52C72C29BCE23C002231F2 /* Preload.swift in Sources */,
 				5C52C72E29BCE24F002231F2 /* Login.swift in Sources */,
 			);

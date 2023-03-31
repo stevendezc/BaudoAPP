@@ -50,8 +50,8 @@ struct Home: View {
                 //            //UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.white], for: .normal)
             }
             .refreshable {
-                contentImage.fetchpostsImages()
-                print("REFRESHED Images Fetched")
+//                contentImage.fetchpostsImages()
+                print("REFRESHED nothing fetched")
             }
         }
     }

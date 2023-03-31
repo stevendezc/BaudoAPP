@@ -15,38 +15,47 @@ import FirebaseAuth
 class ContentViewModelImage: ObservableObject {
     @Published var postsImages: [Post] = []
     
+    @Published var comments: [CommentModel] = []
+    
+    @Published var commentText = ""
+    @Published var errorMessage = ""
+    
+    @Published var commentId = ""
+    
+    @Published var currentCommentId = ""
     
     init() {
         fetchpostsImages()
-        print("Fetch from init in the content view IMAGES")
+        //        print("Fetch from init in the content view IMAGES")
+        fetchNewComments()
     }
     
-//    Function for Fetch posts from firebase
+    //    Function for Fetch posts from firebase
     func fetchpostsImages() {
         
         // NECESARIO ??
-//       postsImages.removeAll()
+        postsImages.removeAll()
         let dbImg = Firestore.firestore()
         let refImage = dbImg.collection("Posts").whereField("Typo", isEqualTo: "Image").order(by: "CreationDate" ,descending: true)
         
         //let ImagenesContent = db.collection("Posts").whereField("Tipo", isEqualTo: "Imagen")
         
-//        print("Estos son los post de Imagenes", refImage)
+        //        print("Estos son los post de Imagenes", refImage)
         
-//        print("Firestore query started IMAGES")
+        //        print("Firestore query started IMAGES")
         refImage.getDocuments { snapshot, error in
-//            print("Firestore query started IMAGES - GOT DOCUMENT")
+            //            print("Firestore query started IMAGES - GOT DOCUMENT")
             guard error == nil else{
                 print(error!.localizedDescription)
                 return
             }
             
             if let snapshot = snapshot {
-//                print("Firestore query started IMAGES - SNAPSHOT")
+                //                print("Firestore query started IMAGES - SNAPSHOT")
                 for document in snapshot.documents {
-                    var num = 0
-//                    print("Firestore query started IMAGES - DOCUMENTS", num)
-                    num += 1
+                    //                    var num = 0
+                    //                    print("Firestore query started IMAGES - DOCUMENTS", num)
+                    //                    num += 1
                     let data = document.data()
                     
                     let id: String = UUID().uuidString
@@ -63,16 +72,100 @@ class ContentViewModelImage: ObservableObject {
                     let postimage = Post(id: id,Thumbnail: Thumbnail,Thumbnail2: Thumbnail2, Author: Author,Location: Location, MainMediaUrl: MainMediaUrl, Typo: Typo, Description: Description,Category: Category,Title: "Title",CreationDate: CreationDate)
                     self.postsImages.append(postimage)
                     
-//                    print(self.postsImages)
+                    //                    print(self.postsImages)
                 }
             }
         }
     }
     
-    func getComments() {
-//        Get uuid
-//        Push textfield y guardar en collection de comments - Author - Post UUID - Timestamp - Text
+    func pushComment(postId: String) {
+        //        Get uuid
+        //        Push textfield y guardar en collection de comments - Author - Post UUID - Timestamp - Text
+        
+        
+        print("I MADE ITTT", postId)
+        
+        
+        guard let userId = Auth.auth().currentUser?.uid else {
+            return
+        }
+        print(userId)
+        
+        let db = Firestore.firestore().collection("Comments").document()
+        
+        currentCommentId = db.documentID
+        
+        let messageData = ["userId": userId, "commentText": self.commentText, "timestamp": Timestamp()] as [String : Any]
+        
+        db.setData(messageData){ error in
+            if let error = error{
+                self.errorMessage = "Failed to save message into Firestore: \(error)"
+                return
+            } else {
+                self.fetchNewComments()
+            }
+        }
+        
+        self.commentText = ""
+        
+        
+        func createRestaurant(restaurantName: String) {
+            let dbPosts = Firestore.firestore()
+
+            let docRef = db.collection("Restaurants").document(restaurantName)
+
+            docRef.setData(["name": restaurantName]) { error in
+                if let error = error {
+                    print("Error writing document: \(error)")
+                } else {
+                    print("Document successfully written!")
+                }
+            }
+        }
+        
+        
+//        HERE INJECT CommentID to PostID
+//        let dbPosts = Firestore.firestore()
 //
+//        let dbRef = dbPosts.collection("Posts").document(postId)
+//
+//        dbRef.updateData(["Comments": FieldValue.arrayUnion(currentCommentId)]{ error in
+//            if let error = error {
+//                print("Error writing document: \(error)")
+//            } else {
+//                print("Document successfully written!")
+//            }
+//        }
+        
+        
     }
     
+    
+    
+    
+    
+    func fetchNewComments(){
+        let db = Firestore.firestore()
+            .collection("Comments")
+            .addSnapshotListener{ querySnapshot, error in
+                if let error = error {
+                    self.errorMessage = "Failed to listen for new comments: \(error)"
+                    print(error)
+                    return
+                }
+                
+                querySnapshot?.documents.forEach({ queryDocumentSnapshot in
+                    let data = queryDocumentSnapshot.data()
+                    
+                    let Id: String = UUID().uuidString
+                    let commentText = data["commentText"] as? String ?? ""
+                    let userId = data["userId"] as? String ?? ""
+                    
+                    let comment = CommentModel(postId: Id, commentText: commentText)
+                    self.comments.append(comment)
+                    
+                })
+            
+            }
+    }
 }
