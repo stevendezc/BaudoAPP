@@ -58,12 +58,13 @@ class ContentViewModelComunidad: ObservableObject {
                     let Thumbnail = data["Thumbnail"] as? String ?? ""
                     let Title = data["Title"] as? String ?? ""
                     let Description = data["Description"] as? String ?? ""
-                    let CreationDate = data["CreationDate"] as? String ?? ""
+//                    let CreationDate = data["CreationDate"] as? Timestamp
                     let CategoryCom = data["CategoryCom"] as? String ?? ""
                     let Instagram = data["Instagram"] as? String ?? ""
                     let Facebook = data["Facebook"] as? String ?? ""
                     let Whatsapp = data["Whatsapp"] as? String ?? ""
                     let Twitter = data["Twitter"] as? String ?? ""
+                    let CreationDate = (data["CreationDate"] as? Timestamp)?.dateValue() ?? Date()
                     
                     let postcomunidad = Users(id: id, Thumbnail: Thumbnail, Description: Description, CategoryCom: CategoryCom, Title: Title, CreationDate: CreationDate, Instagram: Instagram, Facebook: Facebook, Twitter: Twitter, Whatsapp: Whatsapp)
                     self.usersComunidad.append(postcomunidad)

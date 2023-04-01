@@ -11,6 +11,8 @@ import AVKit
 
 struct PostCardVideoDetailView: View {
     
+    @ObservedObject var contentVideo = ContentViewModelVideo()
+    
     var model: Post
     @Binding var isPresentedVideo: Bool
     
@@ -19,7 +21,7 @@ struct PostCardVideoDetailView: View {
         ScrollView{
             ZStack(alignment: .topLeading){
                 let player = AVPlayer(url:  URL(string:model.MainMediaUrl)!)
-            
+                
                 VideoPlayer(player: player).frame(width:UIScreen.main.bounds.width,
                                                   height:UIScreen.main.bounds.height).onAppear() {
                     player.play()
@@ -37,15 +39,74 @@ struct PostCardVideoDetailView: View {
                 .cornerRadius(30)
                 .font(.system(size: 25))
                 .padding(40)
-                    
+                
                 //  .border(Color.red, width: 3)
                 //  .aspectRatio(contentMode: .fill)
                 
                 
             }
-            Text(model.Location)
-            Text(model.Description)
-            Text("Foto por: \(model.Author)")
+            
+            VStack(alignment: .leading,spacing: 5){
+                                HStack{
+                                    Spacer()
+                                }
+                
+                Text(model.Location).font(.custom("SofiaSans-Bold",size: 22,relativeTo: .title3))
+                Text(model.Description)
+                    .font(.custom("SofiaSans-Regular",size: 15,relativeTo: .body))
+                    .multilineTextAlignment(.leading)
+                Text("Author: \(model.Author)")
+                    .padding(.top,3)
+                    .font(.custom("SofiaSans-Bold",size: 13,relativeTo: .caption))
+                
+                Image("Lines")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                
+                
+                Spacer()
+                Spacer()
+                
+                Text("Comentarios").font(.custom("SofiaSans-Bold",size: 24,relativeTo: .title))
+                VStack(alignment: .leading){
+                    HStack{
+                        Spacer()
+                    }
+                    VStack(alignment: .leading){
+
+                        ForEach(contentVideo.comments){ comment in
+                            HStack{
+                                Image("Mambo")
+                                    .resizable()
+                                //                            .border(Color.accentColor, width: 4)
+                                    .frame(width: 40,height: 40,alignment: .center)
+                                    .aspectRatio(contentMode: .fit)
+                                    .clipShape(Circle())
+                                    .padding(2)
+                                    .overlay(
+                                        RoundedRectangle(cornerRadius: 30)
+                                            .stroke(Color("Buttons"), lineWidth: 1)
+                                    )
+                                Text(comment.commentText)
+                        }
+
+                        }
+                        .padding(10)
+                        .background(Color("BackgroundCardsPodcast").opacity(0.5))
+                        .cornerRadius(20)
+
+                    }
+
+                }.padding(20)
+                .background(Color("BackgroundCards").opacity(0.5))
+                .foregroundColor(Color("Text"))
+                .cornerRadius(20)
+                
+                
+               
+            }
+            //.border(Color.red, width: 3)
+            .padding(.horizontal,20)
         }
 
         

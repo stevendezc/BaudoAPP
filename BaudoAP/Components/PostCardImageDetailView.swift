@@ -144,7 +144,7 @@ struct PostCardImageDetailView: View {
                         .cornerRadius(30)
                         .font(.system(size: 30))
                         .padding(.leading,10)
-                }).padding(.top,40) ,alignment: .topLeading
+                }).padding(.top,50) ,alignment: .topLeading
             )
             
            
@@ -177,7 +177,8 @@ struct PostCardImageDetailView: View {
                     Text("Enviar")
                 }
                 .buttonStyle(.borderedProminent)
-            }.onAppear(){
+            }
+            .onAppear(){
                 contentImage.fetchNewComments(postId: model.id ?? "")
             }
             .onDisappear(){

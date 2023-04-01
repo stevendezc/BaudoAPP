@@ -85,14 +85,14 @@ struct Videos: View {
     ]
     
     var body: some View {
-        //ForEach(/*@START_MENU_TOKEN@*/0 ..< 5/*@END_MENU_TOKEN@*/) { item in
+        ForEach(0 ..< 2) { item in
         LazyVGrid(columns: Columns, spacing: 10){
             ForEach(contentVideo.postsVideos) { post in
                 NavigationLink(destination: PostCardVideoDetailView(model: post, isPresentedVideo: .constant(false)), label: {
                     PostCardVideo(model: post) } )
             }
         }
-        //}.padding(.horizontal,20)
+        }.padding(.horizontal,20)
     }
 }
 

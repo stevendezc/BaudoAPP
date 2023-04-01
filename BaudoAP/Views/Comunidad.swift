@@ -14,24 +14,27 @@ struct Comunidad: View {
         NavigationView{
             ScrollView{
                 VStack{
-                    Spacer(minLength: 30)
-                    HStack(alignment: .center, spacing: 20){
+                    Spacer(minLength: 20)
+                    HStack(alignment: .center, spacing: 10){
                         Button {
 //
                         } label: {
-                            Text("Proyectos productivos")
-                        }.buttonStyle(.borderedProminent)
+                            Image("Proyectosproductivos").resizable().aspectRatio(contentMode: .fit)
+                                
+                        }.padding(0)
+                        
+                            
                         Button {
 //
                         } label: {
-                            Text("Cultura e inclusion")
-                        }.buttonStyle(.borderedProminent)
+                            Image("Cultura").resizable().aspectRatio(contentMode: .fit)
+                        }
                         Button {
-//                            <#code#>
+//
                         } label: {
-                            Text("Turismo comunitario")
-                        }.buttonStyle(.borderedProminent)
-                    }
+                            Image("Turismo").resizable().aspectRatio(contentMode: .fit)
+                        }
+                    }.padding(10)
                     
                     ForEach(0 ..< 10) { item in
                         

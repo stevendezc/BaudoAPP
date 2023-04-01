@@ -19,7 +19,6 @@ class ContentViewModelVideo: ObservableObject {
     
     init() {
         fetchpostsVideos()
-        
     }
     
 //    Function for Fetch posts from firebase
@@ -68,6 +67,92 @@ class ContentViewModelVideo: ObservableObject {
         }
         
 
+    }
+    
+    func pushComment(postId: String) {
+        print("I MADE ITTT", postId)
+        guard let userId = Auth.auth().currentUser?.uid else {
+            return
+        }
+        print(userId)
+        
+        let db = Firestore.firestore().collection("Comments").document()
+        
+        currentCommentId = db.documentID
+        print("CurrentCOmmentID IS : \(currentCommentId)")
+        
+        self.postId = postId
+        
+        let messageData = ["postId": postId,"userId": userId, "commentText": self.commentText, "timestamp": Timestamp()] as [String : Any]
+        
+        //        db.setData(messageData, completion: {_ in
+        //            print("CommentSaved")
+        //        } )
+        
+        db.setData(messageData){ error in
+            if let error = error{
+                self.errorMessage = "Failed to save message into Firestore: \(error)"
+                return
+            } else {
+//                self.fetchNewComments()
+            }
+        }
+        
+        self.commentText = ""
+        
+        
+        let dbPosts = Firestore.firestore()
+        
+        let docRef = dbPosts.collection("Posts").document(postId)
+        
+        //        docRef.setData(["Comments": FieldValue.arrayUnion([currentCommentId])], merge: true)
+        docRef.updateData(["Commentaries": FieldValue.arrayUnion([currentCommentId])]){ error in
+            if let error = error {
+                print("Error writing document: \(error)")
+            } else {
+                print("Document successfully written!")
+               self.fetchNewComments(postId: postId)
+            }
+        }
+        
+    }
+    
+    
+    
+    func fetchNewComments(postId: String){
+        print("ingrese")
+        comments.removeAll()
+        let db = Firestore.firestore().collection("Comments")
+            .whereField("postId", isEqualTo: postId)
+            .order(by: "timestamp" ,descending: true)
+        
+//        comments.removeAll()
+        
+        listenerRegistration = db.addSnapshotListener{ querySnapshot, error in
+                if let error = error {
+                    self.errorMessage = "Failed to listen for new comments: \(error)"
+                    print(error)
+                    return
+                }
+                
+                querySnapshot?.documents.forEach({ queryDocumentSnapshot in
+                    let data = queryDocumentSnapshot.data()
+                    
+                    let Id: String = UUID().uuidString
+                    let commentText = data["commentText"] as? String ?? ""
+                    let userId = data["userId"] as? String ?? ""
+                    
+                    let comment = CommentModel(postId: Id, userId: userId, commentText: commentText, timestamp: Timestamp())
+                    self.comments.append(comment)
+                    
+                })
+                
+            }
+    }
+    
+    func stopListener() {
+        print("sali")
+        listenerRegistration?.remove()
     }
    
 }

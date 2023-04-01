@@ -17,5 +17,5 @@ struct CommentModel: Codable, Identifiable {
 //    var date: Double
     var commentText: String
 //    var ownerId: String
-    var timestamp:  Timestamp
+    var timestamp:  Timestamp?
 }

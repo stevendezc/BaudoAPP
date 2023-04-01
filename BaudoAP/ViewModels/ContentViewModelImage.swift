@@ -129,7 +129,7 @@ class ContentViewModelImage: ObservableObject {
                 print("Error writing document: \(error)")
             } else {
                 print("Document successfully written!")
-                self.fetchNewComments(postId: postId)
+               self.fetchNewComments(postId: postId)
             }
         }
         
