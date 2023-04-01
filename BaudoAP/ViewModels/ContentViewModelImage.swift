@@ -26,10 +26,16 @@ class ContentViewModelImage: ObservableObject {
     
     @Published var userId = ""
     
+    @Published var postId = ""
+    
+    private var listenerRegistration: ListenerRegistration?
+    
+    @Published var newCommentText: String = ""
+    
     init() {
         fetchpostsImages()
         //        print("Fetch from init in the content view IMAGES")
-        fetchNewComments()
+//        fetchNewComments()
     }
     
     //    Function for Fetch posts from firebase
@@ -82,13 +88,7 @@ class ContentViewModelImage: ObservableObject {
     }
     
     func pushComment(postId: String) {
-        //        Get uuid
-        //        Push textfield y guardar en collection de comments - Author - Post UUID - Timestamp - Text
-        
-        
         print("I MADE ITTT", postId)
-        
-        
         guard let userId = Auth.auth().currentUser?.uid else {
             return
         }
@@ -99,18 +99,20 @@ class ContentViewModelImage: ObservableObject {
         currentCommentId = db.documentID
         print("CurrentCOmmentID IS : \(currentCommentId)")
         
-        let messageData = ["userId": userId, "commentText": self.commentText, "timestamp": Timestamp()] as [String : Any]
+        self.postId = postId
         
-//        db.setData(messageData, completion: {_ in
-//            print("CommentSaved")
-//        } )
+        let messageData = ["postId": postId,"userId": userId, "commentText": self.commentText, "timestamp": Timestamp()] as [String : Any]
+        
+        //        db.setData(messageData, completion: {_ in
+        //            print("CommentSaved")
+        //        } )
         
         db.setData(messageData){ error in
             if let error = error{
                 self.errorMessage = "Failed to save message into Firestore: \(error)"
                 return
             } else {
-                self.fetchNewComments()
+//                self.fetchNewComments()
             }
         }
         
@@ -118,47 +120,33 @@ class ContentViewModelImage: ObservableObject {
         
         
         let dbPosts = Firestore.firestore()
-
+        
         let docRef = dbPosts.collection("Posts").document(postId)
-
-//        docRef.setData(["Comments": FieldValue.arrayUnion([currentCommentId])], merge: true)
-        docRef.updateData(["Commentaries": FieldValue.arrayUnion([currentCommentId])])
-//
-//            docRef.setData(["name": restaurantName]) { error in
-//                if let error = error {
-//                    print("Error writing document: \(error)")
-//                } else {
-//                    print("Document successfully written!")
-//                }
-//            }
-//        }
         
-//        HERE INJECT CommentID to PostID
-//        let dbPosts = Firestore.firestore()
-//
-//        let dbRef = dbPosts.collection("Posts").document(postId)
-//
-//        dbRef.setData{ error in
-//            if let error = error {
-//                print("Error writing document: \(error)")
-//            } else {
-//                print("Document successfully written!")
-//            }
-//        }
-        
-        
-        
+        //        docRef.setData(["Comments": FieldValue.arrayUnion([currentCommentId])], merge: true)
+        docRef.updateData(["Commentaries": FieldValue.arrayUnion([currentCommentId])]){ error in
+            if let error = error {
+                print("Error writing document: \(error)")
+            } else {
+                print("Document successfully written!")
+                self.fetchNewComments(postId: postId)
+            }
+        }
         
     }
     
     
     
-    
-    
-    func fetchNewComments(){
-        var db = Firestore.firestore()
-            .collection("Comments")
-            .addSnapshotListener{ querySnapshot, error in
+    func fetchNewComments(postId: String){
+        print("ingrese")
+        comments.removeAll()
+        let db = Firestore.firestore().collection("Comments")
+            .whereField("postId", isEqualTo: postId)
+            .order(by: "timestamp" ,descending: true)
+        
+//        comments.removeAll()
+        
+        listenerRegistration = db.addSnapshotListener{ querySnapshot, error in
                 if let error = error {
                     self.errorMessage = "Failed to listen for new comments: \(error)"
                     print(error)
@@ -172,11 +160,17 @@ class ContentViewModelImage: ObservableObject {
                     let commentText = data["commentText"] as? String ?? ""
                     let userId = data["userId"] as? String ?? ""
                     
-                    let comment = CommentModel(postId: Id, commentText: commentText)
+                    let comment = CommentModel(postId: Id, userId: userId, commentText: commentText, timestamp: Timestamp())
                     self.comments.append(comment)
                     
                 })
-            
+                
             }
     }
+    
+    func stopListener() {
+        print("sali")
+        listenerRegistration?.remove()
+    }
+    
 }

@@ -7,15 +7,18 @@
 
 import SwiftUI
 import SDWebImageSwiftUI
+import Firebase
 
 struct PostCardImageDetailView: View {
     @ObservedObject var contentImage = ContentViewModelImage()
+    
     
     var model: Post
     
     @State var isPresented: Bool = false
     
     @Binding var isPresentedImage1: Bool
+    
     
     var body: some View {
             ScrollView{
@@ -82,7 +85,6 @@ struct PostCardImageDetailView: View {
                             VStack(alignment: .leading){
                                 
                                 ForEach(contentImage.comments){ comment in
-                                    
                                     HStack{
                                         Image("Mambo")
                                             .resizable()
@@ -98,79 +100,11 @@ struct PostCardImageDetailView: View {
                                         Text(comment.commentText)
                                 }
                                     
+                                }
+                                .padding(10)
+                                .background(Color("BackgroundCardsPodcast").opacity(0.5))
+                                .cornerRadius(20)
                                 
-                                }
-                                .padding(10)
-                                .background(Color("BackgroundCardsPodcast").opacity(0.5))
-                                .cornerRadius(20)
-                                HStack{
-                                    Image("Mambo")
-                                        .resizable()
-                                    //                            .border(Color.accentColor, width: 4)
-                                        .frame(width: 40,height: 40,alignment: .center)
-                                        .aspectRatio(contentMode: .fit)
-                                        .clipShape(Circle())
-                                        .padding(2)
-                                        .overlay(
-                                            RoundedRectangle(cornerRadius: 30)
-                                                .stroke(Color("Buttons"), lineWidth: 1)
-                                        )
-                                    Text("Hola Soy Mambo, un Pomeranian negro hermoso")
-                                }
-                                .padding(10)
-                                .background(Color("BackgroundCardsPodcast").opacity(0.5))
-                                .cornerRadius(20)
-                                HStack{
-                                    Image("Mambo")
-                                        .resizable()
-                                    //                            .border(Color.accentColor, width: 4)
-                                        .frame(width: 40,height: 40,alignment: .center)
-                                        .aspectRatio(contentMode: .fit)
-                                        .clipShape(Circle())
-                                        .padding(2)
-                                        .overlay(
-                                            RoundedRectangle(cornerRadius: 30)
-                                                .stroke(Color("Buttons"), lineWidth: 1)
-                                        )
-                                    Text("Hola Mundo, que fotos tan hermosas")
-                                }
-                                .padding(10)
-                                .background(Color("BackgroundCardsPodcast").opacity(0.5))
-                                .cornerRadius(20)
-                                HStack{
-                                    Image("Mambo")
-                                        .resizable()
-                                    //                            .border(Color.accentColor, width: 4)
-                                        .frame(width: 40,height: 40,alignment: .center)
-                                        .aspectRatio(contentMode: .fit)
-                                        .clipShape(Circle())
-                                        .padding(2)
-                                        .overlay(
-                                            RoundedRectangle(cornerRadius: 30)
-                                                .stroke(Color("Buttons"), lineWidth: 1)
-                                        )
-                                    Text("Hola Mundo,esto es para probar comentarios de users")
-                                }
-                                .padding(10)
-                                .background(Color("BackgroundCardsPodcast").opacity(0.5))
-                                .cornerRadius(20)
-                                HStack{
-                                    Image("Mambo")
-                                        .resizable()
-                                    //                            .border(Color.accentColor, width: 4)
-                                        .frame(width: 40,height: 40,alignment: .center)
-                                        .aspectRatio(contentMode: .fit)
-                                        .clipShape(Circle())
-                                        .padding(2)
-                                        .overlay(
-                                            RoundedRectangle(cornerRadius: 30)
-                                                .stroke(Color("Buttons"), lineWidth: 1)
-                                        )
-                                    Text("Hola como esta la people por estos lados?")
-                                }
-                                .padding(10)
-                                .background(Color("BackgroundCardsPodcast").opacity(0.5))
-                                .cornerRadius(20)
                                 
                             }
                             
@@ -215,7 +149,7 @@ struct PostCardImageDetailView: View {
             
            
             HStack{
-                Image("Mambo")
+                Image(systemName: "person.circle")
                     .resizable()
 //                            .border(Color.accentColor, width: 4)
                     .frame(width: 50,height: 50,alignment: .center)
@@ -237,12 +171,19 @@ struct PostCardImageDetailView: View {
                 .cornerRadius(19)
                 Button{
                     contentImage.pushComment(postId: model.id ?? "")
+                    
                     print("Pusshed Comment YEYYYY",model.id ?? "")
                 } label: {
                     Text("Enviar")
                 }
                 .buttonStyle(.borderedProminent)
+            }.onAppear(){
+                contentImage.fetchNewComments(postId: model.id ?? "")
             }
+            .onDisappear(){
+                contentImage.stopListener()
+            }
+            
             .padding(5)
             Spacer()
             Spacer()
@@ -252,7 +193,7 @@ struct PostCardImageDetailView: View {
 struct PostCardImageDetailView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView{
-            PostCardImageDetailView(model: Post(id: "13",Thumbnail:  "https://firebasestorage.googleapis.com/v0/b/baudoapp-c89ed.appspot.com/o/Imagenes%2FComic.png?alt=media&token=ad334fda-d0f6-4806-9adf-98a595803117",Thumbnail2:  "https://firebasestorage.googleapis.com/v0/b/baudoapp-c89ed.appspot.com/o/Imagenes%2FThumb1.png?alt=media&token=2bf3ad6b-51b2-4727-9d80-29755377c5c1",Author: "Foto por: BaudoAP", Location: "Triguba,Choco", MainMediaUrl: "https://firebasestorage.googleapis.com/v0/b/baudoapswift.appspot.com/o/Pic2-50.jpg?alt=media&token=7ec8709e-9dc6-4ce3-af94-566d48251d60", Typo: "Imagen", Description: "Esta es una breve descripcion de contenido de imagen para pruebas en el postCardImage y para solo visualizar coo se veria el texto en las cartas del home", Category: "Medio Ambiente",Title: "Title",CreationDate: "23/Marzo/2023"), isPresentedImage1: .constant(true))
+            PostCardImageDetailView( model: Post(id: "13",Thumbnail:  "https://firebasestorage.googleapis.com/v0/b/baudoapp-c89ed.appspot.com/o/Imagenes%2FComic.png?alt=media&token=ad334fda-d0f6-4806-9adf-98a595803117",Thumbnail2:  "https://firebasestorage.googleapis.com/v0/b/baudoapp-c89ed.appspot.com/o/Imagenes%2FThumb1.png?alt=media&token=2bf3ad6b-51b2-4727-9d80-29755377c5c1",Author: "Foto por: BaudoAP", Location: "Triguba,Choco", MainMediaUrl: "https://firebasestorage.googleapis.com/v0/b/baudoapswift.appspot.com/o/Pic2-50.jpg?alt=media&token=7ec8709e-9dc6-4ce3-af94-566d48251d60", Typo: "Imagen", Description: "Esta es una breve descripcion de contenido de imagen para pruebas en el postCardImage y para solo visualizar coo se veria el texto en las cartas del home", Category: "Medio Ambiente",Title: "Title",CreationDate: "23/Marzo/2023"), isPresentedImage1: .constant(true))
         }
         
     }

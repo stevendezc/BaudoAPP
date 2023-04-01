@@ -34,7 +34,7 @@ struct TabViews: View {
 
                 HStack{
                     NavigationLink(destination: User(userIsLogged: $userIsLogged, UserName: $UserName)) {
-                        Image("Mambo")
+                        Image(systemName: "person.circle")
                             .resizable()
 //                            .border(Color.accentColor, width: 4)
                             .frame(width: 50,height: 50,alignment: .center)
