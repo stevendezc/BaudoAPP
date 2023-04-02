@@ -23,25 +23,24 @@ struct PostCardComunidad: View {
 //                        .border(model.CategoryCom == "Proyectos productivos" ? Color.yellow : .blue)
                         .overlay(
                             model.CategoryCom == "Proyectos productivos" ?
-                                RoundedRectangle(cornerRadius: 20).stroke(Color("ComuPro"), lineWidth: 2) : RoundedRectangle(cornerRadius: 20).stroke(Color.blue, lineWidth: 2)
+                            RoundedRectangle(cornerRadius: 20).stroke(Color.green, lineWidth: 2) : RoundedRectangle(cornerRadius: 20).stroke(Color.blue, lineWidth: 2)
                             
                             )
                     
                     //                .border(Color.red, width: 3)
                     
                     VStack(alignment: .leading,spacing: 5) {
-                        if model.CategoryCom == "Proyectos productivos" {
-                            Text(model.Title).font(.custom("SofiaSans-Medium",size: 20,relativeTo: .caption)).foregroundColor(Color("ComuPro"))
-                        }
-                        if model.CategoryCom == "Cultura e inclusion" {
-                            Text(model.Title).font(.custom("SofiaSans-Medium",size: 20,relativeTo: .caption)).foregroundColor(Color("ComuPcul"))
-                        }
-                        if model.CategoryCom == "Turismo comunitario" {
-                            Text(model.Title).font(.custom("SofiaSans-Medium",size: 20,relativeTo: .caption)).foregroundColor(Color("ComuTur"))
-                        }
+//                        if model.CategoryCom == "Proyectos productivos" {
+//                            Text(model.Title).font(.custom("SofiaSans-Medium",size: 20,relativeTo: .caption)).foregroundColor(Color("ComuPro"))
+//                        }
+//                        if model.CategoryCom == "Cultura e inclusion" {
+//                            Text(model.Title).font(.custom("SofiaSans-Medium",size: 20,relativeTo: .caption)).foregroundColor(Color("ComuPcul"))
+//                        }
+//                        if model.CategoryCom == "Turismo comunitario" {
+//                            Text(model.Title).font(.custom("SofiaSans-Medium",size: 20,relativeTo: .caption)).foregroundColor(Color("ComuTur"))
+//                        }
                         
-                        
-//                        Text(model.Title).font(.title3).foregroundColor( model.CategoryCom == "Proyectos productivos" ? Color("ComuPro") :  Color("ComuCul"))
+                        Text(model.Title).foregroundColor(model.CategoryCom == "Proyectos productivos" ? Color.green : Color.blue)
                         
                         Text(model.CreationDateString).font(.custom("SofiaSans-Medium",size: 15,relativeTo: .caption))
                         
