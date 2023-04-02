@@ -16,11 +16,14 @@ struct User: View {
     
     @Binding var UserName: String
     
+    @ObservedObject var contentImage = ContentViewModelImage()
+//    @ObservedObject var contentVideo = ContentViewModelVideo()
+//    @ObservedObject var contentPodcast = ContentViewModelPodcast()
+    
     var body: some View {
         
             ScrollView{
                 HStack{
-                    
                     Image(systemName: "person.circle")
                             .resizable()
         //                            .border(Color.accentColor, width: 4)
@@ -53,13 +56,20 @@ struct User: View {
                      .frame(maxWidth: .infinity, alignment: .leading)
                      .overlay(Rectangle().frame(width: nil, height: 1, alignment: .bottom).foregroundColor(Color("Buttons")), alignment: .bottom)
                     
+                Image("Metricas")
                 
-                
+                VStack{
+                    var counter = 0
+                    ForEach(contentImage.postsImages) { post in
+                        if counter < 2 {
+                            NavigationLink(destination: PostCardImageDetailView(model: post, isPresentedImage1: .constant(false)) , label: {
+                                PostCardImage(model: post) } )
+                            counter += 1
+                        }
+                    }
+                }
             }
             
-            
-        
-        
     }
     
 }

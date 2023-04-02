@@ -36,6 +36,7 @@
 		5C6FAEF929D36C31000B8FB6 /* ContentViewModelImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6FAEF829D36C30000B8FB6 /* ContentViewModelImage.swift */; };
 		5C6FAEFB29D37E89000B8FB6 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6FAEFA29D37E89000B8FB6 /* EmptyView.swift */; };
 		5C90A5B729BD4B600031FF14 /* TabViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C90A5B629BD4B600031FF14 /* TabViews.swift */; };
+		5CA7219929D93FAC00E04D2E /* VideoNosotros.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA7219829D93FAC00E04D2E /* VideoNosotros.swift */; };
 		5CA8AA9129D14B1500F59CAA /* SofiaSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5CA8AA8B29D14B1500F59CAA /* SofiaSans-Medium.ttf */; };
 		5CA8AA9229D14B1500F59CAA /* SofiaSans-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5CA8AA8C29D14B1500F59CAA /* SofiaSans-Black.ttf */; };
 		5CA8AA9329D14B1500F59CAA /* SofiaSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5CA8AA8D29D14B1500F59CAA /* SofiaSans-ExtraBold.ttf */; };
@@ -80,6 +81,7 @@
 		5C6FAEFA29D37E89000B8FB6 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
 		5C90A5B529BD07BD0031FF14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		5C90A5B629BD4B600031FF14 /* TabViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViews.swift; sourceTree = "<group>"; };
+		5CA7219829D93FAC00E04D2E /* VideoNosotros.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoNosotros.swift; sourceTree = "<group>"; };
 		5CA8AA8B29D14B1500F59CAA /* SofiaSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SofiaSans-Medium.ttf"; sourceTree = "<group>"; };
 		5CA8AA8C29D14B1500F59CAA /* SofiaSans-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SofiaSans-Black.ttf"; sourceTree = "<group>"; };
 		5CA8AA8D29D14B1500F59CAA /* SofiaSans-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SofiaSans-ExtraBold.ttf"; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 				5C52C72B29BCE23C002231F2 /* Preload.swift */,
 				5C25BC2929BD6349003667A9 /* Base.swift */,
 				5C077CD629CE0EC7006B3ADC /* User.swift */,
+				5CA7219829D93FAC00E04D2E /* VideoNosotros.swift */,
 				5CAF42DD29D8CA1700FC975E /* Settings.swift */,
 				5C52C72D29BCE24F002231F2 /* Login.swift */,
 				5C90A5B629BD4B600031FF14 /* TabViews.swift */,
@@ -343,6 +346,7 @@
 				5C25BC2C29BD6590003667A9 /* UserSettings.swift in Sources */,
 				5CA8AA9829D1570800F59CAA /* ContentViewModelComunidad.swift in Sources */,
 				5C6FAEF929D36C31000B8FB6 /* ContentViewModelImage.swift in Sources */,
+				5CA7219929D93FAC00E04D2E /* VideoNosotros.swift in Sources */,
 				5C345D5429D7288000C689DB /* CommentModel.swift in Sources */,
 				5C52C72C29BCE23C002231F2 /* Preload.swift in Sources */,
 				5C52C72E29BCE24F002231F2 /* Login.swift in Sources */,

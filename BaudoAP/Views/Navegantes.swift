@@ -23,13 +23,15 @@ struct Navegantes: View {
 //                        .aspectRatio( contentMode: .fill)
 //                        .frame(width: .infinity, height: .infinity, alignment: .center)
                     VStack(alignment: .leading){
+                        HStack{
+                            Spacer()
+                        }
                         Text("Navega con fuerza").font(.custom("SofiaSans-Black",size: 25,relativeTo: .title))
                         Text("$50.000 o 20USD").font(.custom("SofiaSans-Bold",size: 15,relativeTo: .title2))
                         Text("● Recibes los beneficios de Navegantes.").font(.custom("SofiaSans-Medium",size: 15,relativeTo: .body))
                         Text("● No incluye la pieza editorial").font(.custom("SofiaSans-Medium",size: 15,relativeTo: .body))
                         Text("● Recibes los beneficios de Navegantes.").font(.custom("SofiaSans-Medium",size: 15,relativeTo: .body))
-                        
-                        
+
                         Button {
                             openURL(URL(string: "https://checkout.wompi.co/l/namKJh")!)
                         } label: {
@@ -42,7 +44,7 @@ struct Navegantes: View {
 //                        .overlay( /// apply a rounded border
 //                            RoundedRectangle(cornerRadius: 10).stroke(Color("Buttons"), lineWidth: 2)
 //                        )
-                    }.padding(20)
+                    }.padding(30)
                     
                 }
                 /// apply a rounded border
@@ -59,6 +61,9 @@ struct Navegantes: View {
                     //                            .aspectRatio( contentMode: .fit)
                     //                            .frame(width:.infinity,height: .infinity, alignment: .center)
                     VStack(alignment: .leading){
+                        HStack{
+                            Spacer()
+                        }
                         Text("Navega con pasión").font(.custom("SofiaSans-Black",size: 25,relativeTo: .title))
                         Text("$100.000 o 40USD").font(.custom("SofiaSans-Bold",size: 15,relativeTo: .title2))
                         Text("● Recibes los beneficios de Navegantes.").font(.custom("SofiaSans-Medium",size: 15,relativeTo: .body))
@@ -75,7 +80,7 @@ struct Navegantes: View {
                         .padding(12)
                         .background(Color("Buttons"))
                         .cornerRadius(10)
-                    }.padding(20)
+                    }.padding(30)
                     
                 }
                 /// apply a rounded border
@@ -108,7 +113,7 @@ struct Navegantes: View {
                         .padding(12)
                         .background(Color("Buttons"))
                         .cornerRadius(10)
-                    }.padding(20)
+                    }.padding(30)
                     
                 }
                 /// apply a rounded border
@@ -120,10 +125,7 @@ struct Navegantes: View {
 
 //                .foregroundColor(Color("Text"))
                 
-                
-                
-                
-            }
+            }.padding(10)
             
             
         }

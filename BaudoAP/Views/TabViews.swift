@@ -53,7 +53,9 @@ struct TabViews: View {
                     
                     Text("Hola,\n\(UserName)").font(.caption2)
                     
-                    Image("LogoBaudoO").frame(maxWidth: .infinity, alignment: .trailing)
+                    NavigationLink(destination: VideoNosotros() ) {
+                        Image("LogoBaudoO").frame(maxWidth: .infinity, alignment: .trailing)
+                    }
                     
                 }
                      .padding(EdgeInsets(top: 5, leading: 20, bottom: 5, trailing: 20))
