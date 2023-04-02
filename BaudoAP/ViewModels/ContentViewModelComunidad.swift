@@ -6,15 +6,6 @@
 //
 
 import Foundation
-//
-//  ContentViewModelPodcast.swift
-//  BaudoAP
-//
-//  Created by Codez on 24/03/23.
-//
-
-import Foundation
-
 import SwiftUI
 import FirebaseFirestore
 import Firebase
@@ -23,6 +14,21 @@ import FirebaseAuth
 class ContentViewModelComunidad: ObservableObject {
     
     @Published var usersComunidad: [Users] = []
+    
+    @Published var comments: [CommentModel] = []
+    
+    @Published var commentText = ""
+    @Published var errorMessage = ""
+    
+    @Published var commentId = ""
+    
+    @Published var currentCommentId = ""
+    
+    @Published var userId = ""
+    
+    @Published var postId = ""
+    
+    private var listenerRegistration: ListenerRegistration?
     
     init() {
         fetchusersComunidad()

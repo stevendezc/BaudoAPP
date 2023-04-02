@@ -11,6 +11,7 @@ import SwiftUI
 import FirebaseFirestore
 import Firebase
 import FirebaseAuth
+import FirebaseDatabase
 
 class ContentViewModelImage: ObservableObject {
     @Published var postsImages: [Post] = []
@@ -30,7 +31,7 @@ class ContentViewModelImage: ObservableObject {
     
     private var listenerRegistration: ListenerRegistration?
     
-    @Published var newCommentText: String = ""
+//    @Published var newCommentText: String = ""
     
     init() {
         fetchpostsImages()

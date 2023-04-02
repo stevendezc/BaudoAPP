@@ -11,7 +11,7 @@ import AVKit
 
 struct PostCardVideoDetailView: View {
     
-//    @ObservedObject var contentVideo = ContentViewModelVideo()
+    @ObservedObject var contentVideo = ContentViewModelVideo()
     
     var model: Post
     
@@ -49,9 +49,9 @@ struct PostCardVideoDetailView: View {
                             .padding(.vertical,1)
                             .foregroundColor(Color("Yellow"))
                             .background(Color.black)
-//                            .overlay(RoundedRectangle(cornerRadius: 30)
-//                                .stroke(Color("Buttons"),
-//                                        lineWidth: 1))
+                        //                            .overlay(RoundedRectangle(cornerRadius: 30)
+                        //                                .stroke(Color("Buttons"),
+                        //                                        lineWidth: 1))
                             .cornerRadius(30)
                             .font(.system(size: 30))
                             .padding(.leading,10)
@@ -66,7 +66,7 @@ struct PostCardVideoDetailView: View {
                         Spacer()
                     }
                     
-                    Text(model.Location).font(.custom("SofiaSans-Bold",size: 22,relativeTo: .title3))
+                    Text(model.Location).font(.custom("SofiaSans-Bold",size: 22,relativeTo: .title3)).multilineTextAlignment(.leading)
                     Text(model.Description)
                         .font(.custom("SofiaSans-Regular",size: 15,relativeTo: .body))
                         .multilineTextAlignment(.leading)
@@ -82,83 +82,124 @@ struct PostCardVideoDetailView: View {
                     Spacer()
                     
                     Text("Comentarios").padding(.top,50).font(.custom("SofiaSans-Bold",size: 28,relativeTo: .title)).id("comments")
-                                    VStack(alignment: .leading){
-                                        HStack {
-                                            Spacer()
-                                        }
-                                        VStack(alignment: .leading){
-                                            
-                                            ForEach(0..<10){ comment in
-                                                
-                                                Image("Mambo")
-                                                    .resizable()
-                                                //                            .border(Color.accentColor, width: 4)
-                                                    .frame(width: 40,height: 40,alignment: .center)
-                                                    .aspectRatio(contentMode: .fit)
-                                                    .clipShape(Circle())
-                                                    .padding(2)
-                                                    .overlay(
-                                                        RoundedRectangle(cornerRadius: 30)
-                                                            .stroke(Color("Buttons"), lineWidth: 1)
-                                                    )
-                                                Text("Comment a")
-                                                
-                                            }
-                    
-//                                            ForEach(contentVideo.comments){ comment in
-//                                                HStack{
-//                                                    Image("Mambo")
-//                                                        .resizable()
-//                                                    //                            .border(Color.accentColor, width: 4)
-//                                                        .frame(width: 40,height: 40,alignment: .center)
-//                                                        .aspectRatio(contentMode: .fit)
-//                                                        .clipShape(Circle())
-//                                                        .padding(2)
-//                                                        .overlay(
-//                                                            RoundedRectangle(cornerRadius: 30)
-//                                                                .stroke(Color("Buttons"), lineWidth: 1)
-//                                                        )
-//                                                    Text(comment.commentText)
-//                                            }
-//
-//                                            }
-                                            .padding(10)
-                                            .background(Color("BackgroundCardsPodcast").opacity(0.5))
-                                            .cornerRadius(20)
-                    
-                                        }
-                    
-                                    }.padding(20)
-                        .background(Color("BackgroundCards").opacity(0.5))
-                        .foregroundColor(Color("Text"))
+                    VStack(alignment: .leading){
+                        HStack {
+                            Spacer()
+                        }
+                        //                                        VStack(alignment: .leading){
+                        //
+                        //                                            ForEach(0..<10){ comment in
+                        //
+                        //                                                Image("Mambo")
+                        //                                                    .resizable()
+                        //                                                //                            .border(Color.accentColor, width: 4)
+                        //                                                    .frame(width: 40,height: 40,alignment: .center)
+                        //                                                    .aspectRatio(contentMode: .fit)
+                        //                                                    .clipShape(Circle())
+                        //                                                    .padding(2)
+                        //                                                    .overlay(
+                        //                                                        RoundedRectangle(cornerRadius: 30)
+                        //                                                            .stroke(Color("Buttons"), lineWidth: 1)
+                        //                                                    )
+                        //                                                Text("Comment a")
+                        //
+                        //                                            }
+                        
+                        ForEach(contentVideo.comments){ comment in
+                            HStack{
+                                Image(systemName: "person.circle")
+                                    .resizable()
+                                //                            .border(Color.accentColor, width: 4)
+                                    .frame(width: 40,height: 40,alignment: .center)
+                                    .aspectRatio(contentMode: .fit)
+                                    .clipShape(Circle())
+                                    .padding(2)
+                                    .overlay(
+                                        RoundedRectangle(cornerRadius: 30)
+                                            .stroke(Color("Buttons"), lineWidth: 1)
+                                    )
+                                Text(comment.commentText)
+                            }
+                            
+                        }
+                        .padding(10)
+                        .background(Color("BackgroundCardsPodcast").opacity(0.5))
                         .cornerRadius(20)
+                        
+                    }
                     
-                }
-                //.border(Color.red, width: 3)
-                .padding(.horizontal,20)
+                }.padding(20)
+                    .background(Color("BackgroundCards").opacity(0.5))
+                    .foregroundColor(Color("Text"))
+                    .cornerRadius(20)
+                    .padding(20)
+                
             }
-            .ignoresSafeArea()
-            .overlay(
-                Button(action: {
-                    isPresentedVideo = false
-                }, label: {
-                    Text("←")
-                        .padding(.horizontal,5)
-                        .padding(.vertical,1)
-                        .foregroundColor(Color("Yellow"))
-                        .background(Color.black)
-                        .overlay(RoundedRectangle(cornerRadius: 30)
-                            .stroke(Color("Buttons"),
-                                    lineWidth: 1))
-                        .cornerRadius(30)
-                        .font(.system(size: 30))
-                        .padding(.leading,10)
-                }).padding(.top,50), alignment: .topLeading
-            )
+//            .border(Color.red, width: 3)
+            
         }
-
+        .ignoresSafeArea()
+        .overlay(
+            Button(action: {
+                isPresentedVideo = false
+            }, label: {
+                Text("←")
+                    .padding(.horizontal,5)
+                    .padding(.vertical,1)
+                    .foregroundColor(Color("Yellow"))
+                    .background(Color.black)
+                    .overlay(RoundedRectangle(cornerRadius: 30)
+                        .stroke(Color("Buttons"),
+                                lineWidth: 1))
+                    .cornerRadius(30)
+                    .font(.system(size: 30))
+                    .padding(.leading,10)
+            }).padding(.top,50), alignment: .topLeading
+        )
+        
+        VStack(alignment: .leading){
+            HStack{
+                Image(systemName: "person.circle")
+                    .resizable()
+    //                            .border(Color.accentColor, width: 4)
+                    .frame(width: 50,height: 50,alignment: .center)
+                    .aspectRatio(contentMode: .fit)
+                    .clipShape(Circle())
+                    .padding(2)
+                    .overlay(
+                            RoundedRectangle(cornerRadius: 30)
+                                .stroke(Color("Buttons"), lineWidth: 1)
+                        )
+                
+                TextField(
+                  "Agregar comentario",
+                  text: $contentVideo.commentText
+                )
+                .foregroundColor(Color("Text"))
+                .padding()
+                .background(Color("BackgroundCards"))
+                .cornerRadius(19)
+                Button{
+                    contentVideo.pushComment(postId: model.id ?? "")
+                    
+                    print("Pusshed Comment YEYYYY",model.id ?? "")
+                } label: {
+                    Text("Enviar")
+                }
+                .buttonStyle(.borderedProminent)
+            }.padding(.bottom,30).padding(.horizontal,5)
+            .onAppear(){
+                contentVideo.fetchNewComments(postId: model.id ?? "")
+            }
+            .onDisappear(){
+                contentVideo.stopListener()
+            }
+        }
+        
     }
+    
 }
+
 
 struct PostCardVideoDetailView_Previews: PreviewProvider {
     static var previews: some View {

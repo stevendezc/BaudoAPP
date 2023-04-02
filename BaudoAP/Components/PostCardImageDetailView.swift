@@ -86,17 +86,17 @@ struct PostCardImageDetailView: View {
                                 
                                 ForEach(contentImage.comments){ comment in
                                     HStack{
-                                        Image("Mambo")
+                                        Image(systemName: "person.circle")
                                             .resizable()
-                                        //                            .border(Color.accentColor, width: 4)
-                                            .frame(width: 40,height: 40,alignment: .center)
+                //                            .border(Color.accentColor, width: 4)
+                                            .frame(width: 50,height: 50,alignment: .center)
                                             .aspectRatio(contentMode: .fit)
                                             .clipShape(Circle())
                                             .padding(2)
                                             .overlay(
-                                                RoundedRectangle(cornerRadius: 30)
-                                                    .stroke(Color("Buttons"), lineWidth: 1)
-                                            )
+                                                    RoundedRectangle(cornerRadius: 30)
+                                                        .stroke(Color("Buttons"), lineWidth: 1)
+                                                )
                                         Text(comment.commentText)
                                 }
                                     

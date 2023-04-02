@@ -37,6 +37,7 @@
 		5C6FAEFB29D37E89000B8FB6 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6FAEFA29D37E89000B8FB6 /* EmptyView.swift */; };
 		5C90A5B729BD4B600031FF14 /* TabViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C90A5B629BD4B600031FF14 /* TabViews.swift */; };
 		5CA7219929D93FAC00E04D2E /* VideoNosotros.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA7219829D93FAC00E04D2E /* VideoNosotros.swift */; };
+		5CA7219B29D9559500E04D2E /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 5CA7219A29D9559500E04D2E /* FirebaseDatabase */; };
 		5CA8AA9129D14B1500F59CAA /* SofiaSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5CA8AA8B29D14B1500F59CAA /* SofiaSans-Medium.ttf */; };
 		5CA8AA9229D14B1500F59CAA /* SofiaSans-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5CA8AA8C29D14B1500F59CAA /* SofiaSans-Black.ttf */; };
 		5CA8AA9329D14B1500F59CAA /* SofiaSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5CA8AA8D29D14B1500F59CAA /* SofiaSans-ExtraBold.ttf */; };
@@ -102,6 +103,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CA7219B29D9559500E04D2E /* FirebaseDatabase in Frameworks */,
 				5C345D5929D79DEB00C689DB /* FirebaseFirestoreSwift in Frameworks */,
 				5CE0FEB529BE0C2900711866 /* SDWebImageSwiftUI in Frameworks */,
 				5C52C71B29BCDEDF002231F2 /* FirebaseAuth in Frameworks */,
@@ -254,6 +256,7 @@
 				5C52C71E29BCDEDF002231F2 /* FirebaseStorage */,
 				5CE0FEB429BE0C2900711866 /* SDWebImageSwiftUI */,
 				5C345D5829D79DEB00C689DB /* FirebaseFirestoreSwift */,
+				5CA7219A29D9559500E04D2E /* FirebaseDatabase */,
 			);
 			productName = BaudoAP;
 			productReference = 5C52C70629BCD8CD002231F2 /* BaudoAP.app */;
@@ -600,6 +603,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 5C52C71929BCDEDF002231F2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseStorage;
+		};
+		5CA7219A29D9559500E04D2E /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5C52C71929BCDEDF002231F2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
 		};
 		5CE0FEB429BE0C2900711866 /* SDWebImageSwiftUI */ = {
 			isa = XCSwiftPackageProductDependency;
