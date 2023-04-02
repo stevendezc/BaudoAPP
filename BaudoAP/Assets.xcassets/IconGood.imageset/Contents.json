@@ -1,16 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "LogoAppBaudo1.2-8.png",
+      "filename" : "IconGood.svg",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "IconGood 1.svg",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "appstore.png",
+      "filename" : "IconGood 2.svg",
       "idiom" : "universal",
       "scale" : "3x"
     }
