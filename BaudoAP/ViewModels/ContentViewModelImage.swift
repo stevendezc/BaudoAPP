@@ -119,21 +119,20 @@ class ContentViewModelImage: ObservableObject {
         
         self.commentText = ""
         
-        
         let dbPosts = Firestore.firestore()
         
         let docRef = dbPosts.collection("Posts").document(postId)
         
         //        docRef.setData(["Comments": FieldValue.arrayUnion([currentCommentId])], merge: true)
+//        updateData
         docRef.updateData(["Commentaries": FieldValue.arrayUnion([currentCommentId])]){ error in
             if let error = error {
                 print("Error writing document: \(error)")
             } else {
                 print("Document successfully written!")
-               self.fetchNewComments(postId: postId)
+//               self.fetchNewComments(postId: postId)
             }
         }
-        
     }
     
     
@@ -153,18 +152,24 @@ class ContentViewModelImage: ObservableObject {
                     print(error)
                     return
                 }
-                
-                querySnapshot?.documents.forEach({ queryDocumentSnapshot in
-                    let data = queryDocumentSnapshot.data()
+            
+            
+            querySnapshot?.documentChanges.forEach({ change in
+                if change.type == .added {
+                    let data = change.document.data()
                     
                     let Id: String = UUID().uuidString
                     let commentText = data["commentText"] as? String ?? ""
                     let userId = data["userId"] as? String ?? ""
-                    
+
                     let comment = CommentModel(postId: Id, userId: userId, commentText: commentText, timestamp: Timestamp())
                     self.comments.append(comment)
-                    
-                })
+                }
+//                else if change.type == .modified {
+//                    print("Un Archivo ha sido modificado en la base de datos")
+//                }
+                
+            })
                 
             }
     }

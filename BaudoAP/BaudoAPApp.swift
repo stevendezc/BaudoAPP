@@ -26,8 +26,9 @@ struct BaudoApApp: App {
          // Calls this view first
            Preload()
                 
-        
+//        Tester()
             
         }
     }
 }
+

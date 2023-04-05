@@ -161,6 +161,8 @@ struct PostCardImageDetailView: View {
                                 .stroke(Color("Buttons"), lineWidth: 1)
                         )
                 
+                
+                
                 TextField(
                   "Agregar comentario",
                   text: $contentImage.commentText

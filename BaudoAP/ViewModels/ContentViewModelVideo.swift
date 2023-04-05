@@ -150,18 +150,31 @@ class ContentViewModelVideo: ObservableObject {
                     print(error)
                     return
                 }
-                
-                querySnapshot?.documents.forEach({ queryDocumentSnapshot in
-                    let data = queryDocumentSnapshot.data()
-                    
-                    let Id: String = UUID().uuidString
-                    let commentText = data["commentText"] as? String ?? ""
-                    let userId = data["userId"] as? String ?? ""
-                    
-                    let comment = CommentModel(postId: Id, userId: userId, commentText: commentText, timestamp: Timestamp())
-                    self.comments.append(comment)
-                    
+            
+                querySnapshot?.documentChanges.forEach({ change in
+                    if change.type == .added {
+                        let data = change.document.data()
+                        
+                        let Id: String = UUID().uuidString
+                        let commentText = data["commentText"] as? String ?? ""
+                        let userId = data["userId"] as? String ?? ""
+
+                        let comment = CommentModel(postId: Id, userId: userId, commentText: commentText, timestamp: Timestamp())
+                        self.comments.append(comment)
+                    }
                 })
+                
+//                querySnapshot?.documents.forEach({ queryDocumentSnapshot in
+//                    let data = queryDocumentSnapshot.data()
+//                    
+//                    let Id: String = UUID().uuidString
+//                    let commentText = data["commentText"] as? String ?? ""
+//                    let userId = data["userId"] as? String ?? ""
+//                    
+//                    let comment = CommentModel(postId: Id, userId: userId, commentText: commentText, timestamp: Timestamp())
+//                    self.comments.append(comment)
+//                    
+//                })
                 
             }
     }

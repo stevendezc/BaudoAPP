@@ -17,23 +17,34 @@ struct PostCardVideoDetailView: View {
     
     @Binding var isPresentedVideo: Bool
     
+    
     var body: some View {
+        
+        @State var URLS: String = model.MainMediaUrl
+        @State var player = AVPlayer(url: URL(string: URLS)!)
         
         ScrollViewReader { reader in
             ScrollView{
                 
                 ZStack(alignment: .topTrailing){
                     
-                    let player = AVPlayer(url:  URL(string:model.MainMediaUrl)!)
                     
                     VideoPlayer(player: player)
                         .aspectRatio(9/16, contentMode: .fit)
+                        .onAppear(){
+                            player.play()
+            //                contentVideo.fetchNewComments(postId: model.id ?? "")
+                        }
+                        .onDisappear(){
+                            player.pause()
+            //                contentVideo.stopListener()
+                        }
                     
                     //                    .frame(width:UIScreen.main.bounds.width,height:UIScreen.main.bounds.height)
                     //                    .frame(width:UIScreen.main.bounds.width,height: .infinity)
-                        .onAppear() {
-                            player.play()
-                        }
+//                        .onAppear() {
+//
+//                        }
                     
                     Image("BaudoVideo").resizable().frame(width:30,height: 60).padding(.top,70).padding(.trailing,10)
                     
@@ -142,6 +153,7 @@ struct PostCardVideoDetailView: View {
         .overlay(
             Button(action: {
                 isPresentedVideo = false
+                
             }, label: {
                 Text("←")
                     .padding(.horizontal,5)
@@ -188,16 +200,9 @@ struct PostCardVideoDetailView: View {
                 }
                 .buttonStyle(.borderedProminent)
             }.padding(.bottom,30).padding(.horizontal,5)
-            .onAppear(){
-                contentVideo.fetchNewComments(postId: model.id ?? "")
-            }
-            .onDisappear(){
-                contentVideo.stopListener()
-            }
+            
         }
-        
     }
-    
 }
 
 
