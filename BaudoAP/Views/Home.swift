@@ -82,19 +82,19 @@ struct Home: View {
         let Columns: [GridItem] = [
             GridItem(.flexible(), spacing: nil, alignment: nil),
             GridItem(.flexible(), spacing: nil, alignment: nil),
-            GridItem(.flexible(), spacing: nil, alignment: nil),
+//            GridItem(.flexible(), spacing: nil, alignment: nil),
         ]
         
         var body: some View {
             
                 ScrollView{
 //                    ForEach(0 ..< 2) { item in
-                        LazyVGrid(columns: Columns, spacing: 10){
+                        LazyVGrid(columns: Columns, spacing: 15){
                             ForEach(contentVideo.postsVideos) { post in
                                 NavigationLink(destination: PostCardVideoDetailView(model: post), label: {
                                     PostCardVideo(model: post) } )
                             }
-                        }
+                        }.padding(.horizontal,15)
 //                    }
                 }
                 .padding(.top,5)

@@ -13,19 +13,21 @@ import Firebase
 
 struct Users: Codable, Identifiable {
     var id: String?
-    var Thumbnail: String
-    var Description: String
-    var CategoryCom: String
-    var Title: String
-    var CreationDate: Date
-    var Instagram: String
-    var Facebook: String
-    var Twitter: String
-    var Whatsapp: String
+    var thumbnail: String
+    var description: String
+    var category: String
+    var name: String
+    var creation_date: Date
+    var instagram: String
+    var facebook: String
+    var twitter: String
+    var whatsapp: String
+    var number: String
+    var email: String
     
-    var CreationDateString: String {
+    var creationDateString: String {
             let formatter = DateFormatter()
             formatter.dateFormat = "EEEE, dd 'of' MMMM"
-            return formatter.string(from: CreationDate)
+            return formatter.string(from: creation_date)
         }
 }

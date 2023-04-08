@@ -29,7 +29,7 @@ struct PostCardImageDetailView: View {
                 
                 VStack(alignment: .leading){
                     
-                    WebImage(url: URL(string: model.Thumbnail)).resizable().placeholder{ ProgressView() }
+                    WebImage(url: URL(string: model.thumbnail)).resizable().placeholder{ ProgressView() }
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
                         .aspectRatio(contentMode: .fit)
                         .cornerRadius(19)
@@ -54,10 +54,10 @@ struct PostCardImageDetailView: View {
                 }
                 
                 VStack(alignment: .leading,spacing: 5){
-                    Text(model.Location).font(.custom("SofiaSans-Bold",size: 22,relativeTo: .title3))
-                    Text(model.Description).font(.custom("SofiaSans-Regular",size: 15,
+                    Text(model.location).font(.custom("SofiaSans-Bold",size: 22,relativeTo: .title3))
+                    Text(model.description).font(.custom("SofiaSans-Regular",size: 15,
                                                          relativeTo: .body))
-                    Text(model.Author)
+                    Text(model.author)
                         .padding(.top,3)
                         .font(.custom("SofiaSans-Bold",size: 13,relativeTo: .caption))
                     
@@ -184,7 +184,7 @@ struct PostCardImageDetailView: View {
 struct PostCardImageDetailView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView{
-            PostCardImageDetailView( model: Post(id: "13",Thumbnail:  "https://firebasestorage.googleapis.com/v0/b/baudoapp-c89ed.appspot.com/o/Imagenes%2FComic.png?alt=media&token=ad334fda-d0f6-4806-9adf-98a595803117",Thumbnail2:  "https://firebasestorage.googleapis.com/v0/b/baudoapp-c89ed.appspot.com/o/Imagenes%2FThumb1.png?alt=media&token=2bf3ad6b-51b2-4727-9d80-29755377c5c1",Author: "Foto por: BaudoAP", Location: "Triguba,Choco", MainMediaUrl: "https://firebasestorage.googleapis.com/v0/b/baudoapswift.appspot.com/o/Pic2-50.jpg?alt=media&token=7ec8709e-9dc6-4ce3-af94-566d48251d60", Typo: "Imagen", Description: "Esta es una breve descripcion de contenido de imagen para pruebas en el postCardImage y para solo visualizar coo se veria el texto en las cartas del home", Category: "Medio Ambiente",Title: "Title",CreationDate: "23/Marzo/2023"))
+            PostCardImageDetailView( model: Post(id: "13",thumbnail:  "https://firebasestorage.googleapis.com/v0/b/baudoapp-c89ed.appspot.com/o/Imagenes%2FComic.png?alt=media&token=ad334fda-d0f6-4806-9adf-98a595803117",thumbnail2:  "https://firebasestorage.googleapis.com/v0/b/baudoapp-c89ed.appspot.com/o/Imagenes%2FThumb1.png?alt=media&token=2bf3ad6b-51b2-4727-9d80-29755377c5c1",author: "Foto por: BaudoAP", location: "Triguba,Choco", main_media: "https://firebasestorage.googleapis.com/v0/b/baudoapswift.appspot.com/o/Pic2-50.jpg?alt=media&token=7ec8709e-9dc6-4ce3-af94-566d48251d60", type: "Imagen", description: "Esta es una breve descripcion de contenido de imagen para pruebas en el postCardImage y para solo visualizar coo se veria el texto en las cartas del home", category: "Medio Ambiente",title: "title",creation_date: Date()))
         }
         
     }

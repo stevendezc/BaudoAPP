@@ -11,14 +11,20 @@ import FirebaseFirestoreSwift
 
 struct Post: Identifiable,Codable {
     var id: String?
-    var Thumbnail: String
-    var Thumbnail2: String
-    var Author: String
-    var Location: String
-    var MainMediaUrl: String
-    var Typo:String
-    var Description: String
-    var Category: String
-    var Title: String
-    var CreationDate: String
+    var thumbnail: String
+    var thumbnail2: String
+    var author: String
+    var location: String
+    var main_media: String
+    var type:String
+    var description: String
+    var category: String
+    var title: String
+    var creation_date: Date
+    
+    var creationDateString: String {
+            let formatter = DateFormatter()
+            formatter.dateFormat = "EEEE, dd 'of' MMMM"
+            return formatter.string(from: creation_date)
+        }
 }

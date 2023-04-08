@@ -22,49 +22,32 @@ struct PostCardVideoDetailView: View {
     
     var body: some View {
         
+        let URLS: String = model.main_media
+
+          let player = AVPlayer(url: URL(string: URLS)!)
+        
                 ScrollViewReader { reader in
                     ScrollView{
                         
-                        
-        
                         ZStack(alignment: .topTrailing){
-        
-                          let URLS: String = model.MainMediaUrl
-        
-                            let player = AVPlayer(url: URL(string: URLS)!)
         
                             VideoPlayer(player: player)
                                 .aspectRatio(9/16, contentMode: .fit)
-                                .onAppear(){
-                                    player.play()
-                                    print("OnAppear triggered")
-                                }
-                                .onDisappear(){
-                                    player.pause()
-                                    print("OnDisappear triggered")
-                                }
+                                
         
         
-        //                        .onAppear(){
-        //                            player.play()
-        //            //                contentVideo.fetchNewComments(postId: model.id ?? "")
-        //                        }
-        //                        .onDisappear(){
-        //                            player.pause()
-        //            //                contentVideo.stopListener()
-        //                        }
+        //
         
                             //                    .frame(width:UIScreen.main.bounds.width,height:UIScreen.main.bounds.height)
                             //                    .frame(width:UIScreen.main.bounds.width,height: .infinity)
         //
         
-                            Image("BaudoVideo").resizable().frame(width:30,height: 60).padding(.top,70).padding(.trailing,10)
+                            Image("BaudoVideo").resizable().frame(width:30,height: 60).padding(.top,60).padding(.trailing,10)
         
                             Button(action: {
                                 withAnimation(.easeInOut(duration: 100)){
                                     reader.scrollTo("comments", anchor: .top)
                                 }
-        
         
                             }, label: {
                                 Image(systemName: "list.bullet.rectangle")
@@ -72,12 +55,12 @@ struct PostCardVideoDetailView: View {
                                     .padding(.vertical,1)
                                     .foregroundColor(Color("Yellow"))
                                     .background(Color.black)
-                                    .overlay(RoundedRectangle(cornerRadius: 30)
+                                    .overlay(RoundedRectangle(cornerRadius: 10)
                                                                 .stroke(Color("Buttons"),
                                                                         lineWidth: 1))
-                                    .cornerRadius(20)
-                                    .font(.system(size: 30))
-                                    .padding(.leading,10)
+                                    .cornerRadius(10)
+                                    .font(.system(size: 25))
+                                    .padding(.trailing,10)
                             }).padding(.top,150)
         
         
@@ -89,11 +72,11 @@ struct PostCardVideoDetailView: View {
                                 Spacer()
                             }
         
-                            Text(model.Location).font(.custom("SofiaSans-Bold",size: 22,relativeTo: .title3)).multilineTextAlignment(.leading)
-                            Text(model.Description)
+                            Text(model.location).font(.custom("SofiaSans-Bold",size: 22,relativeTo: .title3)).multilineTextAlignment(.leading)
+                            Text(model.description)
                                 .font(.custom("SofiaSans-Regular",size: 15,relativeTo: .body))
                                 .multilineTextAlignment(.leading)
-                            Text("Author: \(model.Author)")
+                            Text("Author: \(model.author)")
                                 .padding(.top,3)
                                 .font(.custom("SofiaSans-Bold",size: 13,relativeTo: .caption))
         
@@ -143,8 +126,18 @@ struct PostCardVideoDetailView: View {
                     }
         //            .border(Color.red, width: 3)
         
-                }.navigationBarBackButtonHidden(true)
+                }
+                .navigationBarBackButtonHidden(true)
                 .ignoresSafeArea()
+        
+                .onAppear(){
+                    player.play()
+                    contentVideo.fetchNewComments(postId: model.id ?? "")
+                }
+                .onDisappear(){
+                    player.pause()
+                    contentVideo.stopListener()
+                }
                 .overlay(
                     Button(action: {
                         presentationMode.wrappedValue.dismiss()
@@ -161,7 +154,7 @@ struct PostCardVideoDetailView: View {
                             .cornerRadius(30)
                             .font(.system(size: 30))
                             .padding(.leading,10)
-                    }).padding(.top,50), alignment: .topLeading
+                    }).padding(.top,2), alignment: .topLeading
                 )
         
                 VStack(alignment: .leading){
@@ -202,6 +195,6 @@ struct PostCardVideoDetailView: View {
     
     struct PostCardVideoDetailView_Previews: PreviewProvider {
         static var previews: some View {
-            PostCardVideoDetailView(model: Post(Thumbnail: "https://firebasestorage.googleapis.com/v0/b/baudoapp-c89ed.appspot.com/o/Videos%2FScreenshot%202023-03-23%20at%2011.33.20%20PM.png?alt=media&token=3e857497-6146-46c5-889d-fa55a44abc05",Thumbnail2:  "https://firebasestorage.googleapis.com/v0/b/baudoapp-c89ed.appspot.com/o/Imagenes%2FThumb1.png?alt=media&token=2bf3ad6b-51b2-4727-9d80-29755377c5c1", Author: "BaudoAP", Location: "Triguba,Choco", MainMediaUrl: "https://firebasestorage.googleapis.com/v0/b/baudoapp-c89ed.appspot.com/o/Videos%2FCopia%20de%20CHAGRA%201.mp4?alt=media&token=fc041a3d-8c5b-4fcc-86ad-954b4df28ee1", Typo: "Video", Description: "Esta es una breve descripcion de contenido de imagen para pruebas en el postCardImage y para solo visualizar coo se veria el texto en las cartas del home", Category: "Medio Ambiente",Title: "Title Video Prueba",CreationDate: "23/Marzo/2023"))
+            PostCardVideoDetailView(model: Post(thumbnail: "https://firebasestorage.googleapis.com/v0/b/baudoapp-c89ed.appspot.com/o/Videos%2FScreenshot%202023-03-23%20at%2011.33.20%20PM.png?alt=media&token=3e857497-6146-46c5-889d-fa55a44abc05",thumbnail2:  "https://firebasestorage.googleapis.com/v0/b/baudoapp-c89ed.appspot.com/o/Imagenes%2FThumb1.png?alt=media&token=2bf3ad6b-51b2-4727-9d80-29755377c5c1", author: "BaudoAP", location: "Triguba,Choco", main_media: "https://firebasestorage.googleapis.com/v0/b/baudoapp-c89ed.appspot.com/o/Videos%2FCopia%20de%20CHAGRA%201.mp4?alt=media&token=fc041a3d-8c5b-4fcc-86ad-954b4df28ee1", type: "Video", description: "Esta es una breve descripcion de contenido de imagen para pruebas en el postCardImage y para solo visualizar coo se veria el texto en las cartas del home", category: "Medio Ambiente",title: "title Video Prueba",creation_date: Date()))
         }
     }

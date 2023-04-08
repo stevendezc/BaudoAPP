@@ -41,7 +41,7 @@ class ContentViewModelComunidad: ObservableObject {
         usersComunidad.removeAll()
         let dbCom = Firestore.firestore()
         
-        let refComunidad = dbCom.collection("Comunidad")
+        let refComunidad = dbCom.collection("communities")
         
         //let ImagenesContent = db.collection("Posts").whereField("Tipo", isEqualTo: "Imagen")
         
@@ -61,18 +61,20 @@ class ContentViewModelComunidad: ObservableObject {
                     let data = document.data()
                     
                     let id: String = UUID().uuidString
-                    let Thumbnail = data["Thumbnail"] as? String ?? ""
-                    let Title = data["Title"] as? String ?? ""
-                    let Description = data["Description"] as? String ?? ""
-//                    let CreationDate = data["CreationDate"] as? Timestamp
-                    let CategoryCom = data["CategoryCom"] as? String ?? ""
-                    let Instagram = data["Instagram"] as? String ?? ""
-                    let Facebook = data["Facebook"] as? String ?? ""
-                    let Whatsapp = data["Whatsapp"] as? String ?? ""
-                    let Twitter = data["Twitter"] as? String ?? ""
-                    let CreationDate = (data["CreationDate"] as? Timestamp)?.dateValue() ?? Date()
+                    let thumbnail = data["thumbnail"] as? String ?? ""
+                    let name = data["name"] as? String ?? ""
+                    let description = data["description"] as? String ?? ""
+//                    let creation_date = data["creation_date"] as? Timestamp
+                    let category = data["category"] as? String ?? ""
+                    let number = data["number"] as? String ?? ""
+                    let email = data["email"] as? String ?? ""
+                    let instagram = data["instagram"] as? String ?? ""
+                    let facebook = data["facebook"] as? String ?? ""
+                    let whatsapp = data["whatsapp"] as? String ?? ""
+                    let twitter = data["twitter"] as? String ?? ""
+                    let creation_date = (data["creation_date"] as? Timestamp)?.dateValue() ?? Date()
                     
-                    let postcomunidad = Users(id: id, Thumbnail: Thumbnail, Description: Description, CategoryCom: CategoryCom, Title: Title, CreationDate: CreationDate, Instagram: Instagram, Facebook: Facebook, Twitter: Twitter, Whatsapp: Whatsapp)
+                    let postcomunidad = Users(id: id, thumbnail: thumbnail, description: description, category: category, name: name, creation_date: creation_date, instagram: instagram, facebook: facebook, twitter: twitter, whatsapp: whatsapp, number: number, email: email)
                     self.usersComunidad.append(postcomunidad)
                     
                 }

@@ -42,14 +42,14 @@ struct PostCardPodcastDetail: View {
             
             
                 ScrollView{
-                    Spacer(minLength: 50)
+                    Spacer(minLength: 90)
                     
                     VStack(alignment: .leading){
                         
                         
                         HStack{
                             
-                            WebImage(url: URL(string: model.Thumbnail))
+                            WebImage(url: URL(string: model.thumbnail))
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
                                 .frame(width:100)
@@ -57,7 +57,7 @@ struct PostCardPodcastDetail: View {
                             
                             VStack(alignment: .leading,spacing: 5) {
                                 HStack{
-                                    Text(model.Title)
+                                    Text(model.title)
                                         .font(.custom("SofiaSans-Bold", size: 18,relativeTo: .title))
                                         .fontWeight(.heavy)
                                     
@@ -77,8 +77,10 @@ struct PostCardPodcastDetail: View {
                                     
                                 }
                                 
-                                Text(model.CreationDate).font(.callout)
-                                Text(model.Description).font(.caption)
+                                Text(model.creationDateString)
+                                    .font(.custom("SofiaSans-Medium",size: 14,relativeTo: .caption))
+                                Text(model.description).font(.caption)
+                                    .font(.custom("SofiaSans-Regular",size: 18,relativeTo: .body))
                                 
                             }.foregroundColor(Color("Text"))
                                 .multilineTextAlignment(.leading)
@@ -87,9 +89,12 @@ struct PostCardPodcastDetail: View {
                         }
                         
                         Slider(value: $blurAmount, in: 0...20)
-                    }.padding(15)
-                        .background(Color("BackgroundCards"))
-                        .cornerRadius(20)
+                    }
+                   
+                    .padding(20)
+                    .background(Color("BackgroundCards"))
+                    .cornerRadius(20)
+                    .padding(15)
                     
                     
                     VStack{
@@ -97,11 +102,9 @@ struct PostCardPodcastDetail: View {
                         HStack{
                             Image("Iryvenir")
                             Spacer()
-                            Text("Discusión").foregroundColor(Color("Text")).font(.custom("SofiaSans-Bold",size: 24,relativeTo: .title))
-                                .font(.custom(
-                                    "SofiaSans",
-                                    size: 18,
-                                    relativeTo: .title))
+                            Text("Discusión").foregroundColor(Color("Text"))
+                                .font(.custom("SofiaSans-Bold",size: 24,relativeTo: .title))
+                                
                         }.padding(20)
                         
                         VStack(alignment: .leading){
@@ -148,7 +151,7 @@ struct PostCardPodcastDetail: View {
                     .padding(10)
                     
                 }.background(
-                    WebImage(url: URL(string: model.Thumbnail2))
+                    WebImage(url: URL(string: model.thumbnail2))
                         .resizable()
                         .frame(width:UIScreen.main.bounds.width,
                                height:UIScreen.main.bounds.height)
@@ -157,24 +160,25 @@ struct PostCardPodcastDetail: View {
                 )
                 
                 .navigationBarBackButtonHidden(true)
-                //        .ignoresSafeArea()
-                    .overlay(
-                        Button(action: {
-                            presentationMode.wrappedValue.dismiss()
-                        }, label: {
-                            Text("←")
-                                .padding(.horizontal,5)
-                                .padding(.vertical,1)
-                                .foregroundColor(Color("Yellow"))
-                                .background(Color.black)
-                                .overlay(RoundedRectangle(cornerRadius: 30)
-                                    .stroke(Color("Buttons"),
-                                            lineWidth: 1))
-                                .cornerRadius(30)
-                                .font(.system(size: 30))
-                                .padding(.leading,10)
-                        }).padding(.top,2), alignment: .topLeading
-                    )
+                       
+                .overlay(
+                    Button(action: {
+                        presentationMode.wrappedValue.dismiss()
+                    }, label: {
+                        Text("←")
+                            .padding(.horizontal,5)
+                            .padding(.vertical,1)
+                            .foregroundColor(Color("Yellow"))
+                            .background(Color.black)
+                            .overlay(RoundedRectangle(cornerRadius: 30)
+                                .stroke(Color("Buttons"),
+                                        lineWidth: 1))
+                            .cornerRadius(30)
+                            .font(.system(size: 30))
+                            .padding(.leading,10)
+                    }).padding(.top,60), alignment: .topLeading
+                )
+                .ignoresSafeArea()
                 //                    .padding(10)
                 //                    .padding(.top,75)
             
@@ -226,7 +230,7 @@ struct PostCardPodcastDetail: View {
     
     
     func Play() {
-        let storage = Storage.storage().reference(forURL: self.model.MainMediaUrl)
+        let storage = Storage.storage().reference(forURL: self.model.main_media)
         storage.downloadURL { (url, error) in
             if error != nil {
                 print(error ?? "Error")
@@ -259,7 +263,7 @@ struct PostCardPodcastDetail: View {
 struct PostCardPodcastDetail_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView{
-            PostCardPodcastDetail(model: Post(id: "1",Thumbnail: "https://baudoap.com/wp-content/uploads/2023/01/GUERRILLERO-IMPASIBLE.jpg",Thumbnail2:  "https://baudoap.com/wp-content/uploads/2023/01/GUERRILLERO-IMPASIBLE.jpg", Author: "BaudoAP", Location: "Triguba,Choco", MainMediaUrl: "https://firebasestorage.googleapis.com/v0/b/baudoapp-c89ed.appspot.com/o/Podcasts%2FAudios%2FIr-y-venir-Los-rastros-del-cambi.mp3?alt=media&token=f0eba787-9b98-46e3-a2c7-4d510e7f7b13", Typo: "Imagen", Description: "Esta es una breve descripcion de contenido de Podcast para pruebas en el postCardPodcast y para solo visualizar como se veria el texto en las cartas del home", Category: "Medio Ambiente",Title: "Los rastros del cambio climatico",CreationDate: "23/Marzo/2023"))
+            PostCardPodcastDetail(model: Post(id: "1",thumbnail: "https://baudoap.com/wp-content/uploads/2023/01/GUERRILLERO-IMPASIBLE.jpg",thumbnail2:  "https://baudoap.com/wp-content/uploads/2023/01/GUERRILLERO-IMPASIBLE.jpg", author: "BaudoAP", location: "Triguba,Choco", main_media: "https://firebasestorage.googleapis.com/v0/b/baudoapp-c89ed.appspot.com/o/Podcasts%2FAudios%2FIr-y-venir-Los-rastros-del-cambi.mp3?alt=media&token=f0eba787-9b98-46e3-a2c7-4d510e7f7b13", type: "Imagen", description: "Esta es una breve descripcion de contenido de Podcast para pruebas en el postCardPodcast y para solo visualizar como se veria el texto en las cartas del home", category: "Medio Ambiente",title: "Los rastros del cambio climatico",creation_date: Date()))
         }
     }
 }

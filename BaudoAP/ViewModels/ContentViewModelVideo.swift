@@ -43,7 +43,7 @@ class ContentViewModelVideo: ObservableObject {
        postsVideos.removeAll()
         let dbVid = Firestore.firestore()
         
-        let refVideo = dbVid.collection("Posts").whereField("Typo", isEqualTo: "Video")
+        let refVideo = dbVid.collection("posts").whereField("type", isEqualTo: "video")
         
         //let ImagenesContent = db.collection("Posts").whereField("Tipo", isEqualTo: "Imagen")
         
@@ -64,18 +64,18 @@ class ContentViewModelVideo: ObservableObject {
                     let uid = document.documentID
                     
                     let id = uid
-                    let Thumbnail = data["Thumbnail"] as? String ?? ""
-                    let Thumbnail2 = data["Thumbnail2"] as? String ?? ""
-                    let Author = data["Author"] as? String ?? ""
-                    let Location = data["Location"] as? String ?? ""
-                    let MainMediaUrl = data["MainMediaUrl"] as? String ?? ""
-                    let Typo = data["Typo"] as? String ?? ""
-                    let Description = data["Description"] as? String ?? ""
-                    let Category = data["Category"] as? String ?? ""
-                    let Title = data["Title"] as? String ?? ""
-                    let CreationDate = data["CreationDate"] as? String ?? ""
+                    let thumbnail = data["thumbnail"] as? String ?? ""
+                    let thumbnail2 = data["thumbnail2"] as? String ?? ""
+                    let author = data["author"] as? String ?? ""
+                    let location = data["location"] as? String ?? ""
+                    let main_media = data["main_media"] as? String ?? ""
+                    let type = data["type"] as? String ?? ""
+                    let description = data["description"] as? String ?? ""
+                    let category = data["category"] as? String ?? ""
+                    let title = data["title"] as? String ?? ""
+                    let creation_date = (data["creation_date"] as? Timestamp)?.dateValue() ?? Date()
                     
-                    let postvideo = Post(id: id, Thumbnail: Thumbnail,Thumbnail2: Thumbnail2,Author: Author,Location: Location, MainMediaUrl: MainMediaUrl, Typo: Typo, Description: Description,Category: Category,Title: Title,CreationDate: CreationDate)
+                    let postvideo = Post(id: id, thumbnail: thumbnail,thumbnail2: thumbnail2,author: author,location: location, main_media: main_media, type: type, description: description,category: category,title: title,creation_date: creation_date)
                     self.postsVideos.append(postvideo)
                     
                 }
@@ -92,7 +92,7 @@ class ContentViewModelVideo: ObservableObject {
         }
         print(userId)
         
-        let db = Firestore.firestore().collection("Comments").document()
+        let db = Firestore.firestore().collection("commentaries").document()
         
         currentCommentId = db.documentID
         print("CurrentCOmmentID IS : \(currentCommentId)")
@@ -119,10 +119,10 @@ class ContentViewModelVideo: ObservableObject {
         
         let dbPosts = Firestore.firestore()
         
-        let docRef = dbPosts.collection("Posts").document(postId)
+        let docRef = dbPosts.collection("posts").document(postId)
         
         //        docRef.setData(["Comments": FieldValue.arrayUnion([currentCommentId])], merge: true)
-        docRef.updateData(["Commentaries": FieldValue.arrayUnion([currentCommentId])]){ error in
+        docRef.updateData(["commentaries": FieldValue.arrayUnion([currentCommentId])]){ error in
             if let error = error {
                 print("Error writing document: \(error)")
             } else {
@@ -138,7 +138,7 @@ class ContentViewModelVideo: ObservableObject {
     func fetchNewComments(postId: String){
         print("ingrese")
         comments.removeAll()
-        let db = Firestore.firestore().collection("Comments")
+        let db = Firestore.firestore().collection("commentaries")
             .whereField("postId", isEqualTo: postId)
             .order(by: "timestamp" ,descending: true)
         
