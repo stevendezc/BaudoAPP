@@ -13,33 +13,15 @@ struct PostCardVideo: View {
     
     var model: Post
     
-    @State var isPresentedVideo: Bool = false
-    
     var body: some View {
-        VStack{
-            Button {
-                isPresentedVideo = true
-            } label: {
-                VStack(alignment: .leading, spacing: 15){
-                    WebImage(url: URL(string: model.Thumbnail))
-                        .resizable()
-                        .frame(maxWidth: .infinity, maxHeight: .infinity)
-                        .aspectRatio(contentMode: .fit)
-        //                .border(Color.red, width: 3)
-                        
-                }
-            }
-            
-            
-            
-    //        .padding(.leading,40).padding(.trailing,40).padding(.bottom,30)
-            
-        }.fullScreenCover (isPresented: $isPresentedVideo,
-                           onDismiss: { isPresentedVideo = false },
-                           content: { PostCardVideoDetailView(model: model, isPresentedVideo: $isPresentedVideo).ignoresSafeArea()})
-
+        VStack(alignment: .leading, spacing: 15){
+            WebImage(url: URL(string: model.Thumbnail))
+                .resizable()
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .aspectRatio(contentMode: .fit)
+                .cornerRadius(10)
+        }
     }
-        
 }
 
 struct PostCardVideo_Previews: PreviewProvider {

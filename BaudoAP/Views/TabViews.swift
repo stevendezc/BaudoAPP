@@ -23,45 +23,50 @@ struct TabViews: View {
     @ObservedObject var contentVideo = ContentViewModelVideo()
     @ObservedObject var contentPodcast = ContentViewModelPodcast()
     
-  
-//    @EnvironmentObject var usersettings: UserSettings
+    
+    //    @EnvironmentObject var usersettings: UserSettings
     
     
     var body: some View {
         
         NavigationView{
-            VStack(spacing: 0){
-
+            
+            VStack{
                 HStack{
                     NavigationLink(destination: User(userIsLogged: $userIsLogged, UserName: $UserName)) {
                         Image(systemName: "person.circle")
                             .resizable()
-//                            .border(Color.accentColor, width: 4)
-                            .frame(width: 50,height: 50,alignment: .center)
+                        //  .border(Color.accentColor, width: 4)
+                            .frame(width: 40,height: 40,alignment: .center)
                             .aspectRatio(contentMode: .fit)
                             .clipShape(Circle())
                             .padding(2)
                             .overlay(
-                                    RoundedRectangle(cornerRadius: 30)
-                                        .stroke(Color("Buttons"), lineWidth: 1)
-                                )
+                                RoundedRectangle(cornerRadius: 30)
+                                    .stroke(Color("Buttons"), lineWidth: 1)
+                            )
                     }
-                        
-    //                  .border(Color.red, width: 3)
-                        
-                        
-                    
-                    Text("Hola,\n\(UserName)").font(.caption2)
-                    
+                    VStack(alignment: .leading){
+                        Text("Hola,")
+                            .multilineTextAlignment(.leading)
+                            .bold()
+                            .font(.custom("SofiaSans-Black",size: 13,relativeTo: .title3))
+                        Text(UserName).multilineTextAlignment(.leading)
+                            .multilineTextAlignment(.leading)
+                            .font(.custom("SofiaSans-Regular",size: 15,relativeTo: .title2))
+                    }
+                    Spacer()
                     NavigationLink(destination: VideoNosotros() ) {
                         Image("LogoBaudoO").frame(maxWidth: .infinity, alignment: .trailing)
                     }
-                    
                 }
-                     .padding(EdgeInsets(top: 5, leading: 20, bottom: 5, trailing: 20))
-                     .frame(maxWidth: .infinity, alignment: .leading)
-                     .overlay(Rectangle().frame(width: nil, height: 1, alignment: .bottom).foregroundColor(Color("Buttons")), alignment: .bottom)
-                    
+                .frame(maxWidth: .infinity, alignment: .bottom)
+                .padding(EdgeInsets(top: 0, leading: 10, bottom: 5, trailing: 10))
+                
+                
+                //                    .border(Color.red, width: 4)
+                .overlay(Rectangle().frame(maxWidth: .infinity,maxHeight: 1, alignment: .bottom).foregroundColor(Color("AccentColor")), alignment: .bottom)
+                
                 
                 TabView{
                     Home()
@@ -90,35 +95,44 @@ struct TabViews: View {
                             Text("Navegantes")
                         }
                 }.preferredColorScheme(isDarkMode ? .dark : .light)
+                //                .toolbar {
+                //                        ToolbarItem(placement: .navigationBarTrailing) {
+                //
+                //                        }
+                //                    }
+                //                .navigationBarTitleDisplayMode(.inline)
+                
+                //                .navigationBarItems(leading:
+                //
+                //                )
+                
             }
         }
+                .onAppear {
+        //            contentImage.fetchpostsImages()
+                    Auth.auth().addStateDidChangeListener { auth, user in
+                        if user != nil{
+                            userIsLogged = true
+                            UserName = user?.email ?? ""
+                            print(user?.email ?? "Na")
+                            print(user?.uid ?? "id not Found")
+                            print("Este es el id del usuario TabViews ", user?.uid ?? "")
         
-        .onAppear {
-//            contentImage.fetchpostsImages()
-            Auth.auth().addStateDidChangeListener { auth, user in
-                if user != nil{
-                    userIsLogged = true
-                    UserName = user?.email ?? ""
-                    print(user?.email ?? "Na")
-                    print(user?.uid ?? "id not Found")
-                    print("Este es el id del usuario TabViews ", user?.uid ?? "")
-                    
-                }else{
-                    print("Este es el id del usuario que cerro session", UserName)
+                        }else{
+                            print("Este es el id del usuario que cerro session", UserName)
+                        }
+        
+                    }
                 }
-
             }
-        }
-
-
-    }
         
-    
-    
+        
+   
+        
 }// FIN struct TabViews
 
 struct TabViews_Previews: PreviewProvider {
     static var previews: some View {
-        TabViews(userIsLogged: .constant(true), UserName: .constant("Kevin Hernandez Clavijo esto es prueba"))
+        TabViews(userIsLogged: .constant(true), UserName: .constant(""))
     }
 }

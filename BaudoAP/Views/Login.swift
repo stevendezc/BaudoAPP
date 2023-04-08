@@ -17,7 +17,7 @@ struct Login: View {
     @State private var password = ""
     @Binding var userIsLogged : Bool
     @Binding var UserName: String
-
+    
     
     var body: some View {
         if userIsLogged {
@@ -26,13 +26,13 @@ struct Login: View {
             content
         }
     }
-
+    
     var content: some View{
         NavigationView{
             VStack {
                 Image("LogoBaudoSmall")
                 
-
+                
                 //LOGIN AREA
                 
                 
@@ -40,12 +40,12 @@ struct Login: View {
                     
                     Image("AccederFacebook")
                     Image("AccederGoogle")
-//                    Button(action: signInWithGoogle{
-//                        Text("Email")
-//                    }
-                  
+                    //                    Button(action: signInWithGoogle{
+                    //                        Text("Email")
+                    //                    }
+                    
                     Image("AccederApple")
-                   
+                    
                     TextField("Email", text: $email)
                         .padding()
                         .foregroundColor(.black)
@@ -59,64 +59,62 @@ struct Login: View {
                     Button("Acceder") {
                         login()
                     }
-                        .padding(.top)
+                    .padding(.top)
                     Button("Registrarme"){
                         register()
                     }
-                        
+                    
                 }
                 .padding(30)
                 
                 
             }
-           
             
-
+            
+            
             //FONDO DE TODO EL CONTENT VIEW
             .background(
                 Image("Fondo")
                     .ignoresSafeArea()
             )
             //TituloNavigation
-//            .navigationTitle("Sign In")
+            //            .navigationTitle("Sign In")
         }
         .onAppear {
             Auth.auth().addStateDidChangeListener { auth, user in
                 if user != nil{
                     userIsLogged = true
-                  
+                    
                 }
-
+                
             }
         }
     }
-//
+    //
     func login(){
         Auth.auth().signIn(withEmail: email, password: password){ result, error in if error != nil {
             print(error!.localizedDescription)
-           
+            
         }else{
             userIsLogged = true
             UserName = email
-//            result?.user.uid ?? "NONE"
-//            contentImage.fetchpostsImages()
-//            print("Images Fetched from login")
-
+            print("Username Correo: \(UserName)")
+            //            result?.user.uid ?? "NONE"
+            //            contentImage.fetchpostsImages()
+            //            print("Images Fetched from login")
         }
-            
-        }
-    }
-
-    func register(){
-        Auth.auth().createUser(withEmail: email, password: password) { result, error in if error != nil {
-                print(error!.localizedDescription)
-            UserName = email
-            print("USERNAME",UserName)
-            }
-            
         }
     }
     
+    func register(){
+        Auth.auth().createUser(withEmail: email, password: password) { result, error in if error != nil {
+            print(error!.localizedDescription)
+            UserName = email
+            print("USERNAME",UserName)
+        }
+            
+        }
+    }
 }
 
 
@@ -135,11 +133,11 @@ extension View {
         when shouldShow: Bool,
         alignment: Alignment = .leading,
         @ViewBuilder placeholder: () -> Content) -> some View {
-
-        ZStack(alignment: alignment) {
-            placeholder().opacity(shouldShow ? 1 : 0)
-            self
+            
+            ZStack(alignment: alignment) {
+                placeholder().opacity(shouldShow ? 1 : 0)
+                self
+            }
         }
-    }
 }
 

@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Firebase
+import AVKit
 
 struct User: View {
     
@@ -23,6 +24,7 @@ struct User: View {
     //    @ObservedObject var contentPodcast = ContentViewModelPodcast()
     
     var body: some View{
+        
         ScrollView{
             HStack{
                 Image(systemName: "person.circle")
@@ -62,7 +64,7 @@ struct User: View {
             VStack{
                 Text("Lo Ultimo en fotografias").font(.custom("SofiaSans-Bold",size: 20,relativeTo: .title))
                 ForEach(contentImage.postsImages) { post in
-                    NavigationLink(destination: PostCardImageDetailView(model: post, isPresentedImage1: .constant(false)) , label: {
+                    NavigationLink(destination: PostCardImageDetailView(model: post) , label: {
                         PostCardImage(model: post) } )
                 }
             }

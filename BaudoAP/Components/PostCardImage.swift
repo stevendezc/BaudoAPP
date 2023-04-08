@@ -15,9 +15,7 @@ struct PostCardImage: View {
     @State var isPresentedImage1: Bool = false
     
     var body: some View {
-        Button {
-            isPresentedImage1 = true
-        } label: {
+      
             VStack(alignment: .leading){
                 WebImage(url: URL(string: model.Thumbnail))
                     .resizable()
@@ -27,10 +25,8 @@ struct PostCardImage: View {
                 
                 //                .border(Color.red, width: 3)
                 
-                
                 //WebImage(url: URL(string: model.MainMediaUrl))
-                
-                
+
 //                HStack(alignment: .center){
 //                    Spacer()
 //                    Image("Reactions")
@@ -57,19 +53,13 @@ struct PostCardImage: View {
                             relativeTo: .caption))
                         .padding(.bottom,10)
                 }.padding(EdgeInsets(top: -10, leading: 20, bottom: 10, trailing: 20))
-                
-                
-            } .fullScreenCover (isPresented: $isPresentedImage1,
-                                onDismiss: { isPresentedImage1 = false },
-                                content: { PostCardImageDetailView(model: model, isPresentedImage1: $isPresentedImage1).ignoresSafeArea()})
+ 
+            }
             .background(Color("BackgroundCards"))
             .cornerRadius(19)
             .multilineTextAlignment(.leading)
             .foregroundColor(Color("Text"))
             .padding(.leading,20).padding(.trailing,20).padding(.bottom,20)
-            
-        }
-        
     }
 }
 

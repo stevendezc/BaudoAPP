@@ -19,98 +19,110 @@ struct Home: View {
     @State var selectedTab = 0
     var body: some View {
         
+                VStack {
 
-        NavigationView{
-            ScrollView {
-                Picker("", selection: $selectedTab) {
-                    Text("Imagen").tag(0)
-                    Text("Video").tag(1)
-                    Text("Podcast").tag(2)
-                }
-                .pickerStyle(SegmentedPickerStyle())
-                .background(Color("PickerBackground"))
-                .cornerRadius(10)
-                .padding()
-                
-                switch(selectedTab) {
-                case 0: Images()
-                case 1: Videos()
-                case 2: Podcasts()
+                    Picker("", selection: $selectedTab) {
+                        Text("Imagen").tag(0)
+                        Text("Video").tag(1)
+                        Text("Podcast").tag(2)
+                    }
+                    
+                    .pickerStyle(SegmentedPickerStyle())
+                    .background(Color("PickerBackground"))
+//                    .cornerRadius(10)
+                    .padding(.horizontal,10)
+//                    .padding(.top,5)
                     
                     
-                default:
-                    Images()
-                }
-                
-            }.onAppear(){
-                UISegmentedControl.appearance().selectedSegmentTintColor = UIColor(Color.accentColor)
-                let font = UIFont(name: "SofiaSans-Medium", size: 15.0)!          // Compute the right size
-                UISegmentedControl.appearance().setTitleTextAttributes([.font: font], for: .normal)
-                //            UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.black], for: .selected)
-                //            //UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.white], for: .normal)
-            }
-            .refreshable {
-//                contentImage.fetchpostsImages()
-                print("REFRESHED nothing fetched")
-            }
-        }
-    }
-}
-
-
-struct Images: View {
-    @ObservedObject var contentImage = ContentViewModelImage()
-    var body: some View {
-        
-//            LazyVStack{
-                //ForEach(/*@START_MENU_TOKEN@*/0 ..< 5/*@END_MENU_TOKEN@*/) { item in
-                ForEach(contentImage.postsImages) { post in
-                    NavigationLink(destination: PostCardImageDetailView(model: post, isPresentedImage1: .constant(false)) , label: {
-                        PostCardImage(model: post) } )
+                    switch(selectedTab) {
+                    case 0: Images()
+                    case 1: Videos()
+                    case 2: Podcasts()
+                        
+                        
+                    default:
+                        Images()
+                    }
                     
-                }
-                //}
-//            }
+                    
+                    
             
-        
+        }.onAppear(){
+            UISegmentedControl.appearance().selectedSegmentTintColor = UIColor(Color.accentColor)
+            let font = UIFont(name: "SofiaSans-Medium", size: 15.0)!          // Compute the right size
+            UISegmentedControl.appearance().setTitleTextAttributes([.font: font], for: .normal)
+            //            UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.black], for: .selected)
+            //            //UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.white], for: .normal)
+        }
+        .refreshable {
+            //                contentImage.fetchpostsImages()
+            print("REFRESHED nothing fetched")
+        }
     }
-}
-
-struct Videos: View {
-    @ObservedObject var contentVideo = ContentViewModelVideo()
-    let Columns: [GridItem] = [
-        GridItem(.flexible(), spacing: nil, alignment: nil),
-        GridItem(.flexible(), spacing: nil, alignment: nil),
-        GridItem(.flexible(), spacing: nil, alignment: nil),
-    ]
     
-    var body: some View {
-        ForEach(0 ..< 2) { item in
-        LazyVGrid(columns: Columns, spacing: 10){
-            ForEach(contentVideo.postsVideos) { post in
-                NavigationLink(destination: PostCardVideoDetailView(model: post, isPresentedVideo: .constant(false)), label: {
-                    PostCardVideo(model: post) } )
+    
+    struct Images: View {
+        @ObservedObject var contentImage = ContentViewModelImage()
+        var body: some View {
+            ScrollView{
+                LazyVStack{
+                    ForEach(contentImage.postsImages) { post in
+                        NavigationLink(destination: PostCardImageDetailView(model: post) , label: {
+                            PostCardImage(model: post) } )
+                        
+                    }
+                }
+            }.padding(.top,5)
+            
+        }
+    }
+    
+    struct Videos: View {
+        @ObservedObject var contentVideo = ContentViewModelVideo()
+        let Columns: [GridItem] = [
+            GridItem(.flexible(), spacing: nil, alignment: nil),
+            GridItem(.flexible(), spacing: nil, alignment: nil),
+            GridItem(.flexible(), spacing: nil, alignment: nil),
+        ]
+        
+        var body: some View {
+            
+                ScrollView{
+//                    ForEach(0 ..< 2) { item in
+                        LazyVGrid(columns: Columns, spacing: 10){
+                            ForEach(contentVideo.postsVideos) { post in
+                                NavigationLink(destination: PostCardVideoDetailView(model: post), label: {
+                                    PostCardVideo(model: post) } )
+                            }
+                        }
+//                    }
+                }
+                .padding(.top,5)
+//                .padding(.bottom,50)
+//               .border(Color.red, width: 3)
+            
+        }
+    }
+    
+    struct Podcasts: View {
+        @ObservedObject var contentPodcast = ContentViewModelPodcast()
+        
+        var body: some View {
+            //ForEach(/*@START_MENU_TOKEN@*/0 ..< 5/*@END_MENU_TOKEN@*/) { item in
+            ScrollView{
+                LazyVStack{
+                    ForEach(contentPodcast.postsPodcast) { post in
+                        NavigationLink(destination:
+                                        PostCardPodcastDetail(model: post), label: {
+                            PostCardPodcast(model: post) } )
+                    }
+                }
             }
+                .padding(.top,5)
         }
-        }.padding(.horizontal,20)
     }
-}
-
-struct Podcasts: View {
-    @ObservedObject var contentPodcast = ContentViewModelPodcast()
     
-    var body: some View {
-        //ForEach(/*@START_MENU_TOKEN@*/0 ..< 5/*@END_MENU_TOKEN@*/) { item in
-        
-        ForEach(contentPodcast.postsPodcast) { post in
-            NavigationLink(destination:
-                            PostCardPodcastDetail(model: post, isPresentedPodcast: .constant(false)), label: {
-                PostCardPodcast(model: post) } )
-        }
-        
-        //}
-    }
-}
+} // FIN STRUCT
 
 
 

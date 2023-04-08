@@ -8,7 +8,7 @@
 import Foundation
 import Firebase
 
-struct CommentModel: Codable, Identifiable {
+struct CommentModel: Encodable, Identifiable {
     var id = UUID()
 //    var profile: String
     var postId: String

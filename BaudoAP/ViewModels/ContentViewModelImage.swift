@@ -142,7 +142,7 @@ class ContentViewModelImage: ObservableObject {
         comments.removeAll()
         let db = Firestore.firestore().collection("Comments")
             .whereField("postId", isEqualTo: postId)
-            .order(by: "timestamp" ,descending: true)
+            .order(by: "timestamp" ,descending: false)
         
 //        comments.removeAll()
         
@@ -163,7 +163,7 @@ class ContentViewModelImage: ObservableObject {
                     let userId = data["userId"] as? String ?? ""
 
                     let comment = CommentModel(postId: Id, userId: userId, commentText: commentText, timestamp: Timestamp())
-                    self.comments.append(comment)
+                    self.comments.insert(comment, at: 0)
                 }
 //                else if change.type == .modified {
 //                    print("Un Archivo ha sido modificado en la base de datos")

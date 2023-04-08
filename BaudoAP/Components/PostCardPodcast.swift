@@ -11,33 +11,28 @@ import SDWebImageSwiftUI
 struct PostCardPodcast: View {
     
     var model: Post
-    @State var isPresentedPodcast: Bool = false
     
     var body: some View {
-        Button {
-            isPresentedPodcast = true
-        } label: {
+       
             HStack{
-                AsyncImage(url: URL(string: model.Thumbnail), scale: 1)
-                    //.resizable()
+                WebImage(url: URL(string: model.Thumbnail))
+                    .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width:130)
                 //                .border(Color.red, width: 3)
                 
                 VStack(alignment: .leading,spacing: 5) {
-                    Text(model.Title).font(.title3)
-                    Text(model.CreationDate).font(.callout)
+                    Text(model.Title).font(.title3).multilineTextAlignment(.leading)
+                    Text(model.CreationDate).font(.callout).multilineTextAlignment(.leading)
                     
-                    Text(model.Description).font(.caption)
+                    Text(model.Description).font(.caption).multilineTextAlignment(.leading)
                 }.foregroundColor(Color("Text"))
                 
-            }.fullScreenCover (isPresented: $isPresentedPodcast,
-                               onDismiss: { isPresentedPodcast = false },
-                               content: { PostCardPodcastDetail(model: model, isPresentedPodcast: $isPresentedPodcast).ignoresSafeArea()})
+            }
             .padding(15)
             .background(Color("BackgroundCards"))
             .cornerRadius(20)
-        }
+        
     }
 }
 

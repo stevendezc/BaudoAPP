@@ -8,6 +8,8 @@
 import SwiftUI
 import Firebase
 
+
+
 struct Settings: View {
     
     @AppStorage("isDarkMode") private var isDarkMode = false
@@ -17,6 +19,9 @@ struct Settings: View {
     @Binding var UserName: String
     
     var body: some View {
+        
+        
+        
         List{
             Button("LogOut") {
                 logout()
