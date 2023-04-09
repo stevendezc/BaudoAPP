@@ -31,10 +31,18 @@ struct PostCardVideoDetailView: View {
                         
                         ZStack(alignment: .topTrailing){
         
+                            
                             VideoPlayer(player: player)
+                                .ignoresSafeArea()
                                 .aspectRatio(9/16, contentMode: .fit)
+//                                .onAppear(){
+//                                    player.play()
+//                                    print("onAppear1")
+//                                }
+//                                .onDisappear(){
+//                                    player.pause()
+//                                }
                                 
-        
         
         //
         
@@ -130,14 +138,15 @@ struct PostCardVideoDetailView: View {
                 .navigationBarBackButtonHidden(true)
                 .ignoresSafeArea()
         
-                .onAppear(){
-                    player.play()
-                    contentVideo.fetchNewComments(postId: model.id ?? "")
-                }
-                .onDisappear(){
-                    player.pause()
-                    contentVideo.stopListener()
-                }
+//                .onAppear(){
+//
+//                    contentVideo.fetchNewComments(postId: model.id ?? "")
+//                    print("onAppear2")
+//                }
+//                .onDisappear(){
+//                    player.pause()
+//                    contentVideo.stopListener()
+//                }
                 .overlay(
                     Button(action: {
                         presentationMode.wrappedValue.dismiss()

@@ -13,6 +13,22 @@ import FirebaseStorage
 import AVKit
 
 
+enum Utility {
+  static func formatSecondsToHMS(_ seconds: TimeInterval) -> String {
+    let secondsInt:Int = Int(seconds.rounded(.towardZero))
+    
+    let dh: Int = (secondsInt/3600)
+    let dm: Int = (secondsInt - (dh*3600))/60
+    let ds: Int = secondsInt - (dh*3600) - (dm*60)
+    
+    let hs = "\(dh > 0 ? "\(dh):" : "")"
+    let ms = "\(dm<10 ? "0" : "")\(dm):"
+    let s = "\(ds<10 ? "0" : "")\(ds)"
+    
+    return hs + ms + s
+  }
+}
+
 struct PostCardPodcastDetail: View {
     
     @Environment(\.presentationMode) private var presentationMode: Binding<PresentationMode>
@@ -21,7 +37,7 @@ struct PostCardPodcastDetail: View {
     
 //    @State var audioPlayer: AVPlayer! // Your audio player object
     
-    @State private var audioPlayer = AVPlayer(url: URL(string: "https://baudoap.com/wp-content/uploads/2022/12/Audio-3.mp3")!)
+    @State private var audioPlayer = AVPlayer(url: URL(string: "https://baudoap.com/wp-content/uploads/2021/04/moto2.mp3")!)
     
 //    @State var audioPlayer = AVPlayer()
 //
@@ -36,9 +52,15 @@ struct PostCardPodcastDetail: View {
     
     @State var value: Double = 0.0
     
-    @State private var currentTime: Double = 0.0
+//    @State private var currentTimeAudio: Double = 0.0
+    
     
     @State private var duration: Double = 0.0
+    
+    @State private var isEditing: Bool = false
+    
+//    @State private var currentTime: TimeInterval = 0
+    
     
     let timer = Timer
         .publish(every: 0.5, on: .main, in: .common)
@@ -76,7 +98,7 @@ struct PostCardPodcastDetail: View {
                             Text(model.title)
                                 .font(.custom("SofiaSans-Bold", size: 18,relativeTo: .title))
                                 .fontWeight(.heavy)
-                            
+                            Spacer()
                             Button {
                                 playPause()
                                 print("Button Pressed")
@@ -89,27 +111,43 @@ struct PostCardPodcastDetail: View {
                                 }
                                 
                             }
-                            .padding(.leading,40)
+                            .padding(.top,-60)
                             .foregroundColor(Color("Buttons"))
                             
                         }
                         
                         Text(model.creationDateString)
                             .font(.custom("SofiaSans-Medium",size: 14,relativeTo: .caption))
-                        Text(model.description).font(.caption)
-                            .font(.custom("SofiaSans-Regular",size: 18,relativeTo: .body))
-                        
+                       
+                            
                     }.foregroundColor(Color("Text"))
                         .multilineTextAlignment(.leading)
                     
-                    
+                }
+
+                Slider(value: $value, in: 0...duration) { editing in
+                    print("editing",editing)
+                    isEditing = editing
+
+                    if !editing {
+//                      audioPlayer.currentTime = value
+//                        audioPlayer.currentItem?.currentTime() = value
+                        print("new value",value)
+                    }
                 }
                 
-                
-                
-                Slider(value: $currentTime, in: 0...duration)
-                
-                
+                HStack{
+                    Text(Utility.formatSecondsToHMS(value))
+                        .font(.custom("SofiaSans-Regular",size: 12,relativeTo: .caption))
+//                    Text("\(value)")
+                    Spacer()
+//                    Text(duration)
+                    Text(Utility.formatSecondsToHMS(duration))
+                        .font(.custom("SofiaSans-Regular",size: 12,relativeTo: .caption))
+                }
+                Spacer(minLength: 20)
+                Text(model.description).font(.caption)
+                    .font(.custom("SofiaSans-Regular",size: 18,relativeTo: .body))
             }
             
             .padding(20)
@@ -173,98 +211,144 @@ struct PostCardPodcastDetail: View {
             
         }
         
-            .navigationBarBackButtonHidden(true)
-            .background(
-                WebImage(url: URL(string: model.thumbnail2))
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .padding(-5)
-                    .frame(width:UIScreen.main.bounds.width,
-                           height:UIScreen.main.bounds.height)
-                    .blur(radius: blurAmount)
-            )
-            .overlay(
-                Button(action: {
-                    presentationMode.wrappedValue.dismiss()
-                }, label: {
-                    Text("←")
-                        .padding(.horizontal,5)
-                        .padding(.vertical,1)
-                        .foregroundColor(Color("Yellow"))
-                        .background(Color.black)
-                        .overlay(RoundedRectangle(cornerRadius: 30)
-                            .stroke(Color("Buttons"),
-                                    lineWidth: 1))
-                        .cornerRadius(30)
-                        .font(.system(size: 30))
-                        .padding(.leading,10)
-                }).padding(.top,60), alignment: .topLeading
-            )
-            .ignoresSafeArea()
-            
-            //                    .padding(10)
-            //                    .padding(.top,75)
-            
-            //        }
-            
-            HStack{
-                Image(systemName: "person.circle")
-                    .resizable()
-                //                            .border(Color.accentColor, width: 4)
-                    .frame(width: 40,height: 40,alignment: .center)
-                    .aspectRatio(contentMode: .fit)
-                    .clipShape(Circle())
-                    .padding(2)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 30)
-                            .stroke(Color("Buttons"), lineWidth: 1)
-                    )
-                
-                TextField(
-                    "Agregar comentario",
-                    text: $contentPodcast.commentText
+        .navigationBarBackButtonHidden(true)
+        .background(
+            WebImage(url: URL(string: model.thumbnail2))
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .padding(-5)
+                .frame(width:UIScreen.main.bounds.width,
+                       height:UIScreen.main.bounds.height)
+                .blur(radius: blurAmount)
+        )
+        .overlay(
+            Button(action: {
+                presentationMode.wrappedValue.dismiss()
+            }, label: {
+                Text("←")
+                    .padding(.horizontal,5)
+                    .padding(.vertical,1)
+                    .foregroundColor(Color("Yellow"))
+                    .background(Color.black)
+                    .overlay(RoundedRectangle(cornerRadius: 30)
+                        .stroke(Color("Buttons"),
+                                lineWidth: 1))
+                    .cornerRadius(30)
+                    .font(.system(size: 30))
+                    .padding(.leading,10)
+            }).padding(.top,60), alignment: .topLeading
+        )
+        .ignoresSafeArea()
+        
+        //                    .padding(10)
+        //                    .padding(.top,75)
+        
+        //        }
+        
+        HStack{
+            Image(systemName: "person.circle")
+                .resizable()
+            //                            .border(Color.accentColor, width: 4)
+                .frame(width: 40,height: 40,alignment: .center)
+                .aspectRatio(contentMode: .fit)
+                .clipShape(Circle())
+                .padding(2)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 30)
+                        .stroke(Color("Buttons"), lineWidth: 1)
                 )
-                .foregroundColor(Color("Text"))
-                .padding(10)
-                .background(Color("BackgroundCards"))
-                .cornerRadius(19)
-                Button{
-                    contentPodcast.pushComment(postId: model.id ?? "")
-                    
-                    print("Pusshed Comment YEYYYY",model.id ?? "")
-                } label: {
-                    Text("Enviar")
-                }
-                .buttonStyle(.borderedProminent)
-            }
             
-            .padding(.vertical,5)
-            .padding(.horizontal,10)
-            .background(Color("BackgroundColor"))
-            .onAppear(){
-                contentPodcast.fetchNewComments(postId: model.id ?? "")
-                Play()
-               
-                audioPlayer.addPeriodicTimeObserver(forInterval: CMTime(seconds: 0.1, preferredTimescale: CMTimeScale(NSEC_PER_SEC)), queue: DispatchQueue.main) { [self] time in
-    //                guard let self =  else { return }
-                    self.currentTime = time.seconds
-                }
+            TextField(
+                "Agregar comentario",
+                text: $contentPodcast.commentText
+            )
+            .foregroundColor(Color("Text"))
+            .padding(10)
+            .background(Color("BackgroundCards"))
+            .cornerRadius(19)
+            Button{
+                contentPodcast.pushComment(postId: model.id ?? "")
                 
+                print("Pusshed Comment YEYYYY",model.id ?? "")
+            } label: {
+                Text("Enviar")
             }
-            .onDisappear(){
-                contentPodcast.stopListener()
-            }
-//            .onReceive(timer) { _ in
-////                guard let audioPlayer = audioPlayer else { return }
-//                currentTime = audioPlayer.currentTime().seconds
-//                print(currentTime)
-//            }
-            
-            
+            .buttonStyle(.borderedProminent)
         }
         
+        .padding(.vertical,5)
+        .padding(.horizontal,10)
+        .background(Color("BackgroundColor"))
+        .onAppear(){
+            contentPodcast.fetchNewComments(postId: model.id ?? "")
+            Play()
+            
+//            audioPlayer.addPeriodicTimeObserver(forInterval: CMTime(seconds: 0.1, preferredTimescale: CMTimeScale(NSEC_PER_SEC)), queue: DispatchQueue.main) { [self] time in
+//                //                guard let self =  else { return }
+//
+//                value = time.seconds
+//                currentTime = value
+//
+//                if currentTime == duration {
+//                    print("finished playing")
+//                    audioPlayer.seek(to: .zero)
+//                    audioPlayer.pause()
+//                    self.isPlaying.toggle()
+//                    currentTime = 0.0
+////                    audioPlayer.play()
+//                    value = 0.0
+//                }
+                
+//               let currentTimeAudio = audioPlayer.currentTime
+//                print("currentTimeAudio", currentTimeAudio)
+//                let audioDurationSecondscurrentTime = CMTimeGetSeconds(currentTimeAudio())
+//                print("audioDuraSecCuTime",audioDurationSecondscurrentTime)
+//                value = audioDurationSecondscurrentTime
+//                print(value)
+            }
+            
+//        }
+        .onReceive(timer){ (_) in
+            
+           
+//                        let currentTimeAudio = audioPlayer.currentTime
+//            //            print("currentTimeAudio", currentTimeAudio)
+//                        let audioDurationSecondscurrentTime = CMTimeGetSeconds(currentTimeAudio())
+//            //            print("audioDuraSecCuTime",audioDurationSecondscurrentTime)
+//                        value = audioDurationSecondscurrentTime
+            
+            if isPlaying {
+                value = (CMTimeGetSeconds(audioPlayer.currentTime()))
+                
+                if value.rounded() == duration.rounded() {
+                    print("finished playing")
+                    audioPlayer.seek(to: .zero)
+                    audioPlayer.pause()
+                    self.isPlaying.toggle()
+//                            currentTime = 0.0
+    //                    audioPlayer.play()
+                    value = 0.0
+                } else {
+                    print("Value = ",value)
+                }
+            } else {
+                isPlaying = false
+            }
+                        
+                       
+           
+            
+        }
+        .onDisappear(){
+            contentPodcast.stopListener()
+        }
         
-        func Play() {
+    }
+            
+        
+        
+        
+    func Play(){
 //            let storage = Storage.storage().reference(forURL: self.model.main_media)
 //            storage.downloadURL { (url, error) in
 //                if error != nil {
@@ -281,13 +365,15 @@ struct PostCardPodcastDetail: View {
 //                    audioPlayer = AVPlayer(url: url!)
                     
                     
-            let asset = AVURLAsset(url: URL(string: "https://baudoap.com/wp-content/uploads/2022/12/Audio-3.mp3")!)
-            let audioDuration = asset.duration
-            let audioDurationSeconds = CMTimeGetSeconds(audioDuration)
+            let asset = AVURLAsset(url: URL(string: "https://baudoap.com/wp-content/uploads/2021/04/moto2.mp3")!)
+//            let audioDuration = asset.duration
+        
             
+//            let audioDurationSeconds = CMTimeGetSeconds(audioDuration)
+        
                     audioPlayer.play()
-                    duration = audioDurationSeconds
-                    print(duration)
+                    duration = CMTimeGetSeconds(asset.duration)
+                    print("duration ", duration)
                 }
 //            }
 //        }

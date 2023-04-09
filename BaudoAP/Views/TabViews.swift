@@ -49,7 +49,7 @@ struct TabViews: View {
                     VStack(alignment: .leading){
                         Text("Hola,")
                             .multilineTextAlignment(.leading)
-                            .bold()
+//                            .bold()
                             .font(.custom("SofiaSans-Black",size: 13,relativeTo: .title3))
                         Text(UserName).multilineTextAlignment(.leading)
                             .multilineTextAlignment(.leading)

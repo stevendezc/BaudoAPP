@@ -26,7 +26,24 @@ struct User: View {
     var body: some View{
         
         ScrollView{
+            
+            let URLS: String = "https://baudoap.com/wp-content/uploads/2023/04/4.-Teka-s.mp4"
+
+              let player = AVPlayer(url: URL(string: URLS)!)
+            VideoPlayer(player: player)
+                .aspectRatio(9/16, contentMode: .fit)
+                .onAppear(){
+                    player.play()
+                    print("onAppear")
+                }.onDisappear(){
+                    player.pause()
+                    print("onDisappear")
+                }
+            
+            
             HStack{
+                
+                
                 Image(systemName: "person.circle")
                     .resizable()
                 //                            .border(Color.accentColor, width: 4)

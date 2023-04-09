@@ -18,7 +18,7 @@ struct PostCardPodcast: View {
                 WebImage(url: URL(string: model.thumbnail))
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(width:140)
+                    .frame(width:110)
                     .cornerRadius(9)
                 //                .border(Color.red, width: 3)
                 
@@ -34,6 +34,7 @@ struct PostCardPodcast: View {
                     Text(model.description)
                         .font(.custom("SofiaSans-Regular",size: 13,relativeTo: .body))
                         .multilineTextAlignment(.leading)
+                        .lineLimit(4)
                 }.foregroundColor(Color("Text"))
                 
             }

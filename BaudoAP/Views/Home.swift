@@ -65,12 +65,12 @@ struct Home: View {
         @ObservedObject var contentImage = ContentViewModelImage()
         var body: some View {
             ScrollView{
-                LazyVStack{
+//                LazyVStack{
                     ForEach(contentImage.postsImages) { post in
                         NavigationLink(destination: PostCardImageDetailView(model: post) , label: {
                             PostCardImage(model: post) } )
                     }
-                }
+//                }
             }.padding(.top,5)
         }
     }
