@@ -1,26 +1,28 @@
-//
-//  ContentView.swift
-//  VideoPlayerTester
-//
-//  Created by Codez on 6/04/23.
-//
-
 import SwiftUI
 import AVKit
 
+
 struct Tester: View {
+    @State private var currentTime: Double = 0
+    @State private var player = AVPlayer(url: URL(string: "https://baudoap.com/wp-content/uploads/2022/12/Audio-3.mp3")!)
+    
     var body: some View {
         VStack {
-            let URLS: String = "https://firebasestorage.googleapis.com/v0/b/baudoapp-c89ed.appspot.com/o/Videos%2FVideos%2F03.%20Champeta%20s.mp4?alt=media&token=1dfe1eed-9054-45fa-bdc9-bf002cd06de9"
-            let player = AVPlayer(url: URL(string: URLS)!)
-
-            VideoPlayer(player: player)
-                .aspectRatio(9/16, contentMode: .fit)
-                .onAppear(){
-                    player.play()
-                }
+            Slider(value: $currentTime, in: 0...100)
+                .padding()
+            Button(action: {
+                player.play()
+            }, label: {
+                Text("Play")
+            })
+            .padding()
         }
-        .padding()
+        .onAppear {
+            player.addPeriodicTimeObserver(forInterval: CMTime(seconds: 0.1, preferredTimescale: CMTimeScale(NSEC_PER_SEC)), queue: DispatchQueue.main) { [self] time in
+//                guard let self =  else { return }
+                self.currentTime = time.seconds
+            }
+        }
     }
 }
 

@@ -69,11 +69,9 @@ struct Home: View {
                     ForEach(contentImage.postsImages) { post in
                         NavigationLink(destination: PostCardImageDetailView(model: post) , label: {
                             PostCardImage(model: post) } )
-                        
                     }
                 }
             }.padding(.top,5)
-            
         }
     }
     
@@ -113,12 +111,13 @@ struct Home: View {
                 LazyVStack{
                     ForEach(contentPodcast.postsPodcast) { post in
                         NavigationLink(destination:
-                                        PostCardPodcastDetail(model: post), label: {
+                                PostCardPodcastDetail(model: post), label: {
                             PostCardPodcast(model: post) } )
                     }
                 }
+                .padding(.horizontal,15)
             }
-                .padding(.top,5)
+            .padding(.top,5)
         }
     }
     

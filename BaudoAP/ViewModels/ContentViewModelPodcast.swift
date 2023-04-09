@@ -140,7 +140,7 @@ class ContentViewModelPodcast: ObservableObject {
         comments.removeAll()
         let db = Firestore.firestore().collection("commentaries")
             .whereField("postId", isEqualTo: postId)
-            .order(by: "timestamp" ,descending: true)
+            .order(by: "timestamp" ,descending: false)
         
 //        comments.removeAll()
         
@@ -160,7 +160,7 @@ class ContentViewModelPodcast: ObservableObject {
                         let userId = data["userId"] as? String ?? ""
 
                         let comment = CommentModel(postId: Id, userId: userId, commentText: commentText, timestamp: Timestamp())
-                        self.comments.append(comment)
+                        self.comments.insert(comment, at: 0)
                     }
                 })
                 

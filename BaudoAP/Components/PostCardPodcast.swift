@@ -18,14 +18,22 @@ struct PostCardPodcast: View {
                 WebImage(url: URL(string: model.thumbnail))
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(width:130)
+                    .frame(width:140)
+                    .cornerRadius(9)
                 //                .border(Color.red, width: 3)
                 
                 VStack(alignment: .leading,spacing: 5) {
-                    Text(model.title).font(.title3).multilineTextAlignment(.leading)
-                    Text(model.creationDateString).font(.callout).multilineTextAlignment(.leading)
+                    Text(model.title)
+                        .font(.custom("SofiaSans-Bold", size: 18,relativeTo: .title))
+                        .fontWeight(.heavy)
+                        .multilineTextAlignment(.leading)
+                    Text(model.creationDateString)
+                        .font(.custom("SofiaSans-Medium",size: 12,relativeTo: .caption))
+                        .multilineTextAlignment(.leading)
                     
-                    Text(model.description).font(.caption).multilineTextAlignment(.leading)
+                    Text(model.description)
+                        .font(.custom("SofiaSans-Regular",size: 13,relativeTo: .body))
+                        .multilineTextAlignment(.leading)
                 }.foregroundColor(Color("Text"))
                 
             }
