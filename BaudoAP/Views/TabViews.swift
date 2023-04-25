@@ -51,7 +51,7 @@ struct TabViews: View {
                             .multilineTextAlignment(.leading)
 //                            .bold()
                             .font(.custom("SofiaSans-Black",size: 13,relativeTo: .title3))
-                        Text(UserName).multilineTextAlignment(.leading)
+                        Text("Steven Hernandez").multilineTextAlignment(.leading)
                             .multilineTextAlignment(.leading)
                             .font(.custom("SofiaSans-Regular",size: 15,relativeTo: .title2))
                     }

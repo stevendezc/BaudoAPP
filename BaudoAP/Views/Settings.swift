@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import Firebase
+import FirebaseAuth
 
 
 
@@ -19,9 +19,7 @@ struct Settings: View {
     @Binding var UserName: String
     
     var body: some View {
-        
-        
-        
+
         List{
             Button("LogOut") {
                 logout()
@@ -36,6 +34,7 @@ struct Settings: View {
             }.pickerStyle(SegmentedPickerStyle())
         }
     }
+    
     func logout(){
         try! Auth.auth().signOut()
         print("Logged out button pressed")

@@ -43,7 +43,7 @@ struct PostCardImageDetailViewImage: View {
                     
                     Spacer()
                     
-                    Image("BaudoImage").padding(.trailing,20)
+//                    Image("BaudoImage").padding(.trailing,20)
                 }
                 .padding(.vertical,40)
                 Spacer()

@@ -11,6 +11,8 @@ import FirebaseAuth
 //import GoogleSignIn
 
 
+
+
 struct Login: View {
     
     @State private var email = ""
@@ -20,13 +22,18 @@ struct Login: View {
     
     
     var body: some View {
-        if userIsLogged {
-            TabViews(userIsLogged: self.$userIsLogged, UserName: $UserName)
-        } else {
-            content
+        NavigationView{
+            if userIsLogged {
+                TabViews(userIsLogged: self.$userIsLogged, UserName: $UserName)
+            } else {
+                content
+            }
         }
+        
     }
     
+    
+
     var content: some View{
         NavigationView{
             VStack {
@@ -34,17 +41,17 @@ struct Login: View {
                 
                 
                 //LOGIN AREA
-                
+                Text("LOG IN ")
                 
                 VStack(spacing: 20) {
                     
-                    Image("AccederFacebook")
-                    Image("AccederGoogle")
+//                    Image("AccederFacebook")
+//                    Image("AccederGoogle")
                     //                    Button(action: signInWithGoogle{
                     //                        Text("Email")
                     //                    }
                     
-                    Image("AccederApple")
+//                    Image("AccederApple")
                     
                     TextField("Email", text: $email)
                         .padding()
@@ -56,14 +63,39 @@ struct Login: View {
                         .padding()
                         .background(Color.white.opacity(0.5))
                         .cornerRadius(20)
-                    Button("Acceder") {
-                        login()
-                    }
-                    .padding(.top)
-                    Button("Registrarme"){
-                        register()
+                    
+                    HStack{
+                        Spacer()
+                        NavigationLink(destination:
+                                        resetPass(), label: {
+                            Text("Olvide mi contraseña").foregroundColor(.black) } )
                     }
                     
+                    
+                    HStack{
+                        Button("Acceder") {
+                            login()
+                        }
+                        .padding()
+                        .foregroundColor(.black)
+                        .background(Color("Buttons"))
+                        .clipShape(Capsule())
+                        .padding(.top)
+                        
+                        NavigationLink(destination:
+                                        createUser(userIsLogged: .constant(false), UserName: .constant("Steven")), label: {
+                            Text("Crear usuario")
+                                .foregroundColor(.black)
+                                .padding()
+                                .foregroundColor(.black)
+                                .background(Color("Buttons"))
+                                .clipShape(Capsule())
+                                .padding(.top)
+                        } )
+                    }
+                    
+                    
+                   
                 }
                 .padding(30)
                 
@@ -80,6 +112,8 @@ struct Login: View {
             //TituloNavigation
             //            .navigationTitle("Sign In")
         }
+        .navigationTitle("Login")
+        
         .onAppear {
             Auth.auth().addStateDidChangeListener { auth, user in
                 if user != nil{
@@ -106,16 +140,9 @@ struct Login: View {
         }
     }
     
-    func register(){
-        Auth.auth().createUser(withEmail: email, password: password) { result, error in if error != nil {
-            print(error!.localizedDescription)
-            UserName = email
-            print("USERNAME",UserName)
-        }
-            
-        }
-    }
+
 }
+
 
 
 

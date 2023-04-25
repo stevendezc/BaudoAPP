@@ -24,12 +24,9 @@ struct PostCardComunidad: View {
 //                        .border(model.CategoryCom == "Proyectos productivos" ? Color.yellow : .blue)
                         .overlay(
                             model.category == "productivos" ?
-                            RoundedRectangle(cornerRadius: 20).stroke(Color.green, lineWidth: 4) : RoundedRectangle(cornerRadius: 20).stroke(Color.blue, lineWidth: 4)
-                            
+                            RoundedRectangle(cornerRadius: 20).stroke(Color.green, lineWidth: 2) : RoundedRectangle(cornerRadius: 20).stroke(Color.blue, lineWidth: 2)
                             )
-                    
                     //                .border(Color.red, width: 3)
-                    
                     VStack(alignment: .leading,spacing: 5) {
 //                        if model.CategoryCom == "Proyectos productivos" {
 //                            Text(model.title).font(.custom("SofiaSans-Medium",size: 20,relativeTo: .caption)).foregroundColor(Color("ComuPro"))
@@ -41,11 +38,14 @@ struct PostCardComunidad: View {
 //                            Text(model.title).font(.custom("SofiaSans-Medium",size: 20,relativeTo: .caption)).foregroundColor(Color("ComuTur"))
 //                        }
                         
-                        Text(model.name).foregroundColor(model.category == "productivos" ? Color.green : Color.blue).font(.custom("SofiaSans-Bold",size: 18,relativeTo: .title))
+                        Text(model.name).foregroundColor(model.category == "productivos" ? Color.green : Color.blue).font(.custom("SofiaSans-Bold",size: 20,relativeTo: .title))
                         
-                        Text(model.creationDateString).font(.custom("SofiaSans-Medium",size: 15,relativeTo: .caption))
+//                        Text(model.creationDateString)
+//                            .font(.custom("SofiaSans-Medium",size: 15,relativeTo: .caption))
                         
-                        Text(model.description).font(.caption)
+                        Text(model.description)
+                            .lineLimit(5)
+                            .font(.custom("SofiaSans-Medium",size: 13,relativeTo: .body))
                     }.foregroundColor(Color("Text"))
                     
                 }

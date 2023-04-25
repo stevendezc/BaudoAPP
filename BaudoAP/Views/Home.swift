@@ -80,7 +80,7 @@ struct Home: View {
         let Columns: [GridItem] = [
             GridItem(.flexible(), spacing: nil, alignment: nil),
             GridItem(.flexible(), spacing: nil, alignment: nil),
-//            GridItem(.flexible(), spacing: nil, alignment: nil),
+            GridItem(.flexible(), spacing: nil, alignment: nil),
         ]
         
         var body: some View {
@@ -130,12 +130,7 @@ struct Home_Previews: PreviewProvider {
     static var previews: some View {
         
         Home()
-            .previewDisplayName("Light")
-        Home()
-            .preferredColorScheme(.dark)
-        
-            .previewDisplayName("Dark")
+//            .previewDisplayName("Light")
+       
     }
-    
-    
 }

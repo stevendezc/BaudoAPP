@@ -33,6 +33,8 @@
 		5C52C73429BCE280002231F2 /* Eventos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C52C73329BCE280002231F2 /* Eventos.swift */; };
 		5C52C73629BCE29D002231F2 /* Tienda.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C52C73529BCE29D002231F2 /* Tienda.swift */; };
 		5C52C73829BCE2BA002231F2 /* Comunidad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C52C73729BCE2BA002231F2 /* Comunidad.swift */; };
+		5C54CB2429F77DE300E606DC /* Create User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C54CB2329F77DE300E606DC /* Create User.swift */; };
+		5C54CB2629F77F5800E606DC /* ResetPass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C54CB2529F77F5800E606DC /* ResetPass.swift */; };
 		5C6807EF29D5EA03005F7B46 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5C6807EE29D5EA03005F7B46 /* GoogleService-Info.plist */; };
 		5C6FAEF929D36C31000B8FB6 /* ContentViewModelImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6FAEF829D36C30000B8FB6 /* ContentViewModelImage.swift */; };
 		5C6FAEFB29D37E89000B8FB6 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6FAEFA29D37E89000B8FB6 /* EmptyView.swift */; };
@@ -79,6 +81,8 @@
 		5C52C73329BCE280002231F2 /* Eventos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Eventos.swift; sourceTree = "<group>"; };
 		5C52C73529BCE29D002231F2 /* Tienda.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tienda.swift; sourceTree = "<group>"; };
 		5C52C73729BCE2BA002231F2 /* Comunidad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comunidad.swift; sourceTree = "<group>"; };
+		5C54CB2329F77DE300E606DC /* Create User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Create User.swift"; sourceTree = "<group>"; };
+		5C54CB2529F77F5800E606DC /* ResetPass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPass.swift; sourceTree = "<group>"; };
 		5C6807EE29D5EA03005F7B46 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../Models/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5C6FAEF829D36C30000B8FB6 /* ContentViewModelImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModelImage.swift; sourceTree = "<group>"; };
 		5C6FAEFA29D37E89000B8FB6 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
@@ -211,6 +215,8 @@
 				5C2E652B29DC838200BED995 /* Tester.swift */,
 				5C25BC2929BD6349003667A9 /* Base.swift */,
 				5C077CD629CE0EC7006B3ADC /* User.swift */,
+				5C54CB2329F77DE300E606DC /* Create User.swift */,
+				5C54CB2529F77F5800E606DC /* ResetPass.swift */,
 				5CA7219829D93FAC00E04D2E /* VideoNosotros.swift */,
 				5CAF42DD29D8CA1700FC975E /* Settings.swift */,
 				5C52C72D29BCE24F002231F2 /* Login.swift */,
@@ -338,6 +344,7 @@
 				5C90A5B729BD4B600031FF14 /* TabViews.swift in Sources */,
 				5C52C73229BCE270002231F2 /* Navegantes.swift in Sources */,
 				5C6FAEFB29D37E89000B8FB6 /* EmptyView.swift in Sources */,
+				5C54CB2629F77F5800E606DC /* ResetPass.swift in Sources */,
 				5C077CD729CE0EC7006B3ADC /* User.swift in Sources */,
 				5C077CD529CDF03D006B3ADC /* PostCardPodcast.swift in Sources */,
 				5C52C70A29BCD8CD002231F2 /* BaudoAPApp.swift in Sources */,
@@ -357,6 +364,7 @@
 				5C345D5429D7288000C689DB /* CommentModel.swift in Sources */,
 				5C52C72C29BCE23C002231F2 /* Preload.swift in Sources */,
 				5C52C72E29BCE24F002231F2 /* Login.swift in Sources */,
+				5C54CB2429F77DE300E606DC /* Create User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -493,7 +501,8 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.news";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -528,7 +537,8 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.news";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

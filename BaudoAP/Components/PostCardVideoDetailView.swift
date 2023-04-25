@@ -14,6 +14,10 @@ struct PostCardVideoDetailView: View {
     
     @Environment(\.presentationMode) private var presentationMode: Binding<PresentationMode>
     
+    @State var player: AVPlayer?
+    
+   
+    
     @ObservedObject var contentVideo = ContentViewModelVideo()
     
     var model: Post
@@ -22,9 +26,9 @@ struct PostCardVideoDetailView: View {
     
     var body: some View {
         
-        let URLS: String = model.main_media
+        
 
-          let player = AVPlayer(url: URL(string: URLS)!)
+        
         
                 ScrollViewReader { reader in
                     ScrollView{
@@ -40,6 +44,7 @@ struct PostCardVideoDetailView: View {
 //                                    print("onAppear1")
 //                                }
 //                                .onDisappear(){
+//                                    print("onDissapearVideo")
 //                                    player.pause()
 //                                }
                                 
@@ -50,7 +55,7 @@ struct PostCardVideoDetailView: View {
                             //                    .frame(width:UIScreen.main.bounds.width,height: .infinity)
         //
         
-                            Image("BaudoVideo").resizable().frame(width:30,height: 60).padding(.top,60).padding(.trailing,10)
+//                            Image("BaudoVideo").resizable().frame(width:30,height: 60).padding(.top,60).padding(.trailing,10)
         
                             Button(action: {
                                 withAnimation(.easeInOut(duration: 100)){
@@ -138,15 +143,22 @@ struct PostCardVideoDetailView: View {
                 .navigationBarBackButtonHidden(true)
                 .ignoresSafeArea()
         
-//                .onAppear(){
-//
-//                    contentVideo.fetchNewComments(postId: model.id ?? "")
-//                    print("onAppear2")
-//                }
-//                .onDisappear(){
-//                    player.pause()
-//                    contentVideo.stopListener()
-//                }
+                .onAppear(){
+                    player?.play()
+                    contentVideo.fetchNewComments(postId: model.id ?? "")
+                    print("onAppear2")
+                    
+                    let URLS: String = model.main_media
+//                    let url = URL(string: "https://example.com/video.mp4")!
+                    
+                    player = AVPlayer(url: URL(string: URLS)!)
+                    
+                    player?.play()
+                }
+                .onDisappear(){
+                    player?.pause()
+                    contentVideo.stopListener()
+                }
                 .overlay(
                     Button(action: {
                         presentationMode.wrappedValue.dismiss()

@@ -1,33 +1,44 @@
-import SwiftUI
-import AVKit
-
-
-struct Tester: View {
-    @State private var currentTime: Double = 0
-    @State private var player = AVPlayer(url: URL(string: "https://baudoap.com/wp-content/uploads/2022/12/Audio-3.mp3")!)
-    
-    var body: some View {
-        VStack {
-            Slider(value: $currentTime, in: 0...100)
-                .padding()
-            Button(action: {
-                player.play()
-            }, label: {
-                Text("Play")
-            })
-            .padding()
-        }
-        .onAppear {
-            player.addPeriodicTimeObserver(forInterval: CMTime(seconds: 0.1, preferredTimescale: CMTimeScale(NSEC_PER_SEC)), queue: DispatchQueue.main) { [self] time in
-//                guard let self =  else { return }
-                self.currentTime = time.seconds
-            }
-        }
-    }
-}
-
-struct Tester_Previews: PreviewProvider {
-    static var previews: some View {
-        Tester()
-    }
-}
+//import SwiftUI
+//import AVFoundation
+//
+//
+//
+//struct ContentView: View {
+//
+//    let audioPlayer = AVAudioPlayer()
+//
+//    @State private var currentTime: TimeInterval = 0
+//    @State private var isPlaying = false
+//
+//    var body: some View {
+//        VStack {
+//            Slider(value: $currentTime, in: 0...audioPlayer.duration)
+//                .padding()
+//
+//            Button(action: {
+//                if isPlaying {
+//                    audioPlayer.pause()
+//                } else {
+//                    audioPlayer.play()
+//                }
+//                isPlaying.toggle()
+//            }) {
+//                Image(systemName: isPlaying ? "pause.circle.fill" : "play.circle.fill")
+//                    .resizable()
+//                    .aspectRatio(contentMode: .fit)
+//                    .frame(width: 50, height: 50)
+//            }
+//        }
+//        .onAppear {
+//            let url = Bundle.main.url(forResource: "song", withExtension: "mp3")!
+//            do {
+//                audioPlayer = try AVAudioPlayer(contentsOf: url)
+//            } catch {
+//                print("Error loading audio file: \(error)")
+//            }
+//        }
+//        .onReceive(Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()) { _ in
+//            currentTime = audioPlayer.currentTime
+//        }
+//    }
+//}

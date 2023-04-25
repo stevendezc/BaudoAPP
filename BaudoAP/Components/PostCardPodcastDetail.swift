@@ -15,6 +15,11 @@ import AVKit
 
 enum Utility {
   static func formatSecondsToHMS(_ seconds: TimeInterval) -> String {
+      
+      if seconds.isNaN || seconds.isInfinite || seconds == 0.0
+      {
+          return "00:00"
+      }
     let secondsInt:Int = Int(seconds.rounded(.towardZero))
     
     let dh: Int = (secondsInt/3600)
@@ -35,14 +40,7 @@ struct PostCardPodcastDetail: View {
     
     @ObservedObject var contentPodcast = ContentViewModelPodcast()
     
-//    @State var audioPlayer: AVPlayer! // Your audio player object
-    
-    @State private var audioPlayer = AVPlayer(url: URL(string: "https://baudoap.com/wp-content/uploads/2021/04/moto2.mp3")!)
-    
-//    @State var audioPlayer = AVPlayer()
-//
-//    @State var playerItem = AVPlayerItem(url: URL(string: "https://baudoap.com/wp-content/uploads/2022/12/Audio-3.mp3")!)
-    
+    @State var audioPlayer = AVPlayer()
     
     @State var isPlaying : Bool = true
     
@@ -52,20 +50,13 @@ struct PostCardPodcastDetail: View {
     
     @State var value: Double = 0.0
     
-//    @State private var currentTimeAudio: Double = 0.0
-    
-    
     @State private var duration: Double = 0.0
     
     @State private var isEditing: Bool = false
     
-//    @State private var currentTime: TimeInterval = 0
-    
-    
     let timer = Timer
         .publish(every: 0.5, on: .main, in: .common)
         .autoconnect()
-    
     
     var body: some View {
         
@@ -124,24 +115,34 @@ struct PostCardPodcastDetail: View {
                         .multilineTextAlignment(.leading)
                     
                 }
+            
+//                Slider(value: $value, in: 0...audioPlayer.currentItem?.duration.seconds ?? 0)
+//                    .onReceive(Just(value)) { time in
+//                        audioPlayer.seek(to: CMTime(seconds: time, preferredTimescale: 1))
+//                    }
+                        
+            
 
                 Slider(value: $value, in: 0...duration) { editing in
                     print("editing",editing)
                     isEditing = editing
 
                     if !editing {
-//                      audioPlayer.currentTime = value
-//                        audioPlayer.currentItem?.currentTime() = value
+//                        audioPlayer.currentTime().seconds = value
+//                        audioPlayer.currentTime = value
+//                        audioPlayer.seek(to: CMTime(value: time, preferredTimescale: 1))
+                        audioPlayer.seek(to:  CMTimeMakeWithSeconds(value, preferredTimescale: 1000))
                         print("new value",value)
                     }
                 }
                 
                 HStack{
+//                    Text("\(value)")
                     Text(Utility.formatSecondsToHMS(value))
                         .font(.custom("SofiaSans-Regular",size: 12,relativeTo: .caption))
 //                    Text("\(value)")
                     Spacer()
-//                    Text(duration)
+//                    Text("\(duration)")
                     Text(Utility.formatSecondsToHMS(duration))
                         .font(.custom("SofiaSans-Regular",size: 12,relativeTo: .caption))
                 }
@@ -193,22 +194,18 @@ struct PostCardPodcastDetail: View {
                         .background(Color("BackgroundCardsPodcast").opacity(0.5))
                         .cornerRadius(20)
                         
-                        
                     }
                     
                 }.padding(20)
                     .background(Color("BackgroundCards").opacity(0.5))
                     .foregroundColor(Color("Text"))
                     .cornerRadius(20)
-                
-                
             }
             
             .padding(20)
             .background(Color("BackgroundCardsPodcast"))
             .cornerRadius(24)
             .padding(10)
-            
         }
         
         .navigationBarBackButtonHidden(true)
@@ -240,10 +237,6 @@ struct PostCardPodcastDetail: View {
         )
         .ignoresSafeArea()
         
-        //                    .padding(10)
-        //                    .padding(.top,75)
-        
-        //        }
         
         HStack{
             Image(systemName: "person.circle")
@@ -275,51 +268,30 @@ struct PostCardPodcastDetail: View {
             }
             .buttonStyle(.borderedProminent)
         }
-        
         .padding(.vertical,5)
         .padding(.horizontal,10)
         .background(Color("BackgroundColor"))
+        
         .onAppear(){
             contentPodcast.fetchNewComments(postId: model.id ?? "")
             Play()
-            
-//            audioPlayer.addPeriodicTimeObserver(forInterval: CMTime(seconds: 0.1, preferredTimescale: CMTimeScale(NSEC_PER_SEC)), queue: DispatchQueue.main) { [self] time in
-//                //                guard let self =  else { return }
-//
-//                value = time.seconds
-//                currentTime = value
-//
-//                if currentTime == duration {
-//                    print("finished playing")
-//                    audioPlayer.seek(to: .zero)
-//                    audioPlayer.pause()
-//                    self.isPlaying.toggle()
-//                    currentTime = 0.0
-////                    audioPlayer.play()
-//                    value = 0.0
-//                }
-                
-//               let currentTimeAudio = audioPlayer.currentTime
-//                print("currentTimeAudio", currentTimeAudio)
-//                let audioDurationSecondscurrentTime = CMTimeGetSeconds(currentTimeAudio())
-//                print("audioDuraSecCuTime",audioDurationSecondscurrentTime)
-//                value = audioDurationSecondscurrentTime
-//                print(value)
-            }
-            
-//        }
-        .onReceive(timer){ (_) in
-            
            
-//                        let currentTimeAudio = audioPlayer.currentTime
-//            //            print("currentTimeAudio", currentTimeAudio)
-//                        let audioDurationSecondscurrentTime = CMTimeGetSeconds(currentTimeAudio())
-//            //            print("audioDuraSecCuTime",audioDurationSecondscurrentTime)
-//                        value = audioDurationSecondscurrentTime
+        }
+        .onReceive(timer){ (_) in
+//            guard var player = audioPlayer, !isEditing else { return }
+//            value = (CMTimeGetSeconds(audioPlayer.currentTime()))
+            
+//            if !isEditing {
+////                        audioPlayer.currentTime().seconds = value
+//                audioPlayer.currentTime() = CMTimeMakeWithSeconds(value, preferredTimescale: 1000)
+//
+//                print("new value",value)
+//            }
             
             if isPlaying {
-                value = (CMTimeGetSeconds(audioPlayer.currentTime()))
                 
+                value = (CMTimeGetSeconds(audioPlayer.currentTime() ))
+
                 if value.rounded() == duration.rounded() {
                     print("finished playing")
                     audioPlayer.seek(to: .zero)
@@ -329,15 +301,12 @@ struct PostCardPodcastDetail: View {
     //                    audioPlayer.play()
                     value = 0.0
                 } else {
-                    print("Value = ",value)
+                    print("Value = ",value.rounded())
+                    print("Duration= ", duration.rounded())
                 }
             } else {
                 isPlaying = false
             }
-                        
-                       
-           
-            
         }
         .onDisappear(){
             contentPodcast.stopListener()
@@ -349,34 +318,28 @@ struct PostCardPodcastDetail: View {
         
         
     func Play(){
-//            let storage = Storage.storage().reference(forURL: self.model.main_media)
-//            storage.downloadURL { (url, error) in
-//                if error != nil {
-//                    print(error ?? "Error")
-//                } else {
-//                    do {
-//                        try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback)
-//                    }
-//                    catch{
-//                        //                    Report for an error
-//                    }
-                    
-                    
-//                    audioPlayer = AVPlayer(url: url!)
-                    
-                    
-            let asset = AVURLAsset(url: URL(string: "https://baudoap.com/wp-content/uploads/2021/04/moto2.mp3")!)
-//            let audioDuration = asset.duration
-        
-            
-//            let audioDurationSeconds = CMTimeGetSeconds(audioDuration)
-        
+            let storage = Storage.storage().reference(forURL: self.model.main_media)
+            storage.downloadURL { (url, error) in
+                if error != nil {
+                    print(error ?? "Error")
+                } else {
+                    do {
+                        try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback)
+                    }
+                    catch{
+                        //                    Report for an error
+                    }
+
+                    audioPlayer = AVPlayer(url: url!)
+
+                    let asset = AVURLAsset(url: url!)
+
                     audioPlayer.play()
-                    duration = CMTimeGetSeconds(asset.duration)
+                    duration = CMTimeGetSeconds(asset.duration) - 4
                     print("duration ", duration)
                 }
-//            }
-//        }
+            }
+        }
         func playPause() {
             self.isPlaying.toggle()
             if isPlaying == false {

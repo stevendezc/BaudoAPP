@@ -27,19 +27,19 @@ struct User: View {
         
         ScrollView{
             
-            let URLS: String = "https://baudoap.com/wp-content/uploads/2023/04/4.-Teka-s.mp4"
-
-              let player = AVPlayer(url: URL(string: URLS)!)
-            VideoPlayer(player: player)
-                .aspectRatio(9/16, contentMode: .fit)
-                .onAppear(){
-                    player.play()
-                    print("onAppear")
-                }.onDisappear(){
-                    player.pause()
-                    print("onDisappear")
-                }
-            
+//            let URLS: String = "https://baudoap.com/wp-content/uploads/2023/04/4.-Teka-s.mp4"
+//
+//              let player = AVPlayer(url: URL(string: URLS)!)
+//            VideoPlayer(player: player)
+//                .aspectRatio(9/16, contentMode: .fit)
+//                .onAppear(){
+//                    player.play()
+//                    print("onAppear")
+//                }.onDisappear(){
+//                    player.pause()
+//                    print("onDisappear")
+//                }
+//
             
             HStack{
                 
@@ -47,7 +47,7 @@ struct User: View {
                 Image(systemName: "person.circle")
                     .resizable()
                 //                            .border(Color.accentColor, width: 4)
-                    .frame(width: 100,height: 100,alignment: .center)
+                    .frame(width: 70,height: 70,alignment: .center)
                     .aspectRatio(contentMode: .fit)
                     .clipShape(Circle())
                     .foregroundColor(Color("Buttons"))
@@ -61,8 +61,8 @@ struct User: View {
                 //                  .border(Color.red, width: 3)
                 
                 
-                
-                Text("Hola,\n\(UserName)").font(.custom("SofiaSans-Bold",size: 18,relativeTo: .title3))
+//                \(UserName)
+                Text("Hola,\n Steven Hernandez").font(.custom("SofiaSans-Bold",size: 18,relativeTo: .title3))
                 
                 Spacer()
                 
@@ -77,14 +77,20 @@ struct User: View {
             .overlay(Rectangle().frame(width: nil, height: 1, alignment: .bottom).foregroundColor(Color("Buttons")), alignment: .bottom)
             
             Image("Metricas")
-            
-            VStack{
-                Text("Lo Ultimo en fotografias").font(.custom("SofiaSans-Bold",size: 20,relativeTo: .title))
-                ForEach(contentImage.postsImages) { post in
-                    NavigationLink(destination: PostCardImageDetailView(model: post) , label: {
-                        PostCardImage(model: post) } )
+            Spacer()
+            Text("Lo Ultimo en fotografias").font(.custom("SofiaSans-Bold",size: 20,relativeTo: .title))
+            ScrollView(.horizontal){
+                HStack{
+                    
+                    ForEach(contentImage.postsImages) { post in
+                        NavigationLink(destination: PostCardImageDetailView(model: post) , label: {
+                            PostCardImage(model: post)
+                                .frame(width: 300)
+                        } )
+                    }
                 }
             }
+           
         }
         
     }
