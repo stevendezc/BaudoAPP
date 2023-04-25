@@ -60,6 +60,10 @@ struct PostCardImageDetailView: View {
                     Text(model.author)
                         .padding(.top,3)
                         .font(.custom("SofiaSans-Bold",size: 13,relativeTo: .caption))
+                    Text("Publicado: \(model.creation_date.formatted(.dateTime.month().year()))")
+                        .font(.caption)
+                        .font(.custom("SofiaSans-Medium",size: 12,relativeTo: .caption))
+                        .padding(.bottom,10)
                     
                     Image("Lines")
                         .resizable()

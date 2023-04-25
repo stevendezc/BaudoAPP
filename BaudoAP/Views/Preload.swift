@@ -10,8 +10,8 @@ import SwiftUI
 
 struct Preload: View {
     @State var isActive : Bool = false
-    @State private var size = 0.7
-    @State private var opacity = 0.6
+    @State private var size = 0.8
+    @State private var opacity = 0.3
     
     
     // Customise your SplashScreen here
@@ -24,11 +24,8 @@ struct Preload: View {
                     
                     Image("LogoBaudo")
                         .font(.system(size: 100))
-                        Text("HOY").foregroundColor(.black)
-                    Text(Date.now.formatted(.dateTime.weekday().day().month().year())).font(.custom(
-                        "SofiaSans",
-                        size: 15,
-                        relativeTo: .title)).foregroundColor(.black)
+//                  Text("HOY").foregroundColor(.black)
+//                  Text(Date.now.formatted(.dateTime.weekday().day().month().year())).font(.custom(,size: 15,relativeTo: .title)).foregroundColor(.black)
                 }
                 
                 .scaleEffect(size)

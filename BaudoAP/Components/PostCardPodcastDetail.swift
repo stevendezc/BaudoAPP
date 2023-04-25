@@ -106,9 +106,12 @@ struct PostCardPodcastDetail: View {
                             .foregroundColor(Color("Buttons"))
                             
                         }
-                        
-                        Text(model.creationDateString)
-                            .font(.custom("SofiaSans-Medium",size: 14,relativeTo: .caption))
+                        Text("Publicado: \(model.creation_date.formatted(.dateTime.month().year()))")
+                            .font(.caption)
+                            .font(.custom("SofiaSans-Medium",size: 12,relativeTo: .caption))
+                            .padding(.bottom,10)
+//                        Text(model.creationDateString)
+//                            .font(.custom("SofiaSans-Medium",size: 14,relativeTo: .caption))
                        
                             
                     }.foregroundColor(Color("Text"))

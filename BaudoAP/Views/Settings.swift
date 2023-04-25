@@ -12,7 +12,7 @@ import FirebaseAuth
 
 struct Settings: View {
     
-    @AppStorage("isDarkMode") private var isDarkMode = false
+    @AppStorage("isDarkMode") private var isDarkMode = true
     @Environment(\.colorScheme) var colorScheme
     @Binding var userIsLogged : Bool
     
@@ -21,17 +21,30 @@ struct Settings: View {
     var body: some View {
 
         List{
-            Button("LogOut") {
+            
+           
+            Text("UserName: \(UserName)")
+            
+                
+            Text("¿Qué es Baudó")
+            Text("Informacion de pago")
+            Text("El equipo")
+            Text("Soporte")
+            Text("Preguntas frecuentes")
+            Text("Invita a tus amigos")
+            Text("Acuerdo de privacidad")
+            Button("Cerrar session") {
                 logout()
             }
-            Text(colorScheme == .dark ? "Dark" : "Light").foregroundColor(Color("Text"))
-            Text("UserName: \(UserName)")
+//            Text(colorScheme == .dark ? "Dark" : "Light").foregroundColor(Color("Text"))
             Picker("Mode", selection: $isDarkMode) {
                 Text("Dark")
                     .tag(true)
                 Text("Light")
                     .tag(false)
+            
             }.pickerStyle(SegmentedPickerStyle())
+            
         }
     }
     
@@ -39,6 +52,7 @@ struct Settings: View {
         try! Auth.auth().signOut()
         print("Logged out button pressed")
         userIsLogged = false
+        print("userIsLogged is: ",userIsLogged)
     }
 }
 

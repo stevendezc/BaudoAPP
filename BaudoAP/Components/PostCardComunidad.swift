@@ -19,8 +19,9 @@ struct PostCardComunidad: View {
                     WebImage(url: URL(string: model.thumbnail))
                         .resizable()
                         .aspectRatio(contentMode: .fit)
+                        .frame(width:130, height: 130)
+                        .background(.white)
                         .cornerRadius(20)
-                        .frame(width:130)
 //                        .border(model.CategoryCom == "Proyectos productivos" ? Color.yellow : .blue)
                         .overlay(
                             model.category == "productivos" ?

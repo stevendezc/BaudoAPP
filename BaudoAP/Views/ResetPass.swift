@@ -16,7 +16,6 @@ struct resetPass: View {
     var body: some View {
         VStack{
             Image("LogoBaudoSmall")
-            Text("Reset Password")
             TextField("Email", text: $email)
                 .padding()
                 .foregroundColor(.black)

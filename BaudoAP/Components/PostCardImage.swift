@@ -37,22 +37,27 @@ struct PostCardImage: View {
                     HStack{
                         Spacer()
                     }
+                    .padding(.top,10)
                     Text(model.location)
-                        .font(.custom("SofiaSans-Bold",size: 18,relativeTo: .title))
+                        .font(.custom("SofiaSans-Bold",size: 17,relativeTo: .title))
                     Text(model.description)
-                        .font(.custom(
-                            "SofiaSans-Regular",
-                            size: 13,
-                            relativeTo: .body))
+                        .font(.custom("SofiaSans-Regular",size: 12,relativeTo: .body))
                         .lineLimit(3)
-                    Text("Foto por: \(model.author)")
-                        .font(.caption)
-                        .font(.custom(
-                            "SofiaSans-Medium",
-                            size: 12,
-                            relativeTo: .caption))
-                        .padding(.bottom,10)
-                }.padding(EdgeInsets(top: -10, leading: 20, bottom: 10, trailing: 20))
+                    
+                    HStack{
+                        Text("Foto por:")
+                            .font(.custom("SofiaSans-Bold",size: 11,relativeTo: .caption))
+                        Text("\(model.author)").font(.custom("SofiaSans-Regular",size: 11,relativeTo: .caption))
+                    }.padding(.bottom,-10)
+                    
+                    HStack{
+                        Text("Publicado:")
+                            .font(.custom("SofiaSans-Bold",size: 11,relativeTo: .caption))
+                        Text("\(model.creation_date.formatted(.dateTime.month().year()))")
+                            .font(.custom("SofiaSans-Medium",size: 11,relativeTo: .caption))
+                    }
+                
+                }.padding(EdgeInsets(top: -10, leading: 20, bottom: 20, trailing: 20))
  
             }
             .background(Color("BackgroundCards"))

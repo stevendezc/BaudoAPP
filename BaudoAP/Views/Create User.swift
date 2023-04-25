@@ -12,12 +12,13 @@ struct createUser : View {
     
     @State private var email = ""
     @State private var password = ""
+    @State private var name = ""
     @Binding var userIsLogged : Bool
     @Binding var UserName: String
     
     
     var body: some View {
-        VStack(spacing: 20) {
+        VStack(spacing: 10) {
             
    //                    Image("AccederFacebook")
    //                    Image("AccederGoogle")
@@ -28,14 +29,21 @@ struct createUser : View {
    //                    Image("AccederApple")
             
             Image("LogoBaudoSmall")
-            Text("CREATE USER")
-            TextField("Email", text: $email)
+            TextField("Nombre", text: $name)
                 .padding()
                 .foregroundColor(.black)
                 .textFieldStyle(.plain)
                 .background(Color.white.opacity(0.5))
                 .cornerRadius(20)
-            SecureField("Password", text:$password)
+            
+            TextField("Correo", text: $email)
+                .padding()
+                .foregroundColor(.black)
+                .textFieldStyle(.plain)
+                .background(Color.white.opacity(0.5))
+                .cornerRadius(20)
+            
+            SecureField("Contraseña", text:$password)
                 .padding()
                 .background(Color.white.opacity(0.5))
                 .cornerRadius(20)
@@ -47,6 +55,11 @@ struct createUser : View {
             Button("Registrarme"){
                register()
             }
+            .padding()
+            .foregroundColor(.black)
+            .background(Color("Buttons"))
+            .clipShape(Capsule())
+            .padding(.top)
             
         }.navigationTitle("Crear usuario")
         .padding(30)

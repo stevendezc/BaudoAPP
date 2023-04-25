@@ -66,7 +66,7 @@ struct User: View {
                 
                 Spacer()
                 
-                NavigationLink(destination: Settings(userIsLogged: .constant(false), UserName: .constant("None"))) {
+                NavigationLink(destination: Settings(userIsLogged: $userIsLogged, UserName: .constant("None"))) {
                     Image(systemName: "gear")
                         .resizable()
                         .frame(width: 30,height: 30, alignment: .trailing)

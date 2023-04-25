@@ -19,7 +19,8 @@ struct Login: View {
     @State private var password = ""
     @Binding var userIsLogged : Bool
     @Binding var UserName: String
-    
+    @State var showingAlert = false
+    @State var errorAlert = ""
     
     var body: some View {
         NavigationView{
@@ -41,7 +42,6 @@ struct Login: View {
                 
                 
                 //LOGIN AREA
-                Text("LOG IN ")
                 
                 VStack(spacing: 20) {
                     
@@ -77,22 +77,23 @@ struct Login: View {
                             login()
                         }
                         .padding()
-                        .foregroundColor(.black)
-                        .background(Color("Buttons"))
+                        .foregroundColor(.white)
+                        .background(.gray)
                         .clipShape(Capsule())
                         .padding(.top)
                         
                         NavigationLink(destination:
                                         createUser(userIsLogged: .constant(false), UserName: .constant("Steven")), label: {
                             Text("Crear usuario")
-                                .foregroundColor(.black)
                                 .padding()
-                                .foregroundColor(.black)
-                                .background(Color("Buttons"))
+                                .foregroundColor(.white)
+                                .background(.gray)
                                 .clipShape(Capsule())
                                 .padding(.top)
                         } )
                     }
+                    
+                    Image("LogoBaudo").resizable().aspectRatio(contentMode: .fit).frame(width:130)
                     
                     
                    
@@ -112,7 +113,12 @@ struct Login: View {
             //TituloNavigation
             //            .navigationTitle("Sign In")
         }
-        .navigationTitle("Login")
+        .alert("Ha habido un problema", isPresented: $showingAlert) {
+            // add buttons here
+        } message: {
+            Text(errorAlert)
+        }
+//        .navigationTitle("Inicio session")
         
         .onAppear {
             Auth.auth().addStateDidChangeListener { auth, user in
@@ -126,8 +132,12 @@ struct Login: View {
     }
     //
     func login(){
+       
         Auth.auth().signIn(withEmail: email, password: password){ result, error in if error != nil {
+           
             print(error!.localizedDescription)
+            showingAlert.toggle()
+            errorAlert = error!.localizedDescription
             
         }else{
             userIsLogged = true
