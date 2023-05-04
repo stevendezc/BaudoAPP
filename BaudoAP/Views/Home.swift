@@ -20,12 +20,17 @@ struct Home: View {
     var body: some View {
         
                 VStack {
-
-                    Picker("", selection: $selectedTab) {
-                        Text("Imagen").tag(0)
-                        Text("Video").tag(1)
-                        Text("Podcast").tag(2)
+                    HStack{
+                        Picker("", selection: $selectedTab) {
+                            Text("Imagen").tag(0)
+                            Text("Video").tag(1)
+                            Text("Podcast").tag(2)
+                        }
+                        Image(systemName: "info.circle")
+                            .resizable()
+                            .frame(width: 25,height: 25, alignment: .trailing)
                     }
+                    
                     
                     .pickerStyle(SegmentedPickerStyle())
                     .background(Color("PickerBackground"))

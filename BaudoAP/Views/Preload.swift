@@ -42,9 +42,6 @@ struct Preload: View {
                         .ignoresSafeArea()
                 )
             .onAppear {
-               
-               
-                
                 DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
                     withAnimation {
                         self.isActive = true

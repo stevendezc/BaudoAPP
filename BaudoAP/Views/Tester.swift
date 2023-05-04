@@ -1,44 +1,61 @@
-//import SwiftUI
-//import AVFoundation
-//
-//
-//
-//struct ContentView: View {
-//
-//    let audioPlayer = AVAudioPlayer()
-//
-//    @State private var currentTime: TimeInterval = 0
-//    @State private var isPlaying = false
-//
-//    var body: some View {
-//        VStack {
-//            Slider(value: $currentTime, in: 0...audioPlayer.duration)
-//                .padding()
-//
-//            Button(action: {
-//                if isPlaying {
-//                    audioPlayer.pause()
-//                } else {
-//                    audioPlayer.play()
-//                }
-//                isPlaying.toggle()
-//            }) {
-//                Image(systemName: isPlaying ? "pause.circle.fill" : "play.circle.fill")
-//                    .resizable()
-//                    .aspectRatio(contentMode: .fit)
-//                    .frame(width: 50, height: 50)
-//            }
-//        }
-//        .onAppear {
-//            let url = Bundle.main.url(forResource: "song", withExtension: "mp3")!
-//            do {
-//                audioPlayer = try AVAudioPlayer(contentsOf: url)
-//            } catch {
-//                print("Error loading audio file: \(error)")
-//            }
-//        }
-//        .onReceive(Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()) { _ in
-//            currentTime = audioPlayer.currentTime
-//        }
-//    }
-//}
+import SwiftUI
+
+struct ContentView: View {
+    struct Person {
+        let name: String
+        let age: Int
+    }
+    
+    let people = [
+        Person(name: "John", age: 25),
+        Person(name: "Jane", age: 30),
+        Person(name: "Mike", age: 35),
+        Person(name: "Emily", age: 28),
+        Person(name: "David", age: 40)
+    ]
+    
+    @State private var showFilteredResults = false
+    
+    var filteredPeople: [Person] {
+        if showFilteredResults {
+            return people.filter { $0.age > 30 }
+        } else {
+            return people
+        }
+    }
+    
+    var body: some View {
+        VStack {
+            Text("Original Array:")
+                .font(.headline)
+            
+            ForEach(people, id: \.name) { person in
+                Text("\(person.name), \(person.age)")
+            }
+            
+            Button(action: {
+                showFilteredResults.toggle()
+            }) {
+                Text(showFilteredResults ? "Show All" : "Filter Age > 30")
+                    .font(.headline)
+                    .padding()
+                    .background(Color.blue)
+                    .foregroundColor(.white)
+                    .cornerRadius(10)
+            }
+            
+            Text(showFilteredResults ? "Filtered Array (Age > 30):" : "Array (No Filter):")
+                .font(.headline)
+            
+            ForEach(filteredPeople, id: \.name) { person in
+                Text("\(person.name), \(person.age)")
+            }
+        }
+    }
+}
+
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+    }
+}

@@ -27,19 +27,19 @@ struct User: View {
         
         ScrollView{
             
-//            let URLS: String = "https://baudoap.com/wp-content/uploads/2023/04/4.-Teka-s.mp4"
-//
-//              let player = AVPlayer(url: URL(string: URLS)!)
-//            VideoPlayer(player: player)
-//                .aspectRatio(9/16, contentMode: .fit)
-//                .onAppear(){
-//                    player.play()
-//                    print("onAppear")
-//                }.onDisappear(){
-//                    player.pause()
-//                    print("onDisappear")
-//                }
-//
+            //            let URLS: String = "https://baudoap.com/wp-content/uploads/2023/04/4.-Teka-s.mp4"
+            //
+            //              let player = AVPlayer(url: URL(string: URLS)!)
+            //            VideoPlayer(player: player)
+            //                .aspectRatio(9/16, contentMode: .fit)
+            //                .onAppear(){
+            //                    player.play()
+            //                    print("onAppear")
+            //                }.onDisappear(){
+            //                    player.pause()
+            //                    print("onDisappear")
+            //                }
+            //
             
             HStack{
                 
@@ -61,22 +61,40 @@ struct User: View {
                 //                  .border(Color.red, width: 3)
                 
                 
-//                \(UserName)
-                Text("Hola,\n Steven Hernandez").font(.custom("SofiaSans-Bold",size: 18,relativeTo: .title3))
+                //                \(UserName)
+                Text("Hola,\n Steven Hernandez")
+                    .font(.custom("SofiaSans-Bold",size: 18,relativeTo: .title3))
                 
                 Spacer()
                 
-                NavigationLink(destination: Settings(userIsLogged: $userIsLogged, UserName: .constant("None"))) {
-                    Image(systemName: "gear")
+                
+                VStack{
+                    NavigationLink(destination: Settings(userIsLogged: $userIsLogged, UserName: .constant("None"))) {
+                        
+                        
+                        Image(systemName: "gear")
+                            .resizable()
+                            .frame(width: 30,height: 30, alignment: .trailing)
+                    }
+                    Image(systemName: "info.circle")
                         .resizable()
                         .frame(width: 30,height: 30, alignment: .trailing)
                 }
+                
+                
             }
             .padding(EdgeInsets(top: 5, leading: 20, bottom: 5, trailing: 20))
             .frame(maxWidth: .infinity, alignment: .leading)
             .overlay(Rectangle().frame(width: nil, height: 1, alignment: .bottom).foregroundColor(Color("Buttons")), alignment: .bottom)
             
-            Image("Metricas")
+            HStack{
+                Text("Lo que te interesa")
+                    .font(.custom("SofiaSans-Bold",size: 25,relativeTo: .title))
+                Spacer()
+            }.padding()
+            
+            
+            Image("Metrics")
             Spacer()
             Text("Lo Ultimo en fotografias").font(.custom("SofiaSans-Bold",size: 20,relativeTo: .title))
             ScrollView(.horizontal){
@@ -90,7 +108,7 @@ struct User: View {
                     }
                 }
             }
-           
+            
         }
         
     }

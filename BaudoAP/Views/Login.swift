@@ -30,7 +30,6 @@ struct Login: View {
                 content
             }
         }
-        
     }
     
     
@@ -39,10 +38,8 @@ struct Login: View {
         NavigationView{
             VStack {
                 Image("LogoBaudoSmall")
-                
-                
+            
                 //LOGIN AREA
-                
                 VStack(spacing: 20) {
                     
 //                    Image("AccederFacebook")
@@ -113,10 +110,10 @@ struct Login: View {
             //TituloNavigation
             //            .navigationTitle("Sign In")
         }
-        .alert("Ha habido un problema", isPresented: $showingAlert) {
+        .alert("Ha habido un Error", isPresented: $showingAlert) {
             // add buttons here
         } message: {
-            Text(errorAlert)
+            Text("Hay un error en el correo o contraseña, intentalo de nuevo")
         }
 //        .navigationTitle("Inicio session")
         

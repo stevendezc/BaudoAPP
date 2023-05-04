@@ -12,6 +12,13 @@ struct Tienda: View {
     var body: some View {
         NavigationView{
                     ScrollView{
+                        HStack{
+                            Spacer()
+                            Image(systemName: "info.circle")
+                                .resizable()
+                                .frame(width: 25,height: 25, alignment: .trailing)
+                        }
+                       
                         Image("Tienda")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
