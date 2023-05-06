@@ -28,7 +28,6 @@ struct Settings: View {
                 
             Text("¿Qué es Baudó")
             Text("Informacion de pago")
-            Text("El equipo")
             Text("Soporte")
             Text("Preguntas frecuentes")
             Text("Invita a tus amigos")

@@ -151,7 +151,7 @@ struct PostCardPodcastDetail: View {
                 }
                 Spacer(minLength: 20)
                 Text(model.description).font(.caption)
-                    .font(.custom("SofiaSans-Regular",size: 18,relativeTo: .body))
+                    .font(.custom("SofiaSans-Regular",size: 20,relativeTo: .body))
             }
             
             .padding(20)
@@ -178,17 +178,22 @@ struct PostCardPodcastDetail: View {
                         
                         ForEach(contentPodcast.comments){ comment in
                             HStack{
-                                Image(systemName: "person.circle")
-                                    .resizable()
-                                //                            .border(Color.accentColor, width: 4)
-                                    .frame(width: 50,height: 50,alignment: .center)
-                                    .aspectRatio(contentMode: .fit)
-                                    .clipShape(Circle())
-                                    .padding(2)
-                                    .overlay(
-                                        RoundedRectangle(cornerRadius: 30)
-                                            .stroke(Color("Buttons"), lineWidth: 1)
-                                    )
+                                VStack{
+                                    Image(systemName: "person.fill")
+                                        .resizable()
+                                        .padding(7)
+                                        .foregroundColor(Color("Buttons"))
+                                        .frame(width: 40,height: 40,alignment: .center)
+                                        .aspectRatio(contentMode: .fit)
+                                        .clipShape(Circle())
+                                        .padding(2)
+                                        .cornerRadius(40)
+                                        .overlay(
+                                                RoundedRectangle(cornerRadius: 40)
+                                                    .stroke(Color("Buttons"), lineWidth: 1)
+                                            )
+                                    Spacer()
+                                }
                                 Text(comment.commentText)
                             }
                             
@@ -242,17 +247,19 @@ struct PostCardPodcastDetail: View {
         
         
         HStack{
-            Image(systemName: "person.circle")
+            Image(systemName: "person.fill")
                 .resizable()
-            //                            .border(Color.accentColor, width: 4)
-                .frame(width: 40,height: 40,alignment: .center)
+                .padding(7)
+                .foregroundColor(Color("Buttons"))
+                .frame(width: 35,height: 35,alignment: .center)
                 .aspectRatio(contentMode: .fit)
                 .clipShape(Circle())
                 .padding(2)
+                .cornerRadius(20)
                 .overlay(
-                    RoundedRectangle(cornerRadius: 30)
-                        .stroke(Color("Buttons"), lineWidth: 1)
-                )
+                        RoundedRectangle(cornerRadius: 30)
+                            .stroke(Color("Buttons"), lineWidth: 1)
+                    )
             
             TextField(
                 "Agregar comentario",

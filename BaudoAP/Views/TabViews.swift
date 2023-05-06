@@ -22,7 +22,7 @@ struct TabViews: View {
     @ObservedObject var contentImage = ContentViewModelImage()
     @ObservedObject var contentVideo = ContentViewModelVideo()
     @ObservedObject var contentPodcast = ContentViewModelPodcast()
-    
+
     
     //    @EnvironmentObject var usersettings: UserSettings
     
@@ -34,17 +34,19 @@ struct TabViews: View {
             VStack{
                 HStack{
                     NavigationLink(destination: User(userIsLogged: $userIsLogged, UserName: $UserName)) {
-                        Image(systemName: "person.circle")
+                        Image(systemName: "person.fill")
                             .resizable()
-                        //  .border(Color.accentColor, width: 4)
-                            .frame(width: 40,height: 40,alignment: .center)
+                            .padding(7)
+                            .foregroundColor(Color("Buttons"))
+                            .frame(width: 35,height: 35,alignment: .center)
                             .aspectRatio(contentMode: .fit)
                             .clipShape(Circle())
                             .padding(2)
+                            .cornerRadius(20)
                             .overlay(
-                                RoundedRectangle(cornerRadius: 30)
-                                    .stroke(Color("Buttons"), lineWidth: 1)
-                            )
+                                    RoundedRectangle(cornerRadius: 30)
+                                        .stroke(Color("Buttons"), lineWidth: 1)
+                                )
                     }
                     VStack(alignment: .leading){
                         Text("Hola,")

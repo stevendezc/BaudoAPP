@@ -20,8 +20,14 @@ struct User: View {
     @Binding var UserName: String
     
     @ObservedObject var contentImage = ContentViewModelImage()
-    //    @ObservedObject var contentVideo = ContentViewModelVideo()
-    //    @ObservedObject var contentPodcast = ContentViewModelPodcast()
+    @ObservedObject var contentVideo = ContentViewModelVideo()
+    @ObservedObject var contentPodcast = ContentViewModelPodcast()
+    
+    let Columns: [GridItem] = [
+        GridItem(.flexible(), spacing: nil, alignment: nil),
+        GridItem(.flexible(), spacing: nil, alignment: nil),
+        GridItem(.flexible(), spacing: nil, alignment: nil),
+    ]
     
     var body: some View{
         
@@ -43,20 +49,17 @@ struct User: View {
             
             HStack{
                 
-                
-                Image(systemName: "person.circle")
+                Image(systemName: "person.fill")
                     .resizable()
-                //                            .border(Color.accentColor, width: 4)
-                    .frame(width: 70,height: 70,alignment: .center)
+                    .padding(10)
+                    .foregroundColor(Color("Buttons"))
+                    .frame(width: 60,height: 60,alignment: .center)
                     .aspectRatio(contentMode: .fit)
                     .clipShape(Circle())
-                    .foregroundColor(Color("Buttons"))
-                    .padding(4)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 100)
-                            .stroke(Color("Buttons"), lineWidth: 1)
-                    )
-                
+                    .padding(2)
+                    .cornerRadius(40)
+                    .overlay(RoundedRectangle(cornerRadius: 40)
+                        .stroke(Color("Buttons"), lineWidth: 1))
                 
                 //                  .border(Color.red, width: 3)
                 
@@ -87,6 +90,8 @@ struct User: View {
             .frame(maxWidth: .infinity, alignment: .leading)
             .overlay(Rectangle().frame(width: nil, height: 1, alignment: .bottom).foregroundColor(Color("Buttons")), alignment: .bottom)
             
+            
+            
             HStack{
                 Text("Lo que te interesa")
                     .font(.custom("SofiaSans-Bold",size: 25,relativeTo: .title))
@@ -96,23 +101,42 @@ struct User: View {
             
             Image("Metrics")
             Spacer()
-            Text("Lo Ultimo en fotografias").font(.custom("SofiaSans-Bold",size: 20,relativeTo: .title))
-            ScrollView(.horizontal){
-                HStack{
+            
+            HStack{
+                Text("Guardados")
+                    .font(.custom("SofiaSans-Bold",size: 25,relativeTo: .title))
+                Spacer()
+            }.padding()
+            
+            HStack{
+                Text("Imagen de la semana")
+                    .font(.custom("SofiaSans-Bold",size: 25,relativeTo: .title))
+                Spacer()
+            }.padding()
+            
+            
+            ForEach(contentImage.postsImages.prefix(1)) { post in
+                NavigationLink(destination: PostCardImageDetailView(model: post) , label: {
+                    PostCardImage(model: post)
                     
-                    ForEach(contentImage.postsImages) { post in
-                        NavigationLink(destination: PostCardImageDetailView(model: post) , label: {
-                            PostCardImage(model: post)
-                                .frame(width: 300)
-                        } )
-                    }
-                }
+                } )
             }
             
+            HStack{
+                Text("Videos Recomendados")
+                    .font(.custom("SofiaSans-Bold",size: 25,relativeTo: .title))
+                Spacer()
+            }.padding()
+            
+            LazyVGrid(columns: Columns, spacing: 15){
+                ForEach(contentVideo.postsVideos.prefix(3)) { post in
+                    NavigationLink(destination: PostCardVideoDetailView(model: post), label: {
+                        PostCardVideo(model: post) } )
+                }
+            }.padding(.horizontal,15)
+            
         }
-        
     }
-    
 }
 
 struct User_Previews: PreviewProvider {

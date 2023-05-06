@@ -33,7 +33,7 @@ struct PostCardImageDetailView: View {
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
                         .aspectRatio(contentMode: .fit)
                         .cornerRadius(19)
-                }.padding(.top,90)
+                }.padding(.top,85)
                 
                 Button {
                     isPresented = true
@@ -45,19 +45,37 @@ struct PostCardImageDetailView: View {
                 .padding(.top,-50)
                 .padding(.leading,17)
                 
-                
-                HStack(alignment: .center){
+                HStack{
                     Spacer()
-                    Image("Reactions")
-                        .padding(.top,-10)
+                    HStack(alignment: .center,spacing: 20){
+                        Spacer()
+                        Image(systemName: "heart.fill")
+                            .font(.system(size: 20))
+                            .foregroundColor(Color("Yellow"))
+                        Image(systemName: "bookmark.fill")
+                            .font(.system(size: 20))
+                        
+                        Image("share")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 20)
+                        Spacer()
+                    }
+                    .frame(width:150)
+                    .padding(10)
+                    .background(Color("BackgroundCards").opacity(0.8))
+                    .foregroundColor(Color("Text"))
+                    .cornerRadius(20)
+                    
                     Spacer()
                 }
+                
                 
                 VStack(alignment: .leading,spacing: 5){
                     Text(model.location).font(.custom("SofiaSans-Bold",size: 22,relativeTo: .title3))
                     Text(model.description).font(.custom("SofiaSans-Regular",size: 15,
                                                          relativeTo: .body))
-                    Text(model.author)
+                    Text("Foto por: \(model.author)")
                         .padding(.top,3)
                         .font(.custom("SofiaSans-Bold",size: 13,relativeTo: .caption))
                     Text("Publicado: \(model.creation_date.formatted(.dateTime.month().year()))")
@@ -72,7 +90,8 @@ struct PostCardImageDetailView: View {
                     Spacer()
                     Spacer()
                     
-                    Text("Comentarios").font(.custom("SofiaSans-Bold",size: 24,relativeTo: .title))
+                    Text("Comentarios")
+                        .font(.custom("SofiaSans-Bold",size: 24,relativeTo: .title))
                     VStack(alignment: .leading){
                         HStack{
                             Spacer()
@@ -82,23 +101,33 @@ struct PostCardImageDetailView: View {
                             ForEach(contentImage.comments){ comment in
                                 
                                 HStack{
-                                    Image(systemName: "person.circle")
-                                        .resizable()
-                                    //                            .border(Color.accentColor, width: 4)
-                                        .frame(width: 40,height: 40,alignment: .center)
-                                        .aspectRatio(contentMode: .fit)
-                                        .clipShape(Circle())
-                                        .padding(2)
-                                        .overlay(
-                                            RoundedRectangle(cornerRadius: 30)
-                                                .stroke(Color("Buttons"), lineWidth: 1)
-                                        )
+                                    VStack{
+                                        Image(systemName: "person.fill")
+                                            .resizable()
+                                            .padding(7)
+                                            .foregroundColor(Color("Buttons"))
+                                            .frame(width: 40,height: 40,alignment: .center)
+                                            .aspectRatio(contentMode: .fit)
+                                            .clipShape(Circle())
+                                            .padding(2)
+                                            .cornerRadius(40)
+                                            .overlay(
+                                                    RoundedRectangle(cornerRadius: 40)
+                                                        .stroke(Color("Buttons"), lineWidth: 1)
+                                                )
+                                        Spacer()
+                                    }
+                                    
+                                    
                                     VStack(alignment: .leading){
-                                        Text(comment.userId).multilineTextAlignment(.leading)
-                                        Text(comment.commentText).multilineTextAlignment(.leading)
+                                        Text(comment.userId)
+                                            .font(.custom("SofiaSans-Bold",size: 13,relativeTo: .caption))
+                                            .multilineTextAlignment(.leading)
+                                        Text(comment.commentText)
+                                            .multilineTextAlignment(.leading)
                                     }
                                     .padding(10)
-                                    .background(Color("BackgroundCardsPodcast").opacity(0.5))
+                                    .background(Color("BackgroundCards").opacity(0.5))
                                     .cornerRadius(20)
                                 }
                             }
@@ -108,7 +137,7 @@ struct PostCardImageDetailView: View {
                         .background(Color("BackgroundCards").opacity(0.5))
                         .foregroundColor(Color("Text"))
                         .cornerRadius(20)
-                }
+                 } 
                 //.border(Color.red, width: 3)
                 .padding(.horizontal,20)
             }
@@ -117,7 +146,9 @@ struct PostCardImageDetailView: View {
             
             //.ignoresSafeArea()
             
-            .fullScreenCover(isPresented: $isPresented, onDismiss: {isPresented = false}, content: { PostCardImageDetailViewImage(model: model, isPresented: $isPresented).ignoresSafeArea()})
+            .fullScreenCover(isPresented: $isPresented, onDismiss: {isPresented = false}, content: { PostCardImageDetailViewImage(model: model, isPresented: $isPresented).ignoresSafeArea()
+            })
+            
             .foregroundColor(Color("Text"))
             .padding(.horizontal,0)
             
@@ -138,22 +169,24 @@ struct PostCardImageDetailView: View {
                         .cornerRadius(30)
                         .font(.system(size: 30))
                         .padding(.leading,10)
-                }).padding(.top,10) ,alignment: .topLeading
+                }).padding(.top,-10) ,alignment: .topLeading
             )
         
         
         HStack{
-            Image(systemName: "person.circle")
+            Image(systemName: "person.fill")
                 .resizable()
-            //                            .border(Color.accentColor, width: 4)
-                .frame(width: 40,height: 40,alignment: .center)
+                .padding(7)
+                .foregroundColor(Color("Buttons"))
+                .frame(width: 35,height: 35,alignment: .center)
                 .aspectRatio(contentMode: .fit)
                 .clipShape(Circle())
                 .padding(2)
+                .cornerRadius(20)
                 .overlay(
-                    RoundedRectangle(cornerRadius: 30)
-                        .stroke(Color("Buttons"), lineWidth: 1)
-                )
+                        RoundedRectangle(cornerRadius: 30)
+                            .stroke(Color("Buttons"), lineWidth: 1)
+                    )
             
             TextField(
                 "Agregar comentario",

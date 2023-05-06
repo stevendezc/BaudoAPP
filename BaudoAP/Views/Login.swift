@@ -37,26 +37,47 @@ struct Login: View {
     var content: some View{
         NavigationView{
             VStack {
-                Image("LogoBaudoSmall")
+              
             
                 //LOGIN AREA
-                VStack(spacing: 20) {
+                
+                
+                VStack(spacing: 10) {
                     
-//                    Image("AccederFacebook")
-//                    Image("AccederGoogle")
-                    //                    Button(action: signInWithGoogle{
-                    //                        Text("Email")
-                    //                    }
+                    Image("AccederGoogle")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 250)
                     
-//                    Image("AccederApple")
+                    Image("AccederApple")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 250)
                     
-                    TextField("Email", text: $email)
+                    Image("LineacircleLinea")
+                    
+                    HStack{
+                        Text("Correo")
+                            .font(.custom("SofiaSans-Bold",size: 15,relativeTo: .title2))
+                            .padding(.leading,20)
+                        Spacer()
+                    }
+                    
+                    TextField("Correo", text: $email)
                         .padding()
                         .foregroundColor(.black)
                         .textFieldStyle(.plain)
                         .background(Color.white.opacity(0.5))
                         .cornerRadius(20)
-                    SecureField("Password", text:$password)
+                    
+                    HStack{
+                        Text("Contraseña")
+                            .font(.custom("SofiaSans-Bold",size: 15,relativeTo: .title2))
+                            .padding(.leading,20)
+                        Spacer()
+                    }
+                    
+                    SecureField("Contraseña", text:$password)
                         .padding()
                         .background(Color.white.opacity(0.5))
                         .cornerRadius(20)
@@ -65,42 +86,53 @@ struct Login: View {
                         Spacer()
                         NavigationLink(destination:
                                         resetPass(), label: {
-                            Text("Olvide mi contraseña").foregroundColor(.black) } )
+                            Text("Olvidé mi contraseña")
+                            .foregroundColor(.black)
+                            .font(.custom("SofiaSans-Regular",size: 15,relativeTo: .title2))
+                        } )
                     }
                     
                     
                     HStack{
-                        Button("Acceder") {
+                        Button{
                             login()
-                        }
-                        .padding()
-                        .foregroundColor(.white)
-                        .background(.gray)
-                        .clipShape(Capsule())
-                        .padding(.top)
-                        
-                        NavigationLink(destination:
-                                        createUser(userIsLogged: .constant(false), UserName: .constant("Steven")), label: {
-                            Text("Crear usuario")
-                                .padding()
-                                .foregroundColor(.white)
-                                .background(.gray)
+                        }label: {
+                            Text("Acceder")
+                                .font(.custom("SofiaSans-Medium",size: 18,relativeTo: .title2))
+                                .padding(.horizontal,55)
+                                .padding(.vertical,15)
+                                .foregroundColor(.black)
+                                .background(Color("Buttons"))
                                 .clipShape(Capsule())
                                 .padding(.top)
-                        } )
+                        }
                     }
-                    
-                    Image("LogoBaudo").resizable().aspectRatio(contentMode: .fit).frame(width:130)
-                    
-                    
+
                    
+                    
+                    HStack{
+                        Text("¿No tienes una cuenta?")
+                            .foregroundColor(Color("Text"))
+                            .font(.custom("SofiaSans-Regular",size: 15,relativeTo: .title2))
+                        NavigationLink(destination: createUser(userIsLogged: .constant(false), UserName: .constant("Steven")), label: {
+                                Text("Crear usuario")
+                                    .foregroundColor(Color("Text"))
+                                    .font(.custom("SofiaSans-Bold",size: 15,relativeTo: .title))
+                                            }
+                        )
+                    }.padding(.top,20)
+                    
+                    
+                    
                 }
                 .padding(30)
-                
+                Image("LogoBaudo")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 120)
                 
             }
-            
-            
+
             
             //FONDO DE TODO EL CONTENT VIEW
             .background(
@@ -110,10 +142,10 @@ struct Login: View {
             //TituloNavigation
             //            .navigationTitle("Sign In")
         }
-        .alert("Ha habido un Error", isPresented: $showingAlert) {
+        .alert("Error", isPresented: $showingAlert) {
             // add buttons here
         } message: {
-            Text("Hay un error en el correo o contraseña, intentalo de nuevo")
+            Text("Correo o contraseña invalida")
         }
 //        .navigationTitle("Inicio session")
         

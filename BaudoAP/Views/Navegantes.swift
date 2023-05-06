@@ -15,7 +15,7 @@ struct Navegantes: View {
         NavigationView{
             ScrollView{
                 //FIRST CARD
-                Spacer(minLength: 30)
+                Spacer(minLength: 10)
                 ZStack{
                     Image("Nav1")
                         .resizable()

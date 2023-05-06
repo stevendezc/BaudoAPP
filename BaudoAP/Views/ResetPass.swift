@@ -19,12 +19,12 @@ struct resetPass: View {
         VStack{
             Image("LogoBaudoSmall").padding(.bottom,50)
             HStack{
-                Text("Olvidaste tu contraseña?")
-                    .font(.custom("SofiaSans-Bold",size: 25,relativeTo: .title))
+                Text("¿Olvidaste tu contraseña?")
+                    .font(.custom("SofiaSans-Bold",size: 20,relativeTo: .title))
             }.padding(.bottom,20)
             
-            Text("Ingresa el correo electronico del usuario del cual desea restablecer la contraseña")
-                .font(.custom("SofiaSans-Medium",size: 18,relativeTo: .body))
+            Text("Ingresa el correo registrado para restablecer contraseña")
+                .font(.custom("SofiaSans-Medium",size: 15,relativeTo: .body))
             
             TextField("Correo", text: $email)
                 .padding()
@@ -33,13 +33,13 @@ struct resetPass: View {
                 .background(Color.white.opacity(0.5))
                 .cornerRadius(20)
                 
-            Button("Recuperar Contraseña"){
+            Button("Restablecer contraseña"){
                resetPassword()
                 showingAlert.toggle()
             }
             .padding()
-            .foregroundColor(.white)
-            .background(.gray)
+            .foregroundColor(.black)
+            .background(Color("Buttons"))
             .clipShape(Capsule())
             .padding(.top)
         }.alert("Correo enviado", isPresented: $showingAlert) {
@@ -47,7 +47,7 @@ struct resetPass: View {
         } message: {
             Text("Revisa tu correo y restablece tu contraseña")
         }
-        .navigationTitle("Recuperar contraseña")
+//        .navigationTitle("Recuperar contraseña")
         .padding(30)
         .background(
             Image("Fondo")

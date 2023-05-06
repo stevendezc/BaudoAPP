@@ -44,7 +44,6 @@ struct Comunidad: View {
                                 
                         }.padding(0)
                         
-                            
                         Button {
                             showFilteredResultsproductivos = false
                             showFilteredResultscultura.toggle()
@@ -52,6 +51,7 @@ struct Comunidad: View {
                         } label: {
                             Image("Cultura").resizable().aspectRatio(contentMode: .fit)
                         }
+                        
                         Button {
                             showFilteredResultsproductivos = false
                             showFilteredResultscultura = false
@@ -66,14 +66,9 @@ struct Comunidad: View {
                         
                     }.padding(10)
                     
-                    
-                    
-                    ForEach(0 ..< 10) { item in
-                        
-                        ForEach(filteredComunidad) {Users in
-                            PostCardComunidad(model: Users)
-                           
-                        }
+
+                    ForEach(filteredComunidad) { Users in
+                        PostCardComunidad(model: Users)
                     }
                 }
             }

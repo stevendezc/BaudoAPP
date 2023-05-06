@@ -63,18 +63,18 @@ struct PostCardVideoDetailView: View {
                                 }
         
                             }, label: {
-                                Image(systemName: "list.bullet.rectangle")
-                                    .padding(5)
+                                Image(systemName: "message.fill")
+                                    .padding(6)
                                     .padding(.vertical,1)
-                                    .foregroundColor(Color("Yellow"))
-                                    .background(Color.black)
-                                    .overlay(RoundedRectangle(cornerRadius: 10)
+                                    .foregroundColor( Color("Yellow"))
+                                    .background( Color.black)
+                                    .overlay(RoundedRectangle(cornerRadius: 35)
                                                                 .stroke(Color("Buttons"),
                                                                         lineWidth: 1))
-                                    .cornerRadius(10)
-                                    .font(.system(size: 25))
+                                    .cornerRadius(35)
+                                    .font(.system(size: 20))
                                     .padding(.trailing,10)
-                            }).padding(.top,50)
+                            }).padding(.top,60)
         
                         }
         
@@ -112,17 +112,22 @@ struct PostCardVideoDetailView: View {
         
                                 ForEach(contentVideo.comments){ comment in
                                     HStack{
-                                        Image(systemName: "person.circle")
-                                            .resizable()
-                                                                    .border(Color.accentColor, width: 4)
-                                            .frame(width: 40,height: 40,alignment: .center)
-                                            .aspectRatio(contentMode: .fit)
-                                            .clipShape(Circle())
-                                            .padding(2)
-                                            .overlay(
-                                                RoundedRectangle(cornerRadius: 30)
-                                                    .stroke(Color("Buttons"), lineWidth: 1)
-                                            )
+                                        VStack{
+                                            Image(systemName: "person.fill")
+                                                .resizable()
+                                                .padding(7)
+                                                .foregroundColor(Color("Buttons"))
+                                                .frame(width: 40,height: 40,alignment: .center)
+                                                .aspectRatio(contentMode: .fit)
+                                                .clipShape(Circle())
+                                                .padding(2)
+                                                .cornerRadius(40)
+                                                .overlay(
+                                                        RoundedRectangle(cornerRadius: 40)
+                                                            .stroke(Color("Buttons"), lineWidth: 1)
+                                                    )
+                                            Spacer()
+                                        }
                                         Text(comment.commentText)
                                     }
         
@@ -183,10 +188,11 @@ struct PostCardVideoDetailView: View {
         
                 VStack(alignment: .leading){
                     HStack{
-                        Image(systemName: "person.circle")
+                        Image(systemName: "person.fill")
                             .resizable()
+                            .padding(7)
                             .foregroundColor(Color("Buttons"))
-                            .frame(width: 40,height: 40,alignment: .center)
+                            .frame(width: 35,height: 35,alignment: .center)
                             .aspectRatio(contentMode: .fit)
                             .clipShape(Circle())
                             .padding(2)

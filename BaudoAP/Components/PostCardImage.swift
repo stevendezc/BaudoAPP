@@ -41,7 +41,7 @@ struct PostCardImage: View {
                     Text(model.location)
                         .font(.custom("SofiaSans-Bold",size: 17,relativeTo: .title))
                     Text(model.description)
-                        .font(.custom("SofiaSans-Regular",size: 12,relativeTo: .body))
+                        .font(.custom("SofiaSans-Regular",size: 14,relativeTo: .body))
                         .lineLimit(3)
                     
                     HStack{
