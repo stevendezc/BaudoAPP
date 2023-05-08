@@ -78,7 +78,7 @@ struct createUser : View {
                 
                 Group{
                     
-                    Toggle("Acepto las politica de datos", isOn: $Politica)
+                    Toggle("Acepto la politica de datos", isOn: $Politica)
                         .font(.custom("SofiaSans-Regular",size: 15,relativeTo: .title2))
                         .tint(Color("Buttons"))
                         .padding(10)
@@ -111,7 +111,6 @@ struct createUser : View {
         }
     }
     
-
     func register(){
         Auth.auth().createUser(withEmail: email, password: password) { result, error in
             
@@ -125,11 +124,8 @@ struct createUser : View {
                     print("Verification Email Sent")
                 }
             }
-            
         }
     }
-    
-    
 }
 
 struct Create_User_Previews: PreviewProvider {

@@ -41,25 +41,37 @@ struct PostCardComunidad: View {
                 }
                     
                 HStack{
-                    Button {
-                        openURL(URL(string: model.instagram)!)
-                    } label: {
-                        Image("fb")
+                    
+                    if model.facebook != "" {
+                        Button {
+                            openURL(URL(string: model.facebook)!)
+                        } label: {
+                            Image("fb")
+                        }
                     }
-                    Button {
-                        openURL(URL(string: model.whatsapp)!)
-                    } label: {
-                        Image("ig")
+                    
+                    if model.instagram != "" {
+                        Button {
+                            openURL(URL(string: model.instagram)!)
+                        } label: {
+                            Image("ig")
+                        }
                     }
-                    Button {
-                        openURL(URL(string: model.twitter)!)
-                    } label: {
-                        Image("wa")
+                    
+                    if model.whatsapp != "" {
+                        Button {
+                            openURL(URL(string: model.whatsapp)!)
+                        } label: {
+                            Image("wa")
+                        }
                     }
-                    Button {
-                        openURL(URL(string: model.facebook)!)
-                    } label: {
-                        Image("tw")
+                    
+                    if model.twitter != "" {
+                        Button {
+                            openURL(URL(string: model.twitter)!)
+                        } label: {
+                            Image("tw")
+                        }
                     }
                 }
             }
@@ -89,25 +101,37 @@ struct PostCardComunidad: View {
                 }
                     
                 HStack{
-                    Button {
-                        openURL(URL(string: model.instagram)!)
-                    } label: {
-                        Image("fb")
+                    
+                    if model.facebook != "" {
+                        Button {
+                            openURL(URL(string: model.facebook)!)
+                        } label: {
+                            Image("fb")
+                        }
                     }
-                    Button {
-                        openURL(URL(string: model.whatsapp)!)
-                    } label: {
-                        Image("ig")
+                    
+                    if model.instagram != "" {
+                        Button {
+                            openURL(URL(string: model.instagram)!)
+                        } label: {
+                            Image("ig")
+                        }
                     }
-                    Button {
-                        openURL(URL(string: model.twitter)!)
-                    } label: {
-                        Image("wa")
+                    
+                    if model.whatsapp != "" {
+                        Button {
+                            openURL(URL(string: model.whatsapp)!)
+                        } label: {
+                            Image("wa")
+                        }
                     }
-                    Button {
-                        openURL(URL(string: model.facebook)!)
-                    } label: {
-                        Image("tw")
+                    
+                    if model.twitter != "" {
+                        Button {
+                            openURL(URL(string: model.twitter)!)
+                        } label: {
+                            Image("tw")
+                        }
                     }
                 }
             }
@@ -137,25 +161,37 @@ struct PostCardComunidad: View {
                 }
                     
                 HStack{
-                    Button {
-                        openURL(URL(string: model.instagram)!)
-                    } label: {
-                        Image("fb")
+                    
+                    if model.facebook != "" {
+                        Button {
+                            openURL(URL(string: model.facebook)!)
+                        } label: {
+                            Image("fb")
+                        }
                     }
-                    Button {
-                        openURL(URL(string: model.whatsapp)!)
-                    } label: {
-                        Image("ig")
+                    
+                    if model.instagram != "" {
+                        Button {
+                            openURL(URL(string: model.instagram)!)
+                        } label: {
+                            Image("ig")
+                        }
                     }
-                    Button {
-                        openURL(URL(string: model.twitter)!)
-                    } label: {
-                        Image("wa")
+                    
+                    if model.whatsapp != "" {
+                        Button {
+                            openURL(URL(string: model.whatsapp)!)
+                        } label: {
+                            Image("wa")
+                        }
                     }
-                    Button {
-                        openURL(URL(string: model.facebook)!)
-                    } label: {
-                        Image("tw")
+                    
+                    if model.twitter != "" {
+                        Button {
+                            openURL(URL(string: model.twitter)!)
+                        } label: {
+                            Image("tw")
+                        }
                     }
                 }
             }
