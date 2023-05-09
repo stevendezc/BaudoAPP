@@ -18,15 +18,18 @@ struct PostCardComunidad: View {
             
             if model.category == "productivos" {
                 HStack{
-                    WebImage(url: URL(string: model.thumbnail))
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width:120, height: 120)
-                        .background(.white)
-                        .cornerRadius(20)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 20).stroke(Color("ComuPro"), lineWidth: 2)
-                        )
+                    VStack{
+                        WebImage(url: URL(string: model.thumbnail))
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width:120, height: 120)
+                            .background(.white)
+                            .cornerRadius(20)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 20).stroke(Color("ComuPro"), lineWidth: 2)
+                            )
+                        Spacer()
+                    }.padding(.top,5)
 
                     VStack(alignment: .leading,spacing: 5) {
                         
@@ -35,9 +38,11 @@ struct PostCardComunidad: View {
                             .font(.custom("SofiaSans-Bold",size: 20,relativeTo: .title))
                         
                         Text(model.description)
-                            .lineLimit(5)
-                            .font(.custom("SofiaSans-Medium",size: 13,relativeTo: .body))
+                            
+                            .font(.custom("SofiaSans-Medium",size: 14,relativeTo: .body))
                     }.foregroundColor(Color("Text"))
+                        .padding(.leading,10)
+                        .padding(.trailing,15)
                 }
                     
                 HStack{
@@ -78,15 +83,19 @@ struct PostCardComunidad: View {
             
             if model.category == "cultura" {
                 HStack{
-                    WebImage(url: URL(string: model.thumbnail))
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width:120, height: 120)
-                        .background(.white)
-                        .cornerRadius(20)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 20).stroke(Color("ComuCul"), lineWidth: 2)
-                        )
+                    VStack{
+                        WebImage(url: URL(string: model.thumbnail))
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width:120, height: 120)
+                            .background(.white)
+                            .cornerRadius(20)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 20).stroke(Color("ComuCul"), lineWidth: 2)
+                            )
+                        Spacer()
+                    }.padding(.top,5)
+                    
 
                     VStack(alignment: .leading,spacing: 5) {
                         
@@ -95,9 +104,11 @@ struct PostCardComunidad: View {
                             .font(.custom("SofiaSans-Bold",size: 20,relativeTo: .title))
                         
                         Text(model.description)
-                            .lineLimit(5)
-                            .font(.custom("SofiaSans-Medium",size: 13,relativeTo: .body))
+                            
+                            .font(.custom("SofiaSans-Medium",size: 14,relativeTo: .body))
                     }.foregroundColor(Color("Text"))
+                        .padding(.leading,10)
+                        .padding(.trailing,15)
                 }
                     
                 HStack{
@@ -138,16 +149,18 @@ struct PostCardComunidad: View {
             
             if model.category == "turismo" {
                 HStack{
-                    WebImage(url: URL(string: model.thumbnail))
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width:120, height: 120)
-                        .background(.white)
-                        .cornerRadius(20)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 20).stroke(Color("ComuTur"), lineWidth: 2)
-                        )
-
+                    VStack{
+                        WebImage(url: URL(string: model.thumbnail))
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width:120, height: 120)
+                            .background(.white)
+                            .cornerRadius(20)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 20).stroke(Color("ComuTur"), lineWidth: 2)
+                            )
+                        Spacer()
+                    }.padding(.top,5)
                     VStack(alignment: .leading,spacing: 5) {
                         
                         Text(model.name)
@@ -155,9 +168,11 @@ struct PostCardComunidad: View {
                             .font(.custom("SofiaSans-Bold",size: 20,relativeTo: .title))
                         
                         Text(model.description)
-                            .lineLimit(5)
-                            .font(.custom("SofiaSans-Medium",size: 13,relativeTo: .body))
+                            
+                            .font(.custom("SofiaSans-Medium",size: 14,relativeTo: .body))
                     }.foregroundColor(Color("Text"))
+                        .padding(.leading,10)
+                        .padding(.trailing,15)
                 }
                     
                 HStack{

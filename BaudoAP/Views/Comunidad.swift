@@ -34,7 +34,7 @@ struct Comunidad: View {
         NavigationView{
             ScrollView{
                 VStack{
-                    HStack(alignment: .center, spacing: 10){
+                    HStack(alignment: .center, spacing: 2){
                         Button {
                             showFilteredResultsproductivos.toggle()
                             showFilteredResultscultura = false
@@ -63,8 +63,9 @@ struct Comunidad: View {
                         Image(systemName: "info.circle")
                             .resizable()
                             .frame(width: 25,height: 25, alignment: .trailing)
+                            .foregroundColor(Color("Buttons"))
                         
-                    }.padding(10)
+                    }.padding(5)
                     
 
                     ForEach(filteredComunidad) { Users in
