@@ -19,6 +19,98 @@ struct Settings: View {
     @Binding var UserName: String
     
     var body: some View {
+        
+        VStack(alignment: .leading){
+            HStack{
+                Spacer()
+            }
+            HStack{
+                Image("logoBaudoWhite")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 30)
+                Text("¿Qué es Baudó")
+                Spacer()
+            }
+                .padding(20)
+                .background(Color("BackgroundCards"))
+                .cornerRadius(20)
+                .foregroundColor(Color("YellowBlack"))
+            
+            HStack{
+                Image(systemName: "envelope")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 30)
+                Text("Contacto")
+                Spacer()
+            }
+                .padding(20)
+                .background(Color("BackgroundCards"))
+                .cornerRadius(20)
+                .foregroundColor(Color("YellowBlack"))
+            
+            HStack{
+                Image(systemName: "questionmark.app")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 30)
+                Text("Preguntas frecuentes")
+                Spacer()
+            }
+                .padding(20)
+                .background(Color("BackgroundCards"))
+                .cornerRadius(20)
+                .foregroundColor(Color("YellowBlack"))
+            
+            HStack{
+                Image(systemName: "questionmark.app")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 30)
+                Text("Preguntas frecuentes")
+                Spacer()
+            }
+                .padding(20)
+                .background(Color("BackgroundCards"))
+                .cornerRadius(20)
+                .foregroundColor(Color("YellowBlack"))
+            
+            HStack{
+                Image(systemName: "lock.doc")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 30)
+                Text("Acuerdo de confidencialidad")
+                Spacer()
+            }
+                .padding(20)
+                .background(Color("BackgroundCards"))
+                .cornerRadius(20)
+                .foregroundColor(Color("YellowBlack"))
+            
+            HStack{
+                Button {
+                    logout()
+                }label: {
+                    Image(systemName: "x.square")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 30)
+                    Text("Cerrar session")
+                }
+                
+                Spacer()
+            }
+                .padding(20)
+                .background(Color("BackgroundCards"))
+                .cornerRadius(20)
+                .foregroundColor(Color("YellowBlack"))
+            
+            
+            Spacer()
+        }.padding(20)
+        
 
         List{
             
@@ -26,15 +118,13 @@ struct Settings: View {
             Text("UserName: \(UserName)")
             
                 
-            Text("¿Qué es Baudó")
+            
             Text("Informacion de pago")
             Text("Soporte")
             Text("Preguntas frecuentes")
             Text("Invita a tus amigos")
             Text("Acuerdo de privacidad")
-            Button("Cerrar session") {
-                logout()
-            }
+            
 //            Text(colorScheme == .dark ? "Dark" : "Light").foregroundColor(Color("Text"))
             Picker("Mode", selection: $isDarkMode) {
                 Text("Dark")

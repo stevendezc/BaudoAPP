@@ -42,7 +42,7 @@ struct PostCardPodcastDetail: View {
     
     @State var audioPlayer = AVPlayer()
     
-    @State var isPlaying : Bool = true
+    @State var isPlaying : Bool = false
     
     var model: Post
     
@@ -285,7 +285,6 @@ struct PostCardPodcastDetail: View {
         .onAppear(){
             contentPodcast.fetchNewComments(postId: model.id ?? "")
             Play()
-           
         }
         .onReceive(timer){ (_) in
 //            guard var player = audioPlayer, !isEditing else { return }
@@ -344,20 +343,20 @@ struct PostCardPodcastDetail: View {
 
                     let asset = AVURLAsset(url: url!)
 
-                    audioPlayer.play()
+                    audioPlayer.pause()
                     duration = CMTimeGetSeconds(asset.duration) - 4
                     print("duration ", duration)
                 }
             }
         }
-        func playPause() {
-            self.isPlaying.toggle()
-            if isPlaying == false {
-                audioPlayer.pause()
-            } else {
-                audioPlayer.play()
-            }
+    func playPause() {
+        self.isPlaying.toggle()
+        if isPlaying == false {
+            audioPlayer.pause()
+        } else {
+            audioPlayer.play()
         }
+    }
 }
 
 
