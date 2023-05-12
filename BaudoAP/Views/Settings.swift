@@ -28,7 +28,7 @@ struct Settings: View {
                 Image("logoBaudoWhite")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(width: 30)
+                    .frame(width: 25)
                 Text("¿Qué es Baudó")
                 Spacer()
             }
@@ -108,6 +108,21 @@ struct Settings: View {
                 .foregroundColor(Color("YellowBlack"))
             
             
+            HStack{
+                Picker("Mode", selection: $isDarkMode) {
+                    Text("Dark")
+                        .tag(true)
+                    Text("Light")
+                        .tag(false)
+                
+                }.pickerStyle(SegmentedPickerStyle())
+            }
+                .padding(20)
+                .background(Color("BackgroundCards"))
+                .cornerRadius(20)
+                .foregroundColor(Color("YellowBlack"))
+            
+            
             Spacer()
         }.padding(20)
         
@@ -126,13 +141,7 @@ struct Settings: View {
             Text("Acuerdo de privacidad")
             
 //            Text(colorScheme == .dark ? "Dark" : "Light").foregroundColor(Color("Text"))
-            Picker("Mode", selection: $isDarkMode) {
-                Text("Dark")
-                    .tag(true)
-                Text("Light")
-                    .tag(false)
-            
-            }.pickerStyle(SegmentedPickerStyle())
+           
             
         }
     }
