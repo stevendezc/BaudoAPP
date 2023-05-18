@@ -50,7 +50,7 @@ struct PostCardPodcastDetail: View {
     
     @State var value: Double = 0.0
     
-    @State private var duration: Double = 0.0
+    @State private var durationSec: Double = 0.0
     
     @State private var isEditing: Bool = false
     
@@ -126,7 +126,7 @@ struct PostCardPodcastDetail: View {
                         
             
 
-                Slider(value: $value, in: 0...duration) { editing in
+                Slider(value: $value, in: 0...durationSec) { editing in
                     print("editing",editing)
                     isEditing = editing
 
@@ -146,7 +146,7 @@ struct PostCardPodcastDetail: View {
 //                    Text("\(value)")
                     Spacer()
 //                    Text("\(duration)")
-                    Text(Utility.formatSecondsToHMS(duration))
+                    Text(Utility.formatSecondsToHMS(durationSec))
                         .font(.custom("SofiaSans-Regular",size: 12,relativeTo: .caption))
                 }
                 Spacer(minLength: 20)
@@ -301,7 +301,7 @@ struct PostCardPodcastDetail: View {
                 
                 value = (CMTimeGetSeconds(audioPlayer.currentTime() ))
 
-                if value.rounded() == duration.rounded() {
+                if value.rounded() == durationSec.rounded() {
                     print("finished playing")
                     audioPlayer.seek(to: .zero)
                     audioPlayer.pause()
@@ -311,7 +311,7 @@ struct PostCardPodcastDetail: View {
                     value = 0.0
                 } else {
                     print("Value = ",value.rounded())
-                    print("Duration= ", duration.rounded())
+                    print("Duration= ", durationSec.rounded())
                 }
             } else {
                 isPlaying = false
@@ -344,8 +344,8 @@ struct PostCardPodcastDetail: View {
                     let asset = AVURLAsset(url: url!)
 
                     audioPlayer.pause()
-                    duration = CMTimeGetSeconds(asset.duration) - 4
-                    print("duration ", duration)
+                    durationSec = CMTimeGetSeconds(asset.duration) - 4
+                    print("duration ", durationSec) 
                 }
             }
         }

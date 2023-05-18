@@ -8,6 +8,13 @@
 import SwiftUI
 import SDWebImageSwiftUI
 
+
+//extension Photo: Transferable {
+//    static var transferRepresentation: some TransferRepresentation {
+//        ProxyRepresentation(exporting: \.image)
+//    }
+//}
+
 struct PostCardComunidad: View {
     @Environment(\.openURL) var openURL
     var model: Users
@@ -78,6 +85,17 @@ struct PostCardComunidad: View {
                             Image("tw")
                         }
                     }
+                    
+                    Spacer()
+                    
+                    Image("share")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width:20)
+                        .padding(6)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 10).stroke(Color("ComuPro"), lineWidth: 2)
+                        )
                 }
             }
             
@@ -144,6 +162,15 @@ struct PostCardComunidad: View {
                             Image("tw")
                         }
                     }
+                    Spacer()
+                    Image("share")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width:20)
+                        .padding(6)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 10).stroke(Color("ComuCul"), lineWidth: 2)
+                        )
                 }
             }
             
@@ -208,6 +235,16 @@ struct PostCardComunidad: View {
                             Image("tw")
                         }
                     }
+                    Spacer()
+//                    ShareLink(item: Post, preview: SharePreview(model.description, image: model.thumbnail))
+                    Image("share")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width:20)
+                        .padding(6)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 10).stroke(Color("ComuTur"), lineWidth: 2)
+                        )
                 }
             }
             

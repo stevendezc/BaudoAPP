@@ -11,23 +11,66 @@ import SwiftUI
 struct Tienda: View {
     var body: some View {
         NavigationView{
-                    ScrollView{
-                        HStack{
-                            Spacer()
-                            Image(systemName: "info.circle")
-                                .resizable()
-                                .frame(width: 25,height: 25, alignment: .trailing)
-                        }
-                       
-                        Image("Tienda")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .padding(20)
-                            
+            
+            VStack{
+                HStack{
+                    Button {
+                        
+                    } label: {
+                        Text("El estrén")
                     }
+                        .font(.custom("SofiaSans-Medium",size: 18,relativeTo: .title2))
+                        .padding(.horizontal,20)
+                        .padding(.vertical,15)
+                        .foregroundColor(.black)
+                        .background(Color("Buttons"))
+                        .clipShape(Capsule())
+                    Button {
+                        
+                    } label: {
+                        Text("Editorial &\n Impresos")
+                    }
+                        .font(.custom("SofiaSans-Medium",size: 18,relativeTo: .title2))
+                        .padding(.horizontal,25)
+                        .padding(.vertical,10)
+                        .foregroundColor(.black)
+                        .background(Color("Buttons"))
+                        .clipShape(Capsule())
+                    Button {
+                        
+                    } label: {
+                        Text("Cositas")
+                    }
+                        .font(.custom("SofiaSans-Medium",size: 18,relativeTo: .title2))
+                        .padding(.horizontal,25)
+                        .padding(.vertical,15)
+                        .foregroundColor(.black)
+                        .background(Color("Buttons"))
+                        .clipShape(Capsule())
+                    
+                    Image(systemName: "info.circle")
+                        .resizable()
+                        .frame(width: 25,height: 25, alignment: .trailing)
                 }
-                //TituloNavigation
-                //.navigationTitle("Tienda")
+                    
+                
+                ScrollView{
+                    HStack{
+                        Spacer()
+                        
+                    }
+                    
+                    Image("Tienda")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .padding(20)
+                    
+                }
+            }
+            }
+           
+        //TituloNavigation
+        //.navigationTitle("Tienda")
     }
 }
 

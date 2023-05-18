@@ -19,131 +19,129 @@ struct Settings: View {
     @Binding var UserName: String
     
     var body: some View {
-        
-        VStack(alignment: .leading){
-            HStack{
-                Spacer()
-            }
-            HStack{
-                Image("logoBaudoWhite")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 25)
-                Text("¿Qué es Baudó")
-                Spacer()
-            }
-                .padding(20)
-                .background(Color("BackgroundCards"))
-                .cornerRadius(20)
-                .foregroundColor(Color("YellowBlack"))
-            
-            HStack{
-                Image(systemName: "envelope")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 30)
-                Text("Contacto")
-                Spacer()
-            }
-                .padding(20)
-                .background(Color("BackgroundCards"))
-                .cornerRadius(20)
-                .foregroundColor(Color("YellowBlack"))
-            
-            HStack{
-                Image(systemName: "questionmark.app")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 30)
-                Text("Preguntas frecuentes")
-                Spacer()
-            }
-                .padding(20)
-                .background(Color("BackgroundCards"))
-                .cornerRadius(20)
-                .foregroundColor(Color("YellowBlack"))
-            
-            HStack{
-                Image(systemName: "questionmark.app")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 30)
-                Text("Preguntas frecuentes")
-                Spacer()
-            }
-                .padding(20)
-                .background(Color("BackgroundCards"))
-                .cornerRadius(20)
-                .foregroundColor(Color("YellowBlack"))
-            
-            HStack{
-                Image(systemName: "lock.doc")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 30)
-                Text("Acuerdo de confidencialidad")
-                Spacer()
-            }
-                .padding(20)
-                .background(Color("BackgroundCards"))
-                .cornerRadius(20)
-                .foregroundColor(Color("YellowBlack"))
-            
-            HStack{
-                Button {
-                    logout()
-                }label: {
-                    Image(systemName: "x.square")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 30)
-                    Text("Cerrar session")
+        ScrollView{
+            VStack{
+                HStack{
+                    Text("Ajustes")
+                        .font(.custom("SofiaSans-Bold",size: 25,relativeTo: .title))
                 }
                 
-                Spacer()
-            }
-                .padding(20)
-                .background(Color("BackgroundCards"))
-                .cornerRadius(20)
-                .foregroundColor(Color("YellowBlack"))
-            
-            
-            HStack{
-                Picker("Mode", selection: $isDarkMode) {
-                    Text("Dark")
-                        .tag(true)
-                    Text("Light")
-                        .tag(false)
+                VStack(alignment: .leading){
+                    HStack{
+                        Spacer()
+                    }
+                    NavigationLink(destination: VideoNosotros(), label: {
+                        HStack(spacing: 20){
+                            Image("logoBaudoWhite")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 20)
+                            Text("¿Qué es Baudó")
+                                .font(.custom("SofiaSans-Bold",size: 15,relativeTo: .body))
+                            Spacer()
+                        }
+                            .padding(20)
+                            .background(Color("BackgroundCards"))
+                            .cornerRadius(17)
+                            .foregroundColor(Color("YellowBlack"))
+                    })
+                    
+                    
+                    HStack(spacing: 20){
+                        Image(systemName: "envelope")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width:25)
+                            .foregroundColor(Color("WhiteBlack"))
+                        Text("Contacto")
+                            .font(.custom("SofiaSans-Bold",size: 15,relativeTo: .body))
+                        Spacer()
+                    }
+                        .padding(20)
+                        .background(Color("BackgroundCards"))
+                        .cornerRadius(17)
+                        .foregroundColor(Color("YellowBlack"))
+                    
+                    HStack(spacing: 20){
+                        Image(systemName: "questionmark.app")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 25)
+                            .foregroundColor(Color("WhiteBlack"))
+                        Text("Preguntas frecuentes")
+                            .font(.custom("SofiaSans-Bold",size: 15,relativeTo: .body))
+                        Spacer()
+                    }
+                        .padding(20)
+                        .background(Color("BackgroundCards"))
+                        .cornerRadius(17)
+                        .foregroundColor(Color("YellowBlack"))
+                    
+                    
+                    HStack(spacing: 20){
+                        Image(systemName: "lock.doc")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 25)
+                            .foregroundColor(Color("WhiteBlack"))
+                        Text("Acuerdo de confidencialidad")
+                            .font(.custom("SofiaSans-Bold",size: 15,relativeTo: .body))
+                        Spacer()
+                    }
+                        .padding(20)
+                        .background(Color("BackgroundCards"))
+                        .cornerRadius(17)
+                        .foregroundColor(Color("YellowBlack"))
+                    
+                    HStack(spacing: 20){
+                        Button {
+                            logout()
+                        }label: {
+                            Image(systemName: "x.square")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 25)
+                                .foregroundColor(Color("WhiteBlack"))
+                            Text("Cerrar session")
+                                .font(.custom("SofiaSans-Bold",size: 15,relativeTo: .body))
+                                .padding(.leading,10)
+                        }
+                        
+                        Spacer()
+                    }
+                        .padding(20)
+                        .background(Color("BackgroundCards"))
+                        .cornerRadius(17)
+                        .foregroundColor(Color("YellowBlack"))
+                    
+                    
+                    HStack{
+                        Picker("Mode", selection: $isDarkMode) {
+                            Text("Dark")
+                                .tag(true)
+                            Text("Light")
+                                .tag(false)
+                        
+                        }.pickerStyle(SegmentedPickerStyle())
+                    }
+                        .font(.custom("SofiaSans-Bold",size: 15,relativeTo: .body))
+                        .padding(20)
+                        .background(Color("BackgroundCards"))
+                        .cornerRadius(17)
+                        .foregroundColor(Color("YellowBlack"))
+                    
+                    
+                    Spacer()
+                }.padding(20)
                 
-                }.pickerStyle(SegmentedPickerStyle())
-            }
-                .padding(20)
-                .background(Color("BackgroundCards"))
-                .cornerRadius(20)
-                .foregroundColor(Color("YellowBlack"))
-            
-            
-            Spacer()
-        }.padding(20)
-        
-
-        List{
-            
-           
-            Text("UserName: \(UserName)")
-            
+                Image("LogoBaudo")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 100)
                 
-            
-            Text("Informacion de pago")
-            Text("Soporte")
-            Text("Preguntas frecuentes")
-            Text("Invita a tus amigos")
-            Text("Acuerdo de privacidad")
-            
-//            Text(colorScheme == .dark ? "Dark" : "Light").foregroundColor(Color("Text"))
-           
-            
+            }
         }
+
     }
     
     func logout(){
@@ -157,5 +155,6 @@ struct Settings: View {
 struct Settings_Previews: PreviewProvider {
     static var previews: some View {
         Settings(userIsLogged: .constant(false), UserName: .constant("None"))
+            .preferredColorScheme(.dark)
     }
 }
