@@ -29,11 +29,13 @@ struct PostCardProduct: View {
                     .padding(.top,-35)
                     .foregroundColor(.black)
                 
+                Spacer()
             }
 //            .padding(15)
 //            .background(Color("BackgroundCards"))
             .cornerRadius(20)
         
+        Spacer()
     }
 }
 
