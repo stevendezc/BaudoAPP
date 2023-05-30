@@ -54,6 +54,10 @@
 		5CE0FEB529BE0C2900711866 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 5CE0FEB429BE0C2900711866 /* SDWebImageSwiftUI */; };
 		5CE0FEB729BEA4C100711866 /* PostCardImageDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE0FEB629BEA4C100711866 /* PostCardImageDetailView.swift */; };
 		5CE0FEB929BEC0BD00711866 /* PostCardImageDetailViewImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE0FEB829BEC0BD00711866 /* PostCardImageDetailViewImage.swift */; };
+		5CF4542C2A264F4600FFA370 /* ContentViewModelShop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF4542B2A264F4600FFA370 /* ContentViewModelShop.swift */; };
+		5CF4542E2A264F7100FFA370 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF4542D2A264F7100FFA370 /* Product.swift */; };
+		5CF454302A2659B900FFA370 /* PostCardProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF4542F2A2659B900FFA370 /* PostCardProduct.swift */; };
+		5CF454322A265D0C00FFA370 /* PostCardProductDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF454312A265D0C00FFA370 /* PostCardProductDetail.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -100,6 +104,10 @@
 		5CB902D429CB81C0004D581B /* PostCardVideoDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCardVideoDetailView.swift; sourceTree = "<group>"; };
 		5CE0FEB629BEA4C100711866 /* PostCardImageDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCardImageDetailView.swift; sourceTree = "<group>"; };
 		5CE0FEB829BEC0BD00711866 /* PostCardImageDetailViewImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCardImageDetailViewImage.swift; sourceTree = "<group>"; };
+		5CF4542B2A264F4600FFA370 /* ContentViewModelShop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModelShop.swift; sourceTree = "<group>"; };
+		5CF4542D2A264F7100FFA370 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		5CF4542F2A2659B900FFA370 /* PostCardProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCardProduct.swift; sourceTree = "<group>"; };
+		5CF454312A265D0C00FFA370 /* PostCardProductDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCardProductDetail.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +138,8 @@
 				5CB902D429CB81C0004D581B /* PostCardVideoDetailView.swift */,
 				5C077CD429CDF03D006B3ADC /* PostCardPodcast.swift */,
 				5C077CDA29CF5DFD006B3ADC /* PostCardPodcastDetail.swift */,
+				5CF4542F2A2659B900FFA370 /* PostCardProduct.swift */,
+				5CF454312A265D0C00FFA370 /* PostCardProductDetail.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -191,6 +201,7 @@
 				5C077CD229CDEFBA006B3ADC /* ContentViewModelPodcast.swift */,
 				5CA8AA9729D1570800F59CAA /* ContentViewModelComunidad.swift */,
 				5C25BC2B29BD6590003667A9 /* UserSettings.swift */,
+				5CF4542B2A264F4600FFA370 /* ContentViewModelShop.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -199,6 +210,7 @@
 			isa = PBXGroup;
 			children = (
 				5C52C72429BCE1DF002231F2 /* Post.swift */,
+				5CF4542D2A264F7100FFA370 /* Product.swift */,
 				5CA8AA9929D1580400F59CAA /* Users.swift */,
 				5C345D5329D7288000C689DB /* CommentModel.swift */,
 			);
@@ -334,6 +346,7 @@
 				5C52C73629BCE29D002231F2 /* Tienda.swift in Sources */,
 				5CB902D529CB81C0004D581B /* PostCardVideoDetailView.swift in Sources */,
 				5C077CDB29CF5DFD006B3ADC /* PostCardPodcastDetail.swift in Sources */,
+				5CF4542E2A264F7100FFA370 /* Product.swift in Sources */,
 				5C42F23329C95864009099B7 /* PostCardVideo.swift in Sources */,
 				5C077CD329CDEFBA006B3ADC /* ContentViewModelPodcast.swift in Sources */,
 				5C42F23529C95F6E009099B7 /* ContentViewModelVideo.swift in Sources */,
@@ -341,6 +354,8 @@
 				5C90A5B729BD4B600031FF14 /* TabViews.swift in Sources */,
 				5C52C73229BCE270002231F2 /* Navegantes.swift in Sources */,
 				5C54CB2629F77F5800E606DC /* ResetPass.swift in Sources */,
+				5CF4542C2A264F4600FFA370 /* ContentViewModelShop.swift in Sources */,
+				5CF454322A265D0C00FFA370 /* PostCardProductDetail.swift in Sources */,
 				5C077CD729CE0EC7006B3ADC /* User.swift in Sources */,
 				5C077CD529CDF03D006B3ADC /* PostCardPodcast.swift in Sources */,
 				5C52C70A29BCD8CD002231F2 /* BaudoAPApp.swift in Sources */,
@@ -355,6 +370,7 @@
 				5C52C72729BCE1F2002231F2 /* PostCardImage.swift in Sources */,
 				5C25BC2C29BD6590003667A9 /* UserSettings.swift in Sources */,
 				5CA8AA9829D1570800F59CAA /* ContentViewModelComunidad.swift in Sources */,
+				5CF454302A2659B900FFA370 /* PostCardProduct.swift in Sources */,
 				5C6FAEF929D36C31000B8FB6 /* ContentViewModelImage.swift in Sources */,
 				5CA7219929D93FAC00E04D2E /* VideoNosotros.swift in Sources */,
 				5C345D5429D7288000C689DB /* CommentModel.swift in Sources */,
