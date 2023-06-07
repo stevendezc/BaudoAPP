@@ -8,32 +8,78 @@
 import SwiftUI
 import SDWebImageSwiftUI
 
+
+struct RoundedCorners: View {
+    var color: Color = .blue
+    var tl: CGFloat = 0.0
+    var tr: CGFloat = 0.0
+    var bl: CGFloat = 0.0
+    var br: CGFloat = 0.0
+    
+    var body: some View {
+        GeometryReader { geometry in
+            Path { path in
+                
+                let w = geometry.size.width
+                let h = geometry.size.height
+
+                // Make sure we do not exceed the size of the rectangle
+                let tr = min(min(self.tr, h/2), w/2)
+                let tl = min(min(self.tl, h/2), w/2)
+                let bl = min(min(self.bl, h/2), w/2)
+                let br = min(min(self.br, h/2), w/2)
+                
+                path.move(to: CGPoint(x: w / 2.0, y: 0))
+                path.addLine(to: CGPoint(x: w - tr, y: 0))
+                path.addArc(center: CGPoint(x: w - tr, y: tr), radius: tr, startAngle: Angle(degrees: -90), endAngle: Angle(degrees: 0), clockwise: false)
+                path.addLine(to: CGPoint(x: w, y: h - br))
+                path.addArc(center: CGPoint(x: w - br, y: h - br), radius: br, startAngle: Angle(degrees: 0), endAngle: Angle(degrees: 90), clockwise: false)
+                path.addLine(to: CGPoint(x: bl, y: h))
+                path.addArc(center: CGPoint(x: bl, y: h - bl), radius: bl, startAngle: Angle(degrees: 90), endAngle: Angle(degrees: 180), clockwise: false)
+                path.addLine(to: CGPoint(x: 0, y: tl))
+                path.addArc(center: CGPoint(x: tl, y: tl), radius: tl, startAngle: Angle(degrees: 180), endAngle: Angle(degrees: 270), clockwise: false)
+                path.closeSubpath()
+            }
+            .fill(self.color)
+        }
+    }
+}
+
+
 struct PostCardProduct: View {
     
     var model: Product
     
     var body: some View {
-        
-            VStack{
-                WebImage(url: URL(string: model.thumbnail))
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    
-                    .cornerRadius(9)
-                //                .border(Color.red, width: 3)
-                
-                Text(model.title)
-                    .font(.custom("SofiaSans-Bold", size: 20,relativeTo: .title))
-                    .fontWeight(.heavy)
-                    .multilineTextAlignment(.leading)
-                    .padding(.top,-35)
-                    .foregroundColor(.black)
-                
-                Spacer()
+    
+        VStack {
+            
+            ZStack(alignment: .bottom){
+                    WebImage(url: URL(string: model.thumbnail))
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .cornerRadius(20)
+                    //                .border(Color.red, width: 3)
+                    HStack{
+                        Text(model.title)
+                            .font(.custom("SofiaSans-Medium", size: 13,relativeTo: .body))
+                            .fontWeight(.heavy)
+                            .multilineTextAlignment(.leading)
+                            .foregroundColor(Color("Text"))
+                            .padding(.vertical,10)
+                            .padding(.horizontal,20)
+                            .background(.ultraThinMaterial)
+                            .cornerRadius(20)
+                           // .background(RoundedCorners(color: Color("ButtonsProducts"), tl: 0, tr: 10, bl:30, br: 10))
+                        
+                    }.padding(.bottom,5)
+
             }
+            Spacer()
+        }
+            
 //            .padding(15)
 //            .background(Color("BackgroundCards"))
-            .cornerRadius(20)
         
         Spacer()
     }
@@ -42,7 +88,7 @@ struct PostCardProduct: View {
 struct PostCardProduct_Previews: PreviewProvider {
     static var previews: some View {
         
-        PostCardProduct(model: Product(title: "Buso Beige", thumbnail: "https://firebasestorage.googleapis.com/v0/b/baudoapp-c89ed.appspot.com/o/Products%2FBusoBeige.png?alt=media&token=44e097f3-6a72-4b00-a07b-bb6fef68bae3&_gl=1*spcl6d*_ga*MTI1ODc4NDM2MC4xNjc2Mjk5OTAy*_ga_CW55HF8NVT*MTY4NTQ2MDg3OS41MC4xLjE2ODU0NjE1MDMuMC4wLjA.", sizes: "SMLXL", description: "Esto es una breve description", gallery: "Array Images", price: "130.000", type: "Ropa",creation_date: Date()))
+        PostCardProduct(model: Product(title: "Buso Beige", thumbnail: "https://firebasestorage.googleapis.com/v0/b/baudoapp-c89ed.appspot.com/o/Products%2FBuso-Rio.jpg?alt=media&token=0a1bc3fc-3c66-4dc7-a4d1-efbabec0ffa1&_gl=1*14pxcx4*_ga*MTI1ODc4NDM2MC4xNjc2Mjk5OTAy*_ga_CW55HF8NVT*MTY4NTcyOTA0Ni41Mi4xLjE2ODU3MjkzMDcuMC4wLjA.", sizes: "SMLXL", description: "Esto es una breve description", gallery: "Array Images", price: "130.000", type: "Ropa",creation_date: Date()))
         
     }
 }

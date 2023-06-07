@@ -53,6 +53,8 @@ struct PostCardComunidad: View {
                 }
                     
                 HStack{
+                    Text("Pereira").font(.custom("SofiaSans-Bold",size: 13,relativeTo: .title))
+                    Spacer()
                     
                     if model.facebook != "" {
                         Button {
@@ -86,7 +88,9 @@ struct PostCardComunidad: View {
                         }
                     }
                     
-                    Spacer()
+                   
+                    
+                    
                     
                     Image("share")
                         .resizable()
@@ -131,6 +135,8 @@ struct PostCardComunidad: View {
                     
                 HStack{
                     
+                    Text("Pereira").font(.custom("SofiaSans-Bold",size: 13,relativeTo: .title))
+                    
                     if model.facebook != "" {
                         Button {
                             openURL(URL(string: model.facebook)!)
@@ -162,7 +168,8 @@ struct PostCardComunidad: View {
                             Image("tw")
                         }
                     }
-                    Spacer()
+                    
+                    
                     Image("share")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
@@ -203,6 +210,9 @@ struct PostCardComunidad: View {
                 }
                     
                 HStack{
+                    Text("Pereira").font(.custom("SofiaSans-Bold",size: 13,relativeTo: .title))
+                    
+                    Spacer()
                     
                     if model.facebook != "" {
                         Button {
@@ -235,7 +245,8 @@ struct PostCardComunidad: View {
                             Image("tw")
                         }
                     }
-                    Spacer()
+                    
+                    
 //                    ShareLink(item: Post, preview: SharePreview(model.description, image: model.thumbnail))
                     Image("share")
                         .resizable()
@@ -251,6 +262,7 @@ struct PostCardComunidad: View {
             
         }
         .padding(15)
+       
         .background(Color("BackgroundCards"))
         .cornerRadius(20)
     }

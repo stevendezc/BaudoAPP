@@ -13,7 +13,7 @@ struct Tienda: View {
     @ObservedObject var contentProduct = ContentViewModelShop()
     
     var body: some View {
-        NavigationView{
+       
             
             VStack{
                 HStack{
@@ -31,11 +31,11 @@ struct Tienda: View {
                     Button {
                         
                     } label: {
-                        Text("Editorial & Impresos")
+                        Text("Editorial & \n Impresos")
                     }
                         .font(.custom("SofiaSans-Medium",size: 13,relativeTo: .title2))
                         .padding(.horizontal,25)
-                        .padding(.vertical,10)
+                        .padding(.vertical,6)
                         .foregroundColor(.black)
                         .background(Color("Buttons"))
                         .clipShape(Capsule())
@@ -60,22 +60,22 @@ struct Tienda: View {
                 ScrollView{
                     
                     let Columns: [GridItem] = [
-                        GridItem(.flexible(), spacing: nil, alignment: nil),
-                        GridItem(.flexible(), spacing: nil, alignment: nil),
+                        GridItem(.flexible(), spacing: 0, alignment: nil),
+                        GridItem(.flexible(), spacing: 0, alignment: nil),
                         
                     ]
                     
-                    LazyVGrid(columns: Columns, spacing: 5){
+                    LazyVGrid(columns: Columns, spacing: 0){
                         ForEach(contentProduct.postsProducts) { product in
                             NavigationLink(destination: PostCardProductDetail(model: product), label: {
                                 PostCardProduct(model: product) } )
                         }
-                    }.padding(.horizontal,5)
+                    }
                     
                 }
                 .padding(.top,5)
             }
-        }
+        
            
         //TituloNavigation
         //.navigationTitle("Tienda")
