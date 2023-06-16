@@ -34,13 +34,15 @@ class ContentViewModelShop: ObservableObject {
 //    @Published var newCommentText: String = ""
     
     init() {
-        fetchpostsProducts()
+        Task{
+            try await fetchpostsProducts()
+        }
         //        print("Fetch from init in the content view IMAGES")
 //        fetchNewComments()
     }
     
     //    Function for Fetch posts from firebase
-    func fetchpostsProducts() {
+    func fetchpostsProducts() async throws {
         
         // NECESARIO ??
         postsProducts.removeAll()

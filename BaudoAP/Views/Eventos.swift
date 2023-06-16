@@ -13,6 +13,7 @@ struct Eventos: View {
     var body: some View {
         NavigationView{
             ScrollView{
+                
                 HStack{
                     Spacer()
                     Image(systemName: "info.circle")
@@ -20,10 +21,15 @@ struct Eventos: View {
                         .frame(width: 25,height: 25, alignment: .trailing)
                 }
                 
-                Image("FondoCalendar")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .padding(50)
+                Images()
+                
+                
+                
+                
+//                Image("FondoCalendar")
+//                .resizable()
+//                .aspectRatio(contentMode: .fit)
+//                .padding(50)
                 
                 //TituloNavigation
 //                .navigationTitle("Eventos")
@@ -31,7 +37,19 @@ struct Eventos: View {
         }
     }
 }
-
+struct Images: View {
+    @ObservedObject var contentImage = ContentViewModelImage()
+    var body: some View {
+        ScrollView{
+            //                LazyVStack{
+            ForEach(contentImage.postsImages) { post in
+                NavigationLink(destination: PostCardImageDetailView(model: post) , label: {
+                    PostCardImage(model: post) } )
+            }
+            //                }
+        }.padding(.top,5)
+    }
+}
 
 struct Eventos_Previews: PreviewProvider {
     static var previews: some View {
