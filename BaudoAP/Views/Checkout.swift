@@ -12,6 +12,7 @@ struct Checkout: View {
     @State private  var correo = ""
     @State private  var nombre = ""
     @State private  var documento = ""
+    @State private  var departamento = ""
     @State private  var ciudad = ""
     @State private  var direccion = ""
     @State private  var telefono = ""
@@ -54,6 +55,19 @@ struct Checkout: View {
                             .padding(.leading,10)
                             .foregroundColor(Color("Yellow"))
                         TextField("Documento", text: $documento)
+                            .padding()
+                            .foregroundColor(.black)
+                            .textFieldStyle(.plain)
+                            .background(Color.white.opacity(0.5))
+                            .cornerRadius(20)
+                    }
+                    
+                    Group {
+                        Text("Departamento")
+                            .font(.custom("SofiaSans-Black",size: 20,relativeTo: .title2))
+                            .padding(.leading,10)
+                            .foregroundColor(Color("Yellow"))
+                        TextField("Departamento", text: $departamento)
                             .padding()
                             .foregroundColor(.black)
                             .textFieldStyle(.plain)

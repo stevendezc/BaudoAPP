@@ -34,13 +34,17 @@ class ContentViewModelImage: ObservableObject {
 //    @Published var newCommentText: String = ""
     
     init() {
-        fetchpostsImages()
+        
+        Task{
+             try await fetchpostsImages()
+        }
+//        fetchpostsImages()
         //        print("Fetch from init in the content view IMAGES")
 //        fetchNewComments()
     }
     
     //    Function for Fetch posts from firebase
-    func fetchpostsImages() {
+    func fetchpostsImages() async throws{
         
         // NECESARIO ??
         postsImages.removeAll()

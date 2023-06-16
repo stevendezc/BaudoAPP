@@ -33,11 +33,13 @@ class ContentViewModelVideo: ObservableObject {
     
     
     init() {
-        fetchpostsVideos()
+        Task{
+            try await fetchpostsVideos()
+        }
     }
     
 //    Function for Fetch posts from firebase
-    func fetchpostsVideos() {
+    func fetchpostsVideos() async throws {
         
         // NECESARIO ??
        postsVideos.removeAll()

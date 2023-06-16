@@ -7,7 +7,7 @@
 
 
 import SwiftUI
-import SDWebImageSwiftUI
+import Kingfisher
 
 struct PostCardImageDetailViewImage: View {
     
@@ -19,7 +19,7 @@ struct PostCardImageDetailViewImage: View {
         ZStack(alignment: .topLeading){
             
             ScrollView(.horizontal){
-                WebImage(url: URL(string: model.main_media))
+                KFImage( URL(string: model.main_media))
                     .resizable()
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .aspectRatio(contentMode: .fill)

@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import SDWebImageSwiftUI
+import Kingfisher
 
 struct PostCardImage: View {
     
@@ -17,7 +17,7 @@ struct PostCardImage: View {
     var body: some View {
       
             VStack(alignment: .leading){
-                WebImage(url: URL(string: model.thumbnail))
+                KFImage(URL(string: model.thumbnail))
                     .resizable()
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .aspectRatio(contentMode: .fit)

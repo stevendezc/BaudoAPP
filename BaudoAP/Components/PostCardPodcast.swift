@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import SDWebImageSwiftUI
+import Kingfisher
 
 struct PostCardPodcast: View {
     
@@ -15,7 +15,7 @@ struct PostCardPodcast: View {
     var body: some View {
        
             HStack{
-                WebImage(url: URL(string: model.thumbnail))
+                KFImage(URL(string: model.thumbnail))
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width:110)

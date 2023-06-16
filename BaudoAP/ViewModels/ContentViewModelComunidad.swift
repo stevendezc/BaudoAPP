@@ -31,11 +31,13 @@ class ContentViewModelComunidad: ObservableObject {
     private var listenerRegistration: ListenerRegistration?
     
     init() {
-        fetchusersComunidad()
+        Task{
+            try await fetchusersComunidad()
+        }
     }
     
 //    Function for Fetch posts from firebase
-    func fetchusersComunidad() {
+    func fetchusersComunidad() async throws{
         
         // NECESARIO ??
         usersComunidad.removeAll()

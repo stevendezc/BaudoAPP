@@ -6,16 +6,19 @@
 //
 
 import SwiftUI
-import SDWebImageSwiftUI
+import Kingfisher
+import Foundation
 
 struct PostCardProductDetail: View {
+    
+    @ObservedObject var cartmanager = cartManager()
     
     var model: Product
     
     var body: some View {
         ScrollView{
             ZStack(alignment: .bottom){
-                    WebImage(url: URL(string: model.thumbnail))
+                KFImage(URL(string: model.thumbnail))
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .cornerRadius(20)
@@ -128,31 +131,34 @@ struct PostCardProductDetail: View {
             
             
             HStack{
-                NavigationLink{
-                    Checkout()
+                Button{
+                    print("FUNCIONA")
+                    cartmanager.addProduct()
                 } label: {
-                    Text("Comprar Ahora")
-                        .padding()
-                        
-                        .background(Color("Yellow"))
-                        .cornerRadius(30)
-                        .foregroundColor(.black)
+                    
+                        Text("Agregar a carrito")
+                            .padding()
+                            .background(Color("Yellow"))
+                            .cornerRadius(30)
+                            .foregroundColor(.black)
+     
                 }
-                
-                NavigationLink{
-                    Cart()
-                } label: {
-                    Text("Agregar a carrito")
-                        .padding()
-                        
-                        .background(Color("Yellow"))
-                        .cornerRadius(30)
-                        .foregroundColor(.black)
-                }
-
-                
             }.padding(.top,30)
-        }
+        }.overlay(
+            NavigationLink(destination: Cart(), label: {
+                
+                    CartButton()
+                        .padding(.horizontal,13)
+                        .padding(.vertical,15)
+                        .foregroundColor(.black)
+                        .background(Color("Yellow"))
+                        .cornerRadius(50)
+                        
+                
+            }).padding(.trailing,20)
+                .padding(.top,-10)
+            ,alignment: .bottomTrailing
+            )
     }
 }
 

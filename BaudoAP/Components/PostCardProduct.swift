@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import SDWebImageSwiftUI
+import Kingfisher
 
 
 struct RoundedCorners: View {
@@ -55,7 +55,7 @@ struct PostCardProduct: View {
         VStack {
             
             ZStack(alignment: .bottom){
-                    WebImage(url: URL(string: model.thumbnail))
+                KFImage(URL(string: model.thumbnail))
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .cornerRadius(20)

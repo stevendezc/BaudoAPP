@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import SDWebImageSwiftUI
+import Kingfisher
 
 struct PostCardCartProduct: View {
     
@@ -18,7 +18,7 @@ struct PostCardCartProduct: View {
                 Spacer()
             }
             HStack{
-                    WebImage(url: URL(string: model.thumbnail))
+                KFImage( URL(string: model.thumbnail))
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .cornerRadius(20)

@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import SDWebImageSwiftUI
+import Kingfisher
 import AVFoundation
 import Firebase
 import FirebaseStorage
@@ -78,7 +78,7 @@ struct PostCardPodcastDetail: View {
                 
                 HStack{
                     
-                    WebImage(url: URL(string: model.thumbnail))
+                    KFImage( URL(string: model.thumbnail))
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(width:100)
@@ -218,7 +218,7 @@ struct PostCardPodcastDetail: View {
         
         .navigationBarBackButtonHidden(true)
         .background(
-            WebImage(url: URL(string: model.thumbnail2))
+            KFImage( URL(string: model.thumbnail2))
                 .resizable()
                 .aspectRatio(contentMode: .fill)
                 .padding(-5)

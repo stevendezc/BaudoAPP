@@ -11,6 +11,8 @@ struct Cart: View {
     
     @ObservedObject var contentProduct = ContentViewModelShop()
     
+   
+    
     var body: some View {
         ScrollView{
             
@@ -28,9 +30,26 @@ struct Cart: View {
                 }.padding(.horizontal,20)
                 
             }
+            
+            Button{
+                
+            }label:{
+                Text("Continuar")
+            }
                 
             
         }
+        .overlay(
+            CartButton()
+                        .padding(.horizontal,13)
+                        .padding(.vertical,15)
+                        .foregroundColor(.black)
+                        .background(Color("Yellow"))
+                        .cornerRadius(50)
+                         
+            ,alignment: .bottomTrailing
+
+        ).padding(.trailing,20)
         
     }
 }

@@ -33,11 +33,13 @@ class ContentViewModelPodcast: ObservableObject {
     
     
     init() {
-        fetchpostsPodcast()
+        Task{
+            try await fetchpostsPodcast()
+        }
     }
     
 //    Function for Fetch posts from firebase
-    func fetchpostsPodcast() {
+    func fetchpostsPodcast() async throws{
         
         // NECESARIO ??
        postsPodcast.removeAll()

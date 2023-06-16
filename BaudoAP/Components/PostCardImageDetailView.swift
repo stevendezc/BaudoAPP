@@ -6,8 +6,9 @@
 //
 
 import SwiftUI
-import SDWebImageSwiftUI
+import Kingfisher
 import Firebase
+
 
 struct PostCardImageDetailView: View {
     @ObservedObject var contentImage = ContentViewModelImage()
@@ -29,7 +30,7 @@ struct PostCardImageDetailView: View {
                 
                 VStack(alignment: .leading){
                     
-                    WebImage(url: URL(string: model.thumbnail)).resizable().placeholder{ ProgressView() }
+                    KFImage( URL(string: model.thumbnail)).resizable().placeholder{ ProgressView() }
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
                         .aspectRatio(contentMode: .fit)
                         .cornerRadius(19)

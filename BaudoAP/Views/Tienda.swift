@@ -74,9 +74,22 @@ struct Tienda: View {
                     
                 }
                 .padding(.top,5)
+                .overlay(
+                    NavigationLink(destination: Cart(), label: {
+                        
+                            CartButton()
+                                .padding(.horizontal,13)
+                                .padding(.vertical,15)
+                                .foregroundColor(.black)
+                                .background(Color("Yellow"))
+                                .cornerRadius(50)
+                                
+                        
+                    }).padding(.trailing,20)
+                        .padding(.top,-10)
+                    ,alignment: .bottomTrailing
+                )
             }
-        
-           
         //TituloNavigation
         //.navigationTitle("Tienda")
     }
