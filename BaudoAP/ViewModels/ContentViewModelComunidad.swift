@@ -37,6 +37,7 @@ class ContentViewModelComunidad: ObservableObject {
     }
     
 //    Function for Fetch posts from firebase
+    @MainActor
     func fetchusersComunidad() async throws{
         
         // NECESARIO ??

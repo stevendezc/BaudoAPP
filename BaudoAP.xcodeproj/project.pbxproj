@@ -42,6 +42,7 @@
 		5C621CE22A2A718800E159AC /* Checkout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C621CE12A2A718800E159AC /* Checkout.swift */; };
 		5C6807EF29D5EA03005F7B46 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5C6807EE29D5EA03005F7B46 /* GoogleService-Info.plist */; };
 		5C6FAEF929D36C31000B8FB6 /* ContentViewModelImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6FAEF829D36C30000B8FB6 /* ContentViewModelImage.swift */; };
+		5C8A53342A3E1E5000B14BA2 /* NavegadorWeb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8A53332A3E1E5000B14BA2 /* NavegadorWeb.swift */; };
 		5C90A5B729BD4B600031FF14 /* TabViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C90A5B629BD4B600031FF14 /* TabViews.swift */; };
 		5CA7219929D93FAC00E04D2E /* VideoNosotros.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA7219829D93FAC00E04D2E /* VideoNosotros.swift */; };
 		5CA7219B29D9559500E04D2E /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 5CA7219A29D9559500E04D2E /* FirebaseDatabase */; };
@@ -98,6 +99,7 @@
 		5C621CE12A2A718800E159AC /* Checkout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checkout.swift; sourceTree = "<group>"; };
 		5C6807EE29D5EA03005F7B46 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../Models/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5C6FAEF829D36C30000B8FB6 /* ContentViewModelImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModelImage.swift; sourceTree = "<group>"; };
+		5C8A53332A3E1E5000B14BA2 /* NavegadorWeb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavegadorWeb.swift; sourceTree = "<group>"; };
 		5C90A5B529BD07BD0031FF14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		5C90A5B629BD4B600031FF14 /* TabViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViews.swift; sourceTree = "<group>"; };
 		5CA7219829D93FAC00E04D2E /* VideoNosotros.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoNosotros.swift; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 				5CF454312A265D0C00FFA370 /* PostCardProductDetail.swift */,
 				5CAA320F2A30B8EB00EE5E6C /* PostCardCartProduct.swift */,
 				5C621CDF2A2A6CF300E159AC /* CartButton.swift */,
+				5C8A53332A3E1E5000B14BA2 /* NavegadorWeb.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -393,6 +396,7 @@
 				5CB009EC2A33654C00DB7154 /* CartManager.swift in Sources */,
 				5CA8AA9829D1570800F59CAA /* ContentViewModelComunidad.swift in Sources */,
 				5CF454302A2659B900FFA370 /* PostCardProduct.swift in Sources */,
+				5C8A53342A3E1E5000B14BA2 /* NavegadorWeb.swift in Sources */,
 				5C6FAEF929D36C31000B8FB6 /* ContentViewModelImage.swift in Sources */,
 				5CA7219929D93FAC00E04D2E /* VideoNosotros.swift in Sources */,
 				5C345D5429D7288000C689DB /* CommentModel.swift in Sources */,

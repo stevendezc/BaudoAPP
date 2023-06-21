@@ -9,9 +9,9 @@ import Foundation
 
 import SwiftUI
 import FirebaseFirestore
-import Firebase
-import FirebaseAuth
+import FirebaseFirestoreSwift
 import FirebaseDatabase
+import FirebaseAuth
 
 class ContentViewModelImage: ObservableObject {
     @Published var postsImages: [Post] = []
@@ -34,20 +34,15 @@ class ContentViewModelImage: ObservableObject {
 //    @Published var newCommentText: String = ""
     
     init() {
-        
-        Task{
-             try await fetchpostsImages()
-        }
-//        fetchpostsImages()
-        //        print("Fetch from init in the content view IMAGES")
-//        fetchNewComments()
+        Task{ try await fetchpostsImages() }
     }
     
     //    Function for Fetch posts from firebase
+    @MainActor
     func fetchpostsImages() async throws{
         
         // NECESARIO ??
-        postsImages.removeAll()
+//        postsImages.removeAll()
         let dbImg = Firestore.firestore()
         let refImage = dbImg.collection("posts").whereField("type", isEqualTo: "image").order(by: "creation_date" ,descending: true)
         

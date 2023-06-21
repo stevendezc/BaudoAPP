@@ -16,6 +16,8 @@ struct Settings: View {
     @Environment(\.colorScheme) var colorScheme
     @Binding var userIsLogged : Bool
     
+    @State private var showWebView = false
+    
     @Binding var UserName: String
     
     var body: some View {
@@ -71,6 +73,32 @@ struct Settings: View {
                         Text("Preguntas frecuentes")
                             .font(.custom("SofiaSans-Bold",size: 15,relativeTo: .body))
                         Spacer()
+                    }
+                        .padding(20)
+                        .background(Color("BackgroundCards"))
+                        .cornerRadius(17)
+                        .foregroundColor(Color("YellowBlack"))
+                    
+                    HStack(spacing: 20){
+                        
+                        Button{
+                            
+                            showWebView = true
+                        }label: {
+                            Image(systemName: "questionmark.app")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 25)
+                                .foregroundColor(Color("WhiteBlack"))
+                            
+                            Text("Pagina web ")
+                                .font(.custom("SofiaSans-Bold",size: 15,relativeTo: .body))
+                            Spacer()
+                        }
+                        .sheet(isPresented: $showWebView){
+                            NavegadorWeb(url: "https://baudoap.com")
+                        }
+                        
                     }
                         .padding(20)
                         .background(Color("BackgroundCards"))

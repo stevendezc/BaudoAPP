@@ -10,128 +10,375 @@ import SwiftUI
 struct Navegantes: View {
     @Environment(\.openURL) var openURL
     
+    @State private var navegaElRio: Bool = false
+    @State private var navegaElRiachuelo: Bool = false
+    @State private var navegaLaQuebrada: Bool = false
+    @State private var navegaLibre: Bool = false
+    @State private var monto: String = ""
+    @State private var showWebView = false
     var body: some View {
+        
+        
         
         NavigationView{
             ScrollView{
                 //FIRST CARD
-                Spacer(minLength: 10)
-                ZStack{
-                    Image("Nav1")
+                Group{
+                    Spacer(minLength: 20)
+                    
+                    Image("Navegantes")
                         .resizable()
-                
-//                        .aspectRatio( contentMode: .fill)
-//                        .frame(width: .infinity, height: .infinity, alignment: .center)
-                    VStack(alignment: .leading){
-                        HStack{
-                            Spacer()
-                        }
-                        Text("Navega con fuerza").font(.custom("SofiaSans-Black",size: 25,relativeTo: .title))
-                        Text("$50.000 o 20USD").font(.custom("SofiaSans-Bold",size: 15,relativeTo: .title2))
-                        Text("● Recibes los beneficios de Navegantes.").font(.custom("SofiaSans-Medium",size: 15,relativeTo: .body))
-                        Text("● No incluye la pieza editorial").font(.custom("SofiaSans-Medium",size: 15,relativeTo: .body))
-                        Text("● Recibes los beneficios de Navegantes.").font(.custom("SofiaSans-Medium",size: 15,relativeTo: .body))
-
-                        Button {
-                            openURL(URL(string: "https://checkout.wompi.co/l/namKJh")!)
-                        } label: {
-                            Text("APORTAR").font(.custom("SofiaSans-Bold",size: 13,relativeTo: .body))
-                        }
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 100)
+                    
+                    Spacer(minLength: 30)
+                    
+                    ZStack{
+                        Image("Nav1")
+                            .resizable()
+                            .cornerRadius(20)
                         
-                        .padding(12)
-                        .background(Color("Buttons"))
-                        .cornerRadius(10)
-//                        .overlay( /// apply a rounded border
-//                            RoundedRectangle(cornerRadius: 10).stroke(Color("Buttons"), lineWidth: 2)
-//                        )
-                    }.padding(30)
+                        //                        .aspectRatio( contentMode: .fill)
+                        //                        .frame(width: .infinity, height: .infinity, alignment: .center)
+                        VStack(alignment: .leading){
+                            HStack{
+                                Spacer()
+                            }
+                            Text("Navega el río").font(.custom("SofiaSans-Medium",size: 25,relativeTo: .title))
+                            HStack{
+                                Button {
+                                    openURL(URL(string: "https://checkout.wompi.co/l/namKJh")!)
+                                } label: {
+                                    HStack{
+                                        Text("$30.000").font(.custom("SofiaSans-Bold",size: 12,relativeTo: .body)).foregroundColor(.black)
+                                        VStack{
+                                            Text("Pago mensual").font(.custom("SofiaSans-Medium",size: 9,relativeTo: .caption)).foregroundColor(.black)
+                                            Text("12 pagos durante el año").font(.custom("SofiaSans-Light",size: 8,relativeTo: .caption2)).foregroundColor(.black)
+                                        }
+                                        
+                                    }
+                                    
+                                }
+                                .padding(.horizontal,10)
+                                .padding(.vertical,5)
+                                .background(Color("NavBlue"))
+                                .cornerRadius(70)
+                                
+                                Button {
+                                    openURL(URL(string: "https://checkout.wompi.co/l/namKJh")!)
+                                } label: {
+                                    HStack{
+                                        Text("$320.000").font(.custom("SofiaSans-Bold",size: 12,relativeTo: .body)).foregroundColor(.black)
+                                        VStack{
+                                            Text("Pago mensual").font(.custom("SofiaSans-Medium",size: 9,relativeTo: .body)).foregroundColor(.black)
+                                            Text("1 pago durante el año").font(.custom("SofiaSans-Light",size: 8,relativeTo: .body)).foregroundColor(.black)
+                                        }
+                                        
+                                    }
+                                    
+                                }
+                                .padding(.horizontal,10)
+                                .padding(.vertical,5)
+                                .background(Color("NavBlue"))
+                                .cornerRadius(70)
+                            }
+                            
+                            
+                        }.padding(10)
+                        
+                    }
+                    .foregroundColor(.white)
+                    .frame(maxWidth: .infinity, alignment: .center)
+                    
+                    Text("Apoya nuestro trabajo y aparecerás en los créditos como financiador oficial de BaudoAp.")
+                        .font(.custom("SofiaSans-Light",size: 15,relativeTo: .body))
+                        .foregroundColor(Color("Text"))
+                    
+                    Button{
+                        navegaElRio.toggle()
+                    }label: {
+                        Text("*Más información")
+                            .font(.custom("SofiaSans-Light",size: 15,relativeTo: .body))
+                            .foregroundColor(Color("Yellow"))
+                            
+                            
+                    }
+                    
+                    if navegaElRio {
+                        Text("*Recibe nuestro newsletter, una pieza digital de una ilustración baudoseña que podrás utilizar como fondo de pantalla para tu computador o dispositivo móvil  y participa de espacios exclusivos de nuestra agencia conversación interna con nuestro equipo de trabajo, charlas, consejos editoriales y otros\n\n*Cuando cumplas seis meses de pago o hagas el pago anual recibirás el 15% de descuento en cualquier artículo de nuestra tienda (aplica para un artículo).\n\n *Recibirás la serigrafía que más te guste de nuestra tienda.\n\n *Aplica términos y condiciones")
+                            .padding(.top,5)
+                            .padding(.horizontal,20)
+                            .font(.custom("SofiaSans-Light",size: 15,relativeTo: .body))
+                            .foregroundColor(Color("Text"))
+                    }
+                    
+                    Spacer(minLength: 40)
                     
                 }
-                /// apply a rounded border
-                .overlay(RoundedRectangle(cornerRadius: 30).stroke(Color("Buttons"), lineWidth: 1))
-                .foregroundColor(.white)
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(.horizontal,10)
-                
                 
                 //SECOND CARD
-                ZStack{
-                    Image("Nav20")
-                        .resizable()
-                    //                            .aspectRatio( contentMode: .fit)
-                    //                            .frame(width:.infinity,height: .infinity, alignment: .center)
-                    VStack(alignment: .leading){
-                        HStack{
-                            Spacer()
-                        }
-                        Text("Navega con pasión").font(.custom("SofiaSans-Black",size: 25,relativeTo: .title))
-                        Text("$100.000 o 40USD").font(.custom("SofiaSans-Bold",size: 15,relativeTo: .title2))
-                        Text("● Recibes los beneficios de Navegantes.").font(.custom("SofiaSans-Medium",size: 15,relativeTo: .body))
-                        Text("● Incluye la pieza editorial y envio").font(.custom("SofiaSans-Medium",size: 15,relativeTo: .body))
-                        Text("● No incluye envío fuera de Colombia.").font(.custom("SofiaSans-Medium",size: 15,relativeTo: .body))
-                        Text("● Aporte único para Fábrica de Aguas parte II.").font(.custom("SofiaSans-Medium",size: 15,relativeTo: .body))
-                        
-                        Button {
-                            openURL(URL(string: "https://checkout.wompi.co/l/FOrjzm")!)
-                            
-                        } label: {
-                            Text("APORTAR").font(.custom("SofiaSans-Bold",size: 13,relativeTo: .body))
-                        }
-                        .padding(12)
-                        .background(Color("Buttons"))
-                        .cornerRadius(10)
-                    }.padding(30)
+                Group{
+                    Spacer(minLength: 0)
                     
-                }
-                /// apply a rounded border
-                .overlay(RoundedRectangle(cornerRadius: 30).stroke(Color("Buttons"), lineWidth: 1))
-                .foregroundColor(.white)
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(.horizontal,10)
-                
-                
-                //THIRD CARD
-                ZStack{
-                    Image("Nav3")
-                        .resizable()
-                    //                            .aspectRatio( contentMode: .fit)
-                    //                            .frame(width:.infinity,height: .infinity, alignment: .center)
-                    VStack(alignment: .leading){
-                        Text("Navega a tu ritmo").font(.custom("SofiaSans-Black",size: 25,relativeTo: .title))
-                        Text("$150.000 o 50USD").font(.custom("SofiaSans-Bold",size: 15,relativeTo: .title2))
-                        Text("● Dona esta cantidad o más y recibirás los beneficios de Navegantes + Certificado de donación de nuestra fundación").font(.custom("SofiaSans-Medium",size: 15,relativeTo: .body))
-                        
-                        Button {
-                            openURL(URL(string: "https://checkout.wompi.co/l/QtV02j")!)
-                            
-                        } label: {
-                            Text("APORTAR")
-                                .font(.custom("SofiaSans-Bold",size: 13,relativeTo: .body))
+                    ZStack{
+                        Image("Nav2")
+                            .resizable()
+                            .cornerRadius(20)
+                    
+    //                        .aspectRatio( contentMode: .fill)
+    //                        .frame(width: .infinity, height: .infinity, alignment: .center)
+                        VStack(alignment: .leading){
+                            HStack{
+                                Spacer()
+                            }
+                            Text("Navega el riachuelo").font(.custom("SofiaSans-Medium",size: 25,relativeTo: .title))
+                            HStack{
+                                Button {
+                                    openURL(URL(string: "https://checkout.wompi.co/l/namKJh")!)
+                                } label: {
+                                    HStack{
+                                        Text("$20.000").font(.custom("SofiaSans-Bold",size: 12,relativeTo: .body)).foregroundColor(.black)
+                                        VStack{
+                                            Text("Pago mensual").font(.custom("SofiaSans-Medium",size: 9,relativeTo: .caption)).foregroundColor(.black)
+                                            Text("12 pagos durante el año").font(.custom("SofiaSans-Light",size: 8,relativeTo: .caption2)).foregroundColor(.black)
+                                        }
+                                       
+                                    }
+                                   
+                                }
+                                .padding(.horizontal,10)
+                                .padding(.vertical,5)
+                                .background(.white)
+                                .cornerRadius(70)
                                 
-                        }
-                        
-                        .padding(12)
-                        .background(Color("Buttons"))
-                        .cornerRadius(10)
-                    }.padding(30)
-                    
-                }
-                /// apply a rounded border
-                .overlay(RoundedRectangle(cornerRadius: 29).stroke(Color("Buttons"), lineWidth: 1))
-                .foregroundColor(.white)
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(.horizontal,10)
-                
+                                Button {
+                                    openURL(URL(string: "https://checkout.wompi.co/l/namKJh")!)
+                                } label: {
+                                    HStack{
+                                        Text("$200.000").font(.custom("SofiaSans-Bold",size: 12,relativeTo: .body)).foregroundColor(.black)
+                                        VStack{
+                                            Text("Pago mensual").font(.custom("SofiaSans-Medium",size: 9,relativeTo: .body)).foregroundColor(.black)
+                                            Text("1 pago durante el año").font(.custom("SofiaSans-Light",size: 8,relativeTo: .body)).foregroundColor(.black)
+                                        }
+                                       
+                                    }
+                                   
+                                }
+                                .padding(.horizontal,10)
+                                .padding(.vertical,5)
+                                .background(.white)
+                                .cornerRadius(70)
+                            }
 
-//                .foregroundColor(Color("Text"))
+                            
+                        }.padding(10)
+                        
+                    }
+                    .foregroundColor(.white)
+                    .frame(maxWidth: .infinity, alignment: .center)
+                    
+                    Text("Apoya nuestro trabajo y sé parte de nuestros financiadores.")
+                        .font(.custom("SofiaSans-Light",size: 15,relativeTo: .body))
+                        .foregroundColor(Color("Text"))
+                    
+                    Button{
+                        navegaElRiachuelo.toggle()
+                    }label: {
+                        Text("*Más información")
+                            .font(.custom("SofiaSans-Light",size: 15,relativeTo: .body))
+                            .foregroundColor(Color("Yellow"))
+                            
+                    }
+                    
+                    if navegaElRiachuelo {
+                        Text("*Recibe nuestro newsletter, una pieza digital de una ilustración baudoseña que podrás utilizar como fondo de pantalla para tu computador o dispositivo móvil  y participa de espacios exclusivos de nuestra agencia (conversación interna con nuestro equipo de trabajo, charlas, consejos editoriales y otros).\n\n *Cuando cumplas seis meses de pago o hagas el pago anual recibirás el 15% de descuento en cualquier artículo de nuestra tienda (aplica para un artículo).\n\n*Aplica términos y condiciones")
+                            .padding(.top,5)
+                            .padding(.horizontal,20)
+                            .font(.custom("SofiaSans-Light",size: 15,relativeTo: .body))
+                            .foregroundColor(Color("Text"))
+                    }
+                    
+                    
+                    Spacer(minLength: 30)
+                }
+        
+                //THIRD CARD
+                Group{
+                    Spacer(minLength: 0)
+                    
+                    ZStack{
+                        Image("Nav3")
+                            .resizable()
+                            .cornerRadius(20)
+                    
+    //                        .aspectRatio( contentMode: .fill)
+    //                        .frame(width: .infinity, height: .infinity, alignment: .center)
+                        VStack(alignment: .leading){
+                            HStack{
+                                Spacer()
+                            }
+                            Text("Navega la quebrada").font(.custom("SofiaSans-Medium",size: 25,relativeTo: .title))
+                            HStack{
+                                Button {
+                                    openURL(URL(string: "https://checkout.wompi.co/l/namKJh")!)
+                                } label: {
+                                    HStack{
+                                        Text("$10.000").font(.custom("SofiaSans-Bold",size: 12,relativeTo: .body)).foregroundColor(.black)
+                                        VStack{
+                                            Text("Pago mensual").font(.custom("SofiaSans-Medium",size: 9,relativeTo: .caption)).foregroundColor(.black)
+                                            Text("12 pagos durante el año").font(.custom("SofiaSans-Light",size: 8,relativeTo: .caption2)).foregroundColor(.black)
+                                        }
+                                       
+                                    }
+                                   
+                                }
+                                .padding(.horizontal,10)
+                                .padding(.vertical,5)
+                                .background(Color("Yellow"))
+                                .cornerRadius(70)
+                                
+                                Button {
+                                    openURL(URL(string: "https://checkout.wompi.co/l/namKJh")!)
+                                } label: {
+                                    HStack{
+                                        Text("$100.000").font(.custom("SofiaSans-Bold",size: 12,relativeTo: .body)).foregroundColor(.black)
+                                        VStack{
+                                            Text("Pago mensual").font(.custom("SofiaSans-Medium",size: 9,relativeTo: .body)).foregroundColor(.black)
+                                            Text("1 pago durante el año").font(.custom("SofiaSans-Light",size: 8,relativeTo: .body)).foregroundColor(.black)
+                                        }
+                                    }
+                                }
+                                .padding(.horizontal,10)
+                                .padding(.vertical,5)
+                                .background(Color("Yellow"))
+                                .cornerRadius(70)
+                            }
+
+                            
+                        }.padding(10)
+                        
+                    }
+                    .foregroundColor(.white)
+                    .frame(maxWidth: .infinity, alignment: .center)
+                    
+                    Text("Apoya nuestro trabajo y sé parte de nuestros financiadores.")
+                        .font(.custom("SofiaSans-Light",size: 15,relativeTo: .body))
+                        .foregroundColor(Color("Text"))
+                    
+                    Button{
+                        navegaLaQuebrada.toggle()
+                    }label: {
+                        Text("*Más información")
+                            .font(.custom("SofiaSans-Light",size: 15,relativeTo: .body))
+                            .foregroundColor(Color("Yellow"))
+                            
+                    }
+                    
+                    if navegaLaQuebrada {
+                        Text("*Recibe nuestro newsletter, una pieza digital de una ilustración baudoseña que podrás utilizar como fondo de pantalla para tu computador o dispositivo móvil y participa de espacios exclusivos de nuestra agencia (conversación interna con nuestro equipo de trabajo, charlas, consejos editoriales y otros).\n\n *Aplica términos y condiciones")
+                            .padding(.top,5)
+                            .padding(.horizontal,20)
+                            .font(.custom("SofiaSans-Light",size: 15,relativeTo: .body))
+                            .foregroundColor(Color("Text"))
+                    }
+                    
+                    
+                    Spacer(minLength: 40)
+                }
                 
-            }.padding(10)
-            
-            
+                //FOUR CARD
+                Group{
+                    
+                    ZStack{
+                        Image("Nav4")
+                            .resizable()
+                            .cornerRadius(20)
+                    
+    //                        .aspectRatio( contentMode: .fill)
+    //                        .frame(width: .infinity, height: .infinity, alignment: .center)
+                        VStack(alignment: .leading){
+                            HStack{
+                                Spacer()
+                            }
+                            Text("Navega libre").font(.custom("SofiaSans-Medium",size: 25,relativeTo: .title))
+                            HStack{
+                                Button {
+                                    
+//                                    openURL(URL(string: )!)
+                                } label: {
+                                    HStack{
+                                        TextField(
+                                          "Introduce el monto",
+                                          text: $monto
+                                        )
+                                        .font(.custom("SofiaSans-Bold",size: 12,relativeTo: .body)).foregroundColor(.black)
+                                        .padding(.horizontal,10)
+                                        .padding(.vertical,10)
+
+                                    }
+                                   
+                                }
+                                .padding(.horizontal,10)
+                                .padding(.vertical,0)
+                                .background(Color("ComuPro"))
+                                .cornerRadius(70)
+                                
+                                Button {
+                                    showWebView.toggle()
+//                                    NavegadorWeb(url: "https://checkout.wompi.co/l/namKJh")
+                                } label: {
+                                    HStack{
+                                        Text("Click para el pago de monto libre").font(.custom("SofiaSans-Bold",size: 12,relativeTo: .body)).foregroundColor(.black)
+                                        
+                                       
+                                    }
+                                   
+                                }
+                                .padding(.horizontal,10)
+                                .padding(.vertical,5)
+                                .background(Color("ComuPro"))
+                                .cornerRadius(70)
+                            }
+
+                            
+                        }.padding(10)
+                        
+                    }
+                    .foregroundColor(.white)
+                    .frame(maxWidth: .infinity, alignment: .center)
+                    
+                    Text("Apoya nuestro trabajo y sé parte de nuestros financiadores.")
+                        .font(.custom("SofiaSans-Light",size: 15,relativeTo: .body))
+                        .foregroundColor(Color("Text"))
+                    
+                    Button{
+                        navegaLibre.toggle()
+                    }label: {
+                        Text("*Más información")
+                            .font(.custom("SofiaSans-Light",size: 15,relativeTo: .body))
+                            .foregroundColor(Color("Yellow"))
+                            
+                    }
+                    
+                    if navegaLibre {
+                        Text("*Recibe nuestro newsletter, una pieza digital de una ilustración baudoseña que podrás utilizar como fondo de pantalla para tu computador o dispositivo móvil  y participa de espacios exclusivos de nuestra agencia (conversación interna con nuestro equipo de trabajo, charlas, consejos editoriales y otros).\n\n *Cuando cumplas seis meses de pago o hagas el pago anual recibirás el 15% de descuento en cualquier artículo de nuestra tienda (aplica para un artículo).\n\n*Aplica términos y condiciones")
+                            .padding(.top,5)
+                            .padding(.horizontal,20)
+                            .font(.custom("SofiaSans-Light",size: 15,relativeTo: .body))
+                            .foregroundColor(Color("Text"))
+                    }
+                    
+                    
+                    Spacer(minLength: 0)
+                }
+                
+            }
         }
-        //        .frame(width:.infinity, alignment: .leading)
-        //        .border(Color.red, width: 3)
+        .sheet(isPresented: $showWebView){
+            NavegadorWeb(url: "https://checkout.wompi.co/l/namKJh")
+        }
     }
+        
 }
 
 struct Navegantes_Previews: PreviewProvider {

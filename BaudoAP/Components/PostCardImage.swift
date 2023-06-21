@@ -17,11 +17,14 @@ struct PostCardImage: View {
     var body: some View {
       
             VStack(alignment: .leading){
-                KFImage(URL(string: model.thumbnail))
-                    .resizable()
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-                    .aspectRatio(contentMode: .fit)
-                    .cornerRadius(19)
+                
+                    KFImage(URL(string: model.thumbnail))
+                        .resizable()
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                        .aspectRatio(contentMode: .fit)
+                        .cornerRadius(19)
+                
+                
                 
                 //                .border(Color.red, width: 3)
                 
